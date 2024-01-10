@@ -1,0 +1,35 @@
+.class_selector {
+    color: #d5d1c5;
+    background-image: linear-gradient(r#a88b61, #3b3229);
+  }
+  
+  #id_selector {
+    color: #d5d1c5;
+  }
+  
+  body {
+    background-image: linear-gradient(r#a88b61, #3b3229);
+    color: #dde1e4;
+  }
+  
+  #intro_phara {
+    color: #3b3229;
+    font-size: 60;
+    width: 300px;
+    border: 15px solid #484534;
+    padding: 50px;
+    margin: 20px auto;
+  }
+  
+  .center_text {
+    text-align: center;
+  }
+  
+  img {
+    border-radius: 50%;
+  }
+  
+  #gradient_background {
+    background-color: #a88b61;
+    background-image: linear-gradient(#a88b61, white);
+  }

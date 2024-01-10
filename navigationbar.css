@@ -1,0 +1,30 @@
+.class_selector {
+  background-color: #a88b61;
+  color: #d5d1c5;
+}
+
+#id_selector {
+  color: #d5d1c5;
+}
+
+body {
+  background-color: #a88b61;
+  color: #dde1e4;
+}
+
+#intro_phara {
+  color: #3b3229;
+  font-size: 60;
+  width: 300px;
+  border: 15px solid #484534;
+  padding: 50px;
+  margin: 20px auto;
+}
+
+.center_text {
+  text-align: center;
+}
+
+img {
+  border-radius: 50%;
+}
