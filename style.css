@@ -1,14 +1,30 @@
 .class_selector {
     color: #d5d1c5;
-    background-image: linear-gradient(r#a88b61, #3b3229);
+    background-image: linear-gradient(r#a88b61, #04aa6d);
   }
   
   #id_selector {
     color: #d5d1c5;
   }
   
+  #green_text {
+    color: #04aa6d; 
+ }
+ 
+ #dark_panels {
+    color: #15202b;
+ }
+
+ #lighter_panels {
+    color:#1d2a35;
+ }
+
+ #light_box{
+    color:#29353e;
+ }
+
   body {
-    background-image: linear-gradient(r#a88b61, #3b3229);
+    background-image: linear-gradient(r#a88b61, #04aa6d);
     color: #dde1e4;
   }
   
@@ -16,7 +32,7 @@
     color: #3b3229;
     font-size: 60;
     width: 300px;
-    border: 15px solid #484534;
+    border: 9px solid #484534;
     padding: 50px;
     margin: 20px auto;
   }
