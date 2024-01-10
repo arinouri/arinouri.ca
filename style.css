@@ -1,6 +1,12 @@
-.class_selector {
+body {
+    background-color: #1d2a35;
+    color: #dde1e4;
+    font-family: Arial, sans-serif;
+  }
+  
+  .class_selector {
     color: #d5d1c5;
-    background-image: linear-gradient(r#a88b61, #04aa6d);
+    background-image: linear-gradient(to right, #1d2a35, #04aa6d);
   }
   
   #id_selector {
@@ -8,44 +14,43 @@
   }
   
   #green_text {
-    color: #04aa6d; 
- }
+    color: #04aa6d;
+  }
+  
+  #lighter_panels {
+    color: #1d2a35;
+  }
+  
  
  #dark_panels {
     color: #15202b;
- }
-
- #lighter_panels {
-    color:#1d2a35;
  }
 
  #light_box{
     color:#29353e;
  }
 
-  body {
-    background-image: linear-gradient(r#a88b61, #04aa6d);
-    color: #dde1e4;
-  }
-  
-  #intro_phara {
-    color: #3b3229;
-    font-size: 60;
-    width: 300px;
-    border: 9px solid #484534;
-    padding: 50px;
-    margin: 20px auto;
-  }
-  
+ #green_box{
+    color:#193d3d}
+
   .center_text {
     text-align: center;
   }
   
-  img {
-    border-radius: 50%;
+  #intro_phara {
+    color: #3b3229;
+    font-size: 16px; /* Specify the font size in pixels */
+    width: 300px;
+    border: 9px solid #484534;
+    padding: 20px; /* Reduced padding for better appearance */
+    margin: 20px auto;
   }
   
-  #gradient_background {
-    background-color: #a88b61;
-    background-image: linear-gradient(#a88b61, white);
+  a {
+    color: #04aa6d; /* Set the color for links */
   }
+  
+  a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  
