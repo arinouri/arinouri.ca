@@ -1,68 +1,92 @@
 body {
-    background-color: #1d2a35;
-    color: #dde1e4;
-    font-family: Arial, sans-serif;
-  }
+  background-color: #1d2a35;
+  color: #dde1e4;
+  font-family: Arial, sans-serif;
+}
 
-  .center {
-    text-align: center;
-    border: 3px solid green;
-  }
-  
-  img {
-    border-radius: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .class_selector {
-    color: #d5d1c5;
-    background-image: linear-gradient(to right, #1d2a35, #04aa6d);
-  }
-  
-  #id_selector {
-    color: #d5d1c5;
-  }
-  
-  #h2 {
-    color: #04aa6d;
-  }
-  
-  #lighter_panels {
-    color: #1d2a35;
-  }
-  
- 
- #dark_panels {
-    color: #15202b;
- }
+.center {
+  text-align: center;
+}
 
- #light_box{
-    color:#29353e;
- }
+img {
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
- #green_box{
-    color:#193d3d}
+.class_selector {
+  height: 100px;
+  color: #d5d1c5;
+  background-image: linear-gradient(to right, #1d2a35, #04aa6d);
+}
 
-  .center_text {
-    text-align: center;
-  }
-  
-  #intro_phara {
-    color: #3b3229;
-    font-size: 16px; /* Specify the font size in pixels */
-    width: 300px;
-    border: 9px solid #484534;
-    padding: 20px; /* Reduced padding for better appearance */
-    margin: 20px auto;
-  }
-  
-  a {
-    color: #04aa6d; /* Set the color for links */
-  }
-  
-  a:hover {
-    text-decoration: underline; /* Add underline on hover */
-  }
-  
+#id_selector {
+  color: #d5d1c5;
+}
+
+#h2 {
+  color: #04aa6d;
+}
+
+#lighter_panels {
+  color: #1d2a35;
+}
+
+#dark_panels {
+  color: #15202b;
+}
+
+#light_box {
+  color: #29353e;
+}
+
+#green_box {
+  color: #193d3d;
+}
+
+.center_text {
+  text-align: center;
+}
+
+#intro_phara {
+  color: #3b3229;
+  font-size: 16px; /* Specify the font size in pixels */
+  width: 300px;
+  border: 9px solid #484534;
+  padding: 20px; /* Reduced padding for better appearance */
+  margin: 20px auto;
+}
+
+a {
+  color: #04aa6d; /* Set the color for links */
+}
+
+a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+#projects_section,
+#links_section,
+#about_section {
+  background-color: #29353e;
+  color: #dde1e4;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+#projects_section h2,
+#links_section h2,
+#about_section h2 {
+  color: #04aa6d;
+}
+
+#links_section a {
+  color: #d5d1c5;
+  text-decoration: none;
+}
+
+#links_section a:hover {
+  text-decoration: underline;
+}
