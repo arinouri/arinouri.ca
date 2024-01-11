@@ -1,92 +1,120 @@
+/* Add this to your style.css file */
 body {
   background-color: #1d2a35;
   color: #dde1e4;
-  font-family: Arial, sans-serif;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.center {
-  text-align: center;
+header {
+  background-color: #04aa6d;
+  color: #dde1e4;
+  padding: 1em 0;
+  text-align: left;
 }
 
-img {
+header h1 {
+  margin-left: 2em; /* Adjust as needed */
+}
+
+.typing-effect {
+  display: inline-block;
+  border-right: 2px solid #dde1e4;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #dde1e4;
+  }
+}
+
+.bio,
+.projects,
+.contact {
+  background-color: #29353e;
+  margin: 2em auto; /* Centers the box */
+  padding: 1em;
+  border-radius: 10px;
+  width: 50%; /* Sets the width to half of the container */
+  box-sizing: border-box; /* Includes padding and border in the width */
+}
+
+.bio .avatar {
+  width: 150px;
   border-radius: 50%;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
-.class_selector {
-  height: 100px;
-  color: #d5d1c5;
-  background-image: linear-gradient(to right, #1d2a35, #04aa6d);
-}
-
-#id_selector {
+h1,
+h2,
+h3 {
   color: #d5d1c5;
 }
 
-#h2 {
-  color: #04aa6d;
-}
-
-#lighter_panels {
-  color: #1d2a35;
-}
-
-#dark_panels {
-  color: #15202b;
-}
-
-#light_box {
-  color: #29353e;
-}
-
-#green_box {
-  color: #193d3d;
-}
-
-.center_text {
-  text-align: center;
-}
-
-#intro_phara {
-  color: #3b3229;
-  font-size: 16px; /* Specify the font size in pixels */
-  width: 300px;
-  border: 9px solid #484534;
-  padding: 20px; /* Reduced padding for better appearance */
-  margin: 20px auto;
-}
-
-a {
-  color: #04aa6d; /* Set the color for links */
-}
-
-a:hover {
-  text-decoration: underline; /* Add underline on hover */
-}
-
-#projects_section,
-#links_section,
-#about_section {
-  background-color: #29353e;
-  color: #dde1e4;
-  padding: 20px;
-  margin: 20px auto;
-  border-radius: 10px;
-}
-
-#projects_section h2,
-#links_section h2,
-#about_section h2 {
-  color: #04aa6d;
-}
-
-#links_section a {
+.contact a {
   color: #d5d1c5;
   text-decoration: none;
 }
 
-#links_section a:hover {
+.contact a:hover {
   text-decoration: underline;
+}
+
+footer {
+  background-color: #04aa6d;
+  color: #dde1e4;
+  text-align: center;
+  padding: 1em 0;
+}
+
+footer p {
+  margin: 0;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Add a class for the elements you want to animate */
+.slide-in {
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+/* You can apply this class to each section or individual elements */
+.bio,
+.projects,
+.contact {
+  /* your existing styles */
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+.whitespace {
+  width: 640px; /* Adjust the width to the amount of space you need */
+  height: 0;
+  display: inline-block;
 }
