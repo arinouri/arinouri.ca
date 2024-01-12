@@ -1,4 +1,4 @@
-/* Add this to your style.css file */
+/* Base styles */
 body {
   background-color: #1d2a35;
   color: #dde1e4;
@@ -15,7 +15,7 @@ header {
 }
 
 header h1 {
-  margin-left: 2em; /* Adjust as needed */
+  margin-left: 2em;
 }
 
 .typing-effect {
@@ -27,33 +27,23 @@ header h1 {
 }
 
 @keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+  from { width: 0; }
+  to { width: 100%; }
 }
 
 @keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: #dde1e4;
-  }
+  from, to { border-color: transparent; }
+  50% { border-color: #dde1e4; }
 }
 
-.bio,
-.projects,
-.contact {
+/* Section styling */
+.bio, .projects, .contact {
   background-color: #29353e;
-  margin: 2em auto; /* Centers the box */
+  margin: 2em auto;
   padding: 1em;
   border-radius: 10px;
-  width: 50%; /* Sets the width to half of the container */
-  box-sizing: border-box; /* Includes padding and border in the width */
+  width: 50%;
+  box-sizing: border-box;
 }
 
 .bio .avatar {
@@ -63,9 +53,7 @@ header h1 {
   margin: 0 auto;
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   color: #d5d1c5;
 }
 
@@ -89,32 +77,66 @@ footer p {
   margin: 0;
 }
 
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* Add a class for the elements you want to animate */
+/* Animation for sections */
 .slide-in {
   animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
-/* You can apply this class to each section or individual elements */
-.bio,
-.projects,
-.contact {
-  /* your existing styles */
-  animation: 1s ease-out 0s 1 slideInFromLeft;
+@keyframes slideInFromLeft {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
 }
 
-.whitespace {
-  width: 640px; /* Adjust the width to the amount of space you need */
-  height: 0;
-  display: inline-block;
+/* Three-column layout */
+.container {
+  display: grid;
+  grid-template-columns: 3fr 7fr 1fr; /* Increase the width of the middle column */
+  gap: 2px; /* Space between columns */
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+      grid-template-columns: 1fr; /* Stack columns on smaller screens */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+xx
+.left-column, .right-column {
+  padding: 10px;
+}
+
+.center-column{
+  padding: 30xpx;
+}
+
+/* Project bubble styling */
+.project-bubble {
+  background-color: #29353e;
+  margin-bottom: 1em;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-bubble h3 {
+  margin-top: 0;
+  color: #d5d1c5;
+}
+
+.project-bubble p {
+  color: #dde1e4;
+}
+
+.project-bubble a {
+  color: #d5d1c5;
+  text-decoration: none;
+}
+
+.project-bubble a:hover {
+  text-decoration: underline;
 }
