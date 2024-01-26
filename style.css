@@ -87,10 +87,9 @@ footer p {
   100% { transform: translateX(0); opacity: 1; }
 }
 
-/* Three-column layout */
 .container {
   display: grid;
-  grid-template-columns: 3fr 7fr 1fr; /* Increase the width of the middle column */
+  grid-template-columns: 2fr 8fr; /* The first column takes 2/10 and the second takes 8/10 of the available space */
   gap: 2px; /* Space between columns */
 }
 
