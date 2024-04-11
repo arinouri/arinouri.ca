@@ -9,12 +9,11 @@
   }
 }
 
-/* Add a class for the elements you want to animate */
 .slide-in {
   animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
-/* You can apply this class to each section or individual elements */
+
 .bio,
 .projects,
 .contact {

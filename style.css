@@ -23,7 +23,7 @@ header h1 {
   border-right: 2px solid #dde1e4;
   white-space: nowrap;
   overflow: hidden;
-  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  animation: typing 3s steps(40,end), blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
@@ -35,6 +35,40 @@ header h1 {
   from, to { border-color: transparent; }
   50% { border-color: #dde1e4; }
 }
+
+/* Section styling */
+.bio,
+.projects,
+.contact,
+.resume {
+  background-color: #29353e;
+  margin: 2em auto;
+  padding: 1em;
+  border-radius: 10px;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.bio .avatar {
+  width: 150px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+  color: #d5d1c5;
+}
+
+.contact a,
+.resume a {
+  color: #d5d1c5;
+  text-decoration: none;
+}
+
+.contact
 
 /* Section styling */
 .bio, .projects, .contact {
