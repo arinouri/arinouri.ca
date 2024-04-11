@@ -7,11 +7,72 @@ body {
   padding: 0;
 }
 
-header {
+header, footer {
   background-color: #04aa6d;
   color: #dde1e4;
   padding: 1em 0;
-  text-align: left;
+  text-align: center;
+}
+
+/* Loader styles */
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+body.loading {
+  overflow: hidden;
+}
+body.loading * {
+  visibility: hidden;
+}
+body.loading .loader {
+  visibility: visible;
+}
+
+/* Typing effect */
+div#slogan {
+  background-color: white;
+  margin-right: 5%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4rem 2rem;
+  border-radius: 10px; /* Adds curved edges */
+}
+
+.typewriter {
+  padding-right: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid black;
+  margin: 0 auto;
+  animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { max-width: 0; }
+  to { max-width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: black; }
 }
 
 header h1 {
