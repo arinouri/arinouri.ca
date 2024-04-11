@@ -18,158 +18,113 @@ header h1 {
   margin-left: 2em;
 }
 
-.typing-effect {
-  display: inline-block;
-  border-right: 2px solid #dde1e4;
-  white-space: nowrap;
+/* New Typing Effect */
+div#slogan {
+  border-radius: 10px;
+  background-color: #29353e;
+  margin-right: 5%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+}
+
+div#slogan .quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 50%;
+  flex: 50%;
+  padding: 3rem 0;
+}
+
+.typewriter {
+  padding-right: 10px;
   overflow: hidden;
-  animation: typing 3s steps(40,end), blink-caret 0.75s step-end infinite;
+  white-space: nowrap;
+  border-right: 2px solid white;
+  margin: 0 auto;
+  animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  from { max-width: 0; }
+  to { max-width: 100%; }
 }
 
 @keyframes blink-caret {
   from, to { border-color: transparent; }
-  50% { border-color: #dde1e4; }
+  50% { border-color: white; }
 }
 
-/* Section styling */
-.bio,
-.projects,
-.contact,
-.resume {
+/* Container and Column Layout */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; 
+  gap: 20px; 
+  padding: 20px; /* Adds padding around the grid */
+}
+
+.left-column, .center-column, .right-column {
+  padding: 10px;
+}
+
+/* Section Styling */
+.bio, .projects, .contact, .resume {
   background-color: #29353e;
-  margin: 2em auto;
+  margin: 2em 0 1em; /* Adjusted bottom margin */
   padding: 1em;
   border-radius: 10px;
-  width: 50%;
-  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.bio .avatar {
+.bio .avatar, .contact .avatar, .resume .avatar {
   width: 150px;
   border-radius: 50%;
   display: block;
-  margin: 0 auto;
-}
-
-h1,
-h2,
-h3 {
-  color: #d5d1c5;
-}
-
-.contact a,
-.resume a {
-  color: #d5d1c5;
-  text-decoration: none;
-}
-
-.contact
-
-/* Section styling */
-.bio, .projects, .contact {
-  background-color: #29353e;
-  margin: 2em auto;
-  padding: 1em;
-  border-radius: 10px;
-  width: 50%;
-  box-sizing: border-box;
-}
-
-.bio .avatar {
-  width: 150px;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto;
+  margin: 0 auto 1em; /* Adjusted bottom margin */
 }
 
 h1, h2, h3 {
   color: #d5d1c5;
 }
 
-.contact a {
+a {
   color: #d5d1c5;
   text-decoration: none;
 }
 
-.contact a:hover {
+a:hover {
   text-decoration: underline;
 }
 
+/* Project Bubble Styling */
+.project-bubble {
+  background-color: #29353e;
+  margin-bottom: 20px; /* Adjusted spacing */
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.project-bubble h3, .contact h2, .resume h2 {
+  color: #d5d1c5;
+}
+
+.project-bubble p, .contact p, .resume p {
+  color: #dde1e4;
+}
+
+/* Footer Styling */
 footer {
   background-color: #04aa6d;
   color: #dde1e4;
   text-align: center;
   padding: 1em 0;
+  margin-top: 20px; 
 }
 
 footer p {
   margin: 0;
-}
-
-/* Animation for sections */
-.slide-in {
-  animation: 1s ease-out 0s 1 slideInFromLeft;
-}
-
-@keyframes slideInFromLeft {
-  0% { transform: translateX(-100%); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
-}
-
-.container {
-  display: grid;
-  grid-template-columns: 2fr 8fr; /* The first column takes 2/10 and the second takes 8/10 of the available space */
-  gap: 2px; /* Space between columns */
-}
-
-@media screen and (max-width: 768px) {
-  .container {
-      grid-template-columns: 1fr; /* Stack columns on smaller screens */
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
-}
-xx
-.left-column, .right-column {
-  padding: 10px;
-}
-
-.center-column{
-  padding: 30xpx;
-}
-
-/* Project bubble styling */
-.project-bubble {
-  background-color: #29353e;
-  margin-bottom: 1em;
-  padding: 1em;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.project-bubble h3 {
-  margin-top: 0;
-  color: #d5d1c5;
-}
-
-.project-bubble p {
-  color: #dde1e4;
-}
-
-.project-bubble a {
-  color: #d5d1c5;
-  text-decoration: none;
-}
-
-.project-bubble a:hover {
-  text-decoration: underline;
 }
