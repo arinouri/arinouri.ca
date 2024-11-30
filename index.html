@@ -103,7 +103,7 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 21b6a70572599fbe507792676b064cff'
+                'Authorization': 'Bearer YOUR_OPENAI_API_KEY'
             },
             body: JSON.stringify({
                 prompt: userInput,
@@ -141,16 +141,20 @@
     document.addEventListener('DOMContentLoaded', fetchPlaylist);
 
     async function getWeather() {
-        const city = document.getElementById('city-input').value;
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=YOUR_OPENWEATHERMAP_API_KEY&units=metric`);
-        const data = await response.json();
-        const weatherResult = document.getElementById('weather-result');
+    const city = document.getElementById('city-input').value;
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=21b6a70572599fbe507792676b064cff&units=metric`);
+    const data = await response.json();
+    const weatherResult = document.getElementById('weather-result');
+    if (response.ok) {
         weatherResult.innerHTML = `
             <h3>${data.name}</h3>
             <p>${data.weather[0].description}</p>
             <p>Temperature: ${data.main.temp} °C</p>
         `;
+    } else {
+        weatherResult.innerHTML = `<p>Error: ${data.message}</p>`;
     }
+}
     </script>
 </body>
 </html>
