@@ -133,7 +133,7 @@ div#slogan .quote {
 }
 
 /* Section Styling */
-.bio, .projects, .contact, .resume {
+.bio, .projects, .contact, .resume, .chatbot, .playlist-app, .weather-app {
   background-color: #29353e;
   margin: 2em 0 1em; /* Adjusted bottom margin */
   padding: 1em;
@@ -188,4 +188,122 @@ footer {
 
 footer p {
   margin: 0;
+}
+
+/* Animation Styles */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+/* Chatbot Styles */
+.chat-container {
+    background-color: #29353e;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: auto;
+}
+
+#chatbox {
+    display: flex;
+    flex-direction: column;
+}
+
+#chat-log {
+    background-color: #1d2a35;
+    color: #dde1e4;
+    padding: 10px;
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#user-input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    flex: 1;
+}
+
+button {
+    padding: 10px;
+    background-color: #04aa6d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #038856;
+}
+
+/* Playlist App Styles */
+.playlist-app {
+    background-color: #29353e;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: auto;
+}
+
+#playlist-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.track {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #1d2a35;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.track img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.track-info {
+    color: #dde1e4;
+}
+
+/* Weather App Styles */
+.weather-app {
+    background-color: #29353e;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: auto;
+}
+
+#weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#weather-result {
+    margin-top: 20px;
+    color: #dde1e4;
+    text-align: center;
 }
