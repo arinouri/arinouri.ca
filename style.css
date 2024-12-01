@@ -399,12 +399,14 @@ button:hover {
 
 /* Cyber Security Section */
 .cyber-security {
-  background-color: #29353e;
-  padding: 1em;
+  background-color: #1d2a35;
+  color: #dde1e4;
+  padding: 2em;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
   max-width: 600px;
-  margin: auto;
+  margin: 2em auto;
 }
 
 .cyber-security h2 {
@@ -430,4 +432,3 @@ button:hover {
 .cyber-security button:hover {
   background-color: #038856;
 }
-
