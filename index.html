@@ -155,31 +155,34 @@
         weatherResult.innerHTML = `<p>Error: ${data.message}</p>`;
     }
 }
-
-    // Add Cyber Security Application Script
-    async function checkPasswordStrength() {
-                const password = prompt("Enter a password to check its strength:");
-                if (!password) return;
-
-                const strengthElement = document.getElementById('cyber-security-result');
-                let strength = 'Weak';
-
-                if (password.length > 12 && /[A-Z]/.test(password) && /[0-9]/.test(password) && /[^A-Za-z0-9]/.test(password)) {
-                    strength = 'Very Strong';
-                } else if (password.length > 8 && /[A-Z]/.test(password) && /[0-9]/.test(password)) {
-                    strength = 'Strong';
-                } else if (password.length > 6) {
-                    strength = 'Moderate';
-                }
-
-                strengthElement.innerHTML = `Password Strength: <strong>${strength}</strong>`;
-            }
-
-
-
-
     </script>
+/* Add Cyber Security Application Script */
+<script>
+  async function checkPasswordStrength() {
+    const password = prompt("Enter a password to check its strength:");
+    if (!password) return;
 
+    const strengthElement = document.getElementById('cyber-security-result');
+    let strength = 'Weak';
+
+    if (password.length > 12 && /[A-Z]/.test(password) && /[0-9]/.test(password) && /[^A-Za-z0-9]/.test(password)) {
+      strength = 'Very Strong';
+    } else if (password.length > 8 && /[A-Z]/.test(password) && /[0-9]/.test(password)) {
+      strength = 'Strong';
+    } else if (password.length > 6) {
+      strength = 'Moderate';
+    }
+
+    strengthElement.innerHTML = `Password Strength: <strong>${strength}</strong>`;
+  }
+</script>
+
+<section class="cyber-security slide-in">
+  <h2>Cyber Security - Password Strength Checker</h2>
+  <p>Test the strength of your passwords and ensure better protection for your online accounts.</p>
+  <button onclick="checkPasswordStrength()">Check Password Strength</button>
+  <div id="cyber-security-result" style="margin-top: 1em;"></div>
+</section>
 
 
 </body>
