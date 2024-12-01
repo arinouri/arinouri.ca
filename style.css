@@ -308,47 +308,90 @@ button:hover {
     text-align: center;
 }
 
-/* Responsive Styles for Mobile Devices */
+/* Add mobile optimization styles for better responsiveness */
+
 @media only screen and (max-width: 768px) {
-  /* Stack columns vertically */
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  header, footer {
+    text-align: center;
+    padding: 1em;
+  }
+
+  .typewriter {
+    font-size: 1.2em;
+    max-width: 100%;
+  }
+
+  div#slogan {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    margin: 0 2%;
+  }
+
   .container {
-    display: block;
+    display: flex;
+    flex-direction: column;
     padding: 10px;
   }
 
   .left-column, .center-column, .right-column {
-    padding: 0;
-    margin-bottom: 20px;
+    width: 100%;
+    padding: 10px 0;
   }
 
-  /* Adjust header and footer for smaller screens */
-  header h1, footer p {
-    font-size: 1.5em;
-    text-align: center;
-    padding: 10px;
-  }
-
-  /* Improve button accessibility */
-  button {
-    font-size: 1em;
-    padding: 12px;
-  }
-
-  /* Responsive chatbot and apps */
-  .chat-container, .playlist-app, .weather-app {
-    max-width: 100%;
-    padding: 1em;
-  }
-
-  /* Resize images */
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* Adjust grid layout */
-  .project-bubble, .bio, .contact, .resume {
+  .bio, .projects, .contact, .resume, .chatbot, .playlist-app, .weather-app {
     margin: 1em 0;
     padding: 1em;
+  }
+
+  .avatar {
+    width: 100px;
+    margin: auto;
+  }
+
+  #chatbox {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  #playlist-container, #weather-container {
+    width: 100%;
+  }
+
+  .track {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #user-input {
+    width: calc(100% - 20px);
+    margin: 10px auto;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .typewriter {
+    font-size: 1em;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  .bio, .projects, .contact, .resume, .chatbot, .playlist-app, .weather-app {
+    padding: 0.5em;
+  }
+
+  footer p {
+    font-size: 0.9em;
   }
 }
