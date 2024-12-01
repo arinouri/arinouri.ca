@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,6 +55,24 @@
             </section>
         </div>
     </div>
+
+    <!-- Reordered sections -->
+    <section class="weather-app slide-in">
+        <h2>Weather App Demo</h2>
+        <div id="weather-container">
+            <input type="text" id="city-input" placeholder="Enter city name">
+            <button onclick="getWeather()">Get Weather</button>
+            <div id="weather-result"></div>
+        </div>
+    </section>
+
+    <section class="cyber-security slide-in">
+        <h2>Cyber Security - Password Strength Checker</h2>
+        <p>Test the strength of your passwords and ensure better protection for your online accounts.</p>
+        <button onclick="checkPasswordStrength()">Check Password Strength</button>
+        <div id="cyber-security-result" style="margin-top: 1em;"></div>
+    </section>
+
     <section class="chatbot slide-in">
         <h2>Ask the AI</h2>
         <div class="chat-container">
@@ -64,18 +83,12 @@
             </div>
         </div>
     </section>
+
     <section class="playlist-app slide-in">
         <h2>Music Playlist App Demo</h2>
         <div id="playlist-container"></div>
     </section>
-    <section class="weather-app slide-in">
-        <h2>Weather App Demo</h2>
-        <div id="weather-container">
-            <input type="text" id="city-input" placeholder="Enter city name">
-            <button onclick="getWeather()">Get Weather</button>
-            <div id="weather-result"></div>
-        </div>
-    </section>
+
     <footer>
         <p>&copy; 2024 Arian Nouri</p>
     </footer>
@@ -141,49 +154,20 @@
     document.addEventListener('DOMContentLoaded', fetchPlaylist);
 
     async function getWeather() {
-    const city = document.getElementById('city-input').value;
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=21b6a70572599fbe507792676b064cff&units=metric`);
-    const data = await response.json();
-    const weatherResult = document.getElementById('weather-result');
-    if (response.ok) {
-        weatherResult.innerHTML = `
-            <h3>${data.name}</h3>
-            <p>${data.weather[0].description}</p>
-            <p>Temperature: ${data.main.temp} °C</p>
-        `;
-    } else {
-        weatherResult.innerHTML = `<p>Error: ${data.message}</p>`;
+        const city = document.getElementById('city-input').value;
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=21b6a70572599fbe507792676b064cff&units=metric`);
+        const data = await response.json();
+        const weatherResult = document.getElementById('weather-result');
+        if (response.ok) {
+            weatherResult.innerHTML = `
+                <h3>${data.name}</h3>
+                <p>${data.weather[0].description}</p>
+                <p>Temperature: ${data.main.temp} °C</p>
+            `;
+        } else {
+            weatherResult.innerHTML = `<p>Error: ${data.message}</p>`;
+        }
     }
-}
     </script>
-/* Add Cyber Security Application Script */
-<script>
-  async function checkPasswordStrength() {
-    const password = prompt("Enter a password to check its strength:");
-    if (!password) return;
-
-    const strengthElement = document.getElementById('cyber-security-result');
-    let strength = 'Weak';
-
-    if (password.length > 12 && /[A-Z]/.test(password) && /[0-9]/.test(password) && /[^A-Za-z0-9]/.test(password)) {
-      strength = 'Very Strong';
-    } else if (password.length > 8 && /[A-Z]/.test(password) && /[0-9]/.test(password)) {
-      strength = 'Strong';
-    } else if (password.length > 6) {
-      strength = 'Moderate';
-    }
-
-    strengthElement.innerHTML = `Password Strength: <strong>${strength}</strong>`;
-  }
-</script>
-
-<section class="cyber-security slide-in">
-  <h2>Cyber Security - Password Strength Checker</h2>
-  <p>Test the strength of your passwords and ensure better protection for your online accounts.</p>
-  <button onclick="checkPasswordStrength()">Check Password Strength</button>
-  <div id="cyber-security-result" style="margin-top: 1em;"></div>
-</section>
-
-
 </body>
 </html>
