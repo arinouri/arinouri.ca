@@ -307,3 +307,48 @@ button:hover {
     color: #dde1e4;
     text-align: center;
 }
+
+/* Responsive Styles for Mobile Devices */
+@media only screen and (max-width: 768px) {
+  /* Stack columns vertically */
+  .container {
+    display: block;
+    padding: 10px;
+  }
+
+  .left-column, .center-column, .right-column {
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  /* Adjust header and footer for smaller screens */
+  header h1, footer p {
+    font-size: 1.5em;
+    text-align: center;
+    padding: 10px;
+  }
+
+  /* Improve button accessibility */
+  button {
+    font-size: 1em;
+    padding: 12px;
+  }
+
+  /* Responsive chatbot and apps */
+  .chat-container, .playlist-app, .weather-app {
+    max-width: 100%;
+    padding: 1em;
+  }
+
+  /* Resize images */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Adjust grid layout */
+  .project-bubble, .bio, .contact, .resume {
+    margin: 1em 0;
+    padding: 1em;
+  }
+}
