@@ -1,177 +1,212 @@
-/* Add mobile optimization styles for better responsiveness */
-
-@media only screen and (max-width: 768px) {
-  body {
-    padding: 0;
-    margin: 0;
-  }
-
-  header, footer {
-    text-align: center;
-    padding: 1em;
-  }
-
-  .typewriter {
-    font-size: 1.2em;
-    max-width: 100%;
-  }
-
-  div#slogan {
-    flex-direction: column;
-    padding: 2rem 1rem;
-    margin: 0 2%;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  .left-column, .center-column, .right-column {
-    width: 100%;
-    padding: 10px 0;
-  }
-
-  .bio, .projects, .contact, .resume, .chatbot, .playlist-app, .weather-app, .cyber-security {
-    margin: 1em 0;
-    padding: 1em;
-  }
-
-  .avatar {
-    width: 100px;
-    margin: auto;
-  }
-
-  #chatbox {
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  button {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  #playlist-container, #weather-container, #cyber-security-result {
-    width: 100%;
-  }
-
-  .track {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  #user-input {
-    width: calc(100% - 20px);
-    margin: 10px auto;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .typewriter {
-    font-size: 1em;
-  }
-
-  header h1 {
-    font-size: 1.5em;
-  }
-
-  .bio, .projects, .contact, .resume, .chatbot, .playlist-app, .weather-app, .cyber-security {
-    padding: 0.5em;
-  }
-
-  footer p {
-    font-size: 0.9em;
-  }
-}
-
-/* Cyber Security Section */
-.cyber-security {
+/* Base styles */
+body {
   background-color: #1d2a35;
   color: #dde1e4;
-  padding: 2em;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  background-color: #04aa6d;
+  color: #dde1e4;
+  padding: 1em 0;
+  text-align: center;
+}
+
+/* Loader styles */
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #04aa6d; /* green */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  left: 20%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+body.loading {
+  overflow: hidden;
+}
+body.loading * {
+  visibility: hidden;
+}
+body.loading .loader {
+  visibility: visible;
+}
+
+/* Typing effect */
+div#slogan {
+  background-color: white;
+  margin-right: 5%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4rem 2rem;
+  border-radius: 10px; /* Adds curved edges */
+}
+
+.typewriter {
+  padding-right: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid black;
+  margin: 0 auto;
+  animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { max-width: 0; }
+  to { max-width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: black; }
+}
+
+header h1 {
+  margin-left: 2em;
+}
+
+/* New Typing Effect */
+div#slogan {
+  border-radius: 10px;
+  background-color: #29353e;
+  margin-right: 5%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+}
+
+div#slogan .quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 50%;
+  flex: 50%;
+  padding: 3rem 0;
+}
+
+.typewriter {
+  padding-right: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid white;
+  margin: 0 auto;
+  animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { max-width: 0; }
+  to { max-width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+/* Container and Column Layout */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; 
+  gap: 20px; 
+  padding: 20px; /* Adds padding around the grid */
+}
+
+.left-column, .center-column, .right-column {
+  padding: 10px;
+}
+
+/* Section Styling */
+.bio, .projects, .contact, .resume, .chatbot, .playlist-app, .weather-app {
+  background-color: #29353e;
+  margin: 2em 0 1em; /* Adjusted bottom margin */
+  padding: 1em;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  max-width: 600px;
-  margin: 2em auto;
 }
 
-.cyber-security h2 {
-  color: #04aa6d;
-  margin-bottom: 1em;
+.bio .avatar, .contact .avatar, .resume .avatar {
+  width: 150px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 1em; /* Adjusted bottom margin */
 }
 
-.cyber-security p {
-  font-size: 1em;
-  margin-bottom: 1.5em;
+h1, h2, h3 {
+  color: #d5d1c5;
 }
 
-.cyber-security button {
-  padding: 10px 20px;
+a {
+  color: #d5d1c5;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Project Bubble Styling */
+.project-bubble {
+  background-color: #29353e;
+  margin-bottom: 20px; /* Adjusted spacing */
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.project-bubble h3, .contact h2, .resume h2 {
+  color: #d5d1c5;
+}
+
+.project-bubble p, .contact p, .resume p {
+  color: #dde1e4;
+}
+
+/* Footer Styling */
+footer {
   background-color: #04aa6d;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  color: #dde1e4;
+  text-align: center;
+  padding: 1em 0;
+  margin-top: 20px; 
 }
 
-.cyber-security button:hover {
-  background-color: #038856;
+footer p {
+  margin: 0;
 }
 
-/* Rearranged Sections */
-
-/* Weather App Section */
-.weather-app {
-    background-color: #29353e;
-    padding: 1em;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    margin: auto;
+/* Animation Styles */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-#weather-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#weather-result {
-    margin-top: 20px;
-    color: #dde1e4;
-    text-align: center;
-}
-
-/* Cyber Security Section */
-.cyber-security {
-    background-color: #29353e;
-    padding: 1em;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    margin: auto;
-}
-
-#cyber-security-result {
-    margin-top: 20px;
-    color: #dde1e4;
-    text-align: center;
+.slide-in {
+  animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
 /* Chatbot Styles */
-.chatbot {
-    background-color: #29353e;
-    padding: 1em;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    margin: auto;
-}
-
 .chat-container {
     background-color: #29353e;
     padding: 1em;
@@ -202,6 +237,19 @@
     border-radius: 5px;
     margin-right: 10px;
     flex: 1;
+}
+
+button {
+    padding: 10px;
+    background-color: #04aa6d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #038856;
 }
 
 /* Playlist App Styles */
@@ -237,3 +285,149 @@
 .track-info {
     color: #dde1e4;
 }
+
+/* Weather App Styles */
+.weather-app {
+    background-color: #29353e;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: auto;
+}
+
+#weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#weather-result {
+    margin-top: 20px;
+    color: #dde1e4;
+    text-align: center;
+}
+
+/* Add mobile optimization styles for better responsiveness */
+
+@media only screen and (max-width: 768px) {
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  header, footer {
+    text-align: center;
+    padding: 1em;
+  }
+
+  .typewriter {
+    font-size: 1.2em;
+    max-width: 100%;
+  }
+
+  div#slogan {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    margin: 0 2%;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .left-column, .center-column, .right-column {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .bio, .projects, .contact, .resume, .chatbot, .playlist-app, .weather-app {
+    margin: 1em 0;
+    padding: 1em;
+  }
+
+  .avatar {
+    width: 100px;
+    margin: auto;
+  }
+
+  #chatbox {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  #playlist-container, #weather-container {
+    width: 100%;
+  }
+
+  .track {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #user-input {
+    width: calc(100% - 20px);
+    margin: 10px auto;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .typewriter {
+    font-size: 1em;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  .bio, .projects, .contact, .resume, .chatbot, .playlist-app, .weather-app {
+    padding: 0.5em;
+  }
+
+  footer p {
+    font-size: 0.9em;
+  }
+}
+
+
+/* Cyber Security Section */
+.cyber-security {
+  background-color: #29353e;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: auto;
+}
+
+.cyber-security h2 {
+  color: #04aa6d;
+  margin-bottom: 1em;
+}
+
+.cyber-security p {
+  font-size: 1em;
+  margin-bottom: 1.5em;
+}
+
+.cyber-security button {
+  padding: 10px 20px;
+  background-color: #04aa6d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cyber-security button:hover {
+  background-color: #038856;
+}
+
