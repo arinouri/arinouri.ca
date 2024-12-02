@@ -186,19 +186,6 @@
         }
     }
 
-
-        document.getElementById('toggle-password-btn').addEventListener('click', function () {
-        const passwordField = document.getElementById('password-field');
-        if (passwordField.type === 'password') {
-            passwordField.type = 'text';
-            this.textContent = 'Hide Password';
-        } else {
-            passwordField.type = 'password';
-            this.textContent = 'Show Password';
-        }
-        });
-
-
         document.getElementById('toggle-password-btn').addEventListener('click', function () {
       const passwordField = document.getElementById('password-field');
       if (passwordField.type === 'password') {
