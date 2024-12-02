@@ -436,3 +436,14 @@ button:hover {
 }
 
 
+#password-strength {
+  margin-top: 10px;
+}
+
+#strength-bar {
+  height: 10px;
+  width: 0;
+  background-color: red;
+  transition: width 0.3s, background-color 0.3s;
+  border-radius: 5px;
+}
