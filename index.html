@@ -187,7 +187,19 @@
     }
 
 
-    document.getElementById('toggle-password-btn').addEventListener('click', function () {
+        document.getElementById('toggle-password-btn').addEventListener('click', function () {
+        const passwordField = document.getElementById('password-field');
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            this.textContent = 'Hide Password';
+        } else {
+            passwordField.type = 'password';
+            this.textContent = 'Show Password';
+        }
+        });
+
+
+        document.getElementById('toggle-password-btn').addEventListener('click', function () {
       const passwordField = document.getElementById('password-field');
       if (passwordField.type === 'password') {
         passwordField.type = 'text';
@@ -198,51 +210,52 @@
       }
     });
 
-    // Password Strength Checker
-    document.getElementById('password-field').addEventListener('input', function () {
-      const password = this.value;
-      const strengthText = document.getElementById('strength-text');
-      const strengthBar = document.getElementById('strength-bar');
+        // Password Strength Checker
+        document.getElementById('password-field').addEventListener('input', function () {
+        const password = this.value;
+        const strengthText = document.getElementById('strength-text');
+        const strengthBar = document.getElementById('strength-bar');
 
-      let strength = 0;
+        let strength = 0;
 
-      // Check password criteria
-      if (password.length >= 8) strength++; // Minimum length
-      if (/[A-Z]/.test(password)) strength++; // At least one uppercase
-      if (/[a-z]/.test(password)) strength++; // At least one lowercase
-      if (/[0-9]/.test(password)) strength++; // At least one number
-      if (/[@$!%*?&#]/.test(password)) strength++; // At least one special character
+        // Check password criteria
+        if (password.length >= 8) strength++; // Minimum length
+        if (/[A-Z]/.test(password)) strength++; // At least one uppercase
+        if (/[a-z]/.test(password)) strength++; // At least one lowercase
+        if (/[0-9]/.test(password)) strength++; // At least one number
+        if (/[@$!%*?&#]/.test(password)) strength++; // At least one special character
 
-      // Update strength text and bar
-      switch (strength) {
-        case 0:
-        case 1:
-          strengthText.textContent = 'Weak';
-          strengthBar.style.backgroundColor = 'red';
-          strengthBar.style.width = '20%';
-          break;
-        case 2:
-          strengthText.textContent = 'Moderate';
-          strengthBar.style.backgroundColor = 'orange';
-          strengthBar.style.width = '40%';
-          break;
-        case 3:
-          strengthText.textContent = 'Good';
-          strengthBar.style.backgroundColor = 'yellow';
-          strengthBar.style.width = '60%';
-          break;
-        case 4:
-          strengthText.textContent = 'Strong';
-          strengthBar.style.backgroundColor = 'blue';
-          strengthBar.style.width = '80%';
-          break;
-        case 5:
-          strengthText.textContent = 'Very Strong';
-          strengthBar.style.backgroundColor = 'green';
-          strengthBar.style.width = '100%';
-          break;
-      }
-    });
+        // Update strength text and bar
+        switch (strength) {
+            case 0:
+            case 1:
+            strengthText.textContent = 'Weak';
+            strengthBar.style.backgroundColor = 'red';
+            strengthBar.style.width = '20%';
+            break;
+            case 2:
+            strengthText.textContent = 'Moderate';
+            strengthBar.style.backgroundColor = 'orange';
+            strengthBar.style.width = '40%';
+            break;
+            case 3:
+            strengthText.textContent = 'Good';
+            strengthBar.style.backgroundColor = 'yellow';
+            strengthBar.style.width = '60%';
+            break;
+            case 4:
+            strengthText.textContent = 'Strong';
+            strengthBar.style.backgroundColor = 'blue';
+            strengthBar.style.width = '80%';
+            break;
+            case 5:
+            strengthText.textContent = 'Very Strong';
+            strengthBar.style.backgroundColor = 'green';
+            strengthBar.style.width = '100%';
+            break;
+        }
+        });
+
 
     </script>
     </body>
