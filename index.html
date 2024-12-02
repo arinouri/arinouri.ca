@@ -66,12 +66,13 @@
         </div>
     </section>
 
-    <section class="cyber-security">
-        <h2>Cyber Security</h2>
-        <p>Enter your password:</p>
-        <input type="password" id="password-field" placeholder="Enter password">
-        <button id="toggle-password-btn">Show Password</button>
-      </section>
+  <!-- Cyber Security Section -->
+  <section class="cyber-security">
+    <h2>Cyber Security</h2>
+    <p>Enter your password:</p>
+    <input type="password" id="password-field" placeholder="Enter password">
+    <button id="toggle-password-btn">Show Password</button>
+  </section>
 
     <section class="chatbot slide-in">
         <h2>Ask the AI</h2>
@@ -193,6 +194,17 @@
         }
         });
 
+        document.getElementById('toggle-password-btn').addEventListener('click', function () {
+      const passwordField = document.getElementById('password-field');
+      if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        this.textContent = 'Hide Password';
+      } else {
+        passwordField.type = 'password';
+        this.textContent = 'Show Password';
+      }
+    });
+    
     </script>
     </body>
     </html>
