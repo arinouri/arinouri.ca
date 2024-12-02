@@ -414,9 +414,11 @@ button:hover {
   margin-bottom: 1em;
 }
 
-.cyber-security p {
-  font-size: 1em;
-  margin-bottom: 1.5em;
+.cyber-security input {
+  padding: 10px;
+  border: 1px solid #dde1e4;
+  border-radius: 5px;
+  margin-right: 10px;
 }
 
 .cyber-security button {
@@ -432,4 +434,5 @@ button:hover {
 .cyber-security button:hover {
   background-color: #038856;
 }
+
 

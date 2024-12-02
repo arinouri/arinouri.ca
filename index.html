@@ -66,12 +66,12 @@
         </div>
     </section>
 
-    <section class="cyber-security slide-in">
-        <h2>Cyber Security - Password Strength Checker</h2>
-        <p>Test the strength of your passwords and ensure better protection for your online accounts.</p>
-        <button onclick="checkPasswordStrength()">Check Password Strength</button>
-        <div id="cyber-security-result" style="margin-top: 1em;"></div>
-    </section>
+    <section class="cyber-security">
+        <h2>Cyber Security</h2>
+        <p>Enter your password:</p>
+        <input type="password" id="password-field" placeholder="Enter password">
+        <button id="toggle-password-btn">Show Password</button>
+      </section>
 
     <section class="chatbot slide-in">
         <h2>Ask the AI</h2>
@@ -100,34 +100,46 @@
     });
 
     async function sendMessage() {
-        const userInput = document.getElementById('user-input').value;
-        if (userInput.trim() === '') return;
-        
-        const chatLog = document.getElementById('chat-log');
-        const userMessage = document.createElement('div');
-        userMessage.textContent = `You: ${userInput}`;
-        chatLog.appendChild(userMessage);
-        
-        const responseMessage = document.createElement('div');
-        responseMessage.textContent = 'AI: Thinking...';
-        chatLog.appendChild(responseMessage);
-        
+    const userInput = document.getElementById('user-input').value;
+    if (userInput.trim() === '') return;
+
+    const chatLog = document.getElementById('chat-log');
+    const userMessage = document.createElement('div');
+    userMessage.textContent = `You: ${userInput}`;
+    chatLog.appendChild(userMessage);
+
+    const responseMessage = document.createElement('div');
+    responseMessage.textContent = 'AI: Thinking...';
+    chatLog.appendChild(responseMessage);
+
+    try {
         const response = await fetch('https://api.openai.com/v1/engines/davinci-codex/completions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer YOUR_OPENAI_API_KEY'
+                'Authorization': 'Bearer sk-proj-insertkey'
             },
             body: JSON.stringify({
                 prompt: userInput,
                 max_tokens: 150
             })
-        }).then(res => res.json());
+        });
 
-        responseMessage.textContent = `AI: ${response.choices[0].text}`;
-        document.getElementById('user-input').value = '';
-        chatLog.scrollTop = chatLog.scrollHeight;
+        const data = await response.json();
+
+        if (response.ok) {
+            responseMessage.textContent = `AI: ${data.choices[0].text}`;
+        } else {
+            responseMessage.textContent = `AI: Error, could not fetch response.`;
+        }
+    } catch (error) {
+        responseMessage.textContent = `AI: Error, ${error.message}`;
     }
+
+    document.getElementById('user-input').value = '';
+    chatLog.scrollTop = chatLog.scrollHeight;
+}
+
 
     async function fetchPlaylist() {
         const response = await fetch('https://api.spotify.com/v1/playlists/YOUR_PLAYLIST_ID/tracks', {
@@ -168,6 +180,28 @@
             weatherResult.innerHTML = `<p>Error: ${data.message}</p>`;
         }
     }
+
+
+        document.getElementById('toggle-password-btn').addEventListener('click', function () {
+        const passwordField = document.getElementById('password-field');
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            this.textContent = 'Hide Password';
+        } else {
+            passwordField.type = 'password';
+            this.textContent = 'Show Password';
+        }
+        });
+
     </script>
-</body>
-</html>
+    </body>
+    </html>
+
+
+<!-- Music Playlist Section -->
+<div id="musicApp">
+    <h2>Search for Music</h2>
+    <input type="text" id="songSearchInput" placeholder="Enter song title" onkeyup="searchSong(event)">
+    <button onclick="searchSong()">Search</button>
+    <div id="songResults"></div>
+</div>
