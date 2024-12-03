@@ -448,45 +448,45 @@ button:hover {
   border-radius: 5px;
 }
 
-
-.cyber-course {
+.project-bubble {
   background-color: #29353e;
   color: #dde1e4;
-  padding: 2em;
+  margin-bottom: 20px;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin: 2em auto;
-  max-width: 800px;
 }
 
-.cyber-course h2 {
-  color: #04aa6d;
-  margin-bottom: 1em;
-  text-align: center;
-}
-
-.cyber-course article {
-  margin-bottom: 1em;
-}
-
-.course-content {
-  margin-top: 20px;
-}
-
-pre {
-  background-color: #1d2a35;
-  border-radius: 5px;
+textarea, input[type="text"] {
+  width: 100%;
   padding: 10px;
-  color: #9df585;
-  overflow-x: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #1d2a35;
+  color: #dde1e4;
+}
+
+button {
+  background-color: #04aa6d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #038856;
 }
 
 code {
+  display: block;
+  margin-top: 10px;
+  background-color: #1d2a35;
+  padding: 10px;
+  border-radius: 5px;
   font-family: 'Courier New', Courier, monospace;
 }
 
-@media only screen and (max-width: 768px) {
-  .cyber-course {
-      padding: 1em;
-  }
-}

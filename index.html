@@ -56,6 +56,49 @@
         </div>
     </div>
 
+
+    <section class="cyber-course slide-in">
+        <h2>Cyber Security Programming Tips</h2>
+        <div class="course-content">
+            <div class="project-bubble">
+                <h3>Tip 1: Validate Input</h3>
+                <p>Prevent SQL injection and XSS by validating user inputs:</p>
+                <textarea id="inputValidationExample" placeholder="Enter text..."></textarea>
+                <button onclick="validateInput()">Check Input</button>
+                <p id="validationOutput"></p>
+                <code>Function to sanitize inputs against harmful scripts.</code>
+            </div>
+            <div class="project-bubble">
+                <h3>Tip 2: Secure Password Storage</h3>
+                <p>Hash passwords before storing them:</p>
+                <input type="text" id="passwordExample" placeholder="Enter password">
+                <button onclick="hashPassword()">Hash Password</button>
+                <p id="hashOutput"></p>
+                <code>Uses bcrypt to hash and secure passwords.</code>
+            </div>
+        </div>
+    </section>
+
+    function validateInput() {
+        const userInput = document.getElementById("inputValidationExample").value;
+        const output = document.getElementById("validationOutput");
+        // Mock validation: replace with actual sanitization logic
+        if (/^[a-zA-Z0-9]*$/.test(userInput)) {
+            output.textContent = "Valid input!";
+        } else {
+            output.textContent = "Invalid input! Please remove special characters.";
+        }
+    }
+    
+    function hashPassword() {
+        const password = document.getElementById("passwordExample").value;
+        const output = document.getElementById("hashOutput");
+        // Mock hash: replace with actual hashing logic
+        output.textContent = "Hashed Password: " + btoa(password);
+    }
+    
+
+
     <section class="cyber-course">
         <h2>Cyber Security Programming Tips</h2>
         <div class="course-content">
