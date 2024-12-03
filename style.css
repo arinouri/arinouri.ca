@@ -447,3 +447,46 @@ button:hover {
   transition: width 0.3s, background-color 0.3s;
   border-radius: 5px;
 }
+
+
+.cyber-course {
+  background-color: #29353e;
+  color: #dde1e4;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 2em auto;
+  max-width: 800px;
+}
+
+.cyber-course h2 {
+  color: #04aa6d;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.cyber-course article {
+  margin-bottom: 1em;
+}
+
+.course-content {
+  margin-top: 20px;
+}
+
+pre {
+  background-color: #1d2a35;
+  border-radius: 5px;
+  padding: 10px;
+  color: #9df585;
+  overflow-x: auto;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+@media only screen and (max-width: 768px) {
+  .cyber-course {
+      padding: 1em;
+  }
+}
