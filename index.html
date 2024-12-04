@@ -58,113 +58,84 @@
     </div>
 
 
-    <section class="cyber-course slide-in">
-        <h2>Cyber Security Programming Tips</h2>
-        <div class="course-content">
-            <div class="project-bubble">
-                <h3>Tip 1: Validate Input</h3>
-                <p>Prevent SQL injection and XSS by validating user inputs:</p>
-                <textarea id="inputValidationExample" placeholder="Enter text..."></textarea>
-                <button onclick="validateInput()">Check Input</button>
-                <p id="validationOutput"></p>
-                <code>Function to sanitize inputs against harmful scripts.</code>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Arian Nouri - Portfolio</title>
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body class="loading">
+            <div id="loader" class="loader"></div>
+            <header>
+                <div id="slogan">
+                    <div class="quote">
+                        <h1 class="typewriter">Arian Nouri | A Digital Portfolio</h1>
+                    </div>
+                </div>
+            </header>
+            <div class="container">
+                <div class="left-column">
+                    <section class="music-playlist slide-in">
+                        <h2>Music Playlist Management Web App</h2>
+                        <iframe src="https://youtube.com" width="100%" height="400px"></iframe>
+                        <p>Developed a responsive web application for managing music playlists. Integrated with an external music API to provide a seamless user experience.</p>
+                    </section>
+                    <section class="cyber-course slide-in">
+                        <h2>Cyber Security Programming Tips</h2>
+                        <div class="course-content">
+                            <div class="project-bubble">
+                                <h3>Tip 1: Validate Input</h3>
+                                <p>Prevent SQL injection and XSS by validating user inputs:</p>
+                                <textarea id="inputValidationExample" placeholder="Enter text..."></textarea>
+                                <button onclick="validateInput()">Check Input</button>
+                                <p id="validationOutput"></p>
+                                <code>Function to sanitize inputs against harmful scripts.</code>
+                            </div>
+                            <div class="project-bubble">
+                                <h3>Tip 2: Secure Password Storage</h3>
+                                <p>Hash passwords before storing them:</p>
+                                <input type="text" id="passwordExample" placeholder="Enter password">
+                                <button onclick="hashPassword()">Hash Password</button>
+                                <p id="hashOutput"></p>
+                                <code>Uses bcrypt to hash and secure passwords.</code>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="right-column">
+                    <section class="resume slide-in">
+                        <h2>Resume</h2>
+                        <p>
+                            <a href="RESUMEarinouri.pdf" target="_blank">View my resume</a>
+                        </p>
+                    </section>
+                    <section class="weather-app slide-in">
+                        <h2>Weather App Demo</h2>
+                        <div id="weather-container">
+                            <input type="text" id="city-input" placeholder="Enter city name">
+                            <button onclick="getWeather()">Get Weather</button>
+                            <div id="weather-result"></div>
+                        </div>
+                    </section>
+                    <section class="password-strength slide-in">
+                        <h2>Password Strength Demo</h2>
+                        <p>Enter your password:</p>
+                        <input type="password" id="password-field" placeholder="Enter password">
+                        <button id="toggle-password-btn">Show Password</button>
+                        <div id="password-strength">
+                            <p>Password strength: <span id="strength-text">None</span></p>
+                            <div id="strength-bar"></div>
+                        </div>
+                    </section>
+                </div>
             </div>
-            <div class="project-bubble">
-                <h3>Tip 2: Secure Password Storage</h3>
-                <p>Hash passwords before storing them:</p>
-                <input type="text" id="passwordExample" placeholder="Enter password">
-                <button onclick="hashPassword()">Hash Password</button>
-                <p id="hashOutput"></p>
-                <code>Uses bcrypt to hash and secure passwords.</code>
-            </div>
-        </div>
-    </section>
-    
-
-
-    <section class="cyber-course">
-        <h2>Cyber Security Programming Tips</h2>
-        <div class="course-content">
-            <article>
-                <h3>Tip 1: Validate Input</h3>
-                <p>Always validate user inputs to avoid SQL injections and XSS attacks. Never trust the incoming data without validation.</p>
-                <pre><code>// Example in JavaScript
-    if(userInput) {
-        const safeInput = sanitizeInput(userInput);
-        database.query('SELECT * FROM users WHERE name = ?', [safeInput]);
-    }
-    </code></pre>
-            </article>
-            <article>
-                <h3>Tip 2: Use Secure Protocols</h3>
-                <p>Always use HTTPS instead of HTTP to encrypt your data and protect it from man-in-the-middle attacks.</p>
-                <pre><code>// Example in Node.js
-    const https = require('https');
-    https.createServer(options, (req, res) => {
-        res.writeHead(200);
-        res.end('hello world\n');
-    }).listen(443);
-    </code></pre>
-            </article>
-            <article>
-                <h3>Tip 3: Manage Passwords Securely</h3>
-                <p>Store passwords securely using salt and hash techniques. Never store plain text passwords.</p>
-                <pre><code>// Example using bcrypt in Node.js
-    const bcrypt = require('bcrypt');
-    const saltRounds = 10;
-    const myPlaintextPassword = 's0/\/\P4$$w0rD';
-    
-    bcrypt.genSalt(saltRounds, function(err, salt) {
-        bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
-            // Store hash in your password DB.
-        });
-    });
-    </code></pre>
-            </article>
-        </div>
-    </section>
-
-
-
-    <!-- Reordered sections -->
-    <section class="weather-app slide-in">
-        <h2>Weather App Demo</h2>
-        <div id="weather-container">
-            <input type="text" id="city-input" placeholder="Enter city name">
-            <button onclick="getWeather()">Get Weather</button>
-            <div id="weather-result"></div>
-        </div>
-    </section>
-
-       <!-- Password Strength Demo -->
-       <section class="cyber-security slide-in">
-        <h2>Password Strength Demo</h2>
-        <p>Enter your password:</p>
-        <input type="password" id="password-field" placeholder="Enter password">
-        <button id="toggle-password-btn">Show Password</button>
-        <div id="password-strength">
-            <p>Password strength: <span id="strength-text">None</span></p>
-            <div id="strength-bar"></div>
-        </div>
-    </section>
-</div>
-</div>
-
-    <section class="chatbot slide-in">
-        <h2>Ask the AI</h2>
-        <div class="chat-container">
-            <div id="chatbox">
-                <div id="chat-log"></div>
-                <input type="text" id="user-input" placeholder="Ask a question...">
-                <button onclick="sendMessage()">Send</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="playlist-app slide-in">
-        <h2>Music Playlist App Demo</h2>
-        <div id="playlist-container"></div>
-    </section>
+            <footer>
+                <p>&copy; 2024 Arian Nouri</p>
+            </footer>
+            <script src="scripts.js"></script>
+        </body>
+        </html>
 
     <footer>
         <p>&copy; 2024 Arian Nouri</p>
