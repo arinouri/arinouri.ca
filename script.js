@@ -149,3 +149,35 @@ window.addEventListener('load', function () {
         }
     });
 });
+
+
+function validateInput() {
+    const userInput = document.getElementById("inputValidationExample").value;
+    const sanitizedInput = userInput.replace(/[&<>"'/]/g, function(char) {
+        switch (char) {
+            case '&': return '&amp;';
+            case '<': return '&lt;';
+            case '>': return '&gt;';
+            case '"': return '&quot;';
+            case "'": return '&#39;';
+            case '/': return '&#x2F;';
+            default: return char;
+        }
+    });
+    const output = document.getElementById("validationOutput");
+    output.textContent = "Sanitized Input: " + sanitizedInput;
+}
+
+function hashPassword() {
+    const password = document.getElementById("passwordExample").value;
+    const hashedPassword = CryptoJS.SHA256(password).toString();
+    const output = document.getElementById("hashOutput");
+    output.textContent = "Hashed Password: " + hashedPassword;
+}
+
+window.addEventListener('load', function() {
+    document.body.classList.remove('loading');
+    var loader = document.getElementById('loader');
+    loader.style.display = 'none';
+});
+
