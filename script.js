@@ -5,6 +5,8 @@ window.addEventListener('load', function () {
     loader.style.display = 'none';
 });
 
+
+
 async function sendMessage() {
     const userInput = document.getElementById('user-input').value;
     if (userInput.trim() === '') return;
@@ -84,69 +86,66 @@ async function getWeather() {
     }
 }
 
-document.getElementById('password-field').addEventListener('input', function () {
-    const password = this.value;
+window.addEventListener('load', function () {
+    document.body.classList.remove('loading');
+    var loader = document.getElementById('loader');
+    loader.style.display = 'none';
+
+    // Password Strength Checker and Show/Hide Password
+    const passwordField = document.getElementById('password-field');
     const strengthText = document.getElementById('strength-text');
     const strengthBar = document.getElementById('strength-bar');
+    const togglePasswordBtn = document.getElementById('toggle-password-btn');
 
-    let strength = 0;
+    // Event Listener for password input
+    passwordField.addEventListener('input', function () {
+        let strength = 0;
 
-    if (password.length >= 8) strength++;
-    if (/[A-Z]/.test(password)) strength++;
-    if (/[a-z]/.test(password)) strength++;
-    if (/[0-9]/.test(password)) strength++;
-    if (/[@$!%*?&#]/.test(password)) strength++;
+        if (this.value.length >= 8) strength++; // Minimum length
+        if (/[A-Z]/.test(this.value)) strength++; // At least one uppercase
+        if (/[a-z]/.test(this.value)) strength++; // At least one lowercase
+        if (/[0-9]/.test(this.value)) strength++; // At least one number
+        if (/[@$!%*?&#]/.test(this.value)) strength++; // At least one special character
 
-    switch (strength) {
-        case 0:
-        case 1:
-            strengthText.textContent = 'Weak';
-            strengthBar.style.backgroundColor = 'red';
-            strengthBar.style.width = '20%';
-            break;
-        case 2:
-            strengthText.textContent = 'Moderate';
-            strengthBar.style.backgroundColor = 'orange';
-            strengthBar.style.width = '40%';
-            break;
-        case 3:
-            strengthText.textContent = 'Good';
-            strengthBar.style.backgroundColor = 'yellow';
-            strengthBar.style.width = '60%';
-            break;
-        case 4:
-            strengthText.textContent = 'Strong';
-            strengthBar.style.backgroundColor = 'blue';
-            strengthBar.style.width = '80%';
-            break;
-        case 5:
-            strengthText.textContent = 'Very Strong';
-            strengthBar.style.backgroundColor = 'green';
-            strengthBar.style.width = '100%';
-            break;
-    }
-});
-
-function validateInput() {
-    const userInput = document.getElementById("inputValidationExample").value;
-    const sanitizedInput = userInput.replace(/[&<>"'/]/g, function(char) {
-        switch (char) {
-            case '&': return '&amp;';
-            case '<': return '&lt;';
-            case '>': return '&gt;';
-            case '"': return '&quot;';
-            case "'": return '&#39;';
-            case '/': return '&#x2F;';
-            default: return char;
+        // Update strength text and bar
+        switch (strength) {
+            case 0:
+            case 1:
+                strengthText.textContent = 'Weak';
+                strengthBar.style.backgroundColor = 'red';
+                strengthBar.style.width = '20%';
+                break;
+            case 2:
+                strengthText.textContent = 'Moderate';
+                strengthBar.style.backgroundColor = 'orange';
+                strengthBar.style.width = '40%';
+                break;
+            case 3:
+                strengthText.textContent = 'Good';
+                strengthBar.style.backgroundColor = 'yellow';
+                strengthBar.style.width = '60%';
+                break;
+            case 4:
+                strengthText.textContent = 'Strong';
+                strengthBar.style.backgroundColor = 'blue';
+                strengthBar.style.width = '80%';
+                break;
+            case 5:
+                strengthText.textContent = 'Very Strong';
+                strengthBar.style.backgroundColor = 'green';
+                strengthBar.style.width = '100%';
+                break;
         }
     });
-    const output = document.getElementById("validationOutput");
-    output.textContent = "Sanitized Input: " + sanitizedInput;
-}
 
-function hashPassword() {
-    const password = document.getElementById("passwordExample").value;
-    const hashedPassword = CryptoJS.SHA256(password).toString();
-    const output = document.getElementById("hashOutput");
-    output.textContent = "Hashed Password: " + hashedPassword;
-}
+    // Toggle password visibility
+    togglePasswordBtn.addEventListener('click', function () {
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            this.textContent = 'Hide Password';
+        } else {
+            passwordField.type = 'password';
+            this.textContent = 'Show Password';
+        }
+    });
+});

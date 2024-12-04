@@ -61,7 +61,44 @@
                     💬 One of my hobbies is creating and repairing PCs!
                 </p>
             </section>
+            <section class="cyber-tips slide-in">
+                <h2>Cyber Security Programming Tips</h2>
+                <div class="project-bubble">
+                    <h3>Tip 1: Validate Input</h3>
+                    <p>Always validate user inputs to avoid SQL injections and XSS attacks. Never trust the incoming data without validation.</p>
+                    <pre><code>// Example in JavaScript
+if(userInput) {
+    const safeInput = sanitizeInput(userInput);
+    database.query('SELECT * FROM users WHERE name = ?', [safeInput]);
+}
+</code></pre>
+                </div>
+                <div class="project-bubble">
+                    <h3>Tip 2: Use Secure Protocols</h3>
+                    <p>Always use HTTPS instead of HTTP to encrypt your data and protect it from man-in-the-middle attacks.</p>
+                    <pre><code>// Example in Node.js
+const https = require('https');
+https.createServer(options, (req, res) => {
+    res.writeHead(200);
+    res.end('hello world\n');
+}).listen(443);
+</code></pre>
+                </div>
+                <div class="project-bubble">
+                    <h3>Tip 3: Manage Passwords Securely</h3>
+                    <p>Store passwords securely using salt and hash techniques. Never store plain text passwords.</p>
+                    <pre><code>// Example using bcrypt in Node.js
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const myPlaintextPassword = 's0/\/\P4$$w0rD';
 
+bcrypt.genSalt(saltRounds, function(err, salt) {
+    bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
+        // Store hash in your password DB.
+    });
+});
+</code></pre>
+        </div>
 
 
         </div>
