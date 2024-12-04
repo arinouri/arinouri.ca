@@ -286,14 +286,11 @@ button:hover {
     color: #dde1e4;
 }
 
-/* Weather App Styles */
-.weather-app {
-    background-color: #29353e;
-    padding: 1em;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    margin: auto;
+.weather-app, .password-strength-demo {
+  background-color: #29353e;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #weather-container {
