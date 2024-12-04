@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arian Nouri - Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 </head>
 <body class="loading">
     <div id="loader" class="loader"></div>
@@ -20,7 +21,7 @@
         <div class="left-column">
             <div class="project-bubble slide-in">
                 <h3>Music Playlist Management Web App</h3>
-                <iframe src="https://yourappurl.com" width="100%" height="400px"></iframe>
+                <iframe src="https://youtube.com" width="100%" height="400px"></iframe>
                 <p>Developed a responsive web application for managing music playlists. Integrated with an external music API to provide a seamless user experience.</p>
             </div>
         </div>
@@ -336,22 +337,34 @@
 
 
     function validateInput() {
-    const userInput = document.getElementById("inputValidationExample").value;
-    const output = document.getElementById("validationOutput");
-    // Mock validation: replace with actual sanitization logic
-    if (/^[a-zA-Z0-9]*$/.test(userInput)) {
-        output.textContent = "Valid input!";
-    } else {
-        output.textContent = "Invalid input! Please remove special characters.";
-    }
+        const userInput = document.getElementById("inputValidationExample").value;
+        const sanitizedInput = userInput.replace(/[&<>"'/]/g, function(char) {
+            switch (char) {
+                case '&': return '&amp;';
+                case '<': return '&lt;';
+                case '>': return '&gt;';
+                case '"': return '&quot;';
+                case "'": return '&#39;';
+                case '/': return '&#x2F;';
+                default: return char;
+            }
+        });
+        const output = document.getElementById("validationOutput");
+        output.textContent = "Sanitized Input: " + sanitizedInput;
     }
 
     function hashPassword() {
         const password = document.getElementById("passwordExample").value;
+        const hashedPassword = CryptoJS.SHA256(password).toString();
         const output = document.getElementById("hashOutput");
-        // Mock hash: replace with actual hashing logic
-        output.textContent = "Hashed Password: " + btoa(password);
+        output.textContent = "Hashed Password: " + hashedPassword;
     }
+
+    window.addEventListener('load', function() {
+        document.body.classList.remove('loading');
+        var loader = document.getElementById('loader');
+        loader.style.display = 'none';
+    });
 
 
     </script>
