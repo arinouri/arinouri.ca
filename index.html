@@ -334,6 +334,26 @@
     });
 
 
+
+    function validateInput() {
+    const userInput = document.getElementById("inputValidationExample").value;
+    const output = document.getElementById("validationOutput");
+    // Mock validation: replace with actual sanitization logic
+    if (/^[a-zA-Z0-9]*$/.test(userInput)) {
+        output.textContent = "Valid input!";
+    } else {
+        output.textContent = "Invalid input! Please remove special characters.";
+    }
+    }
+
+    function hashPassword() {
+        const password = document.getElementById("passwordExample").value;
+        const output = document.getElementById("hashOutput");
+        // Mock hash: replace with actual hashing logic
+        output.textContent = "Hashed Password: " + btoa(password);
+    }
+
+
     </script>
     </body>
     </html>
@@ -346,3 +366,4 @@
     <button onclick="searchSong()">Search</button>
     <div id="songResults"></div>
 </div>
+
