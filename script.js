@@ -49,7 +49,7 @@ async function sendMessage() {
 }
 
 async function fetchPlaylist() {
-    const response = await fetch('https://api.spotify.com/v1/playlists/YOUR_PLAYLIST_ID/tracks', {
+    const response = await fetch('https://api.spotify.com/v1/playlists/198205 1980/tracks', {
         headers: {
             'Authorization': 'Bearer YOUR_SPOTIFY_API_KEY'
         }
