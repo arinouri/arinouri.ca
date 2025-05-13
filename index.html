@@ -1,142 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arian Nouri - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-    <script src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arian Nouri - Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
-<body class="loading">
-    <div id="loader" class="loader"></div>
-    <header>
-        <div id="slogan">
-            <div class="quote">
-                <h1 class="typewriter">Arian Nouri | A Digital Portfolio</h1>
-            </div>
-        </div>
-    </header>
-    <div class="container">
-        <div class="left-column">
-            <div class="project-bubble slide-in">
+<body class="dark-mode">
+  <canvas id="bg-canvas"></canvas>
+  <canvas id="ui-canvas"></canvas>
 
-                <section class="weather-app slide-in">
-                    <h2>Weather App Demo</h2>
-                    <div id="weather-container">
-                        <input type="text" id="city-input" placeholder="Enter city name">
-                        <button onclick="getWeather()">Get Weather</button>
-                        <div id="weather-result"></div>
-                    </div>
-                </section>
-                <section class="password-strength-demo slide-in">
-                    <h2>Password Strength Demo</h2>
-                    <input type="password" id="password-field" placeholder="Enter password">
-                    <button id="toggle-password-btn">Show Password</button>
-                    <div id="password-strength">
-                        <p>Password strength: <span id="strength-text">None</span></p>
-                        <div id="strength-bar"></div>
-                    </div>
-                </section>
+  <div id="intro-overlay">
+    <h1>Arian Nouri</h1>
+    <p>Digital Portfolio</p>
+  </div>
 
+  <header>
+    <h1 class="typewriter">Arian Nouri | Digital Portfolio</h1>
+    <button id="theme-toggle">Toggle Mode</button>
+  </header>
 
+  <main id="sections">
+    <section id="info">
+      <h2>🧑‍💻 Personal Info</h2>
+      <ul>
+        <li><strong>Name:</strong> Arian Nouri</li>
+        <li><strong>Email:</strong> arinouri.cs@gmail.com / nouri.arian@gmail.com</li>
+        <li><strong>Phone:</strong> 613-805-3423</li>
+        <li><strong>Website:</strong> <a href="https://arinouri.ca" target="_blank">arinouri.ca</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/arinouri" target="_blank">github.com/arinouri</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/arinouri" target="_blank">linkedin.com/in/arinouri</a></li>
+        <li><strong>Security Clearance:</strong> RCMP Secret</li>
+        <li><strong>Languages:</strong> English, French, Farsi</li>
+      </ul>
+    </section>
 
-                <h3>Music Playlist Management Web App</h3>
-                <iframe src="https://youtube.com" width="100%" height="400px"></iframe>
-                <p>Developed a responsive web application for managing music playlists. Integrated with an external music API to provide a seamless user experience.</p>
-            </div>
-        </div>
-        <div class="center-column">
-            <section class="bio slide-in">
-                <img src="centerphoto.jpg" alt="Arian Nouri" class="avatar" />
-                <h2>About Me</h2>
-                <p>
-                    I am a 3rd-year Computer Science student at Carleton University, specializing in Internet and Security /Cyber Security 🎓. 
-                    Proficiency in coding, front-end development, and a strong foundation in computer science principles are the goals of my educational journey 😄.<br/><br/>
-                    I have great interest in... <br/><br/>
-                    - Front-end Development <br/>
-                    - Website Development <br/>
-                    - Media Design <br/>
-                    - App Developing <br/><br/>
-                    💬 One of my hobbies is creating and repairing PCs!
-                </p>
-            </section>
-            <section class="cyber-tips slide-in">
-                <h2>Cyber Security Programming Tips</h2>
-                <div class="project-bubble">
-                    <h3>Tip 1: Validate Input</h3>
-                    <p>Always validate user inputs to avoid SQL injections and XSS attacks. Never trust the incoming data without validation.</p>
-                    <pre><code>// Example in JavaScript
-if(userInput) {
-    const safeInput = sanitizeInput(userInput);
-    database.query('SELECT * FROM users WHERE name = ?', [safeInput]);
-}
-</code></pre>
-                </div>
-                <div class="project-bubble">
-                    <h3>Tip 2: Use Secure Protocols</h3>
-                    <p>Always use HTTPS instead of HTTP to encrypt your data and protect it from man-in-the-middle attacks.</p>
-                    <pre><code>// Example in Node.js
-const https = require('https');
-https.createServer(options, (req, res) => {
-    res.writeHead(200);
-    res.end('hello world\n');
-}).listen(443);
-</code></pre>
-                </div>
-                <div class="project-bubble">
-                    <h3>Tip 3: Manage Passwords Securely</h3>
-                    <p>Store passwords securely using salt and hash techniques. Never store plain text passwords.</p>
-                    <pre><code>// Example using bcrypt in Node.js
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
-const myPlaintextPassword = 's0/\/\P4$$w0rD';
+    <section id="education">
+      <h2>🎓 Education</h2>
+      <p><strong>Bachelor of Computer Science (Co-op)</strong><br/>
+      Specialization: Internet & Security / Cyber Security<br/>
+      Carleton University, Ottawa, ON<br/>
+      <em>Sept. 2022 – May 2026 (Expected)</em></p>
+    </section>
 
-bcrypt.genSalt(saltRounds, function(err, salt) {
-    bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
-        // Store hash in your password DB.
-    });
-});
-</code></pre>
-        </div>
+    <section id="experience">
+      <h2>💼 Experience</h2>
+      <p><strong>IT01 Technical Analyst – RCMP</strong><br/>
+      Ottawa, ON | Sept. 2024 – Present</p>
+      <ul>
+        <li>Supported 200+ enterprise software systems</li>
+        <li>Resolved technical tickets and access requests</li>
+        <li>Maintained security standards and confidentiality</li>
+        <li>Collaborated with internal teams to ensure uptime</li>
+      </ul>
+      <p><strong>Pharmacy Technician – Walmart Pharmacy</strong><br/>
+      Ottawa, ON | Mar. 2021 – Dec. 2024</p>
+      <ul>
+        <li>Managed Kroll entries and prescription processing</li>
+        <li>Logged COVID-19 vaccine data into Covaxon</li>
+        <li>Trained staff and improved backend workflows</li>
+      </ul>
+      <p><strong>Freelance Custom PC Builder</strong><br/>
+      Dec. 2019 – Present</p>
+      <ul>
+        <li>Designed and built custom performance PCs</li>
+        <li>Focused on thermal efficiency and part compatibility</li>
+      </ul>
+    </section>
 
+    <section id="skills">
+      <h2>💻 Technical Skills</h2>
+      <ul>
+        <li><strong>Languages:</strong> React, Python, JavaScript, C/C++, Java, SQLite, HTML/CSS, Node.js</li>
+        <li><strong>Tools:</strong> GitHub, VS Code, IntelliJ, Unreal Engine 5, Adobe AE, Photoshop</li>
+        <li><strong>Certifications:</strong> French Certificate, Google Inbound Marketing, Google Analytics</li>
+      </ul>
+    </section>
 
-        </div>
-        <div class="right-column">
-            <section class="contact slide-in">
-                <h2>Contact & Links</h2>
-                <p>Email: nouri.arian@gmail.com | Tel: 613-805-3423</p>
-                <a href="https://github.com/arinouri" target="_blank">GitHub</a> | 
-                <a href="https://www.linkedin.com/in/arian-nouri-180a50213/" target="_blank">LinkedIn</a>
-            </section>
-            <section class="resume slide-in">
-                <h2>Resume</h2>
-                <p><a href="RESUMEarinouri.pdf" target="_blank">View my resume</a></p>
-            </section>
-            <section class="cyber-security slide-in">
-                <h2>Cyber Security Programming Tips</h2>
-                <div class="project-bubble">
-                    <h3>Tip 1: Validate Input</h3>
-                    <p>Prevent SQL injection and XSS by validating user inputs:</p>
-                    <textarea id="inputValidationExample" placeholder="Enter text..."></textarea>
-                    <button onclick="validateInput()">Check Input</button>
-                    <p id="validationOutput"></p>
-                    <code>Function to sanitize inputs against harmful scripts.</code>
-                </div>
-                <div class="project-bubble">
-                    <h3>Tip 2: Secure Password Storage</h3>
-                    <p>Hash passwords before storing them:</p>
-                    <input type="text" id="passwordExample" placeholder="Enter password">
-                    <button onclick="hashPassword()">Hash Password</button>
-                    <p id="hashOutput"></p>
-                    <code>Uses bcrypt to hash and secure passwords.</code>
-                </div>
-            </section>
+    <section id="projects">
+      <h2>🌐 Projects</h2>
+      <p><strong>✅ Portfolio Website – arinouri.ca</strong></p>
+      <ul>
+        <li>Responsive site using HTML/CSS/JS + Node.js</li>
+        <li>Demos: Weather App, Password Strength Meter</li>
+        <li>Clean UI with animations and API integrations</li>
+      </ul>
+      <p><strong>✅ Terminal Cybersecurity Game</strong></p>
+      <ul>
+        <li>Interactive JavaScript-based hacking simulation</li>
+        <li>Supports ls, cd, cat commands, vault unlock, maze mini-game</li>
+        <li>Blends cybersecurity and storytelling</li>
+      </ul>
+      <p><strong>✅ Bionic Reading App</strong></p>
+      <ul>
+        <li>Web tool to enhance reading focus</li>
+        <li>Custom styles for readability and speed</li>
+      </ul>
+    </section>
 
-        </div>
-    </div>
-    <footer>
-        <p>&copy; 2024 Arian Nouri</p>
-    </footer>
+    <section id="cyber">
+      <h2>🛡 Cybersecurity Tips</h2>
+      <h4>Tip 1: Validate Input</h4>
+<pre><code>const safeInput = sanitize(userInput);
+db.query('SELECT * FROM users WHERE name = ?', [safeInput]);</code></pre>
+      <h4>Tip 2: Use HTTPS</h4>
+<pre><code>const https = require('https');
+https.createServer(opts, (req, res) => {
+  res.end('Secure!');
+}).listen(443);</code></pre>
+      <h4>Tip 3: Manage Passwords with Bcrypt</h4>
+<pre><code>bcrypt.genSalt(10, (err, salt) => {
+  bcrypt.hash(password, salt, (err, hash) => {
+    // Store safely
+  });
+});</code></pre>
+    </section>
+
+    <section id="tools">
+      <h2>📲 Cybersecurity Tools (Demos)</h2>
+      <ul>
+        <li>Input Validator – Sanitizes form fields in real time</li>
+        <li>Password Hasher – Visual bcrypt hashing tool</li>
+      </ul>
+    </section>
+
+    <section id="hobbies">
+      <h2>🧠 Interests</h2>
+      <ul>
+        <li>Custom PC builds & repair</li>
+        <li>Front-end web development</li>
+        <li>Interactive UI & game design</li>
+        <li>Visual storytelling and design tools</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

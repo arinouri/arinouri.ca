@@ -1,183 +1,201 @@
-
-window.addEventListener('load', function () {
-    document.body.classList.remove('loading');
-    var loader = document.getElementById('loader');
-    loader.style.display = 'none';
-});
-
-
-
-async function sendMessage() {
-    const userInput = document.getElementById('user-input').value;
-    if (userInput.trim() === '') return;
-
-    const chatLog = document.getElementById('chat-log');
-    const userMessage = document.createElement('div');
-    userMessage.textContent = `You: ${userInput}`;
-    chatLog.appendChild(userMessage);
-
-    const responseMessage = document.createElement('div');
-    responseMessage.textContent = 'AI: Thinking...';
-    chatLog.appendChild(responseMessage);
-
-    try {
-        const response = await fetch('https://api.openai.com/v1/engines/davinci-codex/completions', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer sk-proj-insertkey'
-            },
-            body: JSON.stringify({
-                prompt: userInput,
-                max_tokens: 150
-            })
+  // Theme + Intro
+document.getElementById('theme-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+  
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('intro-overlay').style.opacity = '0';
+      setTimeout(() => {
+        document.getElementById('intro-overlay').style.display = 'none';
+      }, 1500);
+    }, 2000);
+  });
+  
+  function getCSSVariable(name) {
+    return getComputedStyle(document.body).getPropertyValue(name).trim();
+  }
+  
+  // Background
+  const bgCanvas = document.getElementById('bg-canvas');
+  const bgCtx = bgCanvas.getContext('2d');
+  bgCanvas.width = window.innerWidth;
+  bgCanvas.height = window.innerHeight;
+  
+  let points = [];
+  for (let i = 0; i < 100; i++) {
+    points.push({
+      x: Math.random() * bgCanvas.width,
+      y: Math.random() * bgCanvas.height,
+      vx: Math.random() * 0.5 - 0.25,
+      vy: Math.random() * 0.5 - 0.25,
+    });
+  }
+  
+  let mouse = { x: null, y: null };
+  window.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+  
+  function drawBG() {
+    bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+    const color = getCSSVariable('--text');
+  
+    for (let p of points) {
+      p.x += p.vx;
+      p.y += p.vy;
+  
+      if (p.x <= 0 || p.x >= bgCanvas.width) p.vx *= -1;
+      if (p.y <= 0 || p.y >= bgCanvas.height) p.vy *= -1;
+  
+      bgCtx.beginPath();
+      bgCtx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+      bgCtx.fillStyle = '#aaa';
+      bgCtx.fill();
+  
+      for (let q of points) {
+        const dist = Math.hypot(p.x - q.x, p.y - q.y);
+        if (dist < 100) {
+          bgCtx.beginPath();
+          bgCtx.moveTo(p.x, p.y);
+          bgCtx.lineTo(q.x, q.y);
+          bgCtx.strokeStyle = `rgba(150,150,150,${1 - dist / 100})`;
+          bgCtx.stroke();
+        }
+      }
+  
+      if (mouse.x && mouse.y) {
+        const dist = Math.hypot(p.x - mouse.x, p.y - mouse.y);
+        if (dist < 120) {
+          bgCtx.beginPath();
+          bgCtx.moveTo(p.x, p.y);
+          bgCtx.lineTo(mouse.x, mouse.y);
+          bgCtx.strokeStyle = `rgba(255,255,255,${1 - dist / 120})`;
+          bgCtx.stroke();
+        }
+      }
+    }
+  
+    requestAnimationFrame(drawBG);
+  }
+  drawBG();
+  
+  // Central UI
+  const uiCanvas = document.getElementById('ui-canvas');
+  const uiCtx = uiCanvas.getContext('2d');
+  uiCanvas.width = window.innerWidth;
+  uiCanvas.height = window.innerHeight;
+  
+  const center = { x: uiCanvas.width / 2, y: uiCanvas.height / 2 };
+  const labels = ['Info', 'Education', 'Experience', 'Skills', 'Projects', 'Cyber', 'Tools', 'Hobbies'];
+  let shapeVertices = [];
+  
+  function initShape() {
+    shapeVertices = labels.map(label => ({ label, x: 0, y: 0 }));
+  }
+  initShape();
+  
+  function drawUI() {
+    uiCtx.clearRect(0, 0, uiCanvas.width, uiCanvas.height);
+    const textColor = getCSSVariable('--text');
+    const now = Date.now() / 500;
+    const radius = 220;
+  
+    shapeVertices.forEach((v, i) => {
+      const angle = (Math.PI * 2 / shapeVertices.length) * i + Math.sin(now + i) * 0.15;
+      const r = radius + Math.sin(now + i) * 10;
+      v.x = center.x + r * Math.cos(angle);
+      v.y = center.y + r * Math.sin(angle);
+    });
+  
+    // Polygon lines
+    uiCtx.beginPath();
+    shapeVertices.forEach((v, i) => {
+      if (i === 0) uiCtx.moveTo(v.x, v.y);
+      else uiCtx.lineTo(v.x, v.y);
+    });
+    uiCtx.closePath();
+    uiCtx.strokeStyle = textColor;
+    uiCtx.stroke();
+  
+    // Dots and labels
+    shapeVertices.forEach((v, i) => {
+      uiCtx.beginPath();
+      uiCtx.moveTo(center.x, center.y);
+      uiCtx.lineTo(v.x, v.y);
+      uiCtx.stroke();
+  
+      uiCtx.beginPath();
+      uiCtx.arc(v.x, v.y, 6, 0, Math.PI * 2);
+      uiCtx.fillStyle = '#66faff';
+      uiCtx.fill();
+  
+      uiCtx.font = '14px Arial';
+      uiCtx.fillStyle = textColor;
+      uiCtx.textAlign = 'center';
+      uiCtx.fillText(v.label, v.x, v.y - 12);
+    });
+  
+    requestAnimationFrame(drawUI);
+  }
+  drawUI();
+  
+  uiCanvas.addEventListener('click', (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+  
+    shapeVertices.forEach((v) => {
+      if (Math.hypot(v.x - x, v.y - y) < 20) {
+        const target = document.getElementById(v.label.toLowerCase());
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  });
+  
+  // Animate sections on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        const id = entry.target.id;
+        document.querySelectorAll('#sidebar a').forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
         });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            responseMessage.textContent = `AI: ${data.choices[0].text}`;
-        } else {
-            responseMessage.textContent = `AI: Error, could not fetch response.`;
-        }
-    } catch (error) {
-        responseMessage.textContent = `AI: Error, ${error.message}`;
-    }
-
-    document.getElementById('user-input').value = '';
-    chatLog.scrollTop = chatLog.scrollHeight;
-}
-
-async function fetchPlaylist() {
-    const response = await fetch('https://api.spotify.com/v1/playlists/198205 1980/tracks', {
-        headers: {
-            'Authorization': 'Bearer YOUR_SPOTIFY_API_KEY'
-        }
+      }
     });
-    const data = await response.json();
-    const playlistContainer = document.getElementById('playlist-container');
-    data.items.forEach(item => {
-        const track = document.createElement('div');
-        track.className = 'track';
-        track.innerHTML = `
-            <img src="${item.track.album.images[0].url}" alt="Album Art">
-            <div class="track-info">
-                <strong>${item.track.name}</strong><br>
-                ${item.track.artists.map(artist => artist.name).join(', ')}
-            </div>
-        `;
-        playlistContainer.appendChild(track);
+  }, { threshold: 0.3 });
+  
+  document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+  
+  // Sidebar Nav Setup
+  const sidebar = document.createElement('div');
+  sidebar.id = 'sidebar';
+  document.body.appendChild(sidebar);
+  
+  labels.forEach(label => {
+    const link = document.createElement('a');
+    link.href = `#${label.toLowerCase()}`;
+    link.textContent = label;
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById(label.toLowerCase()).scrollIntoView({ behavior: 'smooth' });
     });
-}
+    sidebar.appendChild(link);
+  });
+  
+  // Resize
+  window.addEventListener('resize', () => {
+    bgCanvas.width = uiCanvas.width = window.innerWidth;
+    bgCanvas.height = uiCanvas.height = window.innerHeight;
+    center.x = uiCanvas.width / 2;
+    center.y = uiCanvas.height / 2;
+    initShape();
+  });
+  
 
-async function getWeather() {
-    const city = document.getElementById('city-input').value;
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=21b6a70572599fbe507792676b064cff&units=metric`);
-    const data = await response.json();
-    const weatherResult = document.getElementById('weather-result');
-    if (response.ok) {
-        weatherResult.innerHTML = `
-            <h3>${data.name}</h3>
-            <p>${data.weather[0].description}</p>
-            <p>Temperature: ${data.main.temp} °C</p>
-        `;
-    } else {
-        weatherResult.innerHTML = `<p>Error: ${data.message}</p>`;
-    }
-}
+  // new
 
-window.addEventListener('load', function () {
-    document.body.classList.remove('loading');
-    var loader = document.getElementById('loader');
-    loader.style.display = 'none';
-
-    // Password Strength Checker and Show/Hide Password
-    const passwordField = document.getElementById('password-field');
-    const strengthText = document.getElementById('strength-text');
-    const strengthBar = document.getElementById('strength-bar');
-    const togglePasswordBtn = document.getElementById('toggle-password-btn');
-
-    // Event Listener for password input
-    passwordField.addEventListener('input', function () {
-        let strength = 0;
-
-        if (this.value.length >= 8) strength++; // Minimum length
-        if (/[A-Z]/.test(this.value)) strength++; // At least one uppercase
-        if (/[a-z]/.test(this.value)) strength++; // At least one lowercase
-        if (/[0-9]/.test(this.value)) strength++; // At least one number
-        if (/[@$!%*?&#]/.test(this.value)) strength++; // At least one special character
-
-        // Update strength text and bar
-        switch (strength) {
-            case 0:
-            case 1:
-                strengthText.textContent = 'Weak';
-                strengthBar.style.backgroundColor = 'red';
-                strengthBar.style.width = '20%';
-                break;
-            case 2:
-                strengthText.textContent = 'Moderate';
-                strengthBar.style.backgroundColor = 'orange';
-                strengthBar.style.width = '40%';
-                break;
-            case 3:
-                strengthText.textContent = 'Good';
-                strengthBar.style.backgroundColor = 'yellow';
-                strengthBar.style.width = '60%';
-                break;
-            case 4:
-                strengthText.textContent = 'Strong';
-                strengthBar.style.backgroundColor = 'blue';
-                strengthBar.style.width = '80%';
-                break;
-            case 5:
-                strengthText.textContent = 'Very Strong';
-                strengthBar.style.backgroundColor = 'green';
-                strengthBar.style.width = '100%';
-                break;
-        }
-    });
-
-    // Toggle password visibility
-    togglePasswordBtn.addEventListener('click', function () {
-        if (passwordField.type === 'password') {
-            passwordField.type = 'text';
-            this.textContent = 'Hide Password';
-        } else {
-            passwordField.type = 'password';
-            this.textContent = 'Show Password';
-        }
-    });
-});
-
-
-function validateInput() {
-    const userInput = document.getElementById("inputValidationExample").value;
-    const sanitizedInput = userInput.replace(/[&<>"'/]/g, function(char) {
-        switch (char) {
-            case '&': return '&amp;';
-            case '<': return '&lt;';
-            case '>': return '&gt;';
-            case '"': return '&quot;';
-            case "'": return '&#39;';
-            case '/': return '&#x2F;';
-            default: return char;
-        }
-    });
-    const output = document.getElementById("validationOutput");
-    output.textContent = "Sanitized Input: " + sanitizedInput;
-}
-
-function hashPassword() {
-    const password = document.getElementById("passwordExample").value;
-    const hashedPassword = CryptoJS.SHA256(password).toString();
-    const output = document.getElementById("hashOutput");
-    output.textContent = "Hashed Password: " + hashedPassword;
-}
-
-window.addEventListener('load', function() {
-    document.body.classList.remove('loading');
-    var loader = document.getElementById('loader');
-    loader.style.display = 'none';
-});
-
+  
