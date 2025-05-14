@@ -9,7 +9,7 @@ body.dark-mode {
   --bg: #121212;
   --text: #f0f0f0;
   --box: #1a1a1a;
-  --accent: #66faff;
+  --accent: #ff4444;
 }
 
 body {
@@ -22,68 +22,142 @@ body {
 }
 
 canvas {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: 0;
 }
 
-#ui-canvas {
+#hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#three-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
   z-index: 1;
 }
 
-#intro-overlay {
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background: black;
-  color: white;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 2em;
-  transition: opacity 1.5s ease;
+/* Toggle switch at top-right */
+.switch {
+  z-index: 5;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
-header {
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+/* Center and push toggle switch higher */
+.switch.top-right {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
+}
+
+/* Make quick links centered and spaced lower */
+#quick-links {
+  display: flex;
+  gap: 1em;
+  margin-top: 200px; /* pushed farther down */
+  z-index: 2;
   position: relative;
+  flex-wrap: wrap;
+  justify-content: center;
   text-align: center;
-  padding: 1.5em 1em 1em;
 }
 
-.typewriter {
-  overflow: hidden;
-  border-right: 2px solid var(--text);
-  white-space: nowrap;
-  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+  border-radius: 34px;
 }
 
-@keyframes typing {
-  from { max-width: 0; }
-  to { max-width: 100%; }
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
 }
 
-@keyframes blink-caret {
-  50% { border-color: transparent; }
+input:checked + .slider {
+  background-color: var(--accent);
 }
 
-button {
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Move swipe prompt below buttons */
+#swipe-prompt {
+  z-index: 2;
+  color: var(--text);
+  font-weight: bold;
+  font-size: 1.2em;
+  animation: bounce 2s infinite;
+  margin-top: 25px;
+  text-align: justify;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+
+#quick-links button {
   background: var(--text);
   color: var(--bg);
-  padding: 0.5em 1em;
   border: none;
+  padding: 0.7em 1.2em;
+  border-radius: 6px;
+  font-weight: bold;
   cursor: pointer;
-  margin-top: 1em;
-  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+#quick-links button:hover {
+  background: var(--accent);
+  color: var(--bg);
 }
 
 main {
   padding: 3em 1.5em;
   max-width: 900px;
   margin: auto;
+  margin-top: 60px;
 }
 
 section {
@@ -102,43 +176,24 @@ section.visible {
   transform: translateY(0);
 }
 
-ul {
-  padding-left: 1.2em;
-}
 
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Sidebar Navigation */
-#sidebar {
+/* Back to Top floating popup */
+#back-to-top {
+  display: none;
   position: fixed;
-  top: 100px;
-  left: 20px;
-  z-index: 20;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-#sidebar a {
-  background: var(--box);
-  padding: 0.5em 1em;
-  color: var(--text);
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-#sidebar a:hover,
-#sidebar a.active {
-  background: var(--accent);
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text);
   color: var(--bg);
+  padding: 0.5em 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  z-index: 20;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
-
+#back-to-top:hover {
+  background: var(--accent);
+}

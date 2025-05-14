@@ -5,21 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Arian Nouri - Portfolio</title>
   <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
 </head>
 <body class="dark-mode">
   <canvas id="bg-canvas"></canvas>
-  <canvas id="ui-canvas"></canvas>
 
-  <div id="intro-overlay">
-    <h1>Arian Nouri</h1>
-    <p>Digital Portfolio</p>
-  </div>
-
-  <header>
-    <h1 class="typewriter">Arian Nouri | Digital Portfolio</h1>
-    <button id="theme-toggle">Toggle Mode</button>
-  </header>
-
+  <section id="hero">
+    <div id="three-container"></div>
+  
+    <!-- Light/Dark Toggle -->
+    <label class="switch top-right">
+      <input type="checkbox" id="mode-toggle" checked />
+      <span class="slider"></span>
+    </label>
+  
+    <!-- Quick nav buttons (centered + spaced lower) -->
+    <div id="quick-links">
+      <button data-target="info">Info</button>
+      <button data-target="education">Education</button>
+      <button data-target="experience">Experience</button>
+      <button data-target="skills">Skills</button>
+      <button data-target="projects">Projects</button>
+    </div>
+  
+    <!-- Swipe prompt under buttons -->
+    <div id="swipe-prompt">↓ Swipe down to explore ↓</div>
+  </section>
+  
+  <!-- Back to Top Button -->
+  <button id="back-to-top">↑ Back to Top</button>
+  <!-- Main Sections -->
   <main id="sections">
     <section id="info">
       <h2>🧑‍💻 Personal Info</h2>
@@ -135,6 +150,17 @@ https.createServer(opts, (req, res) => {
     </section>
   </main>
 
-  <script src="script.js"></script>
+
+  <section id="demos">
+    <h2>🧪 Interactive Demos</h2>
+    <ul>
+      <li><a href="#weather-demo">Weather App</a></li>
+      <li><a href="#password-checker">Password Strength Checker</a></li>
+      <li><a href="#bionic-reader">Bionic Reading Demo</a></li>
+    </ul>
+  </section>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>

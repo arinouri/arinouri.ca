@@ -1,201 +1,198 @@
-  // Theme + Intro
-document.getElementById('theme-toggle').addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+// === Theme Helper ===
+function getCSSVariable(name) {
+  return getComputedStyle(document.body).getPropertyValue(name).trim();
+}
+
+// === Background Canvas Animation ===
+const bgCanvas = document.getElementById('bg-canvas');
+const bgCtx = bgCanvas.getContext('2d');
+bgCanvas.width = window.innerWidth;
+bgCanvas.height = window.innerHeight;
+
+let points = [];
+for (let i = 0; i < 240; i++) {
+  points.push({
+    x: Math.random() * bgCanvas.width,
+    y: Math.random() * bgCanvas.height,
+    vx: Math.random() * 0.5 - 0.25,
+    vy: Math.random() * 0.5 - 0.25,
   });
-  
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById('intro-overlay').style.opacity = '0';
-      setTimeout(() => {
-        document.getElementById('intro-overlay').style.display = 'none';
-      }, 1500);
-    }, 2000);
-  });
-  
-  function getCSSVariable(name) {
-    return getComputedStyle(document.body).getPropertyValue(name).trim();
-  }
-  
-  // Background
-  const bgCanvas = document.getElementById('bg-canvas');
-  const bgCtx = bgCanvas.getContext('2d');
-  bgCanvas.width = window.innerWidth;
-  bgCanvas.height = window.innerHeight;
-  
-  let points = [];
-  for (let i = 0; i < 100; i++) {
-    points.push({
-      x: Math.random() * bgCanvas.width,
-      y: Math.random() * bgCanvas.height,
-      vx: Math.random() * 0.5 - 0.25,
-      vy: Math.random() * 0.5 - 0.25,
-    });
-  }
-  
-  let mouse = { x: null, y: null };
-  window.addEventListener('mousemove', (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-  });
-  
-  function drawBG() {
-    bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
-    const color = getCSSVariable('--text');
-  
-    for (let p of points) {
-      p.x += p.vx;
-      p.y += p.vy;
-  
-      if (p.x <= 0 || p.x >= bgCanvas.width) p.vx *= -1;
-      if (p.y <= 0 || p.y >= bgCanvas.height) p.vy *= -1;
-  
-      bgCtx.beginPath();
-      bgCtx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-      bgCtx.fillStyle = '#aaa';
-      bgCtx.fill();
-  
-      for (let q of points) {
-        const dist = Math.hypot(p.x - q.x, p.y - q.y);
-        if (dist < 100) {
-          bgCtx.beginPath();
-          bgCtx.moveTo(p.x, p.y);
-          bgCtx.lineTo(q.x, q.y);
-          bgCtx.strokeStyle = `rgba(150,150,150,${1 - dist / 100})`;
-          bgCtx.stroke();
-        }
-      }
-  
-      if (mouse.x && mouse.y) {
-        const dist = Math.hypot(p.x - mouse.x, p.y - mouse.y);
-        if (dist < 120) {
-          bgCtx.beginPath();
-          bgCtx.moveTo(p.x, p.y);
-          bgCtx.lineTo(mouse.x, mouse.y);
-          bgCtx.strokeStyle = `rgba(255,255,255,${1 - dist / 120})`;
-          bgCtx.stroke();
-        }
+}
+
+let mouse = { x: null, y: null };
+window.addEventListener('mousemove', (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+function drawBG() {
+  bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+  const textColor = getCSSVariable('--text') || '#000';
+
+  for (let p of points) {
+    p.x += p.vx;
+    p.y += p.vy;
+
+    if (p.x <= 0 || p.x >= bgCanvas.width) p.vx *= -1;
+    if (p.y <= 0 || p.y >= bgCanvas.height) p.vy *= -1;
+
+    bgCtx.beginPath();
+    bgCtx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+    bgCtx.fillStyle = '#aaa';
+    bgCtx.fill();
+
+    for (let q of points) {
+      const dist = Math.hypot(p.x - q.x, p.y - q.y);
+      if (dist < 100) {
+        bgCtx.beginPath();
+        bgCtx.moveTo(p.x, p.y);
+        bgCtx.lineTo(q.x, q.y);
+        bgCtx.lineWidth = 1.5;
+        bgCtx.strokeStyle = `rgba(150,150,150,${1 - dist / 100})`;
+        bgCtx.stroke();
       }
     }
-  
-    requestAnimationFrame(drawBG);
-  }
-  drawBG();
-  
-  // Central UI
-  const uiCanvas = document.getElementById('ui-canvas');
-  const uiCtx = uiCanvas.getContext('2d');
-  uiCanvas.width = window.innerWidth;
-  uiCanvas.height = window.innerHeight;
-  
-  const center = { x: uiCanvas.width / 2, y: uiCanvas.height / 2 };
-  const labels = ['Info', 'Education', 'Experience', 'Skills', 'Projects', 'Cyber', 'Tools', 'Hobbies'];
-  let shapeVertices = [];
-  
-  function initShape() {
-    shapeVertices = labels.map(label => ({ label, x: 0, y: 0 }));
-  }
-  initShape();
-  
-  function drawUI() {
-    uiCtx.clearRect(0, 0, uiCanvas.width, uiCanvas.height);
-    const textColor = getCSSVariable('--text');
-    const now = Date.now() / 500;
-    const radius = 220;
-  
-    shapeVertices.forEach((v, i) => {
-      const angle = (Math.PI * 2 / shapeVertices.length) * i + Math.sin(now + i) * 0.15;
-      const r = radius + Math.sin(now + i) * 10;
-      v.x = center.x + r * Math.cos(angle);
-      v.y = center.y + r * Math.sin(angle);
-    });
-  
-    // Polygon lines
-    uiCtx.beginPath();
-    shapeVertices.forEach((v, i) => {
-      if (i === 0) uiCtx.moveTo(v.x, v.y);
-      else uiCtx.lineTo(v.x, v.y);
-    });
-    uiCtx.closePath();
-    uiCtx.strokeStyle = textColor;
-    uiCtx.stroke();
-  
-    // Dots and labels
-    shapeVertices.forEach((v, i) => {
-      uiCtx.beginPath();
-      uiCtx.moveTo(center.x, center.y);
-      uiCtx.lineTo(v.x, v.y);
-      uiCtx.stroke();
-  
-      uiCtx.beginPath();
-      uiCtx.arc(v.x, v.y, 6, 0, Math.PI * 2);
-      uiCtx.fillStyle = '#66faff';
-      uiCtx.fill();
-  
-      uiCtx.font = '14px Arial';
-      uiCtx.fillStyle = textColor;
-      uiCtx.textAlign = 'center';
-      uiCtx.fillText(v.label, v.x, v.y - 12);
-    });
-  
-    requestAnimationFrame(drawUI);
-  }
-  drawUI();
-  
-  uiCanvas.addEventListener('click', (e) => {
-    const x = e.clientX;
-    const y = e.clientY;
-  
-    shapeVertices.forEach((v) => {
-      if (Math.hypot(v.x - x, v.y - y) < 20) {
-        const target = document.getElementById(v.label.toLowerCase());
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    });
-  });
-  
-  // Animate sections on scroll
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        const id = entry.target.id;
-        document.querySelectorAll('#sidebar a').forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-        });
-      }
-    });
-  }, { threshold: 0.3 });
-  
-  document.querySelectorAll('section').forEach(sec => observer.observe(sec));
-  
-  // Sidebar Nav Setup
-  const sidebar = document.createElement('div');
-  sidebar.id = 'sidebar';
-  document.body.appendChild(sidebar);
-  
-  labels.forEach(label => {
-    const link = document.createElement('a');
-    link.href = `#${label.toLowerCase()}`;
-    link.textContent = label;
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      document.getElementById(label.toLowerCase()).scrollIntoView({ behavior: 'smooth' });
-    });
-    sidebar.appendChild(link);
-  });
-  
-  // Resize
-  window.addEventListener('resize', () => {
-    bgCanvas.width = uiCanvas.width = window.innerWidth;
-    bgCanvas.height = uiCanvas.height = window.innerHeight;
-    center.x = uiCanvas.width / 2;
-    center.y = uiCanvas.height / 2;
-    initShape();
-  });
-  
 
-  // new
+    if (mouse.x && mouse.y) {
+      const dist = Math.hypot(p.x - mouse.x, p.y - mouse.y);
+      if (dist < 120) {
+        bgCtx.beginPath();
+        bgCtx.moveTo(p.x, p.y);
+        bgCtx.lineTo(mouse.x, mouse.y);
+        bgCtx.lineWidth = 3;
+        bgCtx.strokeStyle = `rgba(${textColor === '#f0f0f0' ? '255,255,255' : '0,0,0'},${1 - dist / 120})`;
+        bgCtx.stroke();
+      }
+    }
+  }
 
-  
+  requestAnimationFrame(drawBG);
+}
+drawBG();
+
+// === Three.js Central Shape ===
+let scene, camera, renderer, mesh, textSprite, material;
+
+function initThree() {
+  const container = document.getElementById('three-container');
+
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.z = 4;
+
+  renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  container.appendChild(renderer.domElement);
+
+  const geometry = new THREE.IcosahedronGeometry(1.5, 2);
+  material = new THREE.MeshBasicMaterial({
+    color: getMeshColor(),
+    wireframe: true,
+    wireframeLinewidth: 4,
+  });
+
+  mesh = new THREE.Mesh(geometry, material);
+  scene.add(mesh);
+
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = 1024;
+  canvas.height = 256;
+  updateTextColor(ctx);
+  ctx.font = 'bold 48px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('Arian Nouri | Digital Portfolio', canvas.width / 2, 150);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+  textSprite = new THREE.Sprite(spriteMaterial);
+  textSprite.scale.set(4, 1, 1);
+  scene.add(textSprite);
+
+  animate();
+}
+
+function getMeshColor() {
+  return document.body.classList.contains('dark-mode') ? 0xff4444 : 0x66faff;
+}
+
+function updateTextColor(ctx) {
+  ctx.fillStyle = document.body.classList.contains('dark-mode') ? '#ffffff' : '#000000';
+}
+
+function updateTextSprite() {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = 1024;
+  canvas.height = 256;
+  updateTextColor(ctx);
+  ctx.font = 'bold 48px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('Arian Nouri | Digital Portfolio', canvas.width / 2, 150);
+  const texture = new THREE.CanvasTexture(canvas);
+  textSprite.material.map = texture;
+  textSprite.material.needsUpdate = true;
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  mesh.rotation.x += 0.002;
+  mesh.rotation.y += 0.003;
+  renderer.render(scene, camera);
+}
+
+initThree();
+
+// === Mode Toggle ===
+document.getElementById('mode-toggle').addEventListener('change', () => {
+  document.body.classList.toggle('dark-mode');
+  material.color.set(getMeshColor());
+  updateTextSprite();
+});
+
+// === Quick Scroll Buttons ===
+document.addEventListener('DOMContentLoaded', () => {
+  const links = document.querySelectorAll('#quick-links button');
+  links.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+// === Back-to-Top Button Behavior ===
+const topButton = document.getElementById("back-to-top");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 400) {
+    topButton.style.display = "block";
+  } else {
+    topButton.style.display = "none";
+  }
+});
+
+topButton.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+});
+
+// === Reveal on Scroll ===
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+
+// === Responsive Resize ===
+window.addEventListener('resize', () => {
+  bgCanvas.width = window.innerWidth;
+  bgCanvas.height = window.innerHeight;
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
