@@ -3,24 +3,28 @@ function getCSSVariable(name) {
   return getComputedStyle(document.body).getPropertyValue(name).trim();
 }
 
-// === Background Canvas Animation ===
+// === Loader Finish ===
+window.addEventListener('load', () => {
+  document.body.classList.remove('loading');
+  const loader = document.getElementById('loader');
+  if (loader) loader.style.display = 'none';
+});
+
+// === Canvas Particle Background ===
 const bgCanvas = document.getElementById('bg-canvas');
 const bgCtx = bgCanvas.getContext('2d');
 bgCanvas.width = window.innerWidth;
 bgCanvas.height = window.innerHeight;
 
-let points = [];
-for (let i = 0; i < 240; i++) {
-  points.push({
-    x: Math.random() * bgCanvas.width,
-    y: Math.random() * bgCanvas.height,
-    vx: Math.random() * 0.5 - 0.25,
-    vy: Math.random() * 0.5 - 0.25,
-  });
-}
+let points = Array.from({length: 240}, () => ({
+  x: Math.random() * bgCanvas.width,
+  y: Math.random() * bgCanvas.height,
+  vx: Math.random() * 0.5 - 0.25,
+  vy: Math.random() * 0.5 - 0.25
+}));
 
 let mouse = { x: null, y: null };
-window.addEventListener('mousemove', (e) => {
+window.addEventListener('mousemove', e => {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
 });
@@ -32,7 +36,6 @@ function drawBG() {
   for (let p of points) {
     p.x += p.vx;
     p.y += p.vy;
-
     if (p.x <= 0 || p.x >= bgCanvas.width) p.vx *= -1;
     if (p.y <= 0 || p.y >= bgCanvas.height) p.vy *= -1;
 
@@ -70,14 +73,13 @@ function drawBG() {
 }
 drawBG();
 
-// === Three.js Central Shape ===
+// === Three.js Scene ===
 let scene, camera, renderer, mesh, textSprite, material;
 
 function initThree() {
   const container = document.getElementById('three-container');
-
   scene = new THREE.Scene();
-  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
   camera.position.z = 4;
 
   renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
@@ -87,10 +89,8 @@ function initThree() {
   const geometry = new THREE.IcosahedronGeometry(1.5, 2);
   material = new THREE.MeshBasicMaterial({
     color: getMeshColor(),
-    wireframe: true,
-    wireframeLinewidth: 4,
+    wireframe: true
   });
-
   mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
 
@@ -98,14 +98,13 @@ function initThree() {
   const ctx = canvas.getContext('2d');
   canvas.width = 1024;
   canvas.height = 256;
-  updateTextColor(ctx);
   ctx.font = 'bold 48px Arial';
   ctx.textAlign = 'center';
-  ctx.fillText('Arian Nouri | Digital Portfolio', canvas.width / 2, 150);
+  ctx.fillStyle = document.body.classList.contains('dark-mode') ? '#fff' : '#000';
+  ctx.fillText('Arian Nouri | Digital Portfolio', canvas.width/2, 150);
 
   const texture = new THREE.CanvasTexture(canvas);
-  const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
-  textSprite = new THREE.Sprite(spriteMaterial);
+  textSprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: texture }));
   textSprite.scale.set(4, 1, 1);
   scene.add(textSprite);
 
@@ -114,24 +113,6 @@ function initThree() {
 
 function getMeshColor() {
   return document.body.classList.contains('dark-mode') ? 0xff4444 : 0x66faff;
-}
-
-function updateTextColor(ctx) {
-  ctx.fillStyle = document.body.classList.contains('dark-mode') ? '#ffffff' : '#000000';
-}
-
-function updateTextSprite() {
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
-  canvas.width = 1024;
-  canvas.height = 256;
-  updateTextColor(ctx);
-  ctx.font = 'bold 48px Arial';
-  ctx.textAlign = 'center';
-  ctx.fillText('Arian Nouri | Digital Portfolio', canvas.width / 2, 150);
-  const texture = new THREE.CanvasTexture(canvas);
-  textSprite.material.map = texture;
-  textSprite.material.needsUpdate = true;
 }
 
 function animate() {
@@ -143,46 +124,30 @@ function animate() {
 
 initThree();
 
-// === Mode Toggle ===
-document.getElementById('mode-toggle').addEventListener('change', () => {
-  document.body.classList.toggle('dark-mode');
-  material.color.set(getMeshColor());
-  updateTextSprite();
-});
 
-// === Quick Scroll Buttons ===
+
+// === Scroll Navigation ===
 document.addEventListener('DOMContentLoaded', () => {
-  const links = document.querySelectorAll('#quick-links button');
-  links.forEach(btn => {
+  document.querySelectorAll('#quick-links button').forEach(btn => {
     btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('data-target');
-      const targetEl = document.getElementById(targetId);
-      if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+      const target = document.getElementById(btn.dataset.target);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
   });
 
-// === Back-to-Top Button Behavior ===
-const topButton = document.getElementById("back-to-top");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 400) {
-    topButton.style.display = "block";
-  } else {
-    topButton.style.display = "none";
-  }
+  const topBtn = document.getElementById("back-to-top");
+  window.addEventListener("scroll", () => {
+    topBtn.style.display = window.scrollY > 400 ? "block" : "none";
+  });
+  topBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 });
 
-topButton.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-});
-
-// === Reveal on Scroll ===
+// === Reveal Sections on Scroll ===
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, { threshold: 0.3 });
 
@@ -196,3 +161,90 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+// === Weather App ===
+async function getWeather() {
+  const city = document.getElementById('city-input').value;
+  const result = document.getElementById('weather-result');
+  try {
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=21b6a70572599fbe507792676b064cff&units=metric`);
+    const data = await res.json();
+    result.innerHTML = res.ok
+      ? `<p>${data.name}: ${data.weather[0].description}, ${data.main.temp}°C</p>`
+      : `<p>Error: ${data.message}</p>`;
+  } catch (err) {
+    result.innerHTML = `<p>Error fetching data.</p>`;
+  }
+}
+
+// === Password Strength Checker ===
+document.addEventListener('DOMContentLoaded', () => {
+  const field = document.getElementById('password-field');
+  const text = document.getElementById('strength-text');
+  const bar = document.getElementById('strength-bar');
+  const toggle = document.getElementById('toggle-password-btn');
+
+  field?.addEventListener('input', () => {
+    let val = field.value, score = 0;
+    if (val.length >= 8) score++;
+    if (/[A-Z]/.test(val)) score++;
+    if (/[a-z]/.test(val)) score++;
+    if (/[0-9]/.test(val)) score++;
+    if (/[@$!%*?&#]/.test(val)) score++;
+
+    const colors = ['red', 'orange', 'yellow', 'blue', 'green'];
+    const labels = ['Weak', 'Moderate', 'Good', 'Strong', 'Very Strong'];
+
+    text.textContent = labels[score - 1] || 'None';
+    bar.style.backgroundColor = colors[score - 1] || 'red';
+    bar.style.width = `${score * 20}%`;
+  });
+
+  toggle?.addEventListener('click', () => {
+    const show = field.type === 'password';
+    field.type = show ? 'text' : 'password';
+    toggle.textContent = show ? 'Hide Password' : 'Show Password';
+  });
+});
+
+
+// === Cybersecurity Tip Logic ===
+function validateInput() {
+  const input = document.getElementById("inputValidationExample").value;
+  const sanitized = input.replace(/[&<>"'/]/g, c => {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;', '/': '&#x2F;' }[c];
+  });
+  document.getElementById("validationOutput").textContent = "Sanitized Input: " + sanitized;
+}
+
+function hashPassword() {
+  const password = document.getElementById("passwordExample").value;
+  const hashed = CryptoJS.SHA256(password).toString();
+  document.getElementById("hashOutput").textContent = "Hashed Password: " + hashed;
+}
+
+// === Fix title color change (Three.js Sprite)
+function updateTextSprite() {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = 1024;
+  canvas.height = 256;
+  ctx.font = 'bold 48px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillStyle = document.body.classList.contains('dark-mode') ? '#ffffff' : '#000000';
+  ctx.fillText('Arian Nouri | Digital Portfolio', canvas.width / 2, 150);
+  const texture = new THREE.CanvasTexture(canvas);
+  textSprite.material.map = texture;
+  textSprite.material.needsUpdate = true;
+}
+
+document.getElementById('mode-toggle').addEventListener('change', () => {
+  document.body.classList.toggle('dark-mode');
+  material.color.set(getMeshColor());
+  updateTextSprite(); // fix for title color
+});
+
+
+
+
+

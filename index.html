@@ -6,20 +6,19 @@
   <title>Arian Nouri - Portfolio</title>
   <link rel="stylesheet" href="style.css"/>
   <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 </head>
-<body class="dark-mode">
+<body class="dark-mode loading">
+  <div id="loader" class="loader"></div>
   <canvas id="bg-canvas"></canvas>
 
   <section id="hero">
     <div id="three-container"></div>
-  
-    <!-- Light/Dark Toggle -->
     <label class="switch top-right">
       <input type="checkbox" id="mode-toggle" checked />
       <span class="slider"></span>
     </label>
-  
-    <!-- Quick nav buttons (centered + spaced lower) -->
+
     <div id="quick-links">
       <button data-target="info">Info</button>
       <button data-target="education">Education</button>
@@ -27,14 +26,12 @@
       <button data-target="skills">Skills</button>
       <button data-target="projects">Projects</button>
     </div>
-  
-    <!-- Swipe prompt under buttons -->
+
     <div id="swipe-prompt">↓ Swipe down to explore ↓</div>
   </section>
-  
-  <!-- Back to Top Button -->
+
   <button id="back-to-top">↑ Back to Top</button>
-  <!-- Main Sections -->
+
   <main id="sections">
     <section id="info">
       <h2>🧑‍💻 Personal Info</h2>
@@ -47,6 +44,7 @@
         <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/arinouri" target="_blank">linkedin.com/in/arinouri</a></li>
         <li><strong>Security Clearance:</strong> RCMP Secret</li>
         <li><strong>Languages:</strong> English, French, Farsi</li>
+        <li><strong>Resume:</strong> <a href="RESUMEarinouri.pdf" target="_blank">View PDF</a></li>
       </ul>
     </section>
 
@@ -81,7 +79,24 @@
         <li>Designed and built custom performance PCs</li>
         <li>Focused on thermal efficiency and part compatibility</li>
       </ul>
+      <div class="timeline-container">
+        <div class="timeline">
+          <div class="timeline-item" style="left: 10%">
+            <strong>🛡 RCMP (2024–Now)</strong><br>
+            IT01 Technical Analyst — supported 200+ apps, security enforcement, ticketing systems.
+          </div>
+          <div class="timeline-item" style="left: 45%">
+            <strong>💊 Walmart (2021–2024)</strong><br>
+            Pharmacy Technician — Kroll, Covaxon, vaccine data, staff training.
+          </div>
+          <div class="timeline-item" style="left: 80%">
+            <strong>🖥️ PC Builder (2019–Now)</strong><br>
+            Custom PCs — built high-performance rigs, cooling, compatibility checks.
+          </div>
+        </div>
+      </div>
     </section>
+   
 
     <section id="skills">
       <h2>💻 Technical Skills</h2>
@@ -111,32 +126,61 @@
         <li>Web tool to enhance reading focus</li>
         <li>Custom styles for readability and speed</li>
       </ul>
+      <p><strong>✅ Music Playlist App</strong></p>
+      <ul>
+        <li>Integrated with external API</li>
+        <li>Responsive UI and embedded player</li>
+      </ul>
     </section>
 
     <section id="cyber">
       <h2>🛡 Cybersecurity Tips</h2>
-      <h4>Tip 1: Validate Input</h4>
-<pre><code>const safeInput = sanitize(userInput);
-db.query('SELECT * FROM users WHERE name = ?', [safeInput]);</code></pre>
-      <h4>Tip 2: Use HTTPS</h4>
-<pre><code>const https = require('https');
-https.createServer(opts, (req, res) => {
-  res.end('Secure!');
-}).listen(443);</code></pre>
-      <h4>Tip 3: Manage Passwords with Bcrypt</h4>
-<pre><code>bcrypt.genSalt(10, (err, salt) => {
-  bcrypt.hash(password, salt, (err, hash) => {
-    // Store safely
-  });
-});</code></pre>
+      <div class="cyber-box">
+        <h3>Tip 1: Validate Input</h3>
+        <p>Prevent SQL injection and XSS by validating user inputs.</p>
+        <textarea id="inputValidationExample" placeholder="Enter text..."></textarea>
+        <button onclick="validateInput()">Check Input</button>
+        <p id="validationOutput"></p>
+        <code>const safeInput = sanitize(userInput);<br>db.query("SELECT * FROM users WHERE name = ?", [safeInput]);</code>
+      </div>
+    
+      <div class="cyber-box">
+        <h3>Tip 2: Secure Password Storage</h3>
+        <p>Hash passwords before storing them:</p>
+        <input type="text" id="passwordExample" placeholder="Enter password">
+        <button onclick="hashPassword()">Hash Password</button>
+        <p id="hashOutput"></p>
+        <code>bcrypt.genSalt(10, (err, salt) => {<br>
+      bcrypt.hash(password, salt, (err, hash) => {<br>
+        // Store safely<br>
+      });<br>});</code>
+      </div>
+    
+      <div class="cyber-box">
+        <h3>Tip 3: Use HTTPS</h3>
+        <p>Always use secure protocols:</p>
+        <code>const https = require('https');<br>
+    https.createServer(opts, (req, res) => {<br>
+    &nbsp;&nbsp;res.end("Secure!");<br>
+    }).listen(443);</code>
+      </div>
     </section>
 
     <section id="tools">
       <h2>📲 Cybersecurity Tools (Demos)</h2>
-      <ul>
-        <li>Input Validator – Sanitizes form fields in real time</li>
-        <li>Password Hasher – Visual bcrypt hashing tool</li>
-      </ul>
+      <div>
+        <h3>Password Strength Checker</h3>
+        <input type="password" id="password-field" placeholder="Enter password">
+        <button id="toggle-password-btn">Show Password</button>
+        <p>Password strength: <span id="strength-text">None</span></p>
+        <div id="strength-bar"></div>
+      </div>
+      <div style="margin-top:2em;">
+        <h3>Weather App</h3>
+        <input type="text" id="city-input" placeholder="Enter city name">
+        <button onclick="getWeather()">Get Weather</button>
+        <div id="weather-result"></div>
+      </div>
     </section>
 
     <section id="hobbies">
@@ -150,17 +194,6 @@ https.createServer(opts, (req, res) => {
     </section>
   </main>
 
-
-  <section id="demos">
-    <h2>🧪 Interactive Demos</h2>
-    <ul>
-      <li><a href="#weather-demo">Weather App</a></li>
-      <li><a href="#password-checker">Password Strength Checker</a></li>
-      <li><a href="#bionic-reader">Bionic Reading Demo</a></li>
-    </ul>
-  </section>
-</main>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

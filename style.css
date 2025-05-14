@@ -21,6 +21,36 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* Loader */
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid var(--accent);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+body.loading {
+  overflow: hidden;
+}
+body.loading * {
+  visibility: hidden;
+}
+body.loading .loader {
+  visibility: visible;
+}
+
 canvas {
   position: absolute;
   top: 0;
@@ -50,7 +80,7 @@ canvas {
   z-index: 1;
 }
 
-/* Toggle switch at top-right */
+/* Toggle switch */
 .switch {
   z-index: 5;
   position: absolute;
@@ -66,27 +96,13 @@ canvas {
   width: 0;
   height: 0;
 }
-/* Center and push toggle switch higher */
+
 .switch.top-right {
-  position: absolute;
   top: 40px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
 }
-
-/* Make quick links centered and spaced lower */
-#quick-links {
-  display: flex;
-  gap: 1em;
-  margin-top: 200px; /* pushed farther down */
-  z-index: 2;
-  position: relative;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
-}
-
 
 .slider {
   position: absolute;
@@ -99,7 +115,6 @@ canvas {
   transition: 0.4s;
   border-radius: 34px;
 }
-
 .slider:before {
   position: absolute;
   content: "";
@@ -115,12 +130,37 @@ canvas {
 input:checked + .slider {
   background-color: var(--accent);
 }
-
 input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Move swipe prompt below buttons */
+/* Quick nav */
+#quick-links {
+  display: flex;
+  gap: 1em;
+  margin-top: 200px;
+  z-index: 2;
+  position: relative;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+#quick-links button {
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  padding: 0.7em 1.2em;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+#quick-links button:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
 #swipe-prompt {
   z-index: 2;
   color: var(--text);
@@ -136,23 +176,7 @@ input:checked + .slider:before {
   50% { transform: translateY(8px); }
 }
 
-
-#quick-links button {
-  background: var(--text);
-  color: var(--bg);
-  border: none;
-  padding: 0.7em 1.2em;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-#quick-links button:hover {
-  background: var(--accent);
-  color: var(--bg);
-}
-
+/* Main sections */
 main {
   padding: 3em 1.5em;
   max-width: 900px;
@@ -176,8 +200,7 @@ section.visible {
   transform: translateY(0);
 }
 
-
-/* Back to Top floating popup */
+/* Back to top */
 #back-to-top {
   display: none;
   position: fixed;
@@ -196,4 +219,129 @@ section.visible {
 }
 #back-to-top:hover {
   background: var(--accent);
+}
+
+/* Avatar image */
+.avatar {
+  width: 130px;
+  border-radius: 50%;
+  margin: 1em 0;
+}
+
+/* Tools – password + weather */
+#tools input[type="text"],
+#tools input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--accent);
+  background: var(--bg);
+  color: var(--text);
+}
+
+#tools button {
+  margin-top: 10px;
+  padding: 10px;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#tools button:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+#weather-result {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#strength-bar {
+  margin-top: 5px;
+  height: 10px;
+  width: 0;
+  background: red;
+  transition: width 0.4s, background 0.4s;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+.cyber-box {
+  background-color: var(--box);
+  padding: 1.5em;
+  border-radius: 10px;
+  margin-bottom: 2em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.cyber-box textarea,
+.cyber-box input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--bg);
+  color: var(--text);
+}
+.cyber-box button {
+  margin-top: 10px;
+  background-color: var(--bg);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.cyber-box button:hover {
+  background-color: var(--accent);
+}
+.cyber-box code {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--bg);
+  color: #d5d1c5;
+  font-family: 'Courier New', Courier, monospace;
+  border-radius: 5px;
+  white-space: pre-line;
+}
+
+/* Timeline Styles */
+.timeline-container {
+  margin-top: 2em;
+  padding: 2em 1em;
+  position: relative;
+}
+.timeline {
+  position: relative;
+  height: 6px;
+  background: var(--accent);
+  margin: 2em auto;
+  width: 90%;
+  border-radius: 3px;
+}
+.timeline-item {
+  position: absolute;
+  top: -60px;
+  transform: translateX(-50%);
+  width: 200px;
+  background: var(--box);
+  color: var(--text);
+  padding: 1em;
+  border-radius: 10px;
+  font-size: 0.9em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-align: center;
 }
