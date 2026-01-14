@@ -1,0 +1,103 @@
+<!-- vault.html  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Vault</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="dark-mode">
+  <canvas id="bg-canvas"></canvas>
+  <div class="hud-grid"></div>
+  <div class="scanlines"></div>
+  <div class="vignette"></div>
+
+  <main class="app-content" style="padding-top:40px;">
+    <div class="hero-card">
+      <div class="hero-badge">PRIVATE VAULT</div>
+      <h1>Quick Text Vault</h1>
+      <p class="muted">
+        This saves text to <strong>this device/browser only</strong> (localStorage).
+        If you open this page on a different device, it won’t auto-sync.
+      </p>
+
+      <textarea id="vaultText" class="ta" placeholder="Type anything here..."></textarea>
+
+      <div class="row" style="margin-top:12px;">
+        <button id="saveVault" class="topbtn">Save</button>
+        <button id="deleteVault" class="topbtn" style="border-color:rgba(255,77,77,.35);background:rgba(255,77,77,.10);">Delete</button>
+        <a class="topbtn" href="index.html">Back</a>
+      </div>
+
+      <div id="vaultStatus" class="note" style="margin-top:12px;">Status: Ready</div>
+    </div>
+  </main>
+
+  <script>
+    const KEY = "vault_text_v1";
+    const t = document.getElementById("vaultText");
+    const st = document.getElementById("vaultStatus");
+
+    function setStatus(msg){
+      st.textContent = "Status: " + msg;
+    }
+
+    // load
+    t.value = localStorage.getItem(KEY) || "";
+    setStatus(t.value ? "Loaded saved text." : "Empty.");
+
+    document.getElementById("saveVault").addEventListener("click", () => {
+      localStorage.setItem(KEY, t.value || "");
+      setStatus("Saved.");
+    });
+
+    document.getElementById("deleteVault").addEventListener("click", () => {
+      localStorage.removeItem(KEY);
+      t.value = "";
+      setStatus("Deleted.");
+    });
+
+    // background particles (simple)
+    const c = document.getElementById("bg-canvas");
+    const ctx = c.getContext("2d");
+    function resize(){ c.width = innerWidth; c.height = innerHeight; }
+    addEventListener("resize", resize); resize();
+
+    let pts = Array.from({length:160},()=>({
+      x:Math.random()*c.width, y:Math.random()*c.height,
+      vx:(Math.random()*0.5-0.25), vy:(Math.random()*0.5-0.25)
+    }));
+
+    function draw(){
+      ctx.clearRect(0,0,c.width,c.height);
+      for(let i=0;i<pts.length;i++){
+        const p=pts[i];
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<0||p.x>c.width) p.vx*=-1;
+        if(p.y<0||p.y>c.height) p.vy*=-1;
+
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,1.6,0,Math.PI*2);
+        ctx.fillStyle='rgba(215,255,230,0.35)';
+        ctx.fill();
+
+        for(let j=i+1;j<pts.length;j++){
+          const q=pts[j];
+          const d=Math.hypot(p.x-q.x,p.y-q.y);
+          if(d<95){
+            ctx.beginPath();
+            ctx.moveTo(p.x,p.y);
+            ctx.lineTo(q.x,q.y);
+            ctx.strokeStyle=`rgba(45,255,160,${0.14*(1-d/95)})`;
+            ctx.lineWidth=1;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+</body>
+</html>

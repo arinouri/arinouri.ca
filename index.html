@@ -1,3 +1,4 @@
+<!-- index.html (UPDATED) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,194 +6,462 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Arian Nouri - Portfolio</title>
   <link rel="stylesheet" href="style.css"/>
+
   <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 </head>
+
 <body class="dark-mode loading">
   <div id="loader" class="loader"></div>
+
+  <!-- BACKGROUND (site-wide) -->
   <canvas id="bg-canvas"></canvas>
+  <div id="three-container"></div>
+  <div class="hud-grid"></div>
+  <div class="scanlines"></div>
+  <div class="vignette"></div>
 
-  <section id="hero">
-    <div id="three-container"></div>
-    <label class="switch top-right">
-      <input type="checkbox" id="mode-toggle" checked />
-      <span class="slider"></span>
-    </label>
-
-    <div id="quick-links">
-      <button data-target="info">Info</button>
-      <button data-target="education">Education</button>
-      <button data-target="experience">Experience</button>
-      <button data-target="skills">Skills</button>
-      <button data-target="projects">Projects</button>
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-title">ARIAN NOURI</div>
+      <div class="brand-sub">Active Security Clearance • Interest: Cyber • App Dev • Systems</div>
     </div>
 
-    <div id="swipe-prompt">↓ Swipe down to explore ↓</div>
-  </section>
+    <div class="topbar-right">
+      <button class="topbtn app-open" data-panel="panel-quick">Quick View</button>
+      <a class="topbtn" href="RESUMEarinouri.pdf" target="_blank" rel="noopener">Resume PDF</a>
 
-  <button id="back-to-top">↑ Back to Top</button>
+      <label class="switch" title="Toggle theme">
+        <input type="checkbox" id="mode-toggle" checked />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </header>
 
-  <main id="sections">
-    <section id="info">
-      <h2>🧑‍💻 Personal Info</h2>
-      <ul>
-        <li><strong>Name:</strong> Arian Nouri</li>
-        <li><strong>Email:</strong> arinouri.cs@gmail.com / nouri.arian@gmail.com</li>
-        <li><strong>Phone:</strong> 613-805-3423</li>
-        <li><strong>Website:</strong> <a href="https://arinouri.ca" target="_blank">arinouri.ca</a></li>
-        <li><strong>GitHub:</strong> <a href="https://github.com/arinouri" target="_blank">github.com/arinouri</a></li>
-        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/arinouri" target="_blank">linkedin.com/in/arinouri</a></li>
-        <li><strong>Security Clearance:</strong> RCMP Secret</li>
-        <li><strong>Languages:</strong> English, French, Farsi</li>
-        <li><strong>Resume:</strong> <a href="RESUMEarinouri.pdf" target="_blank">View PDF</a></li>
-      </ul>
-    </section>
+  <!-- MAIN -->
+  <main class="app-content">
+    <!-- HERO (short) -->
+    <section class="hero-short">
+      <div class="hero-card">
+        <div class="hero-badge">ALWAYS READY TO FACE A NEW CHALLENGE.</div>
+        <h1>Build. Deploy. Sustain. Secure.</h1>
+        <p>
+          Computer Science student focused on reliability, access control, clean data workflows,
+          and security-aware design — built for public sector standards.
+        </p>
 
-    <section id="education">
-      <h2>🎓 Education</h2>
-      <p><strong>Bachelor of Computer Science (Co-op)</strong><br/>
-      Specialization: Internet & Security / Cyber Security<br/>
-      Carleton University, Ottawa, ON<br/>
-      <em>Sept. 2022 – May 2026 (Expected)</em></p>
-    </section>
-
-    <section id="experience">
-      <h2>💼 Experience</h2>
-      <p><strong>IT01 Technical Analyst – RCMP</strong><br/>
-      Ottawa, ON | Sept. 2024 – Present</p>
-      <ul>
-        <li>Supported 200+ enterprise software systems</li>
-        <li>Resolved technical tickets and access requests</li>
-        <li>Maintained security standards and confidentiality</li>
-        <li>Collaborated with internal teams to ensure uptime</li>
-      </ul>
-      <p><strong>Pharmacy Technician – Walmart Pharmacy</strong><br/>
-      Ottawa, ON | Mar. 2021 – Dec. 2024</p>
-      <ul>
-        <li>Managed Kroll entries and prescription processing</li>
-        <li>Logged COVID-19 vaccine data into Covaxon</li>
-        <li>Trained staff and improved backend workflows</li>
-      </ul>
-      <p><strong>Freelance Custom PC Builder</strong><br/>
-      Dec. 2019 – Present</p>
-      <ul>
-        <li>Designed and built custom performance PCs</li>
-        <li>Focused on thermal efficiency and part compatibility</li>
-      </ul>
-      <div class="timeline-container">
-        <div class="timeline">
-          <div class="timeline-item" style="left: 10%">
-            <strong>🛡 RCMP (2024–Now)</strong><br>
-            IT01 Technical Analyst — supported 200+ apps, security enforcement, ticketing systems.
-          </div>
-          <div class="timeline-item" style="left: 45%">
-            <strong>💊 Walmart (2021–2024)</strong><br>
-            Pharmacy Technician — Kroll, Covaxon, vaccine data, staff training.
-          </div>
-          <div class="timeline-item" style="left: 80%">
-            <strong>🖥️ PC Builder (2019–Now)</strong><br>
-            Custom PCs — built high-performance rigs, cooling, compatibility checks.
-          </div>
+        <div class="hero-actions">
+          <button class="primary app-open" data-panel="panel-contact">Contact</button>
+          <button class="app-open" data-panel="panel-security">Security Snapshot</button>
+          <button class="app-open" data-panel="panel-tools">Live Tools</button>
         </div>
       </div>
     </section>
-   
 
-    <section id="skills">
-      <h2>💻 Technical Skills</h2>
-      <ul>
-        <li><strong>Languages:</strong> React, Python, JavaScript, C/C++, Java, SQLite, HTML/CSS, Node.js</li>
-        <li><strong>Tools:</strong> GitHub, VS Code, IntelliJ, Unreal Engine 5, Adobe AE, Photoshop</li>
-        <li><strong>Certifications:</strong> French Certificate, Google Inbound Marketing, Google Analytics</li>
-      </ul>
-    </section>
-
-    <section id="projects">
-      <h2>🌐 Projects</h2>
-      <p><strong>✅ Portfolio Website – arinouri.ca</strong></p>
-      <ul>
-        <li>Responsive site using HTML/CSS/JS + Node.js</li>
-        <li>Demos: Weather App, Password Strength Meter</li>
-        <li>Clean UI with animations and API integrations</li>
-      </ul>
-      <p><strong>✅ Terminal Cybersecurity Game</strong></p>
-      <ul>
-        <li>Interactive JavaScript-based hacking simulation</li>
-        <li>Supports ls, cd, cat commands, vault unlock, maze mini-game</li>
-        <li>Blends cybersecurity and storytelling</li>
-      </ul>
-      <p><strong>✅ Bionic Reading App</strong></p>
-      <ul>
-        <li>Web tool to enhance reading focus</li>
-        <li>Custom styles for readability and speed</li>
-      </ul>
-      <p><strong>✅ Music Playlist App</strong></p>
-      <ul>
-        <li>Integrated with external API</li>
-        <li>Responsive UI and embedded player</li>
-      </ul>
-    </section>
-
-    <section id="cyber">
-      <h2>🛡 Cybersecurity Tips</h2>
-      <div class="cyber-box">
-        <h3>Tip 1: Validate Input</h3>
-        <p>Prevent SQL injection and XSS by validating user inputs.</p>
-        <textarea id="inputValidationExample" placeholder="Enter text..."></textarea>
-        <button onclick="validateInput()">Check Input</button>
-        <p id="validationOutput"></p>
-        <code>const safeInput = sanitize(userInput);<br>db.query("SELECT * FROM users WHERE name = ?", [safeInput]);</code>
+    <!-- DASHBOARD -->
+    <section class="dashboard">
+      <div class="dash-head">
+        <h2 class="section-title">Dashboard</h2>
+        <p class="section-sub">Select a module. Recruiter-friendly. Minimal scrolling.</p>
       </div>
-    
-      <div class="cyber-box">
-        <h3>Tip 2: Secure Password Storage</h3>
-        <p>Hash passwords before storing them:</p>
-        <input type="text" id="passwordExample" placeholder="Enter password">
-        <button onclick="hashPassword()">Hash Password</button>
-        <p id="hashOutput"></p>
-        <code>bcrypt.genSalt(10, (err, salt) => {<br>
-      bcrypt.hash(password, salt, (err, hash) => {<br>
-        // Store safely<br>
-      });<br>});</code>
-      </div>
-    
-      <div class="cyber-box">
-        <h3>Tip 3: Use HTTPS</h3>
-        <p>Always use secure protocols:</p>
-        <code>const https = require('https');<br>
-    https.createServer(opts, (req, res) => {<br>
-    &nbsp;&nbsp;res.end("Secure!");<br>
-    }).listen(443);</code>
+
+      <div class="bubble-grid">
+        <button class="bubble app-open" data-panel="panel-about">
+          <span class="bubble-icon">ID</span>
+          <span class="bubble-label">About</span>
+          <span class="bubble-sub">Profile summary</span>
+        </button>
+
+        <button class="bubble app-open" data-panel="panel-education">
+          <span class="bubble-icon">ED</span>
+          <span class="bubble-label">Education</span>
+          <span class="bubble-sub">Degree + focus</span>
+        </button>
+
+        <button class="bubble app-open" data-panel="panel-experience">
+          <span class="bubble-icon">XP</span>
+          <span class="bubble-label">Experience</span>
+          <span class="bubble-sub">DND + RCMP + Walmart</span>
+        </button>
+
+        <button class="bubble app-open" data-panel="panel-skills">
+          <span class="bubble-icon">SK</span>
+          <span class="bubble-label">Skills</span>
+          <span class="bubble-sub">Tech + tools</span>
+        </button>
+
+        <button class="bubble app-open" data-panel="panel-projects">
+          <span class="bubble-icon">PR</span>
+          <span class="bubble-label">Proof of Work</span>
+          <span class="bubble-sub">Projects + builds</span>
+        </button>
+
+        <button class="bubble app-open" data-panel="panel-tools">
+          <span class="bubble-icon">TL</span>
+          <span class="bubble-label">Live Tools</span>
+          <span class="bubble-sub">Interactive demos</span>
+        </button>
+
+        <button class="bubble app-open" data-panel="panel-security">
+          <span class="bubble-icon">SEC</span>
+          <span class="bubble-label">Security Snapshot</span>
+          <span class="bubble-sub">Browser / network signals</span>
+        </button>
+
+        <button class="bubble app-open" data-panel="panel-hobbies">
+          <span class="bubble-icon">HB</span>
+          <span class="bubble-label">Hobbies</span>
+          <span class="bubble-sub">3D printing • MILSIM • piano</span>
+        </button>
       </div>
     </section>
 
-    <section id="tools">
-      <h2>📲 Cybersecurity Tools (Demos)</h2>
-      <div>
-        <h3>Password Strength Checker</h3>
-        <input type="password" id="password-field" placeholder="Enter password">
-        <button id="toggle-password-btn">Show Password</button>
-        <p>Password strength: <span id="strength-text">None</span></p>
-        <div id="strength-bar"></div>
-      </div>
-      <div style="margin-top:2em;">
-        <h3>Weather App</h3>
-        <input type="text" id="city-input" placeholder="Enter city name">
-        <button onclick="getWeather()">Get Weather</button>
-        <div id="weather-result"></div>
-      </div>
-    </section>
-
-    <section id="hobbies">
-      <h2>🧠 Interests</h2>
-      <ul>
-        <li>Custom PC builds & repair</li>
-        <li>Front-end web development</li>
-        <li>Interactive UI & game design</li>
-        <li>Visual storytelling and design tools</li>
-      </ul>
-    </section>
+    <footer class="footerbar">
+      <span>© <span id="yearNow"></span> Arian Nouri</span>
+      <span class="dot">•</span>
+      <span class="muted">Built with HTML/CSS/JS</span>
+    </footer>
   </main>
+
+  <!-- MODAL OVERLAY -->
+  <div id="overlay" class="overlay hidden" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Module details">
+      <div class="modal-head">
+        <div id="modalTitle" class="modal-title">Module</div>
+        <button id="closeModal" class="close" aria-label="Close">✕</button>
+      </div>
+      <div id="modalBody" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- TEMPLATES -->
+  <template id="panel-quick" data-title="Quick View">
+    <div class="panel">
+      <div class="panel-kv">
+        <div><span>Targets</span><strong>DND • RCMP • CAF • Private Sector</strong></div>
+        <div><span>Strength</span><strong>Hard-working • Problem-solver • Resilient</strong></div>
+        <div><span>Mindset</span><strong>Always looking for a new challenge</strong></div>
+      </div>
+
+      <div class="note">
+        <strong>Recruiter summary:</strong><br/>
+        I’m a Computer Science student with hands-on experience supporting government-grade systems and building real apps.
+        I care about reliability, access control, clean workflows, and long-term sustainment (testing, fixes, and iterative improvement).
+      </div>
+
+      <div class="panel-kv" style="margin-top:12px;">
+        <div><span>Clearance</span><strong>Active Security Clearance</strong></div>
+        <div><span>Focus</span><strong>Cyber • App Dev • Systems</strong></div>
+        <div><span>Location</span><strong>Ottawa, ON</strong></div>
+      </div>
+    </div>
+  </template>
+
+  <template id="panel-contact" data-title="Contact">
+    <div class="panel">
+      <ul class="data-list">
+        <li><strong>Email:</strong> arinouri.cs@gmail.com / nouri.arian@gmail.com</li>
+        <li><strong>Phone:</strong> 613-805-3423</li>
+        <li><strong>Website:</strong> <a href="https://arinouri.ca" target="_blank" rel="noopener">arinouri.ca</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/arinouri" target="_blank" rel="noopener">github.com/arinouri</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/arinouri" target="_blank" rel="noopener">linkedin.com/in/arinouri</a></li>
+      </ul>
+    </div>
+  </template>
+
+  <template id="panel-about" data-title="About">
+    <div class="panel">
+      <div class="panel-kv">
+        <div><span>Current</span><strong>DND Application Developer</strong></div>
+        <div><span>Gov Exp</span><strong>RCMP IT01 Analyst</strong></div>
+        <div><span>Languages</span><strong>English • French • Farsi</strong></div>
+      </div>
+
+      <div class="note">
+        I like work where correctness matters: secure workflows, access control, deployment discipline,
+        testing, and long-term sustainment. I’m the type to keep going until it’s solved — clean, stable, and documented.
+      </div>
+    </div>
+  </template>
+
+  <template id="panel-education" data-title="Education">
+    <div class="panel">
+      <p><strong>Bachelor of Computer Science (Co-op)</strong></p>
+      <p class="muted">
+        Carleton University — Ottawa, ON<br/>
+        Cybersecurity / Internet & Security Stream<br/>
+        Sept. 2022 – May 2026 (Expected)
+      </p>
+      <div class="note">
+        Relevant focus: secure systems, software engineering, data structures, web development, and applied cybersecurity.
+      </div>
+    </div>
+  </template>
+
+  <template id="panel-experience" data-title="Experience">
+    <div class="panel">
+      <div class="stack">
+        <div class="card">
+          <div class="card-top">
+            <strong>Application Developer (Power Platform) — Department of National Defence</strong>
+            <span class="pill">Sept 2025 – Present</span>
+          </div>
+          <ul>
+            <li>Own end-to-end delivery of a Benefits Realization application: build, deploy, test, and sustain.</li>
+            <li>Designed secure data workflows and access patterns to support reliable reporting and audits.</li>
+            <li>Implemented validation logic and stakeholder dashboards to support performance metrics and decisions.</li>
+            <li>Ran deployment readiness: regression testing, bug triage, release coordination, and post-release support.</li>
+            <li>Maintain sustainment cycle: enhancements, stability fixes, and continuous improvement based on feedback.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <strong>IT01 Technical Analyst — RCMP</strong>
+            <span class="pill">Sept 2024 – Aug 2025</span>
+          </div>
+          <ul>
+            <li>Provided technical support across 200+ applications and services used by internal partners.</li>
+            <li>Resolved software/hardware/access issues via ticket workflows and call-centre triage.</li>
+            <li>Handled account resets, permissions, and troubleshooting under confidentiality requirements.</li>
+            <li>Collaborated with analysts to solve complex cases and improve reliability.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <strong>Pharmacy Technician — Walmart Pharmacy</strong>
+            <span class="pill">Mar 2021 – Dec 2024</span>
+          </div>
+          <ul>
+            <li>Managed Kroll entries and prescription processing with accuracy under pressure.</li>
+            <li>Logged COVID-19 vaccine data into Covaxon and ensured clean record handling.</li>
+            <li>Trained staff and improved backend workflows for speed and consistency.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <strong>Custom PC Builder (Freelance)</strong>
+            <span class="pill">2019 – Present</span>
+          </div>
+          <ul>
+            <li>Built and troubleshot systems with focus on stability, thermals, and performance.</li>
+            <li>Matched parts to budgets, validated compatibility, and optimized reliability.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="panel-skills" data-title="Skills">
+    <div class="panel">
+      <div class="panel-kv">
+        <div><span>Languages</span><strong>Python • JavaScript • C/C++ • Java • SQL</strong></div>
+        <div><span>Web</span><strong>React • Node • HTML/CSS</strong></div>
+        <div><span>Tools</span><strong>Git • VS Code • IntelliJ • Arduino IDE</strong></div>
+      </div>
+
+      <div class="note">
+        <strong>Security habits:</strong> validate inputs, least privilege, secure defaults,
+        traceability/logging mindset, and testing before deployment.
+      </div>
+    </div>
+  </template>
+
+  <template id="panel-projects" data-title="Proof of Work">
+    <div class="panel">
+      <div class="stack">
+        <div class="card">
+          <div class="card-top"><strong>Benefits Realization App (Power Platform)</strong><span class="pill">DND</span></div>
+          <ul>
+            <li>Full lifecycle: building, deployment, testing, and sustainment for a secure internal application.</li>
+            <li>Dashboards + validations + workflow design focused on reliability and stakeholder reporting.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top"><strong>Terminal Cybersecurity Simulation</strong><span class="pill">HTML/CSS/JS</span></div>
+          <ul>
+            <li>Command-driven interface to demonstrate structured logic, UX, and security awareness.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top"><strong>ESP32 Marauder Build (Display + 2.4GHz Module)</strong><span class="pill">ESP32</span></div>
+          <ul>
+            <li>Hardware-focused build integrating a TFT display and a 2.4GHz communication module for learning and scanning concepts.</li>
+            <li><em>Portfolio note:</em> shown as ethical lab learning + embedded integration (no operational instructions here).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top"><strong>Pwnagotchi Build</strong><span class="pill">Raspberry Pi</span></div>
+          <ul>
+            <li>Built a learning device for studying networking concepts and security tooling in a controlled lab environment.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top"><strong>Home Lab (Ethical Learning)</strong><span class="pill">Lab</span></div>
+          <ul>
+            <li>Set up an in-home lab for ethical learning: isolated network, test devices, and safe experimentation workflows.</li>
+            <li>Focus: documentation, repeatable testing, and understanding common security misconfigurations.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top"><strong>ReadEasier — Assistive Reading Platform</strong><span class="pill">Web</span></div>
+          <ul>
+            <li>Responsive reading tools: Bionic Reading, Spritz, TTS, line highlighting, overlays.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </template>
+
+  <template id="panel-hobbies" data-title="Hobbies">
+    <div class="panel">
+      <div class="stack">
+        <div class="card">
+          <div class="card-top"><strong>3D Printing</strong><span class="pill">Design / Build</span></div>
+          <ul>
+            <li>Prototype parts and functional prints for projects (iterating quickly and improving designs).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top"><strong>MILSIM</strong><span class="pill">Team / Strategy</span></div>
+          <ul>
+            <li>Enjoy tactical team-based gameplay and structured coordination.</li>
+            <li>Reference video: <a href="https://www.youtube.com/watch?v=57EhY3V4uCM" target="_blank" rel="noopener">watch</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top"><strong>Piano</strong><span class="pill">12 years</span></div>
+          <ul>
+            <li>Play Iranian culture-inspired pieces and modern songs (12+ years of practice).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="panel-tools" data-title="Live Tools (Interactive)">
+    <div class="panel">
+      <div class="stack">
+        <!-- Tool 1 -->
+        <div class="card">
+          <div class="card-top"><strong>Password Strength Checker</strong><span class="pill">Client-side</span></div>
+          <input type="password" id="password-field" placeholder="Enter password">
+          <div class="row">
+            <button id="toggle-password-btn">Show Password</button>
+            <span class="muted small">Meaningful: demonstrates entropy thinking</span>
+          </div>
+          <p>Password strength: <span id="strength-text">None</span></p>
+          <div id="strength-bar"></div>
+        </div>
+
+        <!-- Tool 2 -->
+        <div class="card">
+          <div class="card-top"><strong>Hash Demo (SHA-256)</strong><span class="pill">CryptoJS</span></div>
+          <input type="text" id="passwordExample" placeholder="Enter text to hash">
+          <button id="hashBtn">Hash</button>
+          <div id="hashOutput" class="muted" style="margin-top:10px;"></div>
+        </div>
+
+        <!-- Tool 3 -->
+        <div class="card">
+          <div class="card-top"><strong>Input Sanitizer Demo</strong><span class="pill">Security</span></div>
+          <textarea id="sanitizeInput" class="ta" placeholder="Paste text (shows how you’d safely render / sanitize untrusted input)"></textarea>
+          <div class="row">
+            <button id="sanitizeBtn">Sanitize</button>
+            <span class="muted small">Meaningful: XSS-awareness</span>
+          </div>
+          <div class="muted small" style="margin-top:10px;">Sanitized output:</div>
+          <pre id="sanitizeOutput" class="pre"></pre>
+        </div>
+
+        <!-- Tool 4 (Terminal moved here) -->
+        <div class="card">
+          <div class="card-top"><strong>Tactical Terminal (Sim)</strong><span class="pill">Interactive</span></div>
+          <div id="mini-terminal" class="terminal-screen"></div>
+          <div class="terminal-input">
+            <span class="prompt">OPS&gt;</span>
+            <input id="mini-cmd" type="text" placeholder="help / scan / status / clear" autocomplete="off" />
+            <button id="mini-run">RUN</button>
+          </div>
+        </div>
+
+        <!-- Tool 5 -->
+        <div class="card">
+          <div class="card-top"><strong>Weather App</strong><span class="pill">API</span></div>
+          <input type="text" id="city-input" placeholder="Enter city name">
+          <button id="weatherBtn">Get Weather</button>
+          <div id="weather-result" class="muted" style="margin-top:10px;"></div>
+        </div>
+
+      </div>
+    </div>
+  </template>
+
+  <template id="panel-security" data-title="Security Snapshot">
+    <div class="panel">
+      <div class="note">
+        <strong>What this shows:</strong> browser-visible signals related to secure context, transport, and network hints.
+        (Browsers limit sensitive detection — this is a demo of awareness + interpretation.)
+      </div>
+
+      <div class="module-grid">
+        <div class="module-card">
+          <div class="module-head">
+            <span class="module-title">CONNECTION</span>
+            <span class="pill" id="netPill">CHECKING</span>
+          </div>
+          <div class="kv">
+            <div><span>ONLINE</span><strong id="netOnline">-</strong></div>
+            <div><span>TYPE</span><strong id="netType">-</strong></div>
+            <div><span>DOWNLINK</span><strong id="netDown">-</strong></div>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-head">
+            <span class="module-title">SECURE CONTEXT</span>
+            <span class="pill" id="secPill">CHECKING</span>
+          </div>
+          <div class="kv">
+            <div><span>HTTPS</span><strong id="secHttps">-</strong></div>
+            <div><span>SECURE</span><strong id="secContext">-</strong></div>
+            <div><span>COOKIES</span><strong id="secCookies">-</strong></div>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-head">
+            <span class="module-title">PRIVACY</span>
+            <span class="pill">INFO</span>
+          </div>
+          <div class="kv">
+            <div><span>DNT</span><strong id="privDnt">-</strong></div>
+            <div><span>LANG</span><strong id="privLang">-</strong></div>
+            <div><span>TIMEZONE</span><strong id="privTz">-</strong></div>
+          </div>
+        </div>
+
+        <div class="module-card terminal">
+          <div class="module-head">
+            <span class="module-title">RECOMMENDATIONS</span>
+            <span class="pill">AUTO</span>
+          </div>
+          <div id="secTips" class="terminal-screen"></div>
+        </div>
+      </div>
+    </div>
+  </template>
 
   <script src="script.js"></script>
 </body>
