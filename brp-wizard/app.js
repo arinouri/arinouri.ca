@@ -62,8 +62,22 @@
 
   function pushAudit(store, entry) {
     store.audit.push({ at: nowISO(), ...entry });
-    // keep last 200
-    if (store.audit.length > 200) store.audit = store.audit.slice(-200);
+    // keep last 2000 (portfolio-level history)
+    if (store.audit.length > 2000) store.audit = store.audit.slice(-2000);
+  }
+
+  function ensureHistory(brp) {
+    brp.history = Array.isArray(brp.history) ? brp.history : [];
+    return brp;
+  }
+
+  function logBrp(store, brp, action, meta = {}) {
+    ensureHistory(brp);
+    const evt = { at: nowISO(), action, ...deepClone(meta) };
+    brp.history.push(evt);
+    // keep last 500 events per BRP
+    if (brp.history.length > 500) brp.history = brp.history.slice(-500);
+    pushAudit(store, { type: 'brp_event', brpId: brp.id, action, ...deepClone(meta) });
   }
 
   function nextBrpId(store) {
@@ -149,8 +163,7 @@
     $$('.top-nav a').forEach(a => a.classList.remove('active'));
     const map = {
       home: '#nav-home',
-      wizard: '#nav-wizard',
-      overview: '#nav-overview',
+      create: '#nav-create',
       governance: '#nav-governance',
       analytics: '#nav-analytics',
       help: '#nav-help',
@@ -290,46 +303,21 @@
           </div>
 
           <div class="card">
-            <div class="card-hd"><h2 style="margin:0;">Create a new BRP</h2></div>
+            <div class="card-hd"><h2 style="margin:0;">Quick actions</h2></div>
             <div class="card-bd">
-              <div class="field">
-                <label for="new_title">Project Name (Title)</label>
-                <input id="new_title" type="text" placeholder="e.g., ERP Modernization — Finance"/>
+              <div class="notice" style="margin-top:0;">
+                <strong>Start here:</strong> create a new BRP, or resume an existing one.
               </div>
-
-              <div class="grid two">
-                <div class="field">
-                  <label for="new_num">Project Number</label>
-                  <input id="new_num" type="text" placeholder="e.g., DND-ERP-2026-01"/>
-                </div>
-                <div class="field">
-                  <label for="new_programme">Project or Programme?</label>
-                  <select id="new_programme">
-                    <option value="Project">Project</option>
-                    <option value="Programme">Programme</option>
-                  </select>
-                </div>
+              <div class="toolbar" style="flex-wrap:wrap;gap:10px;">
+                <a class="btn primary" href="#/create">+ Create new BRP</a>
+                ${lastBrp ? `<a class="btn" href="#/wizard/${esc(lastBrp.id)}">Resume last (${esc(lastBrp.id)})</a>` : `<span class="muted">No BRP opened yet.</span>`}
+                <a class="btn" href="#/governance">Governance packs</a>
+                <a class="btn" href="#/analytics">Analytics</a>
               </div>
-
-              <div class="grid two">
-                <div class="field">
-                  <label for="new_status">BRP Status</label>
-                  <select id="new_status">
-                    <option value="Draft">Draft</option>
-                    <option value="In Progress">In Progress</option>
-                    <option value="Complete">Complete</option>
-                  </select>
-                  <div class="help">Tip: Most start as Draft.</div>
-                </div>
-                <div class="field">
-                  <label for="new_gate">Start Gate</label>
-                  <select id="new_gate">
-                    ${GATES.map(g=>`<option value="${g.n}">${esc(g.name)}</option>`).join('')}
-                  </select>
-                </div>
+              <div class="hr"></div>
+              <div class="help">
+                Tip: the wizard enforces gate order. Use <strong>Save Draft</strong> anytime to avoid losing work.
               </div>
-
-              <button class="btn primary" id="btn_create">Create New BRP</button>
             </div>
           </div>
         </div>
@@ -411,44 +399,6 @@
       <div class="hr"></div>
       <div class="help">Tip: the <strong>Overview</strong> page shows the full portfolio list and filters.</div>
     `;
-
-    // Create BRP
-    $('#btn_create').addEventListener('click', () => {
-      const title = getVal('new_title').trim();
-      const projectNumber = getVal('new_num').trim();
-      const programmeType = getVal('new_programme');
-      const status = getVal('new_status');
-      const gate = clampInt(getVal('new_gate'), 1, 7);
-
-      if (!title) return toast('Missing field', 'Project Name (Title) is required.');
-      if (!projectNumber) return toast('Missing field', 'Project Number is required.');
-
-      const id = nextBrpId(store);
-      const brp = ensureArrays({
-        id,
-        title,
-        projectNumber,
-        programmeType,
-        gate,
-        status,
-        createdAt: nowISO(),
-        updatedAt: nowISO(),
-        g1: {
-          projectName: title,
-          projectNumber,
-          projectOrProgramme: programmeType,
-          brpStatus: status,
-        },
-        g2: {}, g3: {}, g4: {}, g5: {}, g6: {}, g7: {}
-      });
-
-      store.brps.push(brp);
-      store.lastOpenedBrpId = id;
-      pushAudit(store, { type:'create', id });
-      saveStore(store);
-      toast('BRP created', `Created BRP ${id}. Opening wizard...`);
-      location.hash = '#/wizard/' + id;
-    });
 
     // Search / resume
     const renderSearchResults = (hits) => {
@@ -582,6 +532,121 @@
     });
   }
 
+  function renderCreate(store) {
+    setActiveNav('create');
+
+    $('#app').innerHTML = `
+      <div class="toolbar" style="justify-content:space-between;align-items:flex-end;">
+        <div>
+          <h1 style="margin-bottom:6px;">Create a new BRP</h1>
+          <div class="muted">Start a new BRP at Gate 1. You can save a draft anytime and resume later.</div>
+        </div>
+        <div class="toolbar">
+          <a class="btn" href="#/home">Back to Dashboard</a>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <div class="card-hd"><h2 style="margin:0;">BRP basics</h2></div>
+        <div class="card-bd">
+          <div class="field">
+            <label for="new_title">Project Name (Title)</label>
+            <input id="new_title" type="text" placeholder="e.g., ERP Modernization — Finance"/>
+          </div>
+
+          <div class="grid two">
+            <div class="field">
+              <label for="new_num">Project Number</label>
+              <input id="new_num" type="text" placeholder="e.g., DND-ERP-2026-01"/>
+            </div>
+            <div class="field">
+              <label for="new_programme">Project or Programme?</label>
+              <select id="new_programme">
+                <option value="Project">Project</option>
+                <option value="Programme">Programme</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid two">
+            <div class="field">
+              <label for="new_status">Initial BRP Status</label>
+              <select id="new_status">
+                <option value="Draft">Draft</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Complete">Complete</option>
+              </select>
+              <div class="help">Most BRPs start as Draft.</div>
+            </div>
+            <div class="field">
+              <label for="new_gate">Start Gate</label>
+              <select id="new_gate">
+                ${GATES.map(g=>`<option value="${g.n}">${esc(g.name)}</option>`).join('')}
+              </select>
+              <div class="help">Normally start at Gate 1 (recommended).</div>
+            </div>
+          </div>
+
+          <div class="toolbar" style="justify-content:flex-start;gap:10px;margin-top:8px;">
+            <button class="btn primary" id="btn_create">Create BRP & Open Wizard</button>
+            <button class="btn" id="btn_cancel">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <div class="card-hd"><h2 style="margin:0;">What happens next?</h2></div>
+        <div class="card-bd">
+          <ol style="margin:0;">
+            <li>The wizard opens at your selected gate.</li>
+            <li>Use <strong>Save Draft</strong> to save without advancing.</li>
+            <li>Use <strong>Next Gate</strong> when required fields are complete.</li>
+            <li>Use <strong>Governance</strong> to view/print a pack for decision-makers.</li>
+          </ol>
+        </div>
+      </div>
+    `;
+
+    $('#btn_cancel').addEventListener('click', () => location.hash = '#/home');
+
+    $('#btn_create').addEventListener('click', () => {
+      const title = getVal('new_title').trim();
+      const projectNumber = getVal('new_num').trim();
+      const programmeType = getVal('new_programme');
+      const status = getVal('new_status');
+      const gate = clampInt(getVal('new_gate'), 1, 7);
+
+      if (!title) return toast('Missing field', 'Project Name (Title) is required.');
+      if (!projectNumber) return toast('Missing field', 'Project Number is required.');
+
+      const id = nextBrpId(store);
+      const brp = ensureHistory(ensureArrays({
+        id,
+        title,
+        projectNumber,
+        programmeType,
+        gate,
+        status,
+        createdAt: nowISO(),
+        updatedAt: nowISO(),
+        g1: {
+          projectName: title,
+          projectNumber,
+          projectOrProgramme: programmeType,
+          brpStatus: status,
+        },
+        g2: {}, g3: {}, g4: {}, g5: {}, g6: {}, g7: {}
+      }));
+
+      store.brps.push(brp);
+      store.lastOpenedBrpId = id;
+      logBrp(store, brp, 'create', { gate, title, projectNumber });
+      saveStore(store);
+      toast('BRP created', `Created BRP ${id}. Opening wizard...`);
+      location.hash = '#/wizard/' + id;
+    });
+  }
+
     function renderGovernance(store, brpId=null) {
     setActiveNav('governance');
 
@@ -606,12 +671,18 @@
     `;
 
     $$('[data-view]').forEach(btn => btn.addEventListener('click', () => {
-      location.hash = '#/governance/' + btn.getAttribute('data-view');
+      const id = btn.getAttribute('data-view');
+      const brp = findBrp(store, id);
+      if (brp) logBrp(store, brp, 'governance_view', { gate: brp.gate });
+      saveStore(store);
+      location.hash = '#/governance/' + id;
     }));
     $$('[data-print]').forEach(btn => btn.addEventListener('click', () => {
       const id = btn.getAttribute('data-print');
       const brp = findBrp(store, id);
       if (!brp) return toast('Not found', 'BRP not found.');
+      logBrp(store, brp, 'governance_print', { gate: brp.gate });
+      saveStore(store);
       openPrintWindow(buildGovernancePackHTML(brp));
     }));
     $$('[data-open]').forEach(btn => btn.addEventListener('click', () => {
@@ -662,6 +733,8 @@
     `;
 
     $('#btn_print_pack').addEventListener('click', () => {
+      logBrp(store, brp, 'governance_print', { gate: brp.gate });
+      saveStore(store);
       openPrintWindow(buildGovernancePackHTML(brp));
     });
   }
@@ -1109,9 +1182,97 @@
         </div>
       </div>
 
+      <h2 style="margin-top:18px;">Activity history</h2>
+      <div class="card">
+        <div class="card-bd">
+          <div class="grid two">
+            <div class="field">
+              <label for="hist_scope">Scope</label>
+              <select id="hist_scope">
+                <option value="all">All BRPs (portfolio)</option>
+                ${store.brps
+                  .slice()
+                  .sort((a,b)=>String(a.id).localeCompare(String(b.id)))
+                  .map(b=>`<option value="${esc(b.id)}">${esc(b.id)} — ${esc((b.title||'').slice(0,40))}</option>`)
+                  .join('')}
+              </select>
+              <div class="help">Choose a BRP to see its full edit history (create, saves, adds/removes, gate moves, prints).</div>
+            </div>
+            <div class="field">
+              <label for="hist_search">Search</label>
+              <input id="hist_search" type="text" placeholder="e.g., advance, gate2_add, print, KPI"/>
+              <div class="help">Filters by action or text inside details.</div>
+            </div>
+          </div>
+          <div class="hr"></div>
+          <div class="table-wrap" style="max-height:360px;overflow:auto;">
+            <table aria-label="History table">
+              <thead>
+                <tr>
+                  <th style="width:180px;">When</th>
+                  <th style="width:120px;">BRP</th>
+                  <th style="width:180px;">Action</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody id="hist_body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
       <div class="hr"></div>
       <div class="help">Next upgrades: filters (by programme, sponsor, org), drilldowns per benefit/KPI, export to CSV/PDF, and a full admin dashboard (REQ 2.3–2.6).</div>
     `;
+
+    const renderHistory = () => {
+      const scope = getVal('hist_scope') || 'all';
+      const q = getVal('hist_search').toLowerCase();
+
+      let events = [];
+      if (scope === 'all') {
+        events = (store.audit || [])
+          .filter(e => e.type === 'brp_event')
+          .map(e => ({ at: e.at, brpId: e.brpId, action: e.action, meta: e }));
+      } else {
+        const brp = findBrp(store, scope);
+        events = (brp?.history || []).map(e => ({ at: e.at, brpId: brp.id, action: e.action, meta: e }));
+      }
+
+      events = events
+        .slice()
+        .sort((a,b)=>(b.at||'').localeCompare(a.at||''));
+
+      const match = (evt) => {
+        if (!q) return true;
+        const blob = (evt.action + ' ' + JSON.stringify(evt.meta || {})).toLowerCase();
+        return blob.includes(q);
+      };
+      const rows = events.filter(match).slice(0, 500);
+      const body = $('#hist_body');
+      if (!rows.length) {
+        body.innerHTML = `<tr><td colspan="4" class="muted">No history entries found.</td></tr>`;
+        return;
+      }
+      body.innerHTML = rows.map(e => {
+        const details = deepClone(e.meta || {});
+        delete details.at;
+        return `
+          <tr>
+            <td>${esc(fmtDate(e.at))}</td>
+            <td><code>${esc(e.brpId || '')}</code></td>
+            <td>${esc(String(e.action || ''))}</td>
+            <td><code>${esc(JSON.stringify(details))}</code></td>
+          </tr>
+        `;
+      }).join('');
+    };
+
+    const scopeEl = document.getElementById('hist_scope');
+    const searchEl = document.getElementById('hist_search');
+    if (scopeEl) scopeEl.addEventListener('change', renderHistory);
+    if (searchEl) searchEl.addEventListener('input', renderHistory);
+    renderHistory();
   }
 
 function renderHelp() {
@@ -1272,12 +1433,14 @@ function renderHelp() {
     renderGateForm(store, brp, gate);
 
     $('#btn_prev').addEventListener('click', () => {
+      // Save whatever is currently typed before moving back
+      collectGateInputs(brp, gate, { validate:false });
       const g = clampInt(brp.gate,1,7);
       if (g <= 1) return;
       brp.gate = clampInt(g - 1, 1, 7);
       brp.updatedAt = nowISO();
       brp.status = deriveStatus(brp);
-      pushAudit(store, { action:'move_prev', brpId:brp.id, gate: brp.gate });
+      logBrp(store, brp, 'move_prev', { toGate: brp.gate, fromGate: g });
       saveStore(store);
       location.hash = '#/wizard/' + brp.id + '?g=' + brp.gate + '&t=' + Date.now();
       render();
@@ -1289,7 +1452,7 @@ function renderHelp() {
       if (!ok) return;
       brp.updatedAt = nowISO();
       brp.status = deriveStatus(brp);
-      pushAudit(store, { action:'save_draft', brpId:brp.id, gate });
+      logBrp(store, brp, 'save_draft', { gate });
       saveStore(store);
       location.hash = '#/wizard/' + brp.id + '?g=' + brp.gate + '&t=' + Date.now();
       render();
@@ -1303,7 +1466,7 @@ function renderHelp() {
       if (draftOk) {
         brp.updatedAt = nowISO();
         brp.status = deriveStatus(brp);
-        pushAudit(store, { action:'auto_save', brpId:brp.id, gate });
+        logBrp(store, brp, 'auto_save', { gate });
         saveStore(store);
       }
 
@@ -1311,14 +1474,15 @@ function renderHelp() {
       if (!ok) return;
 
       // advance
-      brp.gate = clampInt(clampInt(brp.gate, 1, 7) + 1, 1, 7);
+      const fromGate = clampInt(brp.gate, 1, 7);
+      brp.gate = clampInt(fromGate + 1, 1, 7);
       brp.updatedAt = nowISO();
       brp.status = deriveStatus(brp);
 
       // sync dependent arrays (benefits/kpis) when moving forward
       syncDerivedLists(brp);
 
-      pushAudit(store, { action:'advance', brpId:brp.id, gate: brp.gate });
+      logBrp(store, brp, 'advance', { fromGate, toGate: brp.gate });
       saveStore(store);
       toast('Advanced', `Saved and moved to Gate ${brp.gate}.`);
       location.hash = '#/wizard/' + brp.id;
@@ -1334,6 +1498,25 @@ function renderHelp() {
 
     // wire dynamic add/remove buttons
     wireDynamicLists(store, brp, gate);
+
+    // Auto-save on field changes so edits aren't lost when users add/remove rows.
+    // (Debounced to avoid noisy writes.)
+    let t = null;
+    const scheduleSave = (hint='edit') => {
+      if (t) clearTimeout(t);
+      t = setTimeout(() => {
+        collectGateInputs(brp, gate, { validate:false });
+        brp.updatedAt = nowISO();
+        brp.status = deriveStatus(brp);
+        logBrp(store, brp, hint, { gate });
+        saveStore(store);
+      }, 250);
+    };
+
+    host.querySelectorAll('input, textarea, select').forEach(el => {
+      el.addEventListener('change', () => scheduleSave('edit'));
+      el.addEventListener('blur', () => scheduleSave('edit'));
+    });
   }
 
   function gateTemplate(brp, gate) {
@@ -1778,40 +1961,51 @@ function renderHelp() {
     if (gate === 2) {
       const addOutcomeBtn = $('#add_outcome');
       if (addOutcomeBtn) addOutcomeBtn.addEventListener('click', () => {
+        // preserve what the user already typed before re-rendering
+        collectGateInputs(brp, 2, { validate:false });
         brp.g2.outcomes.push({ id: genId('O'), name:'', alignmentDoc:'', alignmentSection:'' });
         brp.updatedAt = nowISO();
+        logBrp(store, brp, 'gate2_add', { kind:'outcome' });
         saveStore(store);
         rerenderWizardCurrent(store, brp.id);
       });
 
       const addOptionBtn = $('#add_option');
       if (addOptionBtn) addOptionBtn.addEventListener('click', () => {
+        collectGateInputs(brp, 2, { validate:false });
         brp.g2.options.push({ id: genId('P'), name:'', description:'', selected:false });
         brp.updatedAt = nowISO();
+        logBrp(store, brp, 'gate2_add', { kind:'option' });
         saveStore(store);
         rerenderWizardCurrent(store, brp.id);
       });
 
       const addBenefitBtn = $('#add_benefit');
       if (addBenefitBtn) addBenefitBtn.addEventListener('click', () => {
+        collectGateInputs(brp, 2, { validate:false });
         brp.g2.benefits.push({ id: genId('B'), outcomeId: (brp.g2.outcomes[0]?.id || ''), name:'', type:'', owner:'', kpiTargetByOption:'' , baseline:'', baselineAssumptions:'', targetAssumptions:'' });
         brp.updatedAt = nowISO();
+        logBrp(store, brp, 'gate2_add', { kind:'benefit' });
         saveStore(store);
         rerenderWizardCurrent(store, brp.id);
       });
 
       const addKpiBtn = $('#add_kpi');
       if (addKpiBtn) addKpiBtn.addEventListener('click', () => {
+        collectGateInputs(brp, 2, { validate:false });
         brp.g2.kpis.push({ id: genId('K'), benefitId: (brp.g2.benefits[0]?.id || ''), name:'', unit:'', baseline:'', baselineAssumptions:'', targetByOption:'' , targetAssumptions:'' });
         brp.updatedAt = nowISO();
+        logBrp(store, brp, 'gate2_add', { kind:'kpi' });
         saveStore(store);
         rerenderWizardCurrent(store, brp.id);
       });
 
       const addRoleBtn = $('#add_role');
       if (addRoleBtn) addRoleBtn.addEventListener('click', () => {
+        collectGateInputs(brp, 2, { validate:false });
         brp.g2.roles.push({ roleType:'Project Manager', responsibility:'', name:'' });
         brp.updatedAt = nowISO();
+        logBrp(store, brp, 'gate2_add', { kind:'role' });
         saveStore(store);
         rerenderWizardCurrent(store, brp.id);
       });
@@ -1820,12 +2014,14 @@ function renderHelp() {
       $$('#gate_form [data-del]').forEach(btn => btn.addEventListener('click', () => {
         const kind = btn.getAttribute('data-kind');
         const idx = clampInt(btn.getAttribute('data-del'), 0, 999);
+        collectGateInputs(brp, 2, { validate:false });
         if (kind === 'outcome') brp.g2.outcomes.splice(idx, 1);
         if (kind === 'option') brp.g2.options.splice(idx, 1);
         if (kind === 'benefit') brp.g2.benefits.splice(idx, 1);
         if (kind === 'kpi') brp.g2.kpis.splice(idx, 1);
         if (kind === 'role') brp.g2.roles.splice(idx, 1);
         brp.updatedAt = nowISO();
+        logBrp(store, brp, 'gate2_remove', { kind, idx });
         saveStore(store);
         rerenderWizardCurrent(store, brp.id);
       }));
@@ -1834,6 +2030,7 @@ function renderHelp() {
         const idx = clampInt(el.getAttribute('data-selopt'), 0, 999);
         brp.g2.options[idx].selected = !!el.checked;
         brp.updatedAt = nowISO();
+        logBrp(store, brp, 'gate2_update', { kind:'option_selected', idx, selected: brp.g2.options[idx].selected });
         saveStore(store);
       }));
     }
@@ -1841,16 +2038,20 @@ function renderHelp() {
     if (gate === 5) {
       const add = $('#add_transition');
       if (add) add.addEventListener('click', () => {
+        collectGateInputs(brp, 5, { validate:false });
         brp.g5.transitions.push({ activity:'', accountable:'', targetEndDate:'' });
         brp.updatedAt = nowISO();
+        logBrp(store, brp, 'gate5_add', { kind:'transition' });
         saveStore(store);
         rerenderWizardCurrent(store, brp.id);
       });
 
       $$('#gate_form [data-del-trans]').forEach(btn => btn.addEventListener('click', () => {
         const idx = clampInt(btn.getAttribute('data-del-trans'), 0, 999);
+        collectGateInputs(brp, 5, { validate:false });
         brp.g5.transitions.splice(idx, 1);
         brp.updatedAt = nowISO();
+        logBrp(store, brp, 'gate5_remove', { kind:'transition', idx });
         saveStore(store);
         rerenderWizardCurrent(store, brp.id);
       }));
@@ -2416,6 +2617,7 @@ function fmtDate(iso) {
     }
 
     if (r.page === 'home') return renderHome(store);
+    if (r.page === 'create') return renderCreate(store);
     if (r.page === 'overview') return renderOverview(store);
     if (r.page === 'governance') return renderGovernance(store, r.param);
     if (r.page === 'analytics') return renderAnalytics(store);
