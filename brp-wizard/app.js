@@ -86,6 +86,205 @@
     return id;
   }
 
+
+  function seedDemoData(store) {
+    if (Array.isArray(store.brps) && store.brps.length) return false;
+
+    const seeds = [
+      {
+        title: 'Fleet Logistics Digital Uplift',
+        projectNumber: 'GOV-FLT-2026-02',
+        programmeType: 'Project',
+        gate: 6,
+        status: 'In Progress',
+        createdDaysAgo: 120,
+        updatedDaysAgo: 7,
+        leadOrg: 'Project Management Office (PMO)',
+        outcomes: ['Faster materiel tracking', 'Lower manual workload', 'Improved auditability'],
+        benefits: [
+          { name: 'Reduce shipment processing time', owner: 'Logistics Ops', position: 'Business Owner' },
+          { name: 'Improve inventory accuracy', owner: 'Supply Chain', position: 'Business Owner' },
+        ],
+        kpis: [
+          { kpi: 'Average processing time (hrs)', baseline: '18', target: '10', unit: 'hrs' },
+          { kpi: 'Inventory variance (%)', baseline: '7', target: '3', unit: '%' },
+        ]
+      },
+      {
+        title: 'Secure Network Segmentation Refresh',
+        projectNumber: 'GOV-CYB-2025-11',
+        programmeType: 'Project',
+        gate: 4,
+        status: 'In Progress',
+        createdDaysAgo: 90,
+        updatedDaysAgo: 20,
+        leadOrg: 'CIO / IM Group',
+        outcomes: ['Reduced lateral movement risk', 'Clearer service boundaries'],
+        benefits: [{ name: 'Reduce critical incidents', owner: 'Cyber Operations', position: 'Business Owner' }],
+        kpis: [
+          { kpi: 'High severity incidents / qtr', baseline: '6', target: '3', unit: 'count' },
+        ]
+      },
+      {
+        title: 'Base Infrastructure Renewal — Phase 1',
+        projectNumber: 'GOV-INF-2026-01',
+        programmeType: 'Programme',
+        gate: 5,
+        status: 'In Progress',
+        createdDaysAgo: 160,
+        updatedDaysAgo: 14,
+        leadOrg: 'ADM(Mat)',
+        outcomes: ['Safer facilities', 'Reduced unplanned downtime'],
+        benefits: [{ name: 'Reduce emergency maintenance', owner: 'Facilities', position: 'Business Owner' }],
+        kpis: [{ kpi: 'Unplanned downtime (hrs/mo)', baseline: '42', target: '25', unit: 'hrs' }]
+      },
+      {
+        title: 'HR Case Management Modernization',
+        projectNumber: 'GOV-HR-2025-09',
+        programmeType: 'Project',
+        gate: 3,
+        status: 'In Progress',
+        createdDaysAgo: 60,
+        updatedDaysAgo: 2,
+        leadOrg: 'ADM(HR-Civ)',
+        outcomes: ['Faster case resolution', 'Better service tracking'],
+        benefits: [{ name: 'Reduce average case resolution time', owner: 'HR Service Centre', position: 'Business Owner' }],
+        kpis: [{ kpi: 'Average resolution time (days)', baseline: '14', target: '9', unit: 'days' }]
+      },
+      {
+        title: 'Financial Controls Automation',
+        projectNumber: 'GOV-FIN-2025-08',
+        programmeType: 'Project',
+        gate: 7,
+        status: 'Complete',
+        createdDaysAgo: 220,
+        updatedDaysAgo: 35,
+        leadOrg: 'ADM(Fin)',
+        outcomes: ['Fewer manual corrections', 'Improved monthly close'],
+        benefits: [{ name: 'Reduce reconciliation effort', owner: 'Finance Ops', position: 'Business Owner' }],
+        kpis: [{ kpi: 'Close cycle time (days)', baseline: '8', target: '5', unit: 'days' }]
+      },
+      {
+        title: 'Training Delivery Platform Upgrade',
+        projectNumber: 'GOV-TRN-2026-03',
+        programmeType: 'Project',
+        gate: 2,
+        status: 'Draft',
+        createdDaysAgo: 14,
+        updatedDaysAgo: 14,
+        leadOrg: 'Other',
+        outcomes: ['Improved learner access', 'More consistent reporting'],
+        benefits: [],
+        kpis: []
+      },
+      {
+        title: 'Records & Retention Standardization',
+        projectNumber: 'GOV-IM-2025-12',
+        programmeType: 'Programme',
+        gate: 1,
+        status: 'Draft',
+        createdDaysAgo: 5,
+        updatedDaysAgo: 5,
+        leadOrg: 'ADM(IM)',
+        outcomes: ['Clearer retention rules', 'Reduced duplication'],
+        benefits: [],
+        kpis: []
+      },
+      {
+        title: 'Procurement Workflow Simplification',
+        projectNumber: 'GOV-PRC-2025-10',
+        programmeType: 'Project',
+        gate: 6,
+        status: 'In Progress',
+        createdDaysAgo: 110,
+        updatedDaysAgo: 9,
+        leadOrg: 'ADM(Mat)',
+        outcomes: ['Shorter cycle time', 'Better visibility of approvals'],
+        benefits: [{ name: 'Reduce average procurement cycle time', owner: 'Procurement', position: 'Business Owner' }],
+        kpis: [{ kpi: 'Cycle time (days)', baseline: '32', target: '22', unit: 'days' }]
+      },
+    ];
+
+    // Create BRPs
+    seeds.forEach((s, i) => {
+      const id = nextBrpId(store);
+      const createdAt = isoFromDaysAgo(s.createdDaysAgo);
+      const updatedAt = isoFromDaysAgo(s.updatedDaysAgo);
+
+      const brp = ensureHistory(ensureArrays({
+        id,
+        title: s.title,
+        projectNumber: s.projectNumber,
+        programmeType: s.programmeType,
+        gate: clampInt(s.gate,1,7),
+        status: s.status,
+        createdAt,
+        updatedAt,
+        g1: {
+          projectName: s.title,
+          projectNumber: s.projectNumber,
+          projectOrProgramme: s.programmeType,
+          brpStatus: s.status,
+          leadOrg: s.leadOrg,
+          summary: (s.outcomes || []).slice(0,2).join(' / ')
+        },
+        g2: {
+          outcomes: (s.outcomes || []).map((t, idx) => ({ outcome: `Outcome ${idx+1}`, statement: t })),
+          benefits: (s.benefits || []).map((b, idx) => ({ benefit: b.name, businessOwner: b.owner, position: b.position || 'Business Owner' })),
+          kpis: (s.kpis || []).map((k, idx) => ({ kpi: k.kpi, baseline: k.baseline, target: k.target, unit: k.unit || '' })),
+          roles: [
+            { roleType: 'Project Leader', name: 'Alex Morgan', org: s.leadOrg || 'PMO' },
+            { roleType: 'Project Sponsor', name: 'Taylor Singh', org: s.leadOrg || 'PMO' },
+          ],
+          options: [
+            { option: 'Option A', summary: 'Incremental enhancement', selected: 'Yes' },
+            { option: 'Option B', summary: 'Full replacement', selected: 'No' },
+          ]
+        },
+        g3: { benefitReporting: (s.kpis || []).slice(0,3).map((k, idx) => ({
+          benefit: (s.benefits && s.benefits[idx] ? s.benefits[idx].name : `Benefit ${idx+1}`),
+          kpi: k.kpi,
+          baseline: k.baseline,
+          target: k.target,
+          firstReportingDate: shortDateFromDaysAgo(Math.max(1, s.updatedDaysAgo-3)),
+          targetEndDate: shortDateFromDaysAgo(Math.max(1, s.updatedDaysAgo-120)),
+          frequency: 'Quarterly'
+        }))},
+        g4: { kpiActuals: (s.kpis || []).slice(0,2).map((k, idx) => ({
+          kpi: k.kpi,
+          actual: String(Math.round((parseFloat(k.baseline)||10) * 0.85)),
+          date: shortDateFromDaysAgo(s.updatedDaysAgo)
+        })), lessons: 'Pilot implementation validated assumptions; next phase focuses on adoption and reporting consistency.' },
+        g5: { approvals: [{ name: 'Governance Secretariat', date: shortDateFromDaysAgo(s.updatedDaysAgo), note: 'Reviewed for completeness.' }] },
+        g6: { kpiActuals: [] },
+        g7: { closeoutNotes: s.status === 'Complete' ? 'Closed and archived; benefits tracking transitioned to operations.' : '' }
+      }));
+
+      brp.history = [
+        { at: createdAt, action: 'created', gate: brp.gate, status: brp.status },
+        { at: updatedAt, action: 'updated', gate: brp.gate, status: brp.status },
+      ];
+
+      store.brps.push(brp);
+    });
+
+    store.lastOpenedBrpId = store.brps[0]?.id || null;
+    return true;
+  }
+
+  function isoFromDaysAgo(days) {
+    const d = new Date(Date.now() - days * 86400000);
+    return d.toISOString();
+  }
+  function shortDateFromDaysAgo(days) {
+    const d = new Date(Date.now() - days * 86400000);
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth()+1).padStart(2,'0');
+    const dd = String(d.getDate()).padStart(2,'0');
+    return `${yyyy}-${mm}-${dd}`;
+  }
+
+
   function calcProgressPercent(brp) {
     const gate = clampInt(brp.gate, 1, 7);
     const pct = Math.round((gate - 1) / 6 * 100); // gate 1 => 0%, gate 7 => 100%
@@ -167,6 +366,7 @@
       governance: '#nav-governance',
       analytics: '#nav-analytics',
       help: '#nav-help',
+      list: '#nav-list',
     };
     const id = map[route] || '#nav-home';
     const el = $(id);
@@ -373,7 +573,7 @@
               <th>Gate</th>
               <th>Status</th>
               <th>Updated</th>
-              <th></th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -451,18 +651,35 @@
     $$('[data-open]').forEach(btn => btn.addEventListener('click', () => {
       location.hash = '#/wizard/' + btn.getAttribute('data-open');
     }));
+
+    $$('[data-view]').forEach(btn => btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-view');
+      const brp = findBrp(store, id);
+      if (!brp) return toast('Not found', 'BRP not found.');
+      logBrp(store, brp, 'governance_view', { gate: brp.gate, from: 'brp_list' });
+      saveStore(store);
+      location.hash = '#/governance/' + id;
+    }));
+    $$('[data-print]').forEach(btn => btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-print');
+      const brp = findBrp(store, id);
+      if (!brp) return toast('Not found', 'BRP not found.');
+      logBrp(store, brp, 'governance_print', { gate: brp.gate, from: 'brp_list' });
+      saveStore(store);
+      openPrintWindow(buildGovernancePackHTML(brp));
+    }));
   }
 
-  function renderOverview(store) {
-    setActiveNav('overview');
+  function renderBrpList(store) {
+    setActiveNav('list');
 
     const rows = store.brps.slice().sort((a,b) => (a.id||'').localeCompare(b.id||''));
 
     $('#app').innerHTML = `
-      <h1>Overview</h1>
+      <h1>All BRPs</h1>
       <div class="notice">
-        <strong>Portfolio view</strong>
-        Track where all BRPs are right now: gate, status, progress, and last updated.
+        <strong>Portfolio list</strong>
+        View, edit, and generate a clean governance pack for any BRP (at any gate).
       </div>
 
       <div class="table-wrap" style="margin-top:14px;">
@@ -490,7 +707,13 @@
                   <td>${badge(status)}</td>
                   <td>${esc(pct + '%')}</td>
                   <td class="muted">${esc(fmtDate(brp.updatedAt || brp.createdAt))}</td>
-                  <td><button class="btn small" data-open="${esc(brp.id)}">Open</button></td>
+                  <td>
+                    <div class="toolbar" style="justify-content:flex-start;gap:8px;flex-wrap:wrap;">
+                      <button class="btn small" data-open="${esc(brp.id)}">Edit</button>
+                      <button class="btn small" data-view="${esc(brp.id)}">View pack</button>
+                      <button class="btn small" data-print="${esc(brp.id)}">Print</button>
+                    </div>
+                  </td>
                 </tr>
               `;
             }).join('') : `<tr><td colspan="7" class="muted">No BRPs yet.</td></tr>`}
@@ -508,6 +731,23 @@
 
     $$('[data-open]').forEach(btn => btn.addEventListener('click', () => {
       location.hash = '#/wizard/' + btn.getAttribute('data-open');
+    }));
+
+    $$('[data-view]').forEach(btn => btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-view');
+      const brp = findBrp(store, id);
+      if (!brp) return toast('Not found', 'BRP not found.');
+      logBrp(store, brp, 'governance_view', { gate: brp.gate, from: 'brp_list' });
+      saveStore(store);
+      location.hash = '#/governance/' + id;
+    }));
+    $$('[data-print]').forEach(btn => btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-print');
+      const brp = findBrp(store, id);
+      if (!brp) return toast('Not found', 'BRP not found.');
+      logBrp(store, brp, 'governance_print', { gate: brp.gate, from: 'brp_list' });
+      saveStore(store);
+      openPrintWindow(buildGovernancePackHTML(brp));
     }));
 
     $('#btn_export').addEventListener('click', () => {
@@ -557,7 +797,7 @@
           <div class="grid two">
             <div class="field">
               <label for="new_num">Project Number</label>
-              <input id="new_num" type="text" placeholder="e.g., DND-ERP-2026-01"/>
+              <input id="new_num" type="text" placeholder="e.g., GOV-ERP-2026-01"/>
             </div>
             <div class="field">
               <label for="new_programme">Project or Programme?</label>
@@ -687,6 +927,23 @@
     }));
     $$('[data-open]').forEach(btn => btn.addEventListener('click', () => {
       location.hash = '#/wizard/' + btn.getAttribute('data-open');
+    }));
+
+    $$('[data-view]').forEach(btn => btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-view');
+      const brp = findBrp(store, id);
+      if (!brp) return toast('Not found', 'BRP not found.');
+      logBrp(store, brp, 'governance_view', { gate: brp.gate, from: 'brp_list' });
+      saveStore(store);
+      location.hash = '#/governance/' + id;
+    }));
+    $$('[data-print]').forEach(btn => btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-print');
+      const brp = findBrp(store, id);
+      if (!brp) return toast('Not found', 'BRP not found.');
+      logBrp(store, brp, 'governance_print', { gate: brp.gate, from: 'brp_list' });
+      saveStore(store);
+      openPrintWindow(buildGovernancePackHTML(brp));
     }));
   }
 
@@ -2608,6 +2865,10 @@ function fmtDate(iso) {
   // ---------------------------
   function render() {
     const store = loadStore();
+    // Seed demo BRPs (only if the browser has none yet)
+    if (seedDemoData(store)) {
+      saveStore(store);
+    }
     const r = route();
 
     if (r.page === 'wizard') {
@@ -2618,7 +2879,7 @@ function fmtDate(iso) {
 
     if (r.page === 'home') return renderHome(store);
     if (r.page === 'create') return renderCreate(store);
-    if (r.page === 'overview') return renderOverview(store);
+    if (r.page === 'list' || r.page === 'overview') return renderBrpList(store);
     if (r.page === 'governance') return renderGovernance(store, r.param);
     if (r.page === 'analytics') return renderAnalytics(store);
     if (r.page === 'help') return renderHelp();
