@@ -506,3 +506,6 @@ function runMiniCmd(raw){
 
   termWrite("UNKNOWN COMMAND. TYPE 'help'.");
 }
+function openBRP() {
+  window.open("brp-wizard/index.html", "_blank");
+}
