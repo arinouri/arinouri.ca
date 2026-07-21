@@ -1,480 +1,97 @@
-<!-- index.html (UPDATED) -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Arian Nouri - Portfolio</title>
-  <link rel="stylesheet" href="style.css"/>
-
-  <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080a0c">
+  <meta name="description" content="Arian Nouri — computer science student, developer, and systems builder in Ottawa.">
+  <meta property="og:title" content="Arian Nouri — Digital Portfolio">
+  <meta property="og:description" content="Software, automation, cybersecurity, and embedded hardware.">
+  <meta property="og:image" content="https://arinouri.ca/og-story.png">
+  <title>Arian Nouri — Digital Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
-<body class="dark-mode loading">
-  <div id="loader" class="loader"></div>
-
-  <!-- BACKGROUND (site-wide) -->
-  <canvas id="bg-canvas"></canvas>
-  <div id="three-container"></div>
-  <div class="hud-grid"></div>
-  <div class="scanlines"></div>
-  <div class="vignette"></div>
-
-  <!-- TOP BAR -->
-  <header class="topbar">
-    <div class="brand">
-      <div class="brand-title">ARIAN NOURI</div>
-      <div class="brand-sub">Active Security Clearance • Interest: Cyber • App Dev • Systems</div>
-    </div>
-
-    <div class="topbar-right">
-      <button class="topbtn app-open" data-panel="panel-quick">Quick View</button>
-      <a class="topbtn" href="RESUMEarinouri.pdf" target="_blank" rel="noopener">Resume PDF</a>
-
-      <label class="switch" title="Toggle theme">
-        <input type="checkbox" id="mode-toggle" checked />
-        <span class="slider"></span>
-      </label>
-    </div>
-  </header>
-
-  <!-- MAIN -->
-  <main class="app-content">
-    <!-- HERO (short) -->
-    <section class="hero-short">
-      <div class="hero-card">
-        <div class="hero-badge">ALWAYS READY TO FACE A NEW CHALLENGE.</div>
-        <h1>Build. Deploy. Sustain. Secure.</h1>
-        <p>
-          Computer Science student focused on reliability, access control, clean data workflows,
-          and security-aware design — built for public sector standards.
-        </p>
-
-        <div class="hero-actions">
-          <button class="primary app-open" data-panel="panel-contact">Contact</button>
-          <button class="app-open" data-panel="panel-security">Security Snapshot</button>
-          <button class="app-open" data-panel="panel-tools">Live Tools</button>
+<body class="intro-playing">
+  <div class="intro" aria-label="Loading Arian Nouri's digital portfolio">
+    <div class="intro-frame">
+      <div class="terminal">
+        <div class="terminal-bar"><span></span><b>AN_BOOT_SEQUENCE</b><small>SYS.01</small></div>
+        <div class="terminal-copy" aria-hidden="true">
+          <p class="t1">&gt; initialize arian_nouri.portfolio</p><p class="t2">&gt; mounting experience ........ <i>OK</i></p><p class="t3">&gt; mounting hardware .......... <i>OK</i></p><p class="t4">&gt; mounting programming ....... <i>OK</i></p><p class="t5">&gt; visual route online</p><p class="t6"><strong>ARIAN NOURI // DIGITAL PORTFOLIO</strong><b>_</b></p>
         </div>
       </div>
-    </section>
-
-    <!-- DASHBOARD -->
-    <section class="dashboard">
-      <div class="dash-head">
-        <h2 class="section-title">Dashboard</h2>
-        <p class="section-sub">Select a module. Recruiter-friendly. Minimal scrolling.</p>
-      </div>
-
-      <div class="bubble-grid">
-        <button class="bubble app-open" data-panel="panel-about">
-          <span class="bubble-icon">ID</span>
-          <span class="bubble-label">About</span>
-          <span class="bubble-sub">Profile summary</span>
-        </button>
-
-        <button class="bubble app-open" data-panel="panel-education">
-          <span class="bubble-icon">ED</span>
-          <span class="bubble-label">Education</span>
-          <span class="bubble-sub">Degree + focus</span>
-        </button>
-
-        <button class="bubble app-open" data-panel="panel-experience">
-          <span class="bubble-icon">XP</span>
-          <span class="bubble-label">Experience</span>
-          <span class="bubble-sub">DND + RCMP + Walmart</span>
-        </button>
-
-        <button class="bubble app-open" data-panel="panel-skills">
-          <span class="bubble-icon">SK</span>
-          <span class="bubble-label">Skills</span>
-          <span class="bubble-sub">Tech + tools</span>
-        </button>
-
-        <button class="bubble app-open" data-panel="panel-projects">
-          <span class="bubble-icon">PR</span>
-          <span class="bubble-label">Proof of Work</span>
-          <span class="bubble-sub">Projects + builds</span>
-        </button>
-
-        <button class="bubble app-open" data-panel="panel-tools">
-          <span class="bubble-icon">TL</span>
-          <span class="bubble-label">Live Tools</span>
-          <span class="bubble-sub">Interactive demos</span>
-        </button>
-
-        <button class="bubble app-open" data-panel="panel-security">
-          <span class="bubble-icon">SEC</span>
-          <span class="bubble-label">Security Snapshot</span>
-          <span class="bubble-sub">Browser / network signals</span>
-        </button>
-
-        <button class="bubble app-open" data-panel="panel-hobbies">
-          <span class="bubble-icon">HB</span>
-          <span class="bubble-label">Hobbies</span>
-          <span class="bubble-sub">3D printing • MILSIM • piano</span>
-        </button>
-      </div>
-    </section>
-
-    <footer class="footerbar">
-      <span>© <span id="yearNow"></span> Arian Nouri</span>
-      <span class="dot">•</span>
-      <span class="muted">Built with HTML/CSS/JS</span>
-    </footer>
-  </main>
-
-  <!-- MODAL OVERLAY -->
-  <div id="overlay" class="overlay hidden" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-label="Module details">
-      <div class="modal-head">
-        <div id="modalTitle" class="modal-title">Module</div>
-        <button id="closeModal" class="close" aria-label="Close">✕</button>
-      </div>
-      <div id="modalBody" class="modal-body"></div>
     </div>
+    <button class="skip-intro">Skip intro</button>
   </div>
 
-  <!-- TEMPLATES -->
-  <template id="panel-quick" data-title="Quick View">
-    <div class="panel">
-      <div class="panel-kv">
-        <div><span>Targets</span><strong>DND • RCMP • CAF • Private Sector</strong></div>
-        <div><span>Strength</span><strong>Hard-working • Problem-solver • Resilient</strong></div>
-        <div><span>Mindset</span><strong>Always looking for a new challenge</strong></div>
+  <canvas id="starfield" aria-hidden="true"></canvas><canvas id="storyLine" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div>
+  <header class="nav">
+    <a class="brand" href="#home"><b>AN</b><span>Arian Nouri<small>Digital Portfolio</small></span></a>
+    <div class="now"><i></i><span id="sceneNo">01</span><strong id="sceneName">Introduction</strong></div>
+    <nav aria-label="Primary navigation"><a href="#experience">Experience</a><a href="#hardware">Hardware</a><a href="#programming">Programming</a><a href="#contact">Contact</a></nav>
+    <a class="resume" href="RESUMEarinouri.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+    <button class="menu" aria-expanded="false" aria-controls="mobileNav" aria-label="Open navigation"><i></i><i></i></button>
+  </header>
+  <nav class="mobile-nav" id="mobileNav"><a href="#experience">Experience</a><a href="#hardware">Hardware</a><a href="#programming">Programming</a><a href="#contact">Contact</a><a href="RESUMEarinouri.pdf" target="_blank">Résumé ↗</a></nav>
+
+  <main>
+    <section class="hero scene center" id="home" data-name="Introduction" data-x="50">
+      <span class="story-point" aria-hidden="true"></span>
+      <div id="threeScene" aria-hidden="true"><div class="three-label"><span>INTERACTIVE OBJECT</span><b>DRAG THE FIELD // MOVE TO ROTATE</b></div></div>
+      <div class="hero-copy reveal"><div class="kicker"><span>01</span> Ottawa // Canada</div><h1>Arian Nouri<br><em>Digital Portfolio.</em></h1><p>Computer Science student delivering thoughtful solutions across software, workflow automation, client support, and embedded hardware.</p><div class="hero-actions"><a href="#profile">Begin the story <b>↓</b></a><a href="mailto:arinouri.cs@gmail.com">Start a conversation <b>↗</b></a></div></div>
+      <div class="hero-meta reveal"><span>Current role<strong>Client Support Engineer · DND</strong></span><span>Education<strong>B.C.S. · Carleton University</strong></span><span>Focus<strong>Security · Software · Hardware</strong></span></div>
+    </section>
+
+    <section class="story-scene scene left" id="profile" data-name="Profile" data-x="27">
+      <span class="story-point" aria-hidden="true"></span><div class="scene-label"><span>02</span><b>PROFILE</b></div>
+      <article class="story-card reveal"><div class="card-code">IDENTITY // OPERATING PROFILE</div><h2>Learning fast.<br>Building carefully.<br><em>Improving always.</em></h2><p>I enjoy the full path from understanding a problem to delivering something people can actually use. My work spans business systems, technical support, automation, accessible web experiences, and hands-on embedded projects.</p><div class="micro-grid"><span><b>200+</b> systems supported</span><span><b>04</b> professional roles</span><span><b>2027</b> expected graduation</span></div><div class="languages"><small>Spoken</small><b>EN</b> English <b>FR</b> French <b>FA</b> فارسی</div></article>
+    </section>
+
+    <section class="story-scene scene right" id="experience" data-name="Experience" data-x="73">
+      <span class="story-point" aria-hidden="true"></span><div class="scene-label"><span>03</span><b>EXPERIENCE</b></div>
+      <article class="story-card wide reveal"><div class="card-code">PROFESSIONAL RECORD // SELECT TO EXPAND</div><h2>Work experience.</h2><div class="records">
+        <div class="record open"><button aria-expanded="true"><span>DND · 2026—NOW</span><strong>Client Support Engineer</strong><i>+</i></button><div><p>Gather requirements, analyze workflows, and deliver project-management and engineering solutions. Designed ATLAS to turn AI-generated meeting summaries into structured, trackable actions.</p><small>POWER PLATFORM · REQUIREMENTS · CLIENT SUPPORT</small></div></div>
+        <div class="record"><button aria-expanded="false"><span>DND · 2025—2026</span><strong>Junior Application Developer</strong><i>+</i></button><div><p>Developed a project-lifecycle solution with workflows, dashboards, prototypes, documentation, demonstrations, and transition guidance.</p><small>POWER FX · SHAREPOINT · JAVASCRIPT · PYTHON</small></div></div>
+        <div class="record"><button aria-expanded="false"><span>RCMP · 2024—2025</span><strong>IT-01 Technical Analyst</strong><i>+</i></button><div><p>Delivered first-level support across 200+ applications, devices, and systems while protecting sensitive information.</p><small>INCIDENT TRIAGE · ACCESS · DOCUMENTATION</small></div></div>
+        <div class="record"><button aria-expanded="false"><span>WELLINGTON COWORK · 2025—NOW</span><strong>Operations Manager / Systems Specialist</strong><i>+</i></button><div><p>Manage operations while maintaining the CRM, integrations, website, and automated client workflows.</p><small>OPERATIONS · GOHIGHLEVEL · ZAPIER · FRAMER</small></div></div>
+      </div></article>
+    </section>
+
+    <section class="project-scene scene left" id="hardware" data-name="Hardware Projects" data-x="22">
+      <span class="story-point" aria-hidden="true"></span><div class="scene-label"><span>04</span><b>HARDWARE</b></div>
+      <div class="scene-intro reveal"><div class="kicker">PHYSICAL SYSTEMS</div><h2>Hardware<br><em>fieldwork.</em></h2><p>Embedded systems, authorized security research, custom builds, and active prototypes. Select any project for the full field log.</p></div>
+      <div class="project-grid">
+        <button class="project-card reveal" data-project="wireless"><span>HW.01 · FUNCTIONAL</span><div class="glyph frequency"><i></i><i></i><i></i></div><h3>ESP32 Wireless Security Analyzer</h3><small>ESP32 · C++ · NRF24L01+ · TFT</small><b>Open field log ↗</b></button>
+        <button class="project-card reveal" data-project="offline"><span>HW.02 · FUNCTIONAL</span><div class="glyph server"><i></i><i></i><i></i></div><h3>Offline Portfolio & Résumé Server</h3><small>ESP32 · C++ · SPIFFS · OLED</small><b>Open field log ↗</b></button>
+        <button class="project-card reveal" data-project="pc"><span>HW.03 · COMPLETED</span><div class="glyph chip"><i></i></div><h3>Custom PC Design & Assembly</h3><small>HARDWARE · BIOS/UEFI · TESTING</small><b>Open field log ↗</b></button>
+        <button class="project-card reveal" data-project="cyberdeck"><span>HW.04 · IN PROGRESS</span><div class="glyph deck"><i></i><i></i></div><h3>Modular Raspberry Pi Cyberdeck</h3><small>RASPBERRY PI · LINUX · GPIO · 3D DESIGN</small><b>Open field log ↗</b></button>
+        <button class="project-card reveal" data-project="thermal"><span>HW.05 · IN PROGRESS</span><div class="glyph thermal"><i></i></div><h3>Thermal + Low-Light Imaging</h3><small>EMBEDDED IMAGING · SENSORS</small><b>Open field log ↗</b></button>
+        <button class="project-card reveal" data-project="uwb"><span>HW.06 · IN PROGRESS</span><div class="glyph nodes"><i></i><i></i><i></i></div><h3>Ultra-Wideband Positioning</h3><small>UWB · ESP32 · POSITIONING</small><b>Open field log ↗</b></button>
       </div>
+    </section>
 
-      <div class="note">
-        <strong>Recruiter summary:</strong><br/>
-        I’m a Computer Science student with hands-on experience supporting government-grade systems and building real apps.
-        I care about reliability, access control, clean workflows, and long-term sustainment (testing, fixes, and iterative improvement).
+    <section class="project-scene scene right" id="programming" data-name="Programming Projects" data-x="78">
+      <span class="story-point" aria-hidden="true"></span><div class="scene-label"><span>05</span><b>PROGRAMMING</b></div>
+      <div class="scene-intro reveal"><div class="kicker">DIGITAL SYSTEMS</div><h2>Logic into<br><em>working tools.</em></h2><p>Professional systems, automation, accessible web tools, and academic engineering. Every project carries equal weight.</p></div>
+      <div class="project-grid">
+        <button class="project-card reveal" data-project="atlas"><span>SW.01 · FUNCTIONAL</span><div class="glyph flow"><i></i><i></i><i></i></div><h3>ATLAS Action Management</h3><small>POWER APPS · POWER FX · AUTOMATE</small><b>Open field log ↗</b></button>
+        <button class="project-card reveal" data-project="bmt"><span>SW.02 · FUNCTIONAL</span><div class="glyph data"><i></i><i></i><i></i></div><h3>Benefits Management Platform</h3><small>POWER APPS · SHAREPOINT · POWER BI</small><b>Open field log ↗</b></button>
+        <button class="project-card reveal" data-project="wellington"><span>SW.03 · FUNCTIONAL</span><div class="glyph flow"><i></i><i></i><i></i></div><h3>Coworking Operations Automation</h3><small>GOHIGHLEVEL · ZAPIER · FRAMER</small><b>Open field log ↗</b></button>
+        <button class="project-card reveal" data-project="readeasier"><span>SW.04 · LAUNCHED</span><div class="glyph text"><i></i><i></i><i></i></div><h3>ReadEasier.ca</h3><small>HTML · CSS · JAVASCRIPT · WEB APIs</small><b>Open field log ↗</b></button>
+        <button class="project-card reveal" data-project="terminal"><span>SW.05 · COMPLETED</span><div class="glyph terminal-glyph"><i>&gt;_</i></div><h3>Cybersecurity Terminal Simulation</h3><small>JAVASCRIPT · NODE.JS · HTML/CSS</small><b>Open field log ↗</b></button>
+        <button class="project-card reveal" data-project="hci"><span>SW.06 · COMPLETED</span><div class="glyph hci"><i></i><i></i></div><h3>Portfolio HCI Evaluation</h3><small>FIGMA · HCI · ACCESSIBILITY · TESTING</small><b>Open field log ↗</b></button>
       </div>
+    </section>
 
-      <div class="panel-kv" style="margin-top:12px;">
-        <div><span>Clearance</span><strong>Active Security Clearance</strong></div>
-        <div><span>Focus</span><strong>Cyber • App Dev • Systems</strong></div>
-        <div><span>Location</span><strong>Ottawa, ON</strong></div>
-      </div>
-    </div>
-  </template>
+    <section class="story-scene scene left" id="capabilities" data-name="Capabilities" data-x="30"><span class="story-point" aria-hidden="true"></span><div class="scene-label"><span>06</span><b>CAPABILITIES</b></div><article class="story-card wide reveal"><div class="card-code">CAPABILITY INDEX</div><h2>Tools change.<br><em>Problem-solving stays.</em></h2><div class="cap-list"><div><span>Languages</span><p>Python / JavaScript / Java / C / C++ / SQL / HTML / CSS / Bash</p></div><div><span>Platforms</span><p>Power Apps / Power Fx / Power Automate / SharePoint / React / Node.js</p></div><div><span>Hardware</span><p>ESP32 / Raspberry Pi / SPI / I²C / UART / GPIO / PC assembly</p></div><div><span>Practice</span><p>Requirements / Troubleshooting / Documentation / Client Support</p></div></div><div class="education"><span>Education</span><strong>Bachelor of Computer Science</strong><p>Computer and Internet Security Stream · Carleton University · Expected April 2027</p></div></article></section>
 
-  <template id="panel-contact" data-title="Contact">
-    <div class="panel">
-      <ul class="data-list">
-        <li><strong>Email:</strong> arinouri.cs@gmail.com / nouri.arian@gmail.com</li>
-        <li><strong>Phone:</strong> 613-805-3423</li>
-        <li><strong>Website:</strong> <a href="https://arinouri.ca" target="_blank" rel="noopener">arinouri.ca</a></li>
-        <li><strong>GitHub:</strong> <a href="https://github.com/arinouri" target="_blank" rel="noopener">github.com/arinouri</a></li>
-        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/arinouri" target="_blank" rel="noopener">linkedin.com/in/arinouri</a></li>
-      </ul>
-    </div>
-  </template>
+    <section class="contact scene center" id="contact" data-name="Contact" data-x="50"><span class="story-point" aria-hidden="true"></span><div class="contact-inner reveal"><div class="kicker">07 // OPEN CHANNEL</div><p>Have a project, role, or difficult problem in mind?</p><a href="mailto:arinouri.cs@gmail.com"><span>Let’s talk.</span><i>↗</i></a><div class="contact-links"><span>Ottawa, Ontario</span><a href="https://linkedin.com/in/arinouri" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://github.com/arinouri" target="_blank" rel="noopener">GitHub ↗</a><a href="RESUMEarinouri.pdf" target="_blank" rel="noopener">Résumé ↗</a></div><footer>© <b id="year"></b> Arian Nouri</footer></div></section>
+  </main>
 
-  <template id="panel-about" data-title="About">
-    <div class="panel">
-      <div class="panel-kv">
-        <div><span>Current</span><strong>DND Application Developer</strong></div>
-        <div><span>Gov Exp</span><strong>RCMP IT01 Analyst</strong></div>
-        <div><span>Languages</span><strong>English • French • Farsi</strong></div>
-      </div>
-
-      <div class="note">
-        I like work where correctness matters: secure workflows, access control, deployment discipline,
-        testing, and long-term sustainment. I’m the type to keep going until it’s solved — clean, stable, and documented.
-      </div>
-    </div>
-  </template>
-
-  <template id="panel-education" data-title="Education">
-    <div class="panel">
-      <p><strong>Bachelor of Computer Science (Co-op)</strong></p>
-      <p class="muted">
-        Carleton University — Ottawa, ON<br/>
-        Cybersecurity / Internet & Security Stream<br/>
-        Sept. 2022 – May 2026 (Expected)
-      </p>
-      <div class="note">
-        Relevant focus: secure systems, software engineering, data structures, web development, and applied cybersecurity.
-      </div>
-    </div>
-  </template>
-
-  <template id="panel-experience" data-title="Experience">
-    <div class="panel">
-      <div class="stack">
-        <div class="card">
-          <div class="card-top">
-            <strong>Application Developer (Power Platform) — Department of National Defence</strong>
-            <span class="pill">Sept 2025 – Present</span>
-          </div>
-          <ul>
-            <li>Own end-to-end delivery of a Benefits Realization application: build, deploy, test, and sustain.</li>
-            <li>Designed secure data workflows and access patterns to support reliable reporting and audits.</li>
-            <li>Implemented validation logic and stakeholder dashboards to support performance metrics and decisions.</li>
-            <li>Ran deployment readiness: regression testing, bug triage, release coordination, and post-release support.</li>
-            <li>Maintain sustainment cycle: enhancements, stability fixes, and continuous improvement based on feedback.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-top">
-            <strong>IT01 Technical Analyst — RCMP</strong>
-            <span class="pill">Sept 2024 – Aug 2025</span>
-          </div>
-          <ul>
-            <li>Provided technical support across 200+ applications and services used by internal partners.</li>
-            <li>Resolved software/hardware/access issues via ticket workflows and call-centre triage.</li>
-            <li>Handled account resets, permissions, and troubleshooting under confidentiality requirements.</li>
-            <li>Collaborated with analysts to solve complex cases and improve reliability.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-top">
-            <strong>Pharmacy Technician — Walmart Pharmacy</strong>
-            <span class="pill">Mar 2021 – Dec 2024</span>
-          </div>
-          <ul>
-            <li>Managed Kroll entries and prescription processing with accuracy under pressure.</li>
-            <li>Logged COVID-19 vaccine data into Covaxon and ensured clean record handling.</li>
-            <li>Trained staff and improved backend workflows for speed and consistency.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-top">
-            <strong>Custom PC Builder (Freelance)</strong>
-            <span class="pill">2019 – Present</span>
-          </div>
-          <ul>
-            <li>Built and troubleshot systems with focus on stability, thermals, and performance.</li>
-            <li>Matched parts to budgets, validated compatibility, and optimized reliability.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </template>
-
-  <template id="panel-skills" data-title="Skills">
-    <div class="panel">
-      <div class="panel-kv">
-        <div><span>Languages</span><strong>Python • JavaScript • C/C++ • Java • SQL</strong></div>
-        <div><span>Web</span><strong>React • Node • HTML/CSS</strong></div>
-        <div><span>Tools</span><strong>Git • VS Code • IntelliJ • Arduino IDE</strong></div>
-      </div>
-
-      <div class="note">
-        <strong>Security habits:</strong> validate inputs, least privilege, secure defaults,
-        traceability/logging mindset, and testing before deployment.
-      </div>
-    </div>
-  </template>
-
-  <template id="panel-projects" data-title="Proof of Work">
-    <div class="panel">
-      <div class="stack">
-        <div class="card">
-          <div class="card-top">
-            <strong>BRP Wizard – Governance & Analytics Platform</strong>
-            <span class="pill"> JS / HTML / CSS</span>
-          </div>
-        
-          <ul>
-            <li>7-Gate Benefits Realization workflow aligned with PAD governance.</li>
-            <li>Dynamic dashboards, validation logic, structured benefit tracking, and analytics reporting.</li>
-            <li>Enterprise-grade internal system architecture built for secure environments.</li>
-          </ul>
-        
-          <div style="margin-top:16px;">
-            <button class="btn-primary" onclick="openBRP()">
-              Click Me
-            </button>
-          </div>
-        </div>
-        
-
-        <div class="card">
-          <div class="card-top"><strong>Terminal Cybersecurity Simulation</strong><span class="pill">HTML/CSS/JS</span></div>
-          <ul>
-            <li>Command-driven interface to demonstrate structured logic, UX, and security awareness.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-top"><strong>ESP32 Marauder Build (Display + 2.4GHz Module)</strong><span class="pill">ESP32</span></div>
-          <ul>
-            <li>Hardware-focused build integrating a TFT display and a 2.4GHz communication module for learning and scanning concepts.</li>
-            <li><em>Portfolio note:</em> shown as ethical lab learning + embedded integration (no operational instructions here).</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-top"><strong>Pwnagotchi Build</strong><span class="pill">Raspberry Pi</span></div>
-          <ul>
-            <li>Built a learning device for studying networking concepts and security tooling in a controlled lab environment.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-top"><strong>Home Lab (Ethical Learning)</strong><span class="pill">Lab</span></div>
-          <ul>
-            <li>Set up an in-home lab for ethical learning: isolated network, test devices, and safe experimentation workflows.</li>
-            <li>Focus: documentation, repeatable testing, and understanding common security misconfigurations.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-top"><strong>ReadEasier — Assistive Reading Platform</strong><span class="pill">Web</span></div>
-          <ul>
-            <li>Responsive reading tools: Bionic Reading, Spritz, TTS, line highlighting, overlays.</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </template>
-
-  <template id="panel-hobbies" data-title="Hobbies">
-    <div class="panel">
-      <div class="stack">
-        <div class="card">
-          <div class="card-top"><strong>3D Printing</strong><span class="pill">Design / Build</span></div>
-          <ul>
-            <li>Prototype parts and functional prints for projects (iterating quickly and improving designs).</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-top"><strong>MILSIM</strong><span class="pill">Team / Strategy</span></div>
-          <ul>
-            <li>Enjoy tactical team-based gameplay and structured coordination.</li>
-            <li>Reference video: <a href="https://www.youtube.com/watch?v=57EhY3V4uCM" target="_blank" rel="noopener">watch</a></li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-top"><strong>Piano</strong><span class="pill">12 years</span></div>
-          <ul>
-            <li>Play Iranian culture-inspired pieces and modern songs (12+ years of practice).</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </template>
-
-  <template id="panel-tools" data-title="Live Tools (Interactive)">
-    <div class="panel">
-      <div class="stack">
-        <!-- Tool 1 -->
-        <div class="card">
-          <div class="card-top"><strong>Password Strength Checker</strong><span class="pill">Client-side</span></div>
-          <input type="password" id="password-field" placeholder="Enter password">
-          <div class="row">
-            <button id="toggle-password-btn">Show Password</button>
-            <span class="muted small">Meaningful: demonstrates entropy thinking</span>
-          </div>
-          <p>Password strength: <span id="strength-text">None</span></p>
-          <div id="strength-bar"></div>
-        </div>
-
-        <!-- Tool 2 -->
-        <div class="card">
-          <div class="card-top"><strong>Hash Demo (SHA-256)</strong><span class="pill">CryptoJS</span></div>
-          <input type="text" id="passwordExample" placeholder="Enter text to hash">
-          <button id="hashBtn">Hash</button>
-          <div id="hashOutput" class="muted" style="margin-top:10px;"></div>
-        </div>
-
-        <!-- Tool 3 -->
-        <div class="card">
-          <div class="card-top"><strong>Input Sanitizer Demo</strong><span class="pill">Security</span></div>
-          <textarea id="sanitizeInput" class="ta" placeholder="Paste text (shows how you’d safely render / sanitize untrusted input)"></textarea>
-          <div class="row">
-            <button id="sanitizeBtn">Sanitize</button>
-            <span class="muted small">Meaningful: XSS-awareness</span>
-          </div>
-          <div class="muted small" style="margin-top:10px;">Sanitized output:</div>
-          <pre id="sanitizeOutput" class="pre"></pre>
-        </div>
-
-        <!-- Tool 4 (Terminal moved here) -->
-        <div class="card">
-          <div class="card-top"><strong>Tactical Terminal (Sim)</strong><span class="pill">Interactive</span></div>
-          <div id="mini-terminal" class="terminal-screen"></div>
-          <div class="terminal-input">
-            <span class="prompt">OPS&gt;</span>
-            <input id="mini-cmd" type="text" placeholder="help / scan / status / clear" autocomplete="off" />
-            <button id="mini-run">RUN</button>
-          </div>
-        </div>
-
-        <!-- Tool 5 -->
-        <div class="card">
-          <div class="card-top"><strong>Weather App</strong><span class="pill">API</span></div>
-          <input type="text" id="city-input" placeholder="Enter city name">
-          <button id="weatherBtn">Get Weather</button>
-          <div id="weather-result" class="muted" style="margin-top:10px;"></div>
-        </div>
-
-      </div>
-    </div>
-  </template>
-
-  <template id="panel-security" data-title="Security Snapshot">
-    <div class="panel">
-      <div class="note">
-        <strong>What this shows:</strong> browser-visible signals related to secure context, transport, and network hints.
-        (Browsers limit sensitive detection — this is a demo of awareness + interpretation.)
-      </div>
-
-      <div class="module-grid">
-        <div class="module-card">
-          <div class="module-head">
-            <span class="module-title">CONNECTION</span>
-            <span class="pill" id="netPill">CHECKING</span>
-          </div>
-          <div class="kv">
-            <div><span>ONLINE</span><strong id="netOnline">-</strong></div>
-            <div><span>TYPE</span><strong id="netType">-</strong></div>
-            <div><span>DOWNLINK</span><strong id="netDown">-</strong></div>
-          </div>
-        </div>
-
-        <div class="module-card">
-          <div class="module-head">
-            <span class="module-title">SECURE CONTEXT</span>
-            <span class="pill" id="secPill">CHECKING</span>
-          </div>
-          <div class="kv">
-            <div><span>HTTPS</span><strong id="secHttps">-</strong></div>
-            <div><span>SECURE</span><strong id="secContext">-</strong></div>
-            <div><span>COOKIES</span><strong id="secCookies">-</strong></div>
-          </div>
-        </div>
-
-        <div class="module-card">
-          <div class="module-head">
-            <span class="module-title">PRIVACY</span>
-            <span class="pill">INFO</span>
-          </div>
-          <div class="kv">
-            <div><span>DNT</span><strong id="privDnt">-</strong></div>
-            <div><span>LANG</span><strong id="privLang">-</strong></div>
-            <div><span>TIMEZONE</span><strong id="privTz">-</strong></div>
-          </div>
-        </div>
-
-        <div class="module-card terminal">
-          <div class="module-head">
-            <span class="module-title">RECOMMENDATIONS</span>
-            <span class="pill">AUTO</span>
-          </div>
-          <div id="secTips" class="terminal-screen"></div>
-        </div>
-      </div>
-    </div>
-  </template>
-
+  <dialog id="projectDialog"><div class="dialog-bar"><span id="dialogCode">FIELD LOG</span><button aria-label="Close project details">Close ×</button></div><div class="dialog-content"><div><span id="dialogStatus">STATUS</span><h2 id="dialogTitle">Project</h2><p id="dialogText"></p></div><aside><small>Technology stack</small><p id="dialogTech"></p><small>Project class</small><p id="dialogClass"></p></aside></div></dialog>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
