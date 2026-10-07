@@ -9,7 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23172033'/%3E%3Cpath d='M6 22l7-7 5 4 8-10' stroke='%2346c08f' stroke-width='3' fill='none'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/arinouri/ai-stock-picks-arena@main/site/app.css" />
+  <script>
+    // Load the app from the arena repo; the hourly version tag keeps browsers from holding old copies.
+    window.ARENA_V = Math.floor(Date.now() / 36e5);
+    document.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/arinouri/ai-stock-picks-arena@main/site/app.css?v=' + window.ARENA_V + '">');
+  </script>
 </head>
 <body>
   <p class="disclaimer" role="note">
@@ -39,6 +43,6 @@
 
   <!-- App code and live data come from github.com/arinouri/ai-stock-picks-arena; this page never needs redeploying. -->
   <script>window.ARENA_DATA = "https://raw.githubusercontent.com/arinouri/ai-stock-picks-arena/main/site/data/";</script>
-  <script type="module" src="https://cdn.jsdelivr.net/gh/arinouri/ai-stock-picks-arena@main/site/app.js"></script>
+  <script type="module">import("https://cdn.jsdelivr.net/gh/arinouri/ai-stock-picks-arena@main/site/app.js?v=" + window.ARENA_V);</script>
 </body>
 </html>
