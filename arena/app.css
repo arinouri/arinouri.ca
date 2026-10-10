@@ -53,7 +53,7 @@ section{margin-top:53px}
 .text-link{font-size:11px;text-decoration:none;color:var(--muted)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:21px}
 .grid{display:grid;gap:12px}
-.cols5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.cols5{grid-template-columns:repeat(auto-fit,minmax(175px,1fr))}
 .who{border-top:2px solid var(--c)}
 .who .tag{display:block;font-size:9px;letter-spacing:.02em;color:var(--muted);margin-bottom:15px;min-height:29px;line-height:1.6}
 .who p{font-size:12px;color:var(--muted);line-height:1.8;margin:10px 0 0}
@@ -188,3 +188,31 @@ h2{font-size:23px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
 }
 
+
+/* Arena research transparency panels */
+.health-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.health-card{display:flex;flex-direction:column;gap:6px;min-height:130px}
+.health-card strong{font-size:22px;letter-spacing:-.025em}
+.health-label{font-size:12px;font-weight:650;color:var(--muted)}
+.health-card small,.health-details small{color:var(--muted);font-size:12px}
+.health-ok{color:var(--up)}.health-warning{color:var(--warn)}
+.health-details{margin-top:12px}.health-details p{margin:12px 0}
+#research .cols3{grid-template-columns:repeat(3,minmax(0,1fr))}
+#research .card{padding:21px}#research h3{margin:0 0 9px;font-size:15px}#research p{font-size:13px;line-height:1.7}
+@media(max-width:760px){.health-grid,#research .cols3{grid-template-columns:1fr}}
+
+/* Arena 2.0 fixed-capital and learning views */
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.portfolio-card{border-top:2px solid var(--c)}
+.portfolio-title{display:flex;align-items:center;gap:2px}.portfolio-title h3{margin:0}.portfolio-title .rank{margin-left:auto;color:var(--muted);font-size:10px}
+.portfolio-return{font-size:34px;line-height:1.15;font-weight:750;letter-spacing:-.045em;margin-top:18px;font-variant-numeric:tabular-nums}
+.portfolio-card>small{display:block;color:var(--muted);font-size:10px;margin-top:4px}
+.sample-warning{color:var(--warn);font-size:10px;line-height:1.5;margin:16px 0 0}
+.learning-grid{display:grid;grid-template-columns:2fr 1fr;gap:14px}
+.evaluation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.learning-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.learning-kpis span{display:block;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.05em}.learning-kpis b{display:block;font-size:13px;margin-top:4px;overflow-wrap:anywhere}
+.reward-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:12px}.reward-row small{display:block;color:var(--muted);font-size:9px;margin-top:2px}
+.trade-search{margin-left:auto;display:flex;align-items:center;gap:9px;color:var(--muted);font-size:10px}.trade-search input{min-width:235px;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--ink)}
+@media(max-width:900px){.portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.learning-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.portfolio-grid,.evaluation-grid{grid-template-columns:1fr}.learning-kpis{grid-template-columns:1fr 1fr}.trade-search{width:100%;margin-left:0;align-items:flex-start;flex-direction:column}.trade-search input{width:100%;min-width:0}}

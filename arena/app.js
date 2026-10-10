@@ -3,7 +3,7 @@
 const DATA = (window.ARENA_DATA || "data/").replace(/\/?$/, "/");
 const $ = (s, r = document) => r.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-const state = { book: "all", win: "all", amount: 100, pickTab: null, posTab: "open", hiddenModels: new Set() };
+const state = { book: "all", win: "all", amount: 100, pickTab: null, posTab: "open", tradeSearch: "", hiddenModels: new Set() };
 let D = null;
 
 const BLURB = {
@@ -12,6 +12,8 @@ const BLURB = {
   grok: ["xAI · AI researcher", "xAI’s AI assistant. Researches stocks through a scheduled cloud routine and submits its reasoning. This arena does not run an open-weight Grok model."],
   learner: ["Our code · Learning agent", "A small learning program, not a chatbot. Studies completed AI trades and copies up to five picks it expects to outperform the market."],
   fly: ["Our code · Random baseline", "A program that picks stocks randomly with fixed exit rules. It gives us a baseline to compare research with chance. No actual fly involved."],
+  fly_evo: ["Our code · Independent bandit", "A separate reward-trained agent. It ranks liquid stocks from past-only price, volume, volatility and SPY-relative signals; it never copies AI picks."],
+  momentum: ["Our code · Rules baseline", "A transparent non-AI baseline that ranks liquid stocks by 20-session momentum using only prices known at selection time."],
 };
 const BOOKS = { all: "All books", moonshot: "Moonshots", catalyst: "Catalyst plays", compounder: "Compounders" };
 const WINS = { all: "All time", "30d": "30 days", "7d": "7 days" };
@@ -41,13 +43,13 @@ function hero() {
     <header class="hero"><div class="hero-copy">
     <p class="eyebrow"><span class="live-dot"></span> A STUDENT-BUILT EXPERIMENT · PUBLIC DATA</p>
     <h1>AI picks.<br/>Real prices.<br/><span>Open results.</span></h1>
-    <p class="lead">Can AI stock research beat random picks? The experiment asks Claude, ChatGPT and Grok to make their calls before the market opens. We track the results—alongside a learning agent and a random baseline.</p>
+    <p class="lead">Can AI stock research beat the market and simple rules? Claude, ChatGPT and Grok commit calls before the open. We score them beside SPY, random, momentum and reward-trained baselines.</p>
     <div class="btns">
       <a class="btn primary" href="#chart">Explore the results <span aria-hidden="true">↗</span></a>
       <a class="btn" href="#how">How it works</a>
     </div>
     <p class="updated">Updated ${timeFmt(m.generated_at)} · Simulated trades, no real money</p></div>
-    <aside class="experiment-card"><div class="experiment-top"><span>EXPERIMENT / 001</span><span class="pill">In progress</span></div><h2>Research meets<br/>reality.</h2><p>Five different approaches.<br/>One transparent scoreboard.</p><div class="experiment-stats"><div><b>05</b><span>Contestants</span></div><div><b>${scored.toLocaleString()}</b><span>Scored positions</span></div><div><b>$${m.notional}</b><span>Per simulated pick</span></div></div><div class="next-session"><span>Next trading session</span><b>${dateFmt(n.session)}</b><small>Picks due ${dateFmt(n.run_date)} · 11:59 PM ET</small></div></aside>
+    <aside class="experiment-card"><div class="experiment-top"><span>EXPERIMENT / 002</span><span class="pill">In progress</span></div><h2>Research meets<br/>reality.</h2><p>${m.models.length} different approaches.<br/>One transparent scoreboard.</p><div class="experiment-stats"><div><b>${String(m.models.length).padStart(2, "0")}</b><span>Contestants</span></div><div><b>${scored.toLocaleString()}</b><span>Scored positions</span></div><div><b>$${m.notional}</b><span>Per simulated pick</span></div></div><div class="next-session"><span>Next trading session</span><b>${dateFmt(n.session)}</b><small>Picks due ${dateFmt(n.run_date)} · 11:59 PM ET</small></div></aside>
     </header>
     <div class="steps">
       <div class="step"><b class="n">01</b><div><h3>Research &amp; commit</h3><p>Picks and reasoning are published before trading starts.</p></div></div>
@@ -59,7 +61,7 @@ function hero() {
 function contestants() {
   const st = Object.fromEntries(D.contestants.map((c) => [c.model, c]));
   return `<section id="who"><h2>Meet the contestants</h2>
-    <p class="sub">Three AI models, one learning program and one random control, all playing by the same rules.</p>
+    <p class="sub">Three AI researchers, a pick-copying learner, a random control, an independent reward-trained agent, and a simple momentum baseline.</p>
     <div class="grid cols5">${D.meta.models.map((m) => {
       const [tag, text] = BLURB[m.key] || ["", ""];
       const c = st[m.key];
@@ -70,7 +72,20 @@ function contestants() {
         ${c ? `<p class="when"><span class="pill ${esc(c.state)}">${c.state === "in" ? "Picks in" : c.state === "waiting" ? "Waiting for tonight" : esc(c.state)}</span></p>` : ""}
       </div>`;
     }).join("")}</div>
-    <p class="note"><b>Public code ≠ open AI models.</b> The arena’s scoring code, learning program, database and raw picks are on <a href="https://github.com/${esc(D.meta.repo)}">GitHub</a>. That does not make the hosted AI models open source. The exact model versions are not recorded in the dashboard data yet.</p>
+    <p class="note"><b>Public code ≠ open AI models.</b> The scoring code, learning programs, database and raw picks are public. Hosted AI model versions are recorded only when their provider reliably reports them.</p>
+  </section>`;
+}
+
+function portfolioOverview() {
+  const all = Object.values(D.portfolios || {});
+  if (!all.length) return "";
+  const available = all.filter((p) => p.equity?.length).sort((a, b) => (b.metrics.total_return ?? -Infinity) - (a.metrics.total_return ?? -Infinity));
+  const shown = available.length ? available : all;
+  const metric = (label, value, kind = "pct") => `<div><span>${label}</span><b class="${kind === "pct" ? cls(value) : ""}">${value == null ? "Unavailable" : kind === "pct" ? pct(value) : esc(value)}</b></div>`;
+  return `<section id="portfolio"><div class="section-heading"><div><p class="eyebrow">FIXED CAPITAL / PRIMARY COMPARISON</p><h2>$10,000 portfolio simulation</h2></div></div>
+    <p class="sub">Every contestant starts with the same cash, invests 5% per admitted position, and can hold at most 20 positions. Cash cannot be reused until a trade exits. This is separate from the original $100-per-pick research score.</p>
+    <div class="portfolio-grid">${shown.map((p, i) => { const m = p.metrics; return `<article class="card portfolio-card" style="--c:${color(p.model)}"><div class="portfolio-title"><span class="dot"></span><h3>${esc(name(p.model))}</h3>${available.length ? `<span class="rank">#${i + 1}</span>` : ""}</div><div class="portfolio-return ${cls(m.total_return)}">${pct(m.total_return)}</div><small>Portfolio return</small><div class="kv">${metric("Vs SPY", m.alpha_vs_spy)}${metric("Max drawdown", m.max_drawdown)}${metric("Sharpe", m.sharpe == null ? null : Number(m.sharpe).toFixed(2), "number")}${metric("Exposure", m.exposure)}${metric("Closed trades", m.completed_trades, "number")}${metric("Costs", m.transaction_costs == null ? null : "$" + Number(m.transaction_costs).toFixed(2), "number")}</div>${m.sample_warning ? `<p class="sample-warning">${esc(m.sample_warning)}</p>` : ""}</article>`; }).join("")}</div>
+    <p class="note"><b>Accounting convention:</b> same-day exit cash is not reused for that morning's new entries. Risk ratios remain unavailable until there are at least 20 daily observations; missing values are never shown as zero.</p>
   </section>`;
 }
 
@@ -79,7 +94,7 @@ function leaderboard() {
   const has = r.some((x) => x.positions > 0);
   const top = r.filter((x) => x.positions > 0).slice(0, 3);
   return `<section id="leaderboard"><h2>Leaderboard</h2>
-    <p class="sub">Profit if you had put <b>${state.amount || 100} dollars</b> into every pick. It includes positions still open, valued at their latest price.</p>
+    <p class="sub">Trade-level research score if you had put <b>${state.amount || 100} dollars</b> into every pick. This allows unlimited independent notionals; use the fixed-capital section for investable portfolio comparisons.</p>
     <div class="tabs">${seg("book", BOOKS, state.book)}${seg("win", WINS, state.win)}
       <label class="amt">Invest $<input id="amt" type="number" min="1" step="10" value="${state.amount}" /> per pick</label></div>
     ${has ? `<div class="podium">${top.map((x, i) => `<div class="card pod" style="--c:${color(x.model)}">
@@ -173,12 +188,15 @@ function picks() {
 }
 
 function positions() {
-  const list = state.posTab === "open" ? D.open : D.closed;
+  const source = state.posTab === "open" ? D.open : D.closed;
+  const query = state.tradeSearch.trim().toLowerCase();
+  const list = query ? source.filter((p) => [p.ticker, p.model, name(p.model), p.bucket, p.exit_reason].some((v) => String(v || "").toLowerCase().includes(query))) : source;
   const rowsHtml = list.slice(0, 60).map((p) => `<tr><td class="l"><span class="dot" style="--c:${color(p.model)}"></span>${esc(name(p.model))}</td><td class="l"><b>${esc(p.ticker)}</b></td><td class="l">${esc(BOOKS[p.bucket] || p.bucket)}</td>
     <td>${price(p.entry_price)}</td><td>${price(state.posTab === "open" ? p.last_price : p.exit_price)}</td><td class="${cls(p.ret)}"><b>${pct(p.ret)}</b></td>
     <td class="${cls(p.pnl)}">${usd(p.pnl * scale())}</td><td class="l">${state.posTab === "open" ? price(p.stop) + " / " + price(p.target) : esc((p.exit_reason || "").replace("_", " "))}</td></tr>`).join("");
   return `<section id="positions"><h2>Every position</h2>
-    <div class="tabs"><div class="seg"><button data-pos="open" aria-pressed="${state.posTab === "open"}">Open (${D.open.length})</button><button data-pos="closed" aria-pressed="${state.posTab === "closed"}">Closed</button></div></div>
+    <p class="sub">Search and filter the published trade history. Download the complete CSV for all rows and audit fields.</p>
+    <div class="tabs"><div class="seg"><button data-pos="open" aria-pressed="${state.posTab === "open"}">Open (${D.open.length})</button><button data-pos="closed" aria-pressed="${state.posTab === "closed"}">Closed (${D.closed.length})</button></div><label class="trade-search"><span>Search trades</span><input id="trade-search" type="search" value="${esc(state.tradeSearch)}" placeholder="Ticker, contestant, strategy…" /></label></div>
     <div class="tablewrap"><table><thead><tr><th class="l">Who</th><th class="l">Stock</th><th class="l">Type</th><th>Bought</th><th>${state.posTab === "open" ? "Now" : "Sold"}</th><th>Return</th><th>Profit</th><th class="l">${state.posTab === "open" ? "Stop / target" : "Why it closed"}</th></tr></thead><tbody>${rowsHtml || `<tr><td colspan="8" class="empty">Nothing here yet.</td></tr>`}</tbody></table></div></section>`;
 }
 
@@ -199,6 +217,15 @@ function learner() {
     ${L.recent?.length ? `<details><summary>Latest surprises</summary>${L.recent.slice(0, 8).map((e) => `<div class="pick"><div class="top"><span class="tk">${esc(e.ticker)}</span><span class="pill">${esc(name(e.model))}</span><span class="lv">expected ${pct(e.expected)} · got ${pct(e.reward)} · surprise <b class="${cls(e.rpe)}">${pct(e.rpe)}</b></span></div></div>`).join("")}</details>` : ""}</div></section>`;
 }
 
+function evo() {
+  const E = D.fly_evo;
+  if (!E || E.error) return "";
+  const max = Math.max(0.02, ...E.weights.map((w) => Math.abs(w.mean) + w.sd));
+  const c = color("fly_evo");
+  const bars = E.weights.map((w) => { const pos = (v) => 50 + (v / max) * 50; const a = pos(w.mean - w.sd), b = pos(w.mean + w.sd); const f0 = Math.min(50, pos(w.mean)), f1 = Math.max(50, pos(w.mean)); return `<div class="bar" style="--c:${c}"><span>${esc(w.feature)}</span><div class="track"><span class="mid"></span><span class="band" style="left:${Math.max(0, a)}%;width:${Math.min(100, b) - Math.max(0, a)}%"></span><span class="fill" style="left:${f0}%;width:${f1 - f0}%"></span></div><span class="val ${cls(w.mean)}">${pct(w.mean, 2)}</span></div>`; }).join("");
+  return `<section id="evo"><h2>Fruit Fly EVO learning lab</h2><p class="sub">EVO is separate from the random control. It independently ranks liquid stocks using price momentum, SPY-relative strength, volatility, volume and drawdown available at decision time. Completed trades provide clipped, risk-adjusted rewards—not emotions.</p><div class="learning-grid"><article class="card"><div class="learning-kpis"><div><span>Model</span><b>${esc(E.version)}</b></div><div><span>Observations</span><b>${E.observations}</b></div><div><span>Cumulative reward</span><b class="${cls(E.cumulative_reward)}">${pct(E.cumulative_reward)}</b></div></div><p class="mut">Reward: ${esc(E.reward)}. Data version: ${esc(E.data_version)}.</p>${bars}</article><article class="card"><h3>Recent reward signals</h3>${E.recent?.length ? E.recent.slice(0, 10).map((e) => `<div class="reward-row"><span><b>${esc(e.ticker)}</b><small>${dateFmt(e.date)} · ${esc(BOOKS[e.bucket] || e.bucket)}</small></span><b class="${cls(e.reward)}">${pct(e.reward)}</b></div>`).join("") : '<p class="mut">No EVO trade has closed yet. The prior remains deliberately uncertain; increased cumulative reward alone will not be treated as proof of skill.</p>'}</article></div></section>`;
+}
+
 function ideas() {
   if (!D.ideas?.length) return "";
   return `<section id="ideas"><h2>What the AIs say they learned</h2><p class="sub">Each night the AIs write down lessons from their results. This is the idea board.</p>
@@ -212,17 +239,60 @@ function how() {
     ${q("What are moonshots, catalyst plays and compounders?", "<b>Moonshots</b> are 5 risky one-day bets on a stock that could jump tomorrow. <b>Catalyst plays</b> are 5 trades held 1 to 5 days around fresh news like earnings. <b>Compounders</b> are up to 5 quality stocks held for weeks or months.")}
     ${q("How is a pick scored?", `Each pick is a simulated $100 buy. It ends when the price touches its <b>stop</b> (a loss limit), touches its <b>target</b>, runs out of time, or the AI tells us to sell. If one day touches both, we count the stop. Everything is compared with the S&amp;P 500 over the same days.`)}
     ${q("What is the S&P 500 comparison for?", "If every stock rises one day, every AI looks smart. Comparing with the overall market shows whether a pick did better than just owning the market.")}
-    ${q("What are the Learner and the Fruit Fly?", "The Fruit Fly picks at random, so it's the baseline: luck. The Learner is a small learning program that studies the AIs' results and copies the picks it trusts most. If it can't beat the fly, there's nothing to learn.")}
+    ${q("What are the Learner, Fruit Fly and EVO?", "Fruit Fly stays uniformly random as the control. The Learner evaluates and copies AI proposals. Fruit Fly EVO is independent: it selects from a liquid universe using measurable market signals and updates only after its own trades close.")}
     ${q("Which stocks are allowed?", "Only NYSE or Nasdaq stocks priced above $1 with decent trading volume (over 500K shares a day). Picks that break a rule are voided.")}
     ${q("Why might the rankings be misleading?", "Early on, a few lucky picks can put anyone on top. It takes a few hundred trades per contestant before the differences mean much. Trading costs are only roughly modelled (0.1% each way), so treat it as an experiment rather than a strategy.")}
     ${q("Can I check the data myself?", `Yes. Download the CSV at the top, or browse every raw submission and the scoring code on <a href="https://github.com/${esc(D.meta.repo)}">GitHub</a>.`)}
   </section>`;
 }
 
+
+// Operational health is deliberately computed from published facts, never guessed.
+function health() {
+  const h = D.health || {};
+  const generated = Date.parse(D.meta.generated_at);
+  const ageHours = Number.isFinite(generated) ? (Date.now() - generated) / 3600000 : Infinity;
+  const stale = ageHours > 26 || ageHours < -1;
+  const latest = D.inbox || [];
+  const problems = latest.filter(x => ["rejected", "partial"].includes(x.status)).slice(0, 4);
+  const last = h.last_scored_session || D.meta.last_session || "No priced session yet";
+  const fresh = Number.isFinite(ageHours) ? Math.max(0, Math.round(ageHours * 10) / 10) + " hours ago" : "unknown";
+  return `<section id="health" aria-label="System health and data integrity">
+    <div class="section-heading"><div><p class="eyebrow">DATA INTEGRITY</p><h2>System health</h2></div><a class="text-link" target="_blank" rel="noopener" href="https://github.com/${esc(D.meta.repo)}/actions/workflows/arena.yml">Workflow history ↗</a></div>
+    <div class="health-grid">
+      <div class="card health-card"><div class="health-label">Data refresh</div><strong class="${stale ? "health-warning" : "health-ok"}">${stale ? "STALE" : "RECENT"}</strong><small>Last export: ${esc(fresh)}. Recency alone does not confirm jobs succeeded.</small></div>
+      <div class="card health-card"><div class="health-label">Last scored session</div><strong>${esc(last)}</strong><small>Markets close on weekends and holidays.</small></div>
+      <div class="card health-card"><div class="health-label">Validated system state</div><strong class="${h.state === "operational" ? "health-ok" : "health-warning"}">${esc((h.state || "unknown").toUpperCase())}</strong><small>${(h.issues || []).length ? esc(h.issues.join(" · ")) : "No persisted price, benchmark, or recent submission issue detected."}</small></div>
+    </div>
+    ${problems.length ? `<details class="card health-details"><summary>Inspect recent submission problems</summary>${problems.map(x => `<p><b>${esc(name(x.model))}</b> · ${esc(x.status)} · ${esc(x.path)}<br><small>${esc((x.errors || []).join("; ") || "No detailed reason available")}</small></p>`).join("")}</details>` : ""}
+    <p class="note">Workflow status is linked, not guessed from export age. Operational means the persisted checks passed; it does not independently verify the data provider. <a href="https://github.com/${esc(D.meta.repo)}/blob/main/docs/METHODOLOGY.md">Read the scoring methodology</a>.</p>
+  </section>`;
+}
+
+function research() {
+  const all = D.boards?.all?.all || [];
+  const closed = all.reduce((n, row) => n + (row.closed || 0), 0);
+  return `<section id="research"><div class="section-heading"><div><p class="eyebrow">RESEARCH NOTES</p><h2>Interpreting these results</h2></div></div>
+  <div class="grid cols3">
+   <article class="card"><h3>Evidence so far</h3><p>${closed} closed simulated positions across contestants (including copied trades). Early results are noisy and the observations are not independent.</p></article>
+   <article class="card"><h3>Fair comparisons</h3><p>The $10,000 view enforces cash and exposure limits. The legacy $100-per-pick score stays available for trade-level research and historical continuity.</p></article>
+   <article class="card"><h3>Learning versus chance</h3><p>Fruit Fly is random, EVO learns independent signals, and the Learner copies AI proposals. Copied trades are correlated observations; none of these methods guarantees market-beating skill.</p></article>
+  </div>
+  <p class="note">All metrics are hypothetical. There is no live brokerage execution, dividends and corporate actions may be omitted, and price fills can differ from real trading. <a href="https://github.com/${esc(D.meta.repo)}/blob/main/docs/METHODOLOGY.md">Full methodology and limits ↗</a></p>
+  </section>`;
+}
+
+function evaluation() {
+  const E = D.evaluation;
+  if (!E) return "";
+  const card = (key, label) => { const r = E[key], out = r.out_of_sample, inside = r.in_sample; return `<article class="card"><h3>${label}</h3><div class="kv"><div><span>Forward observations</span><b>${out.observations}</b></div><div><span>Direction accuracy</span><b>${pct(out.direction_accuracy)}</b></div><div><span>Forward correlation</span><b>${out.correlation == null ? "Unavailable" : Number(out.correlation).toFixed(2)}</b></div><div><span>In-sample correlation</span><b>${inside.correlation == null ? "Unavailable" : Number(inside.correlation).toFixed(2)}</b></div><div><span>Forward error</span><b>${pct(out.mae)}</b></div><div><span>Warm-up</span><b>${r.warmup_observations} trades</b></div></div>${out.observations ? "" : '<p class="sample-warning">Not enough completed, prior-only decisions for a forward estimate yet.</p>'}</article>`; };
+  return `<section id="evaluation"><p class="eyebrow">SCIENTIFIC VALIDATION</p><h2>Walk-forward evaluation</h2><p class="sub">An expanding-window test predicts each decision using only trades whose outcomes were already known. In-sample fit is shown solely to expose the optimism gap; it is not evidence of generalization.</p><div class="evaluation-grid">${card("learner", "The Learner")}${card("fly_evo", "Fruit Fly EVO")}</div><p class="note">${esc(E.method)}. ${esc(E.warning)}</p></section>`;
+}
+
 // ---------------------------------------------------------------- render + events
 function render() {
   const y = window.scrollY;
-  $("#view").innerHTML = [hero(), chart(), leaderboard(), contestants(), picks(), status(), learner(), positions(), ideas(), how()].join("");
+  $("#view").innerHTML = [hero(), health(), portfolioOverview(), chart(), leaderboard(), contestants(), picks(), status(), learner(), evo(), evaluation(), positions(), ideas(), research(), how()].join("");
   window.scrollTo(0, y);
   const repo = $("#repo-link"); if (repo) repo.href = "https://github.com/" + D.meta.repo;
   wireChart();
@@ -247,6 +317,18 @@ document.addEventListener("click", (e) => {
 });
 document.addEventListener("change", (e) => {
   if (e.target.id === "amt") { state.amount = Math.max(1, Number(e.target.value) || 100); render(); }
+});
+document.addEventListener("input", (e) => {
+  if (e.target.id !== "trade-search") return;
+  state.tradeSearch = e.target.value;
+  const section = e.target.closest("section");
+  const pos = e.target.selectionStart;
+  const html = document.createElement("template");
+  html.innerHTML = positions().trim();
+  section.replaceWith(html.content.firstElementChild);
+  const input = $("#trade-search");
+  input?.focus({ preventScroll: true });
+  input?.setSelectionRange(pos, pos);
 });
 
 function wireChart() {
