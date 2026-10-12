@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-12T03:49:03+00:00",
+ "generated": "2026-10-12T04:16:31+00:00",
  "clips": [
   {
    "id": "2026-10-12_scares/scare_dontlikethis.mp4",
@@ -3605,9 +3605,9 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-10-11",
-  "today_count": 44,
-  "today_met": true,
+  "today": "2026-10-12",
+  "today_count": 0,
+  "today_met": false,
   "current": 1,
   "best": 1,
   "cycle_progress": 1,
@@ -3619,7 +3619,7 @@
     "dow": "S",
     "count": 44,
     "met": true,
-    "today": true,
+    "today": false,
     "future": false
    },
    {
@@ -3627,8 +3627,8 @@
     "dow": "M",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-10-13",
@@ -3673,13 +3673,6 @@
   ],
   "last7": [
    {
-    "date": "2026-10-05",
-    "dow": "Mon",
-    "count": 0,
-    "met": false,
-    "today": false
-   },
-   {
     "date": "2026-10-06",
     "dow": "Tue",
     "count": 37,
@@ -3719,6 +3712,13 @@
     "dow": "Sun",
     "count": 44,
     "met": true,
+    "today": false
+   },
+   {
+    "date": "2026-10-12",
+    "dow": "Mon",
+    "count": 0,
+    "met": false,
     "today": true
    }
   ],
