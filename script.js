@@ -5,7 +5,7 @@ const isLocal = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
 /* ---------- Config ---------- */
 // Live aircraft come through a relay (the free ADS-B feeds block direct browser calls).
 // Local preview: tools/dev_server.py. Production: the Cloudflare Worker in worker/.
-const PLANES_URL = isLocal ? '/api/planes' : null; // set to the Worker URL once deployed
+const PLANES_URL = isLocal ? '/api/planes' : 'https://arinouri-planes.arinouri.workers.dev/';
 // Real congestion: free TomTom key (restrict it to arinouri.ca in their dashboard). Empty = animated FX.
 const TOMTOM_KEY = '';
 const OTT = 'https://traffic.ottawa.ca/service';

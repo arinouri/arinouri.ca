@@ -71,5 +71,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
+    try:
+        server = http.server.ThreadingHTTPServer(("", PORT), Handler)
+    except OSError:
+        print(f"Port {PORT} is busy: the preview is probably already running. Open http://localhost:{PORT}")
+        raise SystemExit(1)
     print(f"Serving {ROOT} on http://localhost:{PORT}")
-    http.server.ThreadingHTTPServer(("", PORT), Handler).serve_forever()
+    server.serve_forever()
