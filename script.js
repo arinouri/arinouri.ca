@@ -1,22 +1,420 @@
-const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
-const intro=$('.intro');let introTimer;function finishIntro(){clearTimeout(introTimer);intro.classList.add('done');document.body.classList.remove('intro-playing');setTimeout(()=>intro.remove(),600)}$('.skip-intro').addEventListener('click',finishIntro);introTimer=setTimeout(finishIntro,4750);if(matchMedia('(prefers-reduced-motion: reduce)').matches)finishIntro();
-const scenes=$$('.scene'),canvas=$('#storyLine'),ctx=canvas.getContext('2d');let w,h,dpr,points=[];
-function size(){dpr=Math.min(devicePixelRatio,2);w=innerWidth;h=innerHeight;canvas.width=w*dpr;canvas.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);points=scenes.map(s=>({x:(innerWidth<721?50:+s.dataset.x)/100*w,y:s.offsetTop+($('.story-point',s)?.offsetTop||s.offsetHeight/2)}))}
-function segment(a,b,limit=1){const mid=(a.y+b.y)/2,t=Math.max(0,Math.min(1,limit));if(t<=.45){const q=t/.45;ctx.lineTo(a.x,(a.y+(mid-a.y)*q)-scrollY);return{x:a.x,y:(a.y+(mid-a.y)*q)-scrollY}}ctx.lineTo(a.x,mid-scrollY);if(t<=.55){const q=(t-.45)/.1;ctx.lineTo(a.x+(b.x-a.x)*q,mid-scrollY);return{x:a.x+(b.x-a.x)*q,y:mid-scrollY}}ctx.lineTo(b.x,mid-scrollY);const q=(t-.55)/.45;ctx.lineTo(b.x,(mid+(b.y-mid)*q)-scrollY);return{x:b.x,y:(mid+(b.y-mid)*q)-scrollY}}
-function trace(){ctx.clearRect(0,0,w,h);if(points.length<2)return;const viewY=scrollY+h*.53;ctx.lineWidth=1;ctx.strokeStyle='rgba(114,230,241,.12)';ctx.beginPath();ctx.moveTo(points[0].x,points[0].y-scrollY);for(let i=1;i<points.length;i++)segment(points[i-1],points[i]);ctx.stroke();ctx.strokeStyle='#72e6f1';ctx.lineWidth=2;ctx.shadowBlur=13;ctx.shadowColor='#72e6f1';ctx.beginPath();let end={x:points[0].x,y:points[0].y-scrollY};ctx.moveTo(end.x,end.y);for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i];if(viewY>=b.y){end=segment(a,b);continue}if(viewY>a.y)end=segment(a,b,(viewY-a.y)/(b.y-a.y));break}ctx.stroke();ctx.shadowBlur=18;ctx.fillStyle='#d9ffff';ctx.beginPath();ctx.arc(end.x,end.y,4,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0}
-let ticking=false;function onScroll(){if(!ticking){requestAnimationFrame(()=>{trace();let active=0;scenes.forEach((s,i)=>{if(s.getBoundingClientRect().top<h*.5)active=i});$('#sceneNo').textContent=String(active+1).padStart(2,'0');$('#sceneName').textContent=scenes[active].dataset.name;$$('.nav nav a').forEach(a=>a.classList.toggle('active',a.hash===`#${scenes[active].id}`));ticking=false});ticking=true}}
-const reveal=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});$$('.reveal').forEach(e=>reveal.observe(e));
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isLocal = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
 
-const starCanvas=$('#starfield'),starCtx=starCanvas.getContext('2d'),pointer={x:-999,y:-999,drag:false,inside:false};let stars=[];
-function sizeStars(){starCanvas.width=w*dpr;starCanvas.height=h*dpr;starCtx.setTransform(dpr,0,0,dpr,0,0);const count=w<720?55:120;stars=Array.from({length:count},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.25+.45}))}
-function drawStars(){const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;starCtx.clearRect(0,0,w,h);for(let i=0;i<stars.length;i++){const p=stars[i];if(!reduced){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;if(pointer.drag){const dx=pointer.x-p.x,dy=pointer.y-p.y,d=Math.hypot(dx,dy);if(d<220&&d>20){p.x+=dx*.0007;p.y+=dy*.0007}}}starCtx.fillStyle='rgba(219,247,250,.55)';starCtx.beginPath();starCtx.arc(p.x,p.y,p.r,0,Math.PI*2);starCtx.fill();for(let j=i+1;j<stars.length;j++){const q=stars[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<100){starCtx.strokeStyle=`rgba(114,230,241,${.075*(1-d/100)})`;starCtx.lineWidth=.7;starCtx.beginPath();starCtx.moveTo(p.x,p.y);starCtx.lineTo(q.x,q.y);starCtx.stroke()}}if(pointer.inside){const d=Math.hypot(p.x-pointer.x,p.y-pointer.y),reach=pointer.drag?240:145;if(d<reach){starCtx.strokeStyle=`rgba(114,230,241,${(pointer.drag ? .52 : .2)*(1-d/reach)})`;starCtx.lineWidth=pointer.drag?1.2:.7;starCtx.beginPath();starCtx.moveTo(p.x,p.y);starCtx.lineTo(pointer.x,pointer.y);starCtx.stroke()}}}if(!reduced)requestAnimationFrame(drawStars)}
-addEventListener('pointermove',e=>{pointer.x=e.clientX;pointer.y=e.clientY;pointer.inside=true});addEventListener('pointerdown',()=>pointer.drag=true);addEventListener('pointerup',()=>pointer.drag=false);addEventListener('pointercancel',()=>pointer.drag=false);document.documentElement.addEventListener('mouseleave',()=>pointer.inside=false);
+/* ---------- Config ---------- */
+// Live aircraft come through a relay (the free ADS-B feeds block direct browser calls).
+// Local preview: tools/dev_server.py. Production: the Cloudflare Worker in worker/.
+const PLANES_URL = isLocal ? '/api/planes' : 'https://arinouri-planes.arinouri.workers.dev/';
+// Real congestion: free TomTom key (restrict it to arinouri.ca in their dashboard). Empty = animated FX.
+const TOMTOM_KEY = '';
+const OTT = 'https://traffic.ottawa.ca/service';
+const camImage = id => `https://traffic.ottawa.ca/camera?id=${id}&t=${Date.now()}`;
 
-let threeRenderer,threeCamera,threeMesh,threeWorld;function initThree(){const host=$('#threeScene');if(!host||!window.THREE)return;threeWorld=new THREE.Scene();threeCamera=new THREE.PerspectiveCamera(50,1,.1,100);threeCamera.position.z=4.4;threeRenderer=new THREE.WebGLRenderer({alpha:true,antialias:true});threeRenderer.setPixelRatio(Math.min(devicePixelRatio,2));host.prepend(threeRenderer.domElement);threeMesh=new THREE.Mesh(new THREE.IcosahedronGeometry(1.55,2),new THREE.MeshBasicMaterial({color:0x72e6f1,wireframe:true,transparent:true,opacity:.72}));threeWorld.add(threeMesh);threeMesh.add(new THREE.Mesh(new THREE.IcosahedronGeometry(.72,1),new THREE.MeshBasicMaterial({color:0xe8e9e4,wireframe:true,transparent:true,opacity:.22})));sizeThree();renderThree()}
-function sizeThree(){if(!threeRenderer)return;const r=$('#threeScene').getBoundingClientRect();threeRenderer.setSize(r.width,r.height,false);threeCamera.aspect=r.width/r.height;threeCamera.updateProjectionMatrix()}
-function renderThree(){if(!threeRenderer)return;const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,mx=pointer.inside?pointer.x/w-.5:0,my=pointer.inside?pointer.y/h-.5:0;if(!reduced){threeMesh.rotation.y+=.0028+mx*.002;threeMesh.rotation.x+=.0013+my*.001;threeMesh.position.y=Math.sin(performance.now()*.0006)*.08}threeRenderer.render(threeWorld,threeCamera);if(!reduced)requestAnimationFrame(renderThree)}
-$$('.record button').forEach(btn=>btn.addEventListener('click',()=>{const item=btn.closest('.record'),was=item.classList.contains('open');$$('.record').forEach(r=>{r.classList.remove('open');$('button',r).setAttribute('aria-expanded','false')});if(!was){item.classList.add('open');btn.setAttribute('aria-expanded','true')}setTimeout(size,500)}));
-const projects={wireless:['HW.01','ESP32 Wireless Security Analyzer','Functional','Embedded security','ESP32, C++, Arduino IDE, NRF24L01+, TFT/ILI9341, SPI, GPIO','Modified open-source firmware for authorized wireless-security testing in a controlled lab. Integrated the radio module, manually wired a TFT display, and debugged firmware, libraries, and embedded connections.'],offline:['HW.02','Offline Portfolio & Résumé Server','Functional','Embedded web system','ESP32, C++, HTML/CSS, SPIFFS, OLED, GPIO, buttons, LEDs','Built an ESP32-hosted access point that serves a local portfolio and résumé without internet, with stored content, OLED status, physical controls, and LED feedback.'],pc:['HW.03','Custom PC Design & Assembly','Completed','Computer hardware','PC hardware, BIOS/UEFI, Windows, thermal management, compatibility testing','Designed and assembled multiple custom computers for different needs and budgets, then configured, tested, and optimized them for stability, thermals, and performance.'],cyberdeck:['HW.04','Modular Raspberry Pi Cyberdeck','In progress','Portable computing prototype','Raspberry Pi, ESP32, Python, C++, Bash, Linux, GPIO, SSD, 3D printing','Designing a modular portable computer with Raspberry Pi and ESP32 hardware, local displays, GPIO peripherals, storage, interface tools, and a custom enclosure.'],thermal:['HW.05','Thermal + Low-Light Imaging','In progress','Imaging research','Embedded sensors, thermal imaging, low-light camera, Python/C++','Exploring a modular platform that combines thermal and low-light sensor feeds for visualization and controlled testing.'],uwb:['HW.06','Ultra-Wideband Positioning','In progress','Positioning research','UWB modules, ESP32, C++/Python, positioning and visualization','Designing a system for estimating and displaying the relative locations of tagged personnel or equipment.'],atlas:['SW.01','ATLAS Action Management','Functional','Professional workflow system','Power Apps, Power Fx, Power Automate, SharePoint Online, Microsoft 365','Built an internal system that converts meeting outputs into structured, trackable actions with ownership, priority, due dates, supporting records, and automated updates.'],bmt:['SW.02','Benefits Management Platform','Functional','Professional business system','Power Apps, Power Fx, SharePoint, Power Automate, Power BI, HTML/CSS, JavaScript, SQL','Developed a multi-screen project-lifecycle solution covering outcomes, benefits, KPIs, approvals, dashboards, review tools, user guidance, and reporting.'],wellington:['SW.03','Coworking Operations Automation','Functional','Business automation','GoHighLevel, Zapier, Framer, CRM integrations, forms, email automation','Connected lead capture, communications, onboarding, bookings, inquiries, and daily operations through a streamlined CRM workflow.'],readeasier:['SW.04','ReadEasier.ca','Launched','Accessibility platform','HTML, CSS, JavaScript, browser APIs','Developed a responsive toolkit with bionic reading, rapid reading, text-to-speech, line highlighting, colour overlays, and focus tools.'],terminal:['SW.05','Cybersecurity Terminal Simulation','Completed','Educational simulation','HTML, CSS, JavaScript, Node.js','Built an interactive browser terminal with simulated commands, fictional security scenarios, visual effects, navigation, and vault-style challenges.'],hci:['SW.06','Portfolio HCI Evaluation','Completed','Academic UX research','Figma, interviews, usability testing, cognitive walkthroughs, personas, KLM-GOMS','Evaluated portfolio usability through research, task analysis, and formal testing, then created recruiter-focused wireframes and recommendations.']};
-const dialog=$('#projectDialog');function openProject(k){const p=projects[k];$('#dialogCode').textContent=p[0]+' // FIELD LOG';$('#dialogTitle').textContent=p[1];$('#dialogStatus').textContent=p[2];$('#dialogClass').textContent=p[3];$('#dialogTech').textContent=p[4];$('#dialogText').textContent=p[5];dialog.showModal();requestAnimationFrame(()=>dialog.classList.add('visible'));document.body.classList.add('locked')}function closeDialog(){dialog.classList.remove('visible');document.body.classList.remove('locked');setTimeout(()=>{if(dialog.open)dialog.close()},450)}$$('.project-card').forEach(b=>b.addEventListener('click',()=>openProject(b.dataset.project)));$('.dialog-bar button').addEventListener('click',closeDialog);dialog.addEventListener('cancel',e=>{e.preventDefault();closeDialog()});dialog.addEventListener('click',e=>{if(e.target===dialog)closeDialog()});
-const menu=$('.menu'),mobile=$('#mobileNav');menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));mobile.classList.toggle('open',!open)});$$('a',mobile).forEach(a=>a.addEventListener('click',()=>{mobile.classList.remove('open');menu.setAttribute('aria-expanded','false')}));
-addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',()=>{size();sizeStars();sizeThree();trace()});addEventListener('load',()=>{size();sizeStars();sizeThree();trace()});$('#year').textContent=new Date().getFullYear();size();sizeStars();drawStars();initThree();onScroll();
+/* ---------- Clock ---------- */
+const fmt = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Toronto', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+const tick = () => { $('#clock').textContent = fmt.format(new Date()); };
+tick(); setInterval(tick, 1000);
+$('#year').textContent = new Date().getFullYear();
+
+/* ---------- Map style: holographic blue on black ---------- */
+const SRC = 'openmaptiles';
+const MAJOR = ['motorway', 'trunk', 'primary'];
+const style = {
+  version: 8,
+  glyphs: 'https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf',
+  sources: { [SRC]: { type: 'vector', url: 'https://tiles.openfreemap.org/planet' } },
+  layers: [
+    { id: 'bg', type: 'background', paint: { 'background-color': '#000' } },
+    { id: 'park', type: 'fill', source: SRC, 'source-layer': 'park', paint: { 'fill-color': '#06102a', 'fill-opacity': .6 } },
+    { id: 'water', type: 'fill', source: SRC, 'source-layer': 'water', paint: { 'fill-color': '#020817' } },
+    { id: 'water-edge', type: 'line', source: SRC, 'source-layer': 'water', paint: { 'line-color': '#3a5bff', 'line-opacity': .5, 'line-width': 1.1 } },
+    { id: 'aeroway', type: 'line', source: SRC, 'source-layer': 'aeroway', filter: ['==', ['get', 'class'], 'runway'],
+      paint: { 'line-color': '#5fe1ff', 'line-opacity': .45, 'line-width': ['interpolate', ['linear'], ['zoom'], 11, 2, 15, 14] } },
+    { id: 'roads-minor', type: 'line', source: SRC, 'source-layer': 'transportation', filter: ['in', ['get', 'class'], ['literal', ['minor', 'service', 'tertiary', 'secondary']]],
+      paint: { 'line-color': '#1b2a7a', 'line-opacity': ['interpolate', ['linear'], ['zoom'], 11, .3, 15, .8], 'line-width': ['interpolate', ['linear'], ['zoom'], 11, .4, 16, 2] } },
+    { id: 'roads-glow', type: 'line', source: SRC, 'source-layer': 'transportation', filter: ['in', ['get', 'class'], ['literal', MAJOR]],
+      paint: { 'line-color': '#3a5bff', 'line-opacity': .35, 'line-blur': 6, 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 4, 16, 18] } },
+    { id: 'roads-major', type: 'line', source: SRC, 'source-layer': 'transportation', filter: ['in', ['get', 'class'], ['literal', MAJOR]],
+      paint: { 'line-color': '#5a78ff', 'line-width': ['interpolate', ['linear'], ['zoom'], 10, .8, 16, 3] } },
+    { id: 'flow', type: 'line', source: SRC, 'source-layer': 'transportation', filter: ['in', ['get', 'class'], ['literal', MAJOR]],
+      paint: { 'line-color': '#bff4ff', 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1, 16, 3], 'line-opacity': .85, 'line-dasharray': [0, 4, 3] } },
+    { id: 'buildings', type: 'fill-extrusion', source: SRC, 'source-layer': 'building', minzoom: 12,
+      paint: {
+        'fill-extrusion-color': ['interpolate', ['linear'], ['coalesce', ['get', 'render_height'], 5], 0, '#0a1238', 30, '#1d2f9c', 90, '#4d6bff', 200, '#a9b8ff'],
+        'fill-extrusion-height': ['coalesce', ['get', 'render_height'], 5],
+        'fill-extrusion-base': ['coalesce', ['get', 'render_min_height'], 0],
+        'fill-extrusion-opacity': .62,
+        'fill-extrusion-vertical-gradient': true
+      } },
+    { id: 'place-labels', type: 'symbol', source: SRC, 'source-layer': 'place', filter: ['in', ['get', 'class'], ['literal', ['suburb', 'neighbourhood', 'quarter']]],
+      layout: { 'text-field': ['upcase', ['coalesce', ['get', 'name:en'], ['get', 'name']]], 'text-font': ['Noto Sans Regular'], 'text-size': ['interpolate', ['linear'], ['zoom'], 10, 9, 15, 12], 'text-letter-spacing': .25 },
+      paint: { 'text-color': '#8fa2ff', 'text-opacity': .7, 'text-halo-color': '#000', 'text-halo-width': 1.5 } }
+  ]
+};
+
+const OTTAWA_BOUNDS = [[-76.45, 44.90], [-75.15, 45.60]];
+const VIEWS = {
+  space: { center: [-75.6972, 45.4215], zoom: 3.6, pitch: 0, bearing: 0 },
+  wide: { center: [-75.72, 45.30], zoom: 9.6, pitch: 45, bearing: -12 },
+  downtown: { center: [-75.6972, 45.4215], zoom: 14.7, pitch: 64, bearing: -28 },
+  yow: { center: [-75.6692, 45.3225], zoom: 13.2, pitch: 58, bearing: 24 }
+};
+
+const map = new maplibregl.Map({
+  container: 'map', style, ...(reduced ? VIEWS.downtown : VIEWS.space), maxPitch: 78, antialias: true,
+  cooperativeGestures: true, attributionControl: { compact: true },
+  locale: {
+    'CooperativeGesturesHandler.WindowsHelpText': 'Ctrl + scroll to zoom the map',
+    'CooperativeGesturesHandler.MacHelpText': '⌘ + scroll to zoom the map',
+    'CooperativeGesturesHandler.MobileHelpText': 'Use two fingers to move the map'
+  }
+});
+map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'bottom-right');
+
+/* ---------- Ottawa-only mask ---------- */
+let boundary = null;
+function insideOttawa([x, y]) {
+  if (!boundary) return false;
+  let inside = false;
+  for (const ring of boundary) {
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [xi, yi] = ring[i], [xj, yj] = ring[j];
+      if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) inside = !inside;
+    }
+  }
+  return inside;
+}
+async function addMask() {
+  const geo = await (await fetch('data/ottawa-boundary.json')).json();
+  const g = geo.features[0].geometry;
+  boundary = g.type === 'Polygon' ? g.coordinates : g.coordinates.flat();
+  const world = [[-180, -85], [180, -85], [180, 85], [-180, 85], [-180, -85]];
+  map.addSource('ottawa', { type: 'geojson', data: geo });
+  map.addSource('mask', { type: 'geojson', data: { type: 'Feature', geometry: { type: 'Polygon', coordinates: [world, ...boundary.map(r => [...r].reverse())] } } });
+  map.addLayer({ id: 'mask', type: 'fill', source: 'mask', paint: { 'fill-color': '#000', 'fill-opacity': .93 } }, 'place-labels');
+  map.addLayer({ id: 'edge-glow', type: 'line', source: 'ottawa', paint: { 'line-color': '#4d6bff', 'line-width': 8, 'line-blur': 8, 'line-opacity': .45 } }, 'place-labels');
+  map.addLayer({ id: 'edge', type: 'line', source: 'ottawa', paint: { 'line-color': '#8fa2ff', 'line-width': 1.2, 'line-dasharray': [4, 2] } }, 'place-labels');
+}
+
+function addTomTom() {
+  if (!TOMTOM_KEY) return;
+  map.addSource('tomtom', { type: 'raster', tileSize: 256, tiles: [`https://api.tomtom.com/traffic/map/4/tile/flow/relative0-dark/{z}/{x}/{y}.png?key=${TOMTOM_KEY}&tileSize=256`] });
+  map.addLayer({ id: 'tomtom', type: 'raster', source: 'tomtom', paint: { 'raster-opacity': .9 } }, 'buildings');
+  map.setLayoutProperty('flow', 'visibility', 'none');
+  $('#flowSrc').textContent = 'LIVE';
+}
+
+/* ---------- Data state ---------- */
+let cams = [], incidents = [], enforce = [], planes = new Map();
+let activeCam = null, hoverCam = null, you = null;
+const layersOn = { planes: true, cams: true, incidents: true, enforce: false };
+
+/* ---------- Icons ---------- */
+const svgIcon = svg => 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+const PLANE_ICON = svgIcon('<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><path fill="#fff" d="M32 2l5 20 21 12v6l-21-6-2 16 7 6v4l-10-3-10 3v-4l7-6-2-16-21 6v-6l21-12z"/></svg>');
+const CAM_ICON = svgIcon('<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><rect x="3" y="3" width="58" height="58" rx="10" fill="#000" fill-opacity=".001" stroke="#fff" stroke-width="4"/><rect x="13" y="22" width="27" height="20" rx="3" fill="#fff"/><path d="M42 27l10-6v22l-10-6z" fill="#fff"/></svg>');
+const ENF_ICON = svgIcon('<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><path d="M32 4l28 28-28 28L4 32z" fill="#000" fill-opacity=".001" stroke="#fff" stroke-width="5"/><circle cx="32" cy="32" r="9" fill="#fff"/></svg>');
+
+/* ---------- Deck.gl overlay ---------- */
+const ALT_SCALE = .22;
+const overlay = new deck.MapboxOverlay({ interleaved: false, layers: [], pickingRadius: 8, getTooltip });
+map.addControl(overlay);
+
+function planePos(p, now) {
+  const dt = (now - p.t0) / 1000;
+  const d = (p.gs || 0) * .5144 * Math.min(dt, 30);
+  const tr = (p.track || 0) * Math.PI / 180;
+  return [p.lon + (d * Math.sin(tr)) / (111320 * Math.cos(p.lat * Math.PI / 180)), p.lat + (d * Math.cos(tr)) / 111320, p.altM];
+}
+
+function buildLayers(now) {
+  const pulse = (Math.sin(now / 300) + 1) / 2;
+  const list = [...planes.values()].map(p => ({ ...p, pos: planePos(p, now) }));
+  const camColor = c => c === activeCam ? [255, 255, 255, 255] : c.mto ? [143, 162, 255, 235] : [95, 225, 255, 235];
+  return [
+    you && new deck.ScatterplotLayer({
+      id: 'you', data: [you], getPosition: d => d, getRadius: 250 + pulse * 350, filled: false, stroked: true,
+      getLineColor: [93, 255, 168, 200 - pulse * 160], lineWidthMinPixels: 1.5, updateTriggers: { getRadius: pulse, getLineColor: pulse }
+    }),
+    new deck.ScatterplotLayer({
+      id: 'cam-ground', data: cams, visible: layersOn.cams,
+      getPosition: c => [c.longitude, c.latitude, 0], getRadius: 18, radiusMinPixels: 1.5,
+      getFillColor: c => c.mto ? [143, 162, 255, 120] : [95, 225, 255, 120], stroked: false
+    }),
+    activeCam && new deck.ScatterplotLayer({
+      id: 'cam-active', data: [activeCam], getPosition: c => [c.longitude, c.latitude, 0],
+      getRadius: 30 + pulse * 60, filled: false, stroked: true, getLineColor: [255, 255, 255, 230 - pulse * 180], lineWidthMinPixels: 1.5,
+      updateTriggers: { getRadius: pulse, getLineColor: pulse }
+    }),
+    new deck.IconLayer({
+      id: 'cams', data: cams, visible: layersOn.cams, pickable: true, billboard: true,
+      getIcon: () => ({ url: CAM_ICON, width: 64, height: 64, mask: true }),
+      getPosition: c => [c.longitude, c.latitude, 0], getSize: c => c === activeCam || c === hoverCam ? 30 : 19, sizeUnits: 'pixels',
+      getColor: camColor, onClick: ({ object }) => object && openCam(object),
+      onHover: ({ object }) => { hoverCam = object || null; map.getCanvas().style.cursor = object ? 'pointer' : ''; },
+      updateTriggers: { getSize: [activeCam, hoverCam], getColor: activeCam }
+    }),
+    new deck.IconLayer({
+      id: 'enforce', data: enforce, visible: layersOn.enforce, pickable: true,
+      getIcon: () => ({ url: ENF_ICON, width: 64, height: 64, mask: true }),
+      getPosition: e => e.pos, getSize: 16, sizeUnits: 'pixels', getColor: [211, 107, 255, 230]
+    }),
+    new deck.ScatterplotLayer({
+      id: 'incident-rings', data: incidents, visible: layersOn.incidents,
+      getPosition: e => e.pos, getRadius: 50 + pulse * 70, radiusMinPixels: 4,
+      filled: false, stroked: true, getLineColor: e => e.closure ? [255, 77, 94, 190 - pulse * 150] : [255, 181, 71, 190 - pulse * 150],
+      lineWidthMinPixels: 1.2, updateTriggers: { getRadius: pulse, getLineColor: pulse }
+    }),
+    new deck.ScatterplotLayer({
+      id: 'incidents', data: incidents, visible: layersOn.incidents, pickable: true,
+      getPosition: e => e.pos, getRadius: 14, radiusMinPixels: 3, radiusMaxPixels: 6,
+      getFillColor: e => e.closure ? [255, 77, 94, 255] : [255, 181, 71, 255]
+    }),
+    new deck.PathLayer({
+      id: 'plane-trails', data: list, visible: layersOn.planes,
+      getPath: p => [...p.trail, p.pos], getColor: p => p.mil ? [255, 77, 94, 140] : [255, 181, 71, 120],
+      getWidth: 2, widthMinPixels: 1.5, updateTriggers: { getPath: now }
+    }),
+    new deck.LineLayer({
+      id: 'plane-drops', data: list, visible: layersOn.planes,
+      getSourcePosition: p => [p.pos[0], p.pos[1], 0], getTargetPosition: p => p.pos,
+      getColor: [255, 181, 71, 45], getWidth: 1, updateTriggers: { getSourcePosition: now, getTargetPosition: now }
+    }),
+    new deck.IconLayer({
+      id: 'planes', data: list, visible: layersOn.planes, pickable: true, billboard: false,
+      getIcon: () => ({ url: PLANE_ICON, width: 64, height: 64, mask: true }),
+      getPosition: p => p.pos, getAngle: p => -(p.track || 0), getSize: 30, sizeMinPixels: 14, sizeMaxPixels: 34, sizeUnits: 'meters', sizeScale: 18,
+      getColor: p => p.emergency ? [255, 77, 94, 255] : p.mil ? [255, 120, 130, 255] : [255, 201, 110, 255],
+      updateTriggers: { getPosition: now }
+    }),
+    new deck.TextLayer({
+      id: 'plane-labels', data: list, visible: layersOn.planes,
+      getPosition: p => p.pos, getText: p => `${p.call}  ${p.altFt === 'GND' ? 'GND' : 'FL' + String(Math.round(p.altFt / 100)).padStart(3, '0')}`,
+      getSize: 11, getColor: [255, 224, 170, 230], getPixelOffset: [14, -14], getTextAnchor: 'start',
+      fontFamily: 'Space Mono, monospace', characterSet: 'auto', outlineWidth: 3, outlineColor: [0, 0, 0, 255], fontSettings: { sdf: true },
+      updateTriggers: { getPosition: now }
+    })
+  ].filter(Boolean);
+}
+
+function getTooltip({ object, layer }) {
+  if (!object || !layer) return null;
+  const box = html => ({ html, style: { background: '#000', border: '1px solid rgba(255,255,255,.3)', color: '#fff', font: '11px/1.5 Space Mono, monospace', padding: '8px 10px', letterSpacing: '.04em' } });
+  if (layer.id === 'planes') return box(`<b style="color:${object.mil ? '#ff7882' : '#ffc96e'}">${object.call}</b> ${object.mil ? '· MILITARY' : ''}<br>${object.type || 'UNKNOWN TYPE'}<br>ALT ${object.altFt === 'GND' ? 'GROUND' : object.altFt.toLocaleString() + ' FT'} · ${Math.round(object.gs || 0)} KT<br>HDG ${Math.round(object.track || 0)}° · SQK ${object.squawk || '—'}`);
+  if (layer.id === 'cams') return box(`<b style="color:#5fe1ff">${object.mto ? 'MTO' : 'CITY'} CAM ${object.camera_number}</b><br>${object.name}<br><span style="opacity:.6">CLICK FOR LIVE FEED</span>`);
+  if (layer.id === 'incidents') return box(`<b style="color:${object.closure ? '#ff4d5e' : '#ffb547'}">${object.type}</b><br>${object.headline}`);
+  if (layer.id === 'enforce') return box(`<b style="color:#d36bff">${object.kind}</b><br>${object.name}`);
+  return null;
+}
+
+/* ---------- Feeds ---------- */
+async function loadCams() {
+  try {
+    const d = await (await fetch(`${OTT}/camera`)).json();
+    cams = d.cameras.filter(c => c.latitude && c.longitude).map(c => ({ ...c, mto: c.cameraOwner === 'MTO', name: c.name.replace(/^\(MTO\)\s*/, '') }));
+    $('#nCams').textContent = cams.length;
+  } catch (e) { $('#nCams').textContent = 'ERR'; }
+}
+
+async function loadIncidents() {
+  try {
+    const d = await (await fetch(`${OTT}/events`)).json();
+    incidents = d.events.filter(e => e.status === 'ACTIVE' && e.geodata).map(e => {
+      let c = JSON.parse(e.geodata.coordinates || 'null') || [];
+      while (Array.isArray(c[0])) c = c[0];
+      return { pos: c, type: e.eventType.replace(/_/g, ' '), headline: e.headline || e.mainStreet, closure: /closed/i.test(e.lanes || '') || /CLOSURE/.test(e.eventType) };
+    }).filter(e => Number.isFinite(e.pos[0]) && Number.isFinite(e.pos[1]));
+    $('#nInc').textContent = incidents.length;
+  } catch (e) { $('#nInc').textContent = 'ERR'; }
+}
+
+async function loadEnforcement() {
+  try {
+    const [rl, ase] = await Promise.all(['red_light_camera', 'ase_camera'].map(s => fetch(`${OTT}/${s}?format=geojson`).then(r => r.json())));
+    enforce = [
+      ...rl.features.map(f => ({ pos: f.geometry.coordinates, kind: 'RED-LIGHT CAMERA', name: `${f.properties.location} · ${f.properties.direction}` })),
+      ...ase.features.map(f => ({ pos: f.geometry.coordinates, kind: 'SPEED CAMERA (ASE)', name: f.properties.name }))
+    ];
+    $('#nEnf').textContent = enforce.length;
+  } catch (e) { $('#nEnf').textContent = 'ERR'; }
+}
+
+async function loadPlanes() {
+  if (!PLANES_URL) { $('#nPlanes').textContent = 'RELAY'; return; }
+  try {
+    const r = await fetch(PLANES_URL);
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    const now = performance.now(), seen = new Set();
+    (d.ac || []).forEach(a => {
+      if (a.lat == null || a.lon == null) return;
+      seen.add(a.hex);
+      const prev = planes.get(a.hex);
+      const altFt = a.alt_baro === 'ground' ? 'GND' : (a.alt_baro || a.alt_geom || 0);
+      const altM = altFt === 'GND' ? 20 : Math.max(150, altFt * .3048 * ALT_SCALE);
+      planes.set(a.hex, {
+        hex: a.hex, call: (a.flight || a.r || a.hex).trim().toUpperCase(), type: a.desc || a.t, lat: a.lat, lon: a.lon,
+        gs: a.gs, track: a.track ?? a.true_heading, altFt, altM, t0: now, squawk: a.squawk,
+        trail: prev ? [...prev.trail, planePos(prev, now)].slice(-12) : [],
+        mil: Boolean(a.dbFlags & 1), emergency: ['7500', '7600', '7700'].includes(a.squawk) || (a.emergency && a.emergency !== 'none')
+      });
+    });
+    [...planes.keys()].forEach(k => { if (!seen.has(k)) planes.delete(k); });
+    $('#nPlanes').textContent = planes.size;
+  } catch (e) { if (!planes.size) $('#nPlanes').textContent = 'WAIT'; }
+}
+
+async function locateVisitor() {
+  // Approximate (city-level) location from IP; only used to pick the opening view. Never stored or sent elsewhere.
+  try {
+    const ctl = new AbortController(); setTimeout(() => ctl.abort(), 2500);
+    const g = await (await fetch('https://get.geojs.io/v1/ip/geo.json', { signal: ctl.signal })).json();
+    const pt = [Math.round(+g.longitude * 100) / 100, Math.round(+g.latitude * 100) / 100];
+    if (insideOttawa(pt)) return pt;
+  } catch (e) { /* fall through to downtown */ }
+  return null;
+}
+
+function sitrep() {
+  const list = [...planes.values()];
+  const mil = list.filter(p => p.mil).length, emg = list.filter(p => p.emergency);
+  const top = list.filter(p => p.altFt !== 'GND').reduce((m, p) => Math.max(m, p.altFt), 0);
+  const closures = incidents.filter(e => e.closure).length;
+  const parts = [
+    PLANES_URL ? `${list.length} AIRCRAFT IN SECTOR${mil ? ` (${mil} MIL)` : ''}${top ? ` · CEILING FL${String(Math.round(top / 100)).padStart(3, '0')}` : ''}` : 'AIR PICTURE: RELAY PENDING',
+    emg.length ? `⚠ EMERGENCY SQUAWK: ${emg.map(p => p.call + ' ' + p.squawk).join(', ')}` : 'NO EMERGENCY SQUAWKS',
+    `${cams.length} TRAFFIC CAMS ONLINE`,
+    `${incidents.length} ROAD EVENTS · ${closures} CLOSURES`
+  ];
+  if (you) parts.push('VIEW CENTRED ON YOUR APPROX. AREA');
+  const el = $('#sitrep');
+  el.textContent = parts.join('  ·  ');
+  el.style.color = emg.length ? 'var(--red)' : '';
+}
+
+/* ---------- Camera panel ---------- */
+let camTimer;
+const panel = $('#camPanel');
+const dist = (a, b) => Math.hypot(a.longitude - b.longitude, (a.latitude - b.latitude) * 1.4);
+function openCam(c, fly = true) {
+  activeCam = c;
+  panel.hidden = false;
+  $('#camTitle').textContent = `${c.mto ? 'MTO' : 'CITY'} CAM ${c.camera_number}`;
+  $('#camName').textContent = c.name;
+  const refresh = () => { $('#camImg').src = camImage(c.id); $('#camTime').textContent = fmt.format(new Date()); };
+  refresh(); clearInterval(camTimer); camTimer = setInterval(refresh, 5000);
+  stopOrbit();
+  if (fly) map.easeTo({ center: [c.longitude, c.latitude], zoom: Math.max(map.getZoom(), 15.8), pitch: 60, duration: 1400 });
+}
+function closeCam() {
+  panel.hidden = true; activeCam = null; clearInterval(camTimer); setExpanded(false);
+}
+function stepCam(dir) {
+  if (!activeCam) return;
+  const near = cams.filter(c => c !== activeCam).sort((a, b) => dist(a, activeCam) - dist(b, activeCam)).slice(0, 8);
+  // walk around the neighbourhood: next = nearest, prev = second nearest going the other way
+  openCam(dir > 0 ? near[0] : near[1] || near[0], !panel.classList.contains('expanded'));
+}
+let backdrop;
+function setExpanded(on) {
+  panel.classList.toggle('expanded', on);
+  $('#camExpand').textContent = on ? '⤡' : '⤢';
+  $('#camExpand').setAttribute('aria-label', on ? 'Shrink camera' : 'Enlarge camera');
+  if (on && !backdrop) { backdrop = document.createElement('div'); backdrop.className = 'cam-backdrop'; backdrop.onclick = () => setExpanded(false); document.body.appendChild(backdrop); document.body.appendChild(panel); }
+  if (!on && backdrop) { backdrop.remove(); backdrop = null; $('.hero').appendChild(panel); }
+  document.body.classList.toggle('locked', on);
+}
+$('#camClose').addEventListener('click', closeCam);
+$('#camExpand').addEventListener('click', () => setExpanded(!panel.classList.contains('expanded')));
+$('#camNext').addEventListener('click', () => stepCam(1));
+$('#camPrev').addEventListener('click', () => stepCam(-1));
+$('#camImg').addEventListener('click', () => setExpanded(!panel.classList.contains('expanded')));
+
+/* ---------- CCTV wall ---------- */
+let wallTimer, wallCams = [];
+function fillWall(shuffle) {
+  const c = map.getCenter(), ref = { longitude: c.lng, latitude: c.lat };
+  const pool = cams.filter(x => !x.mto).sort((a, b) => dist(a, ref) - dist(b, ref)).slice(0, shuffle ? 60 : 9);
+  if (shuffle) pool.sort(() => Math.random() - .5);
+  wallCams = pool.slice(0, 9);
+  $('#cctvGrid').innerHTML = wallCams.map((x, i) => `<button class="cctv-cell" data-i="${i}" aria-label="Open ${x.name}"><img alt="" src="${camImage(x.id)}"><b>● REC</b><span>CAM ${x.camera_number} · ${x.name}</span></button>`).join('');
+}
+function openWall() {
+  fillWall(false); $('#cctv').hidden = false; document.body.classList.add('locked');
+  clearInterval(wallTimer);
+  wallTimer = setInterval(() => $$('.cctv-cell img').forEach((img, i) => { img.src = camImage(wallCams[i].id); }), 8000);
+}
+function closeWall() { $('#cctv').hidden = true; clearInterval(wallTimer); document.body.classList.remove('locked'); }
+$('#cctvOpen').addEventListener('click', openWall);
+$('#cctvClose').addEventListener('click', closeWall);
+$('#cctvShuffle').addEventListener('click', () => fillWall(true));
+$('#cctvGrid').addEventListener('click', e => {
+  const cell = e.target.closest('.cctv-cell'); if (!cell) return;
+  closeWall(); openCam(wallCams[+cell.dataset.i]); setExpanded(true);
+});
+addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  if (!$('#cctv').hidden) closeWall();
+  else if (panel.classList.contains('expanded')) setExpanded(false);
+  else if (!panel.hidden) closeCam();
+});
+
+/* ---------- Controls ---------- */
+$$('.layer').forEach(btn => btn.addEventListener('click', () => {
+  const k = btn.dataset.layer, on = !btn.classList.contains('on');
+  btn.classList.toggle('on', on);
+  if (k in layersOn) layersOn[k] = on;
+  else if (k === 'flow') ['flow', 'roads-glow', 'tomtom'].forEach(id => map.getLayer(id) && map.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none'));
+  else map.setLayoutProperty(k, 'visibility', on ? 'visible' : 'none');
+  if (!reduced) return;
+  overlay.setProps({ layers: buildLayers(performance.now()) });
+}));
+
+let orbiting = false;
+const orbitBtn = $('#orbit');
+function stopOrbit() { orbiting = false; orbitBtn.setAttribute('aria-pressed', 'false'); }
+orbitBtn.addEventListener('click', () => { orbiting = !orbiting; orbitBtn.setAttribute('aria-pressed', String(orbiting)); });
+['mousedown', 'touchstart', 'wheel'].forEach(ev => map.getCanvasContainer().addEventListener(ev, stopOrbit, { passive: true }));
+$$('[data-fly]').forEach(b => b.addEventListener('click', () => map.flyTo({ ...VIEWS[b.dataset.fly], duration: reduced ? 0 : 2600, essential: true })));
+
+map.on('move', () => {
+  const c = map.getCenter();
+  $('#coords').textContent = `${c.lat.toFixed(4)}N ${Math.abs(c.lng).toFixed(4)}W`;
+});
+
+/* ---------- Loop ---------- */
+const DASH = [[0, 4, 3], [.5, 4, 2.5], [1, 4, 2], [1.5, 4, 1.5], [2, 4, 1], [2.5, 4, .5], [3, 4, 0], [0, .5, 3, 3.5], [0, 1, 3, 3], [0, 1.5, 3, 2.5], [0, 2, 3, 2], [0, 2.5, 3, 1.5], [0, 3, 3, 1], [0, 3.5, 3, .5]];
+let dashStep = -1, lastFrame = 0;
+function frame(t) {
+  if (t - lastFrame > 33 && !document.hidden) {
+    lastFrame = t;
+    overlay.setProps({ layers: buildLayers(t) });
+    const step = Math.floor(t / 70) % DASH.length;
+    if (step !== dashStep && map.getLayer('flow')) { dashStep = step; map.setPaintProperty('flow', 'line-dasharray', DASH[step]); }
+    if (orbiting && !map.isMoving()) map.setBearing(map.getBearing() + .04);
+  }
+  requestAnimationFrame(frame);
+}
+
+/* ---------- Intro: space → Ottawa → your area (or downtown) ---------- */
+function intro(target) {
+  const land = () => { map.setMaxBounds(OTTAWA_BOUNDS); map.setMinZoom(9); orbiting = !reduced; orbitBtn.setAttribute('aria-pressed', String(orbiting)); };
+  if (reduced) { map.jumpTo(target); land(); return; }
+  map.flyTo({ ...VIEWS.wide, duration: 3200, curve: 1.6, essential: true });
+  map.once('moveend', () => { map.flyTo({ ...target, duration: 3600, curve: 1.3, essential: true }); map.once('moveend', land); });
+}
+
+map.on('load', async () => {
+  const where = locateVisitor();
+  await addMask().catch(() => {});
+  addTomTom();
+  Promise.all([loadCams(), loadIncidents(), loadPlanes(), loadEnforcement()]).then(sitrep);
+  setInterval(() => loadPlanes().then(sitrep), 10000);
+  setInterval(() => loadIncidents().then(sitrep), 120000);
+  const pt = await where;
+  if (pt) you = pt;
+  intro(pt ? { center: pt, zoom: 14.2, pitch: 62, bearing: -20 } : VIEWS.downtown);
+  if (reduced) setTimeout(() => overlay.setProps({ layers: buildLayers(performance.now()) }), 800);
+  else requestAnimationFrame(frame);
+});
