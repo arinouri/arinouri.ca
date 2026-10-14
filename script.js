@@ -57,7 +57,7 @@ const OTTAWA_BOUNDS = [[-76.45, 44.90], [-75.15, 45.60]];
 const VIEWS = {
   space: { center: [-75.6972, 45.4215], zoom: 3.6, pitch: 0, bearing: 0 },
   wide: { center: [-75.72, 45.30], zoom: 9.6, pitch: 45, bearing: -12 },
-  downtown: { center: [-75.6972, 45.4215], zoom: 14.7, pitch: 64, bearing: -28 },
+  downtown: { center: [-75.6950, 45.4190], zoom: 14.4, pitch: 62, bearing: -24 },
   yow: { center: [-75.6692, 45.3225], zoom: 13.2, pitch: 58, bearing: 24 }
 };
 
@@ -70,21 +70,10 @@ const map = new maplibregl.Map({
     'CooperativeGesturesHandler.MobileHelpText': 'Use two fingers to move the map'
   }
 });
-map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'bottom-right');
+map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-left');
 
 /* ---------- Ottawa-only mask ---------- */
 let boundary = null;
-function insideOttawa([x, y]) {
-  if (!boundary) return false;
-  let inside = false;
-  for (const ring of boundary) {
-    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
-      const [xi, yi] = ring[i], [xj, yj] = ring[j];
-      if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) inside = !inside;
-    }
-  }
-  return inside;
-}
 async function addMask() {
   const geo = await (await fetch('data/ottawa-boundary.json')).json();
   const g = geo.features[0].geometry;
@@ -107,7 +96,7 @@ function addTomTom() {
 
 /* ---------- Data state ---------- */
 let cams = [], incidents = [], enforce = [], planes = new Map();
-let activeCam = null, hoverCam = null, you = null;
+let activeCam = null, hoverCam = null;
 const layersOn = { planes: true, cams: true, incidents: true, enforce: false };
 
 /* ---------- Icons ---------- */
@@ -133,10 +122,6 @@ function buildLayers(now) {
   const list = [...planes.values()].map(p => ({ ...p, pos: planePos(p, now) }));
   const camColor = c => c === activeCam ? [255, 255, 255, 255] : c.mto ? [143, 162, 255, 235] : [95, 225, 255, 235];
   return [
-    you && new deck.ScatterplotLayer({
-      id: 'you', data: [you], getPosition: d => d, getRadius: 250 + pulse * 350, filled: false, stroked: true,
-      getLineColor: [93, 255, 168, 200 - pulse * 160], lineWidthMinPixels: 1.5, updateTriggers: { getRadius: pulse, getLineColor: pulse }
-    }),
     new deck.ScatterplotLayer({
       id: 'cam-ground', data: cams, visible: layersOn.cams,
       getPosition: c => [c.longitude, c.latitude, 0], getRadius: 18, radiusMinPixels: 1.5,
@@ -265,17 +250,6 @@ async function loadPlanes() {
   } catch (e) { if (!planes.size) $('#nPlanes').textContent = 'WAIT'; }
 }
 
-async function locateVisitor() {
-  // Approximate (city-level) location from IP; only used to pick the opening view. Never stored or sent elsewhere.
-  try {
-    const ctl = new AbortController(); setTimeout(() => ctl.abort(), 2500);
-    const g = await (await fetch('https://get.geojs.io/v1/ip/geo.json', { signal: ctl.signal })).json();
-    const pt = [Math.round(+g.longitude * 100) / 100, Math.round(+g.latitude * 100) / 100];
-    if (insideOttawa(pt)) return pt;
-  } catch (e) { /* fall through to downtown */ }
-  return null;
-}
-
 function sitrep() {
   const list = [...planes.values()];
   const mil = list.filter(p => p.mil).length, emg = list.filter(p => p.emergency);
@@ -287,7 +261,6 @@ function sitrep() {
     `${cams.length} TRAFFIC CAMS ONLINE`,
     `${incidents.length} ROAD EVENTS · ${closures} CLOSURES`
   ];
-  if (you) parts.push('VIEW CENTRED ON YOUR APPROX. AREA');
   const el = $('#sitrep');
   el.textContent = parts.join('  ·  ');
   el.style.color = emg.length ? 'var(--red)' : '';
@@ -300,6 +273,7 @@ const dist = (a, b) => Math.hypot(a.longitude - b.longitude, (a.latitude - b.lat
 function openCam(c, fly = true) {
   activeCam = c;
   panel.hidden = false;
+  $('.hud').classList.add('compact');
   $('#camTitle').textContent = `${c.mto ? 'MTO' : 'CITY'} CAM ${c.camera_number}`;
   $('#camName').textContent = c.name;
   const refresh = () => { $('#camImg').src = camImage(c.id); $('#camTime').textContent = fmt.format(new Date()); };
@@ -308,7 +282,7 @@ function openCam(c, fly = true) {
   if (fly) map.easeTo({ center: [c.longitude, c.latitude], zoom: Math.max(map.getZoom(), 15.8), pitch: 60, duration: 1400 });
 }
 function closeCam() {
-  panel.hidden = true; activeCam = null; clearInterval(camTimer); setExpanded(false);
+  panel.hidden = true; activeCam = null; $('.hud').classList.remove('compact'); clearInterval(camTimer); setExpanded(false);
 }
 function stepCam(dir) {
   if (!activeCam) return;
@@ -397,7 +371,7 @@ function frame(t) {
   requestAnimationFrame(frame);
 }
 
-/* ---------- Intro: space → Ottawa → your area (or downtown) ---------- */
+/* ---------- Intro: orbit → Ottawa → downtown core ---------- */
 function intro(target) {
   const land = () => { map.setMaxBounds(OTTAWA_BOUNDS); map.setMinZoom(9); orbiting = !reduced; orbitBtn.setAttribute('aria-pressed', String(orbiting)); };
   if (reduced) { map.jumpTo(target); land(); return; }
@@ -406,15 +380,12 @@ function intro(target) {
 }
 
 map.on('load', async () => {
-  const where = locateVisitor();
   await addMask().catch(() => {});
   addTomTom();
   Promise.all([loadCams(), loadIncidents(), loadPlanes(), loadEnforcement()]).then(sitrep);
   setInterval(() => loadPlanes().then(sitrep), 10000);
   setInterval(() => loadIncidents().then(sitrep), 120000);
-  const pt = await where;
-  if (pt) you = pt;
-  intro(pt ? { center: pt, zoom: 14.2, pitch: 62, bearing: -20 } : VIEWS.downtown);
+  intro(VIEWS.downtown);
   if (reduced) setTimeout(() => overlay.setProps({ layers: buildLayers(performance.now()) }), 800);
   else requestAnimationFrame(frame);
 });

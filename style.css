@@ -90,13 +90,14 @@ a{color:inherit}
 .hud-views button:hover,.hud-views button[aria-pressed="true"],.cctv-btn:hover,.cam-actions button:hover,.cctv-head button:hover{background:#fff;color:#000;border-color:#fff}
 .cctv-btn{width:100%;margin-top:6px;padding:9px 0;color:var(--cyan);border-color:rgba(95,225,255,.45)}
 .hud-tip{font-size:10px;line-height:1.5;margin:10px 0 0}
+.hud.compact .layer,.hud.compact .hud-tip,.hud.compact .cctv-btn{display:none}
 
 .ticker{position:absolute;z-index:5;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;padding:11px var(--gutter);font-size:12px;letter-spacing:.06em;color:var(--text-2);border-top:1px solid var(--line);background:rgba(0,0,0,.65);white-space:nowrap;overflow:hidden}
 .ticker .tag{font-size:10px;padding:2px 6px;color:var(--cyan);border-color:rgba(95,225,255,.45)}
 .ticker #sitrep{overflow:hidden;text-overflow:ellipsis}
 
 /* camera panel */
-.cam-panel{position:absolute;z-index:8;top:80px;left:var(--gutter);width:min(400px,calc(100vw - 32px));background:#000;border:1px solid rgba(95,225,255,.6);box-shadow:0 0 50px rgba(95,225,255,.16);transition:all .35s ease}
+.cam-panel{position:absolute;z-index:8;bottom:58px;right:var(--gutter);width:min(400px,calc(100vw - 32px));background:#000;border:1px solid rgba(95,225,255,.6);box-shadow:0 0 50px rgba(95,225,255,.16);transition:all .35s ease}
 .cam-head{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px}
 .cam-head .tag{color:var(--cyan);border-color:rgba(95,225,255,.45);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cam-actions{display:flex;gap:4px}
@@ -131,7 +132,7 @@ a{color:inherit}
 
 .maplibregl-ctrl-attrib{background:rgba(0,0,0,.6)!important;color:var(--text-3)!important;font:10px var(--mono)!important}
 .maplibregl-ctrl-attrib a{color:var(--text-3)!important}
-.maplibregl-ctrl-bottom-right{bottom:44px}
+.maplibregl-ctrl-top-left{top:64px;left:calc(var(--gutter) - 10px)}
 .maplibregl-ctrl-group{background:#000!important;border:1px solid var(--line-2)!important;border-radius:0!important}
 .maplibregl-ctrl-group button{filter:invert(1)}
 .maplibregl-cooperative-gesture-screen{font-family:var(--mono)!important;background:rgba(0,0,0,.55)!important;font-size:14px!important}
@@ -160,6 +161,17 @@ section[id]:not(.hero){padding-top:clamp(80px,10vw,140px)}
 .work p{margin:0;font-size:15px;color:var(--text-2)}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tags span{font:400 10px/1 var(--mono);letter-spacing:.12em;border:1px solid var(--line);color:var(--text-3);padding:5px 6px}
+.work-link{align-self:flex-start;font:400 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(95,225,255,.4);padding-bottom:3px}
+.work-link:hover{color:#fff;border-color:#fff}
+.more{margin-top:40px;border:1px solid var(--line)}
+.more-head{padding:14px 18px;border-bottom:1px solid var(--line)}
+.more ul{list-style:none;margin:0;padding:0}
+.more li{display:grid;grid-template-columns:260px 1fr 220px;gap:20px;align-items:baseline;padding:14px 18px;border-bottom:1px solid var(--line)}
+.more li:last-child{border-bottom:0}
+.more b{font:500 16px/1.3 var(--sans)}
+.more span{color:var(--text-2);font-size:14.5px}
+.more i{font:normal 400 10px/1.4 var(--mono);letter-spacing:.12em;color:var(--text-3);text-align:right}
+@media (max-width:760px){.more li{grid-template-columns:1fr;gap:4px}.more i{text-align:left}}
 .status{position:absolute;top:24px;right:24px;font:400 10.5px/1 var(--mono);letter-spacing:.14em}
 .status::before{content:"● "}
 .status.ok{color:var(--green)}
@@ -199,7 +211,7 @@ section[id]:not(.hero){padding-top:clamp(80px,10vw,140px)}
   .hud-views{margin-top:0}
   .hero-copy{bottom:auto;top:78px;right:var(--gutter)}
   .hero-copy p{font-size:15px}
-  .cam-panel:not(.expanded){top:auto;bottom:150px;left:8px}
+  .cam-panel:not(.expanded){bottom:100px;right:8px;left:8px;width:auto}
   .works{grid-template-columns:1fr}
   .work{border-right:0!important;border-bottom:1px solid var(--line)!important}
   .work:last-child{border-bottom:0!important}
