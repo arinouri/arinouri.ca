@@ -1,267 +1,277 @@
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---------- Boot: short, once per session ---------- */
-(() => {
-  const boot = $('.boot');
-  let seen = false;
-  try { seen = sessionStorage.getItem('an_boot') === '1'; sessionStorage.setItem('an_boot', '1'); } catch (e) {}
-  if (seen || reduced) { boot.remove(); return; }
-  const done = () => { boot.classList.add('done'); setTimeout(() => boot.remove(), 400); };
-  setTimeout(done, 1250);
-  boot.addEventListener('click', done);
-  addEventListener('keydown', done, { once: true });
-})();
+// Live aircraft come from a relay (adsb.lol blocks direct browser calls).
+// Local preview: tools/dev_server.py serves /api/planes. Production: set to the Cloudflare Worker URL.
+const PLANES_URL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) ? '/api/planes' : null;
+const CAMS_URL = 'https://traffic.ottawa.ca/service/camera';
+const EVENTS_URL = 'https://traffic.ottawa.ca/service/events';
+const camImage = id => `https://traffic.ottawa.ca/camera?id=${id}&t=${Date.now()}`;
 
-/* ---------- Clock (Ottawa) ---------- */
-const clock = $('#clock');
+/* ---------- Clock ---------- */
 const fmt = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Toronto', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
-const tick = () => { clock.textContent = fmt.format(new Date()); };
+const tick = () => { $('#clock').textContent = fmt.format(new Date()); };
 tick(); setInterval(tick, 1000);
 $('#year').textContent = new Date().getFullYear();
 
-/* ---------- Mobile nav ---------- */
-const menu = $('.menu'), mobile = $('#mobileNav');
-const setMenu = open => { menu.setAttribute('aria-expanded', String(open)); mobile.classList.toggle('open', open); };
-menu.addEventListener('click', () => setMenu(menu.getAttribute('aria-expanded') !== 'true'));
-$$('a', mobile).forEach(a => a.addEventListener('click', () => setMenu(false)));
+/* ---------- Map style: holographic blue on black ---------- */
+const SRC = 'openmaptiles';
+const MAJOR = ['motorway', 'trunk', 'primary'];
+const style = {
+  version: 8,
+  glyphs: 'https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf',
+  sources: { [SRC]: { type: 'vector', url: 'https://tiles.openfreemap.org/planet' } },
+  layers: [
+    { id: 'bg', type: 'background', paint: { 'background-color': '#000' } },
+    { id: 'park', type: 'fill', source: SRC, 'source-layer': 'park', paint: { 'fill-color': '#06102a', 'fill-opacity': .6 } },
+    { id: 'water', type: 'fill', source: SRC, 'source-layer': 'water', paint: { 'fill-color': '#020817' } },
+    { id: 'water-edge', type: 'line', source: SRC, 'source-layer': 'water', paint: { 'line-color': '#3a5bff', 'line-opacity': .55, 'line-width': 1.2 } },
+    { id: 'aeroway', type: 'line', source: SRC, 'source-layer': 'aeroway', filter: ['==', ['get', 'class'], 'runway'],
+      paint: { 'line-color': '#5fe1ff', 'line-opacity': .5, 'line-width': ['interpolate', ['linear'], ['zoom'], 11, 2, 15, 14] } },
+    { id: 'roads-minor', type: 'line', source: SRC, 'source-layer': 'transportation', filter: ['in', ['get', 'class'], ['literal', ['minor', 'service', 'tertiary', 'secondary']]],
+      paint: { 'line-color': '#1b2a7a', 'line-opacity': ['interpolate', ['linear'], ['zoom'], 11, .3, 15, .8], 'line-width': ['interpolate', ['linear'], ['zoom'], 11, .4, 16, 2] } },
+    { id: 'roads-glow', type: 'line', source: SRC, 'source-layer': 'transportation', filter: ['in', ['get', 'class'], ['literal', MAJOR]],
+      paint: { 'line-color': '#3a5bff', 'line-opacity': .35, 'line-blur': 6, 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 4, 16, 18] } },
+    { id: 'roads-major', type: 'line', source: SRC, 'source-layer': 'transportation', filter: ['in', ['get', 'class'], ['literal', MAJOR]],
+      paint: { 'line-color': '#5a78ff', 'line-width': ['interpolate', ['linear'], ['zoom'], 10, .8, 16, 3] } },
+    { id: 'flow', type: 'line', source: SRC, 'source-layer': 'transportation', filter: ['in', ['get', 'class'], ['literal', MAJOR]],
+      layout: { 'line-cap': 'butt' },
+      paint: { 'line-color': '#bff4ff', 'line-width': ['interpolate', ['linear'], ['zoom'], 10, 1, 16, 3], 'line-opacity': .9, 'line-dasharray': [0, 4, 3] } },
+    { id: 'buildings', type: 'fill-extrusion', source: SRC, 'source-layer': 'building', minzoom: 12,
+      paint: {
+        'fill-extrusion-color': ['interpolate', ['linear'], ['coalesce', ['get', 'render_height'], 5], 0, '#0a1238', 30, '#1d2f9c', 90, '#4d6bff', 200, '#a9b8ff'],
+        'fill-extrusion-height': ['coalesce', ['get', 'render_height'], 5],
+        'fill-extrusion-base': ['coalesce', ['get', 'render_min_height'], 0],
+        'fill-extrusion-opacity': .62,
+        'fill-extrusion-vertical-gradient': true
+      } },
+    { id: 'place-labels', type: 'symbol', source: SRC, 'source-layer': 'place', filter: ['in', ['get', 'class'], ['literal', ['city', 'town', 'suburb', 'neighbourhood']]],
+      layout: { 'text-field': ['upcase', ['coalesce', ['get', 'name:en'], ['get', 'name']]], 'text-font': ['Noto Sans Regular'], 'text-size': ['interpolate', ['linear'], ['zoom'], 10, 10, 15, 12], 'text-letter-spacing': .25 },
+      paint: { 'text-color': '#8fa2ff', 'text-opacity': .75, 'text-halo-color': '#000', 'text-halo-width': 1.5 } }
+  ]
+};
 
-/* ---------- Active section in nav ---------- */
-const navLinks = $$('.nav-links a'), sections = $$('main section[id]');
-let spyQueued = false;
-function spy() {
-  spyQueued = false;
-  let current = '';
-  sections.forEach(s => { if (s.getBoundingClientRect().top < innerHeight * .4) current = s.id; });
-  navLinks.forEach(a => a.classList.toggle('active', a.hash === '#' + current));
-}
-addEventListener('scroll', () => { if (!spyQueued) { spyQueued = true; requestAnimationFrame(spy); } }, { passive: true });
-spy();
+const VIEWS = {
+  wide: { center: [-75.70, 45.385], zoom: 10.7, pitch: 50, bearing: -12 },
+  downtown: { center: [-75.6972, 45.4215], zoom: 14.7, pitch: 64, bearing: -28 },
+  yow: { center: [-75.6692, 45.3225], zoom: 13.2, pitch: 58, bearing: 24 }
+};
 
-/* ---------- Reveal on scroll ---------- */
-const revealTargets = $$('.sec-head, .profile-text, .dossier, .log-item, .op, .cap, .term, .contact > *');
-revealTargets.forEach(el => el.classList.add('reveal'));
-const reveal = new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) { e.target.classList.add('visible'); reveal.unobserve(e.target); }
-}), { threshold: .08 });
-revealTargets.forEach(el => reveal.observe(el));
-
-/* ---------- Case files ---------- */
-const ops = $$('.op');
-ops.forEach(op => {
-  op.tabIndex = 0;
-  op.setAttribute('role', 'button');
-  op.setAttribute('aria-label', `Open case file: ${$('h3', op).textContent}`);
-  op.insertAdjacentHTML('beforeend', '<span class="op-open">Open case file →</span>');
-  op.addEventListener('click', () => openCase(op));
-  op.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCase(op); } });
+const map = new maplibregl.Map({
+  container: 'map', style, ...VIEWS.wide, maxPitch: 78, antialias: true,
+  cooperativeGestures: true, attributionControl: { compact: true },
+  locale: {
+    'CooperativeGesturesHandler.WindowsHelpText': 'Ctrl + scroll to zoom the map',
+    'CooperativeGesturesHandler.MacHelpText': '⌘ + scroll to zoom the map',
+    'CooperativeGesturesHandler.MobileHelpText': 'Use two fingers to move the map'
+  }
 });
+map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'bottom-right');
 
-const dialog = $('#caseFile');
-function openCase(op) {
-  const st = $('.status', op);
-  $('#cfCode').textContent = `${$('.code', op).textContent} // CASE FILE`;
-  $('#cfStatus').className = st.className;
-  $('#cfStatus').textContent = st.textContent;
-  $('#cfTitle').textContent = $('h3', op).textContent;
-  $('#cfClass').textContent = $('.op-class', op).textContent;
-  $('#cfBrief').textContent = $('.brief', op).textContent;
-  $('#cfStack').innerHTML = $('.stack', op).innerHTML;
-  $('#cfType').textContent = op.dataset.type === 'hw' ? 'Hardware / physical systems' : 'Software / digital systems';
-  const link = $('#cfLink');
-  link.hidden = !op.dataset.link;
-  if (op.dataset.link) link.href = op.dataset.link;
-  dialog.showModal();
-  requestAnimationFrame(() => dialog.classList.add('visible'));
-  document.body.classList.add('locked');
-}
-function closeCase() {
-  dialog.classList.remove('visible');
-  document.body.classList.remove('locked');
-  setTimeout(() => { if (dialog.open) dialog.close(); }, reduced ? 0 : 250);
-}
-$('.cf-close').addEventListener('click', closeCase);
-dialog.addEventListener('cancel', e => { e.preventDefault(); closeCase(); });
-dialog.addEventListener('click', e => { if (e.target === dialog) closeCase(); });
+/* ---------- Data state ---------- */
+let cams = [], incidents = [], planes = new Map();
+const layersOn = { planes: true, cams: true, incidents: true };
 
-/* ---------- Filters ---------- */
-$$('.filter').forEach(btn => btn.addEventListener('click', () => {
-  $$('.filter').forEach(b => { b.classList.toggle('active', b === btn); b.setAttribute('aria-pressed', String(b === btn)); });
-  const f = btn.dataset.filter;
-  ops.forEach(op => { op.hidden = !(f === 'all' || op.dataset.type === f || op.dataset.status === f); });
+/* ---------- Deck.gl overlay ---------- */
+const PLANE_ICON = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><path fill="#fff" d="M32 2l5 20 21 12v6l-21-6-2 16 7 6v4l-10-3-10 3v-4l7-6-2-16-21 6v-6l21-12z"/></svg>');
+const ALT_SCALE = .22; // exaggerate less than real so planes stay in frame
+const overlay = new deck.MapboxOverlay({ interleaved: false, layers: [], pickingRadius: 10, getTooltip });
+map.addControl(overlay);
+
+function planePos(p, now) {
+  const dt = (now - p.t0) / 1000;
+  const d = (p.gs || 0) * .5144 * Math.min(dt, 30);
+  const tr = (p.track || 0) * Math.PI / 180;
+  const lat = p.lat + (d * Math.cos(tr)) / 111320;
+  const lon = p.lon + (d * Math.sin(tr)) / (111320 * Math.cos(p.lat * Math.PI / 180));
+  return [lon, lat, p.altM];
+}
+
+function buildLayers(now) {
+  const pulse = (Math.sin(now / 300) + 1) / 2;
+  const list = [...planes.values()].map(p => ({ ...p, pos: planePos(p, now) }));
+  return [
+    new deck.LineLayer({
+      id: 'cam-beams', data: cams, visible: layersOn.cams,
+      getSourcePosition: c => [c.longitude, c.latitude, 0], getTargetPosition: c => [c.longitude, c.latitude, 70],
+      getColor: [95, 225, 255, 150], getWidth: 1.5
+    }),
+    new deck.ScatterplotLayer({
+      id: 'cams', data: cams, visible: layersOn.cams, pickable: true,
+      getPosition: c => [c.longitude, c.latitude, 70], getRadius: 14, radiusMinPixels: 3, radiusMaxPixels: 7,
+      getFillColor: [95, 225, 255, 230], stroked: true, getLineColor: [0, 0, 0, 255], lineWidthMinPixels: 1,
+      onClick: ({ object }) => object && openCam(object)
+    }),
+    new deck.ScatterplotLayer({
+      id: 'incident-rings', data: incidents, visible: layersOn.incidents,
+      getPosition: e => e.pos, getRadius: 60 + pulse * 90, radiusMinPixels: 4,
+      filled: false, stroked: true, getLineColor: e => e.closure ? [255, 77, 94, 200 - pulse * 150] : [255, 181, 71, 200 - pulse * 150],
+      lineWidthMinPixels: 1.5, updateTriggers: { getRadius: pulse, getLineColor: pulse }
+    }),
+    new deck.LineLayer({
+      id: 'incident-beams', data: incidents, visible: layersOn.incidents,
+      getSourcePosition: e => [e.pos[0], e.pos[1], 0], getTargetPosition: e => [e.pos[0], e.pos[1], 140],
+      getColor: e => e.closure ? [255, 77, 94, 220] : [255, 181, 71, 200], getWidth: 2
+    }),
+    new deck.ScatterplotLayer({
+      id: 'incidents', data: incidents, visible: layersOn.incidents, pickable: true,
+      getPosition: e => [e.pos[0], e.pos[1], 140], getRadius: 18, radiusMinPixels: 3, radiusMaxPixels: 7,
+      getFillColor: e => e.closure ? [255, 77, 94, 255] : [255, 181, 71, 255]
+    }),
+    new deck.PathLayer({
+      id: 'plane-trails', data: list, visible: layersOn.planes,
+      getPath: p => [...p.trail, p.pos], getColor: p => p.mil ? [255, 77, 94, 140] : [255, 181, 71, 120],
+      getWidth: 2, widthMinPixels: 1.5, updateTriggers: { getPath: now }
+    }),
+    new deck.LineLayer({
+      id: 'plane-drops', data: list, visible: layersOn.planes,
+      getSourcePosition: p => [p.pos[0], p.pos[1], 0], getTargetPosition: p => p.pos,
+      getColor: [255, 181, 71, 45], getWidth: 1, updateTriggers: { getSourcePosition: now, getTargetPosition: now }
+    }),
+    new deck.IconLayer({
+      id: 'planes', data: list, visible: layersOn.planes, pickable: true, billboard: false,
+      getIcon: () => ({ url: PLANE_ICON, width: 64, height: 64, mask: true }),
+      getPosition: p => p.pos, getAngle: p => -(p.track || 0), getSize: 30, sizeMinPixels: 14, sizeMaxPixels: 34, sizeUnits: 'meters', sizeScale: 18,
+      getColor: p => p.emergency ? [255, 77, 94, 255] : p.mil ? [255, 120, 130, 255] : [255, 201, 110, 255],
+      updateTriggers: { getPosition: now }
+    }),
+    new deck.TextLayer({
+      id: 'plane-labels', data: list, visible: layersOn.planes,
+      getPosition: p => p.pos, getText: p => `${p.call}  ${p.altFt === 'GND' ? 'GND' : 'FL' + String(Math.round(p.altFt / 100)).padStart(3, '0')}`,
+      getSize: 11, getColor: [255, 224, 170, 230], getPixelOffset: [14, -14], getTextAnchor: 'start',
+      fontFamily: 'Space Mono, monospace', characterSet: 'auto', outlineWidth: 3, outlineColor: [0, 0, 0, 255], fontSettings: { sdf: true },
+      updateTriggers: { getPosition: now }
+    })
+  ];
+}
+
+function getTooltip({ object, layer }) {
+  if (!object) return null;
+  const box = html => ({ html, style: { background: '#000', border: '1px solid rgba(255,255,255,.3)', color: '#fff', font: '11px/1.5 Space Mono, monospace', padding: '8px 10px', letterSpacing: '.04em' } });
+  if (layer.id === 'planes') {
+    return box(`<b style="color:${object.mil ? '#ff7882' : '#ffc96e'}">${object.call}</b> ${object.mil ? '· MILITARY' : ''}<br>${object.type || 'UNKNOWN TYPE'}<br>ALT ${object.altFt === 'GND' ? 'GROUND' : object.altFt.toLocaleString() + ' FT'} · ${Math.round(object.gs || 0)} KT<br>HDG ${Math.round(object.track || 0)}° · SQK ${object.squawk || '—'}`);
+  }
+  if (layer.id === 'cams') return box(`<b style="color:#5fe1ff">CAM ${object.camera_number}</b><br>${object.name}<br><span style="opacity:.6">CLICK FOR LIVE FEED</span>`);
+  if (layer.id === 'incidents') return box(`<b style="color:${object.closure ? '#ff4d5e' : '#ffb547'}">${object.type}</b><br>${object.headline}`);
+  return null;
+}
+
+/* ---------- Feeds ---------- */
+async function loadCams() {
+  try {
+    const d = await (await fetch(CAMS_URL)).json();
+    cams = d.cameras.filter(c => c.latitude && c.longitude);
+    $('#nCams').textContent = cams.length;
+  } catch (e) { $('#nCams').textContent = 'ERR'; }
+}
+
+async function loadIncidents() {
+  try {
+    const d = await (await fetch(EVENTS_URL)).json();
+    incidents = d.events.filter(e => e.status === 'ACTIVE' && e.geodata).map(e => {
+      let c = JSON.parse(e.geodata.coordinates || 'null') || [];
+      while (Array.isArray(c[0])) c = c[0];
+      return { pos: c, type: e.eventType.replace(/_/g, ' '), headline: e.headline || e.mainStreet, closure: /closed/i.test(e.lanes || '') || /CLOSURE/.test(e.eventType) };
+    }).filter(e => Number.isFinite(e.pos[0]) && Number.isFinite(e.pos[1]));
+    $('#nInc').textContent = incidents.length;
+  } catch (e) { $('#nInc').textContent = 'ERR'; }
+}
+
+async function loadPlanes() {
+  if (!PLANES_URL) { $('#nPlanes').textContent = 'RELAY'; return; }
+  try {
+    const d = await (await fetch(PLANES_URL)).json();
+    const now = performance.now(), seen = new Set();
+    (d.ac || []).forEach(a => {
+      if (a.lat == null || a.lon == null) return;
+      seen.add(a.hex);
+      const prev = planes.get(a.hex);
+      const altFt = a.alt_baro === 'ground' ? 'GND' : (a.alt_baro || a.alt_geom || 0);
+      const altM = altFt === 'GND' ? 20 : Math.max(150, altFt * .3048 * ALT_SCALE);
+      const trail = prev ? [...prev.trail, planePos(prev, now)].slice(-12) : [];
+      planes.set(a.hex, {
+        hex: a.hex, call: (a.flight || a.r || a.hex).trim().toUpperCase(), type: a.desc || a.t, lat: a.lat, lon: a.lon,
+        gs: a.gs, track: a.track ?? a.true_heading, altFt, altM, t0: now, trail, squawk: a.squawk,
+        mil: Boolean(a.dbFlags & 1), emergency: ['7500', '7600', '7700'].includes(a.squawk) || (a.emergency && a.emergency !== 'none')
+      });
+    });
+    [...planes.keys()].forEach(k => { if (!seen.has(k)) planes.delete(k); });
+    $('#nPlanes').textContent = planes.size;
+  } catch (e) { $('#nPlanes').textContent = 'ERR'; }
+}
+
+function sitrep() {
+  const list = [...planes.values()];
+  const mil = list.filter(p => p.mil).length;
+  const emg = list.filter(p => p.emergency);
+  const airborne = list.filter(p => p.altFt !== 'GND');
+  const top = airborne.reduce((m, p) => Math.max(m, p.altFt), 0);
+  const closures = incidents.filter(e => e.closure).length;
+  const parts = [];
+  parts.push(PLANES_URL ? `${list.length} AIRCRAFT IN SECTOR${mil ? ` (${mil} MIL)` : ''}${top ? ` · CEILING FL${String(Math.round(top / 100)).padStart(3, '0')}` : ''}` : 'AIR PICTURE: RELAY PENDING');
+  parts.push(emg.length ? `⚠ EMERGENCY SQUAWK: ${emg.map(p => p.call + ' ' + p.squawk).join(', ')}` : 'NO EMERGENCY SQUAWKS');
+  parts.push(`${cams.length} TRAFFIC CAMS ONLINE`);
+  parts.push(`${incidents.length} ROAD EVENTS · ${closures} CLOSURES`);
+  const el = $('#sitrep');
+  el.textContent = parts.join('  ·  ');
+  el.style.color = emg.length ? 'var(--red)' : '';
+}
+
+/* ---------- Camera panel ---------- */
+let camTimer;
+function openCam(c) {
+  $('#camPanel').hidden = false;
+  $('#camTitle').textContent = `CAM ${c.camera_number} // CITY OF OTTAWA`;
+  $('#camName').textContent = c.name;
+  const refresh = () => { $('#camImg').src = camImage(c.id); $('#camTime').textContent = fmt.format(new Date()); };
+  refresh(); clearInterval(camTimer); camTimer = setInterval(refresh, 6000);
+  stopOrbit();
+  map.easeTo({ center: [c.longitude, c.latitude], zoom: Math.max(map.getZoom(), 15.5), duration: 1400 });
+}
+$('#camClose').addEventListener('click', () => { $('#camPanel').hidden = true; clearInterval(camTimer); });
+
+/* ---------- Controls ---------- */
+$$('.layer').forEach(btn => btn.addEventListener('click', () => {
+  const k = btn.dataset.layer, on = !btn.classList.contains('on');
+  btn.classList.toggle('on', on);
+  if (k in layersOn) layersOn[k] = on;
+  else map.setLayoutProperty(k, 'visibility', on ? 'visible' : 'none');
+  if (k === 'flow') map.setLayoutProperty('roads-glow', 'visibility', on ? 'visible' : 'none');
 }));
 
-/* ---------- Radar ---------- */
-(() => {
-  const cv = $('#radar'), ctx = cv.getContext('2d'), tip = $('#radarTip');
-  const AMBER = '255,176,0', CYAN = '127,212,224', INK = '230,228,220';
-  let size = 0, dpr = 1, hover = null, sweep = -Math.PI / 2;
+let orbiting = !reduced;
+const orbitBtn = $('#orbit');
+function stopOrbit() { orbiting = false; orbitBtn.setAttribute('aria-pressed', 'false'); }
+orbitBtn.setAttribute('aria-pressed', String(orbiting));
+orbitBtn.addEventListener('click', () => { orbiting = !orbiting; orbitBtn.setAttribute('aria-pressed', String(orbiting)); });
+['mousedown', 'touchstart', 'wheel'].forEach(ev => map.getCanvasContainer().addEventListener(ev, stopOrbit, { passive: true }));
+$$('[data-fly]').forEach(b => b.addEventListener('click', () => map.flyTo({ ...VIEWS[b.dataset.fly], duration: reduced ? 0 : 2600, essential: true })));
 
-  // Software contacts on the right half, hardware on the left; deterministic positions.
-  const contacts = ops.map((op, i) => {
-    const hw = op.dataset.type === 'hw', k = hw ? i - 6 : i;
-    const angle = (hw ? Math.PI * .62 : -Math.PI * .38) + k * (Math.PI * .155) + (k % 2 ? .06 : -.04);
-    const r = .3 + ((k * 37) % 6) / 6 * .58;
-    return { op, hw, angle, r, glow: 0, code: $('.code', op).textContent, title: $('h3', op).textContent, active: op.dataset.status === 'active' };
-  });
-  $('#radarCount').textContent = contacts.length;
+map.on('move', () => {
+  const c = map.getCenter();
+  $('#coords').textContent = `${c.lat.toFixed(4)}N ${Math.abs(c.lng).toFixed(4)}W`;
+});
 
-  function resize() {
-    dpr = Math.min(devicePixelRatio || 1, 2);
-    size = cv.clientWidth;
-    cv.width = cv.height = size * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    if (reduced) draw();
+/* ---------- Loop ---------- */
+const DASH = [[0, 4, 3], [.5, 4, 2.5], [1, 4, 2], [1.5, 4, 1.5], [2, 4, 1], [2.5, 4, .5], [3, 4, 0], [0, .5, 3, 3.5], [0, 1, 3, 3], [0, 1.5, 3, 2.5], [0, 2, 3, 2], [0, 2.5, 3, 1.5], [0, 3, 3, 1], [0, 3.5, 3, .5]];
+let dashStep = -1, lastFrame = 0;
+function frame(t) {
+  if (t - lastFrame > 33) {
+    lastFrame = t;
+    overlay.setProps({ layers: buildLayers(t) });
+    const step = Math.floor(t / 70) % DASH.length;
+    if (step !== dashStep && map.getLayer('flow')) { dashStep = step; map.setPaintProperty('flow', 'line-dasharray', DASH[step]); }
+    if (orbiting && !map.isMoving()) map.setBearing(map.getBearing() + .04);
   }
-  const pos = c => {
-    const R = size / 2 - 18;
-    return { x: size / 2 + Math.cos(c.angle) * c.r * R, y: size / 2 + Math.sin(c.angle) * c.r * R };
-  };
+  requestAnimationFrame(frame);
+}
 
-  function draw() {
-    const cx = size / 2, R = size / 2 - 18;
-    ctx.clearRect(0, 0, size, size);
-    // rings + crosshair
-    ctx.strokeStyle = `rgba(${INK},.12)`; ctx.lineWidth = 1;
-    for (let i = 1; i <= 4; i++) { ctx.beginPath(); ctx.arc(cx, cx, R * i / 4, 0, Math.PI * 2); ctx.stroke(); }
-    ctx.beginPath(); ctx.moveTo(cx - R, cx); ctx.lineTo(cx + R, cx); ctx.moveTo(cx, cx - R); ctx.lineTo(cx, cx + R); ctx.stroke();
-    // degree ticks
-    for (let d = 0; d < 360; d += 5) {
-      const a = d * Math.PI / 180, len = d % 30 === 0 ? 9 : 4;
-      ctx.strokeStyle = `rgba(${INK},${d % 30 === 0 ? .4 : .15})`;
-      ctx.beginPath(); ctx.moveTo(cx + Math.cos(a) * R, cx + Math.sin(a) * R); ctx.lineTo(cx + Math.cos(a) * (R - len), cx + Math.sin(a) * (R - len)); ctx.stroke();
-    }
-    ctx.fillStyle = `rgba(${INK},.35)`; ctx.font = '10px "IBM Plex Mono", monospace'; ctx.textAlign = 'center';
-    ctx.fillText('000', cx, 11); ctx.fillText('180', cx, size - 3);
-    ctx.textAlign = 'left'; ctx.fillText('090', size - 22, cx - 4); ctx.fillText('270', 0, cx - 4);
-    ctx.textAlign = 'left'; ctx.fillStyle = `rgba(${INK},.28)`;
-    ctx.fillText('SW', cx + R * .7, cx - R * .78); ctx.fillText('HW', cx - R * .82, cx + R * .8);
-
-    // sweep wedge
-    if (!reduced) {
-      const steps = 28, span = .9;
-      for (let i = 0; i < steps; i++) {
-        const a0 = sweep - span * (i + 1) / steps, a1 = sweep - span * i / steps;
-        ctx.fillStyle = `rgba(${AMBER},${.16 * (1 - i / steps)})`;
-        ctx.beginPath(); ctx.moveTo(cx, cx); ctx.arc(cx, cx, R, a0, a1); ctx.closePath(); ctx.fill();
-      }
-      ctx.strokeStyle = `rgba(${AMBER},.85)`; ctx.lineWidth = 1.5;
-      ctx.beginPath(); ctx.moveTo(cx, cx); ctx.lineTo(cx + Math.cos(sweep) * R, cx + Math.sin(sweep) * R); ctx.stroke();
-    }
-
-    // contacts
-    contacts.forEach(c => {
-      const p = pos(c), col = c.hw ? CYAN : AMBER, isHover = hover === c;
-      const a = reduced ? 1 : Math.max(.28, c.glow);
-      if (isHover) {
-        ctx.strokeStyle = `rgba(${col},.9)`; ctx.lineWidth = 1;
-        const s = 11;
-        [[-1, -1], [1, -1], [1, 1], [-1, 1]].forEach(([sx, sy]) => {
-          ctx.beginPath(); ctx.moveTo(p.x + sx * s, p.y + sy * (s - 5)); ctx.lineTo(p.x + sx * s, p.y + sy * s); ctx.lineTo(p.x + sx * (s - 5), p.y + sy * s); ctx.stroke();
-        });
-      }
-      ctx.fillStyle = `rgba(${col},${isHover ? 1 : a})`;
-      ctx.shadowColor = `rgba(${col},.8)`; ctx.shadowBlur = isHover ? 14 : 8 * a;
-      ctx.beginPath();
-      if (c.active) { ctx.rect(p.x - 3.5, p.y - 3.5, 7, 7); } else { ctx.arc(p.x, p.y, 3.5, 0, Math.PI * 2); }
-      ctx.fill(); ctx.shadowBlur = 0;
-      ctx.fillStyle = `rgba(${INK},${isHover ? .95 : .25 + a * .4})`; ctx.font = '9.5px "IBM Plex Mono", monospace';
-      ctx.fillText(c.code, p.x + 8, p.y - 7);
-    });
-    // center
-    ctx.fillStyle = `rgba(${INK},.8)`; ctx.beginPath(); ctx.arc(cx, cx, 2.5, 0, Math.PI * 2); ctx.fill();
-  }
-
-  let last = performance.now();
-  function frame(t) {
-    const dt = Math.min(64, t - last); last = t;
-    const prev = sweep;
-    sweep += dt * .0011;
-    const norm = a => ((a % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
-    contacts.forEach(c => {
-      const d = norm(c.angle - prev), step = norm(sweep - prev);
-      if (d <= step) c.glow = 1;
-      c.glow = Math.max(0, c.glow - dt * .00035);
-    });
-    draw();
-    requestAnimationFrame(frame);
-  }
-
-  function pick(e) {
-    const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
-    let best = null, bd = 18;
-    contacts.forEach(c => { const p = pos(c), d = Math.hypot(p.x - x, p.y - y); if (d < bd) { bd = d; best = c; } });
-    return best;
-  }
-  cv.addEventListener('pointermove', e => {
-    hover = pick(e);
-    cv.style.cursor = hover ? 'pointer' : 'crosshair';
-    if (hover) {
-      const p = pos(hover);
-      tip.innerHTML = `<small>${hover.code} · ${hover.active ? 'IN PROGRESS' : 'NOMINAL'}</small>${hover.title}`;
-      tip.hidden = false;
-      const flip = p.x > size * .55;
-      tip.style.left = p.x + 'px'; tip.style.top = p.y + 'px';
-      tip.style.transform = flip ? 'translate(calc(-100% - 14px),-50%)' : 'translate(14px,-50%)';
-    } else tip.hidden = true;
-    if (reduced) draw();
-  });
-  cv.addEventListener('pointerleave', () => { hover = null; tip.hidden = true; if (reduced) draw(); });
-  cv.addEventListener('click', e => { const c = pick(e); if (c) openCase(c.op); });
-
-  addEventListener('resize', resize);
-  resize();
-  if (document.fonts) document.fonts.ready.then(() => reduced && draw());
-  if (!reduced) requestAnimationFrame(frame); else draw();
-})();
-
-/* ---------- Console ---------- */
-(() => {
-  const out = $('#termOut'), form = $('#termForm'), input = $('#termInput');
-  const history = []; let hi = 0;
-  const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  const print = (html, cls = '') => { const p = document.createElement('p'); if (cls) p.className = cls; p.innerHTML = html; out.appendChild(p); out.scrollTop = out.scrollHeight; };
-
-  const cmds = {
-    help: () => print([
-      '<b>whoami</b>        identity record',
-      '<b>experience</b>    mission log',
-      '<b>projects</b>      list case files',
-      '<b>open</b> &lt;code&gt;   open a case file (e.g. open hw.01)',
-      '<b>skills</b>        system capabilities',
-      '<b>contact</b>       open channels',
-      '<b>resume</b>        open résumé (PDF)',
-      '<b>clear</b>         clear console'
-    ].join('\n')),
-    whoami: () => print('Arian Nouri — B.C.S. candidate, Computer &amp; Internet Security stream, Carleton University (2027).\nClient Support Engineer at DND. Based in Ottawa. EN / FR / FA.'),
-    experience: () => print($$('.log-item').map(li => `<b>${esc($('.log-time', li).textContent.trim())}</b>  ${esc($('h3', li).firstChild.textContent.trim())} — ${esc($('h3 span', li).textContent)}`).join('\n')),
-    projects: () => print(ops.map(op => `<b>${esc($('.code', op).textContent)}</b>  ${esc($('h3', op).textContent)}  <span class="muted">[${esc($('.status', op).textContent)}]</span>`).join('\n') + '\n\nType <b>open sw.01</b> to view a file.'),
-    open: arg => {
-      const op = ops.find(o => $('.code', o).textContent.toLowerCase() === (arg || '').toLowerCase());
-      if (!op) return print(`open: no case file "${esc(arg || '')}". Try <b>projects</b>.`, 'err');
-      print(`opening ${esc($('.code', op).textContent)}…`); openCase(op);
-    },
-    skills: () => print($$('.cap').map(c => `<b>${esc($('.panel-head span', c).textContent)}</b>  ${$$('li', c).map(l => esc(l.textContent)).join(', ')}`).join('\n')),
-    contact: () => print('email     <a href="mailto:arinouri.cs@gmail.com">arinouri.cs@gmail.com</a>\nlinkedin  <a href="https://linkedin.com/in/arinouri" target="_blank" rel="noopener">linkedin.com/in/arinouri</a>\ngithub    <a href="https://github.com/arinouri" target="_blank" rel="noopener">github.com/arinouri</a>'),
-    resume: () => { print('opening RESUMEarinouri.pdf…'); window.open('RESUMEarinouri.pdf', '_blank', 'noopener'); },
-    clear: () => { out.innerHTML = ''; },
-    sudo: () => print('sudo: permission denied. This incident will be reported. (Kidding — try <b>contact</b>.)', 'err'),
-    ls: () => print('experience/  projects/  skills/  contact/  RESUMEarinouri.pdf'),
-  };
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const raw = input.value.trim(); input.value = '';
-    if (!raw) return;
-    history.push(raw); hi = history.length;
-    print(esc(raw), 'cmd');
-    const [name, ...args] = raw.split(/\s+/);
-    const fn = cmds[name.toLowerCase()];
-    fn ? fn(args.join(' ')) : print(`command not found: ${esc(name)}. Type <b>help</b>.`, 'err');
-  });
-  input.addEventListener('keydown', e => {
-    if (e.key === 'ArrowUp' && hi > 0) { input.value = history[--hi]; e.preventDefault(); }
-    if (e.key === 'ArrowDown') { hi = Math.min(history.length, hi + 1); input.value = history[hi] || ''; e.preventDefault(); }
-  });
-  $('#term').addEventListener('click', e => { if (!e.target.closest('a')) input.focus({ preventScroll: true }); });
-})();
+map.on('load', () => {
+  Promise.all([loadCams(), loadIncidents(), loadPlanes()]).then(sitrep);
+  setInterval(() => loadPlanes().then(sitrep), 8000);
+  setInterval(() => loadIncidents().then(sitrep), 120000);
+  if (reduced) { map.jumpTo(VIEWS.downtown); overlay.setProps({ layers: buildLayers(performance.now()) }); return; }
+  setTimeout(() => map.flyTo({ ...VIEWS.downtown, duration: 5200, curve: 1.2, essential: true }), 900);
+  requestAnimationFrame(frame);
+});

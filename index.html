@@ -3,315 +3,184 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0a0c0d">
-  <meta name="description" content="Arian Nouri — Computer Science student (Computer & Internet Security), developer, and hardware builder in Ottawa.">
-  <meta property="og:title" content="Arian Nouri — Operator File">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Arian Nouri — Computer Science (Computer & Internet Security), Carleton University. Systems, automation, and embedded security work in Ottawa.">
+  <meta property="og:title" content="Arian Nouri — Ottawa C2">
   <meta property="og:description" content="Software, automation, cybersecurity, and embedded hardware.">
   <meta property="og:image" content="https://arinouri.ca/og-story.png">
-  <title>Arian Nouri — Operator File</title>
+  <title>Arian Nouri — Ottawa C2</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script>try{if(sessionStorage.getItem('an_boot'))document.documentElement.classList.add('no-boot')}catch(e){}</script>
 </head>
 <body>
-  <div class="boot" aria-hidden="true">
-    <div class="boot-lines">
-      <p>&gt; establishing secure channel <i>OK</i></p>
-      <p>&gt; verifying operator identity <i>OK</i></p>
-      <p>&gt; loading case files [12] <i>OK</i></p>
-      <p class="boot-final">ACCESS GRANTED // ARIAN NOURI</p>
-    </div>
-  </div>
-
-  <div class="classbar" aria-hidden="true"><span>UNCLASSIFIED // FOR RECRUITER USE</span><span class="classbar-coords">45.4215° N · 75.6972° W</span></div>
-
   <header class="nav">
-    <a class="brand" href="#top" aria-label="Arian Nouri — back to top"><b>AN</b><span>Arian Nouri<small>Operator file</small></span></a>
+    <a class="logo" href="#top"><span>&gt;_</span> AN</a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#profile"><i>01</i>Profile</a>
-      <a href="#experience"><i>02</i>Experience</a>
-      <a href="#operations"><i>03</i>Projects</a>
-      <a href="#capabilities"><i>04</i>Skills</a>
-      <a href="#contact"><i>05</i>Contact</a>
+      <a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a><a href="#contact">Contact</a>
     </nav>
     <div class="nav-right">
-      <span class="clock" title="Ottawa local time"><i class="dot ok"></i><span id="clock">--:--:--</span> EST</span>
-      <a class="btn btn-amber btn-sm" href="RESUMEarinouri.pdf" target="_blank" rel="noopener">Résumé ↗</a>
-      <button class="menu" aria-expanded="false" aria-controls="mobileNav" aria-label="Open navigation"><i></i><i></i></button>
+      <span class="live"><i></i>LIVE · <b id="clock">--:--:--</b></span>
+      <a class="btn-outline" href="RESUMEarinouri.pdf" target="_blank" rel="noopener">Résumé</a>
+      <a class="btn-outline" href="#contact">Connect</a>
     </div>
   </header>
-  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
-    <a href="#profile"><i>01</i>Profile</a><a href="#experience"><i>02</i>Experience</a><a href="#operations"><i>03</i>Projects</a><a href="#capabilities"><i>04</i>Skills</a><a href="#contact"><i>05</i>Contact</a><a href="RESUMEarinouri.pdf" target="_blank" rel="noopener"><i>PDF</i>Résumé ↗</a>
-  </nav>
 
   <main id="top">
-    <!-- HERO -->
-    <section class="hero wrap">
+    <section class="hero">
+      <div id="map" aria-label="Interactive 3D map of Ottawa with live aircraft, traffic cameras and road incidents"></div>
+      <div class="holo" aria-hidden="true"></div>
+
       <div class="hero-copy">
-        <div class="eyebrow"><span class="dot ok"></span>FILE AN-2027 · OTTAWA, ON · STATUS ACTIVE</div>
-        <p class="hero-pre">OPERATOR //</p>
-        <h1>Arian<br>Nouri</h1>
-        <p class="hero-role">Computer Science · Computer &amp; Internet Security stream · Carleton University</p>
-        <p class="hero-lede">I build practical systems end to end: internal tools for the Department of National Defence, workflow automation, accessible web apps, and embedded hardware for security research.</p>
-        <div class="hero-actions">
-          <a class="btn btn-amber" href="#operations">View operations <b>→</b></a>
-          <a class="btn" href="RESUMEarinouri.pdf" target="_blank" rel="noopener">Résumé <b>↗</b></a>
-          <a class="btn btn-ghost" href="mailto:arinouri.cs@gmail.com">arinouri.cs@gmail.com</a>
+        <span class="chip">CS · COMPUTER &amp; INTERNET SECURITY // CARLETON</span>
+        <h1 class="glitch-block" data-text="ARIAN NOURI">ARIAN NOURI</h1>
+        <p>Systems, automation and embedded security work out of Ottawa. Built internal tools for the Department of National Defence; supported RCMP operations.</p>
+        <div class="hero-cta">
+          <a class="btn-solid" href="#work">View work ↓</a>
+          <a class="btn-outline" href="RESUMEarinouri.pdf" target="_blank" rel="noopener">Résumé ↗</a>
         </div>
-        <dl class="hero-meta">
-          <div><dt>Current post</dt><dd>Client Support Engineer · DND</dd></div>
-          <div><dt>Education</dt><dd>B.C.S. · Carleton · 2027</dd></div>
-          <div><dt>Languages</dt><dd>EN · FR · FA</dd></div>
-        </dl>
       </div>
 
-      <div class="panel radar-panel">
-        <div class="panel-head"><span class="hide-sm">SITUATIONAL DISPLAY</span><span class="muted">OPS RADAR · <b id="radarCount">12</b> CONTACTS</span></div>
-        <div class="radar-wrap">
-          <canvas id="radar" aria-label="Radar of projects; each contact opens a case file" role="img"></canvas>
-          <div class="radar-tip" id="radarTip" hidden></div>
+      <aside class="hud" aria-label="Live layers">
+        <div class="hud-head"><span class="chip">SECTOR // OTT</span><span class="mono dim" id="coords">45.42N 75.70W</span></div>
+        <button class="layer on" data-layer="planes"><i></i><span>Aircraft</span><b id="nPlanes">—</b></button>
+        <button class="layer on" data-layer="cams"><i></i><span>Traffic cams</span><b id="nCams">—</b></button>
+        <button class="layer on" data-layer="incidents"><i></i><span>Road incidents</span><b id="nInc">—</b></button>
+        <button class="layer on" data-layer="flow"><i></i><span>Traffic flow</span><b>FX</b></button>
+        <button class="layer on" data-layer="buildings"><i></i><span>3D buildings</span><b>ON</b></button>
+        <div class="hud-views">
+          <button data-fly="downtown">Core</button>
+          <button data-fly="yow">YOW</button>
+          <button data-fly="wide">Wide</button>
+          <button id="orbit" aria-pressed="true">Orbit</button>
         </div>
-        <div class="panel-foot">
-          <span><i class="key sw"></i>Software</span>
-          <span><i class="key hw"></i>Hardware</span>
-          <span class="muted hide-sm">Hover a contact · click to open</span>
+        <p class="hud-tip mono dim">Drag to pan · right-drag to tilt · ⌘/Ctrl + scroll to zoom · click a cam</p>
+      </aside>
+
+      <div class="ticker mono" aria-live="polite"><span class="chip">SITREP</span><span id="sitrep">Acquiring feeds…</span></div>
+
+      <div class="cam-panel" id="camPanel" hidden>
+        <div class="cam-head"><span class="chip" id="camTitle">CAM</span><button id="camClose" aria-label="Close camera">✕</button></div>
+        <img id="camImg" alt="Live City of Ottawa traffic camera image">
+        <div class="cam-foot mono"><span id="camName"></span><span class="rec">● LIVE <b id="camTime"></b></span></div>
+      </div>
+    </section>
+
+    <section class="statement wrap">
+      <p>Four roles across federal government and operations. Requirements gathered with stakeholders, then built, shipped and supported: AI-enabled task systems, cost-risk simulation, lifecycle platforms and frontline support for 200+ systems.</p>
+      <div class="glitch-block big" data-text="SECRET CLEARANCE // ACTIVE">SECRET CLEARANCE // ACTIVE</div>
+    </section>
+
+    <section class="wrap" id="experience">
+      <div class="sec-title"><h2 class="glitch-block" data-text="EXPERIENCE">EXPERIENCE</h2></div>
+
+      <article class="figure">
+        <div class="fig-meta"><span class="chip">FIGURE_01</span><span class="mono dim">DEC 2025 — PRESENT</span></div>
+        <div class="fig-body">
+          <h3>Operations Manager / Systems &amp; Automation Specialist</h3>
+          <p class="org">Wellington Cowork · Ottawa</p>
+          <ul>
+            <li>Run day-to-day coworking and virtual-office operations: sales, tours, onboarding, bookings, invoicing, payments, mail and vendors.</li>
+            <li>Built and maintain the GoHighLevel CRM and sales pipeline, automating follow-up, onboarding, payment recovery and client comms through Zapier.</li>
+            <li>Develop AI-assisted automations for email, lead handling and support; maintain the Framer site and office tech environment.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="figure">
+        <div class="fig-meta"><span class="chip">FIGURE_02</span><span class="mono dim">APR 2026 — AUG 2026</span></div>
+        <div class="fig-body">
+          <h3>Client Support Engineer</h3>
+          <p class="org">Department of National Defence · Ottawa</p>
+          <ul>
+            <li>Designed <b>ATLAS</b> (Action Tracking, Logging and Activity System), an AI-enabled Power App that extracts meeting tasks and assigns titles, OPIs, tags, priorities and deadlines.</li>
+            <li>Built ATLAS dashboards and team workspaces with controlled access per team.</li>
+            <li>Built an automated <b>Monte Carlo cost simulation</b> (Power Apps, SharePoint, Excel, Office Scripts) running 10,000 simulations for risk-based cost estimates.</li>
+            <li>Supported Continuous Capability Sustainment and Benefits Realization: digitized assessments, cost analysis and decision support.</li>
+            <li>Initiated a building-wide <b>Desk Finder</b> that maps employee seating into an interactive digital floor plan.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="figure">
+        <div class="fig-meta"><span class="chip">FIGURE_03</span><span class="mono dim">SEPT 2025 — APR 2026</span></div>
+        <div class="fig-body">
+          <h3>Junior Application Developer / Benefits Realization Jr. Project Officer</h3>
+          <p class="org">Department of National Defence · Ottawa</p>
+          <ul>
+            <li>Developed an end-to-end Power Apps solution tracking projects and programs across their lifecycle (Power Fx, Power Automate, SharePoint, JavaScript).</li>
+            <li>Produced data structures, workflows, dashboards, wireframes and web/Python prototypes from business requirements.</li>
+            <li>Wrote SOPs, user guidance and transition documentation across business and technical teams.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="figure">
+        <div class="fig-meta"><span class="chip">FIGURE_04</span><span class="mono dim">SEPT 2024 — AUG 2025</span></div>
+        <div class="fig-body">
+          <h3>IT-01 Technical Analyst</h3>
+          <p class="org">Royal Canadian Mounted Police · Ottawa</p>
+          <ul>
+            <li>First-level operational support for 200+ applications, devices and systems used by RCMP employees, Federal Policing and external partners.</li>
+            <li>Resolved software, hardware, account, access and connectivity issues while protecting sensitive information.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="wrap" id="work">
+      <div class="sec-title row"><h2 class="glitch-block" data-text="SELECTED WORKS">SELECTED WORKS</h2><span class="mono dim">08 OPERATIONS</span></div>
+      <div class="works">
+        <article class="work"><span class="chip">LEAD DESIGNER // DND</span><h3>ATLAS</h3><p>AI-enabled Power App that turns meeting summaries into tracked actions with OPIs, priorities and deadlines.</p><div class="tags"><span>POWER APPS</span><span>AI</span><span>SHAREPOINT</span></div><span class="mono dim foot">DND / 2026</span></article>
+        <article class="work"><span class="chip">DEVELOPER // DND</span><h3>Monte Carlo Cost Sim</h3><p>10,000-run automated simulation generating risk-based cost estimates inside the Microsoft stack.</p><div class="tags"><span>OFFICE SCRIPTS</span><span>EXCEL</span><span>POWER APPS</span></div><span class="mono dim foot">DND / 2026</span></article>
+        <article class="work"><span class="chip">INITIATOR // DND</span><h3>Desk Finder</h3><p>Interactive digital floor plans built by repurposing an internal personnel database to map seating.</p><div class="tags"><span>DATA</span><span>MAPPING</span><span>UX</span></div><span class="mono dim foot">DND / 2026</span></article>
+        <article class="work"><span class="chip">BUILDER // OPS</span><h3>Cowork Automation</h3><p>CRM pipeline with automated lead follow-up, onboarding, payment recovery and AI-assisted responses.</p><div class="tags"><span>GOHIGHLEVEL</span><span>ZAPIER</span><span>AI</span></div><span class="mono dim foot">WELLINGTON / 2025</span></article>
+        <article class="work"><span class="chip">HARDWARE // LAB</span><h3>ESP32 Wireless Security Analyzer</h3><p>Adapted open-source firmware for an authorized wireless-security lab; integrated NRF24L01+ and hand-wired an SPI TFT.</p><div class="tags"><span>ESP32</span><span>C++</span><span>SPI</span></div><span class="mono dim foot">FUNCTIONAL</span></article>
+        <article class="work"><span class="chip">HARDWARE // R&amp;D</span><h3>ESP32 Mesh Network</h3><p>Multi-node mesh prototype for decentralized messaging and telemetry exchange.</p><div class="tags"><span>ESP32</span><span>MESH</span><span>TELEMETRY</span></div><span class="mono dim foot warn">IN PROGRESS</span></article>
+        <article class="work"><span class="chip">HARDWARE // R&amp;D</span><h3>UWB Positioning</h3><p>Ultra-wideband system estimating and displaying relative locations of tagged personnel and equipment.</p><div class="tags"><span>UWB</span><span>ESP32</span><span>VIS</span></div><span class="mono dim foot warn">IN PROGRESS</span></article>
+        <article class="work"><span class="chip">HARDWARE // R&amp;D</span><h3>Thermal + Low-Light Imaging</h3><p>Modular prototype combining thermal and low-light sensors for imaging and controlled testing.</p><div class="tags"><span>SENSORS</span><span>IMAGING</span></div><span class="mono dim foot warn">IN PROGRESS</span></article>
+      </div>
+    </section>
+
+    <section class="wrap" id="about">
+      <div class="sec-title"><h2 class="glitch-block" data-text="ABOUT">ABOUT</h2></div>
+      <div class="about">
+        <div>
+          <span class="chip">EDUCATION</span>
+          <h3>Bachelor of Computer Science</h3>
+          <p>Computer and Internet Security Stream · Carleton University · Expected April 2027</p>
+          <p class="dim">Coursework: Object-Oriented Software Engineering, Database Management Systems, Operating Systems, Computer Systems Security, Principles of Computer Networks, Software Structures for User Interfaces.</p>
+          <span class="chip">CREDENTIALS</span>
+          <p>Dean's Entrance Scholarship for Academic Excellence · French Immersion Diploma and French Language Certificate · Google Analytics and Inbound Marketing certificates.</p>
+        </div>
+        <div class="skills">
+          <div><span class="chip">LANGUAGES</span><p>Python · JavaScript · Java · C/C++ · SQL · HTML/CSS · Bash</p></div>
+          <div><span class="chip">PLATFORMS</span><p>Power Apps · Power Fx · Power Automate · SharePoint Online · M365 · Office Scripts · GoHighLevel · Zapier · Framer · Git · React · Node.js</p></div>
+          <div><span class="chip">HARDWARE</span><p>ESP32 · Raspberry Pi · SPI · I²C · UART</p></div>
+          <div><span class="chip">SPOKEN</span><p>English · French · Farsi</p></div>
         </div>
       </div>
     </section>
 
-    <!-- PROFILE -->
-    <section class="section wrap" id="profile">
-      <header class="sec-head"><span class="sec-no">[01]</span><h2>Profile</h2><span class="sec-sub">IDENTITY RECORD</span></header>
-      <div class="profile-grid">
-        <div class="profile-text">
-          <p class="lead">Learning fast. Building carefully. <em>Improving always.</em></p>
-          <p>I like the whole path from understanding a problem to shipping something people actually use. My work spans business systems for the federal government, frontline technical support, automation, accessible web experiences, and hands-on embedded projects.</p>
-          <div class="stats">
-            <div><b>200+</b><span>systems supported</span></div>
-            <div><b>04</b><span>professional roles</span></div>
-            <div><b>12</b><span>case files</span></div>
-            <div><b>2027</b><span>graduation</span></div>
-          </div>
-        </div>
-        <div class="panel dossier">
-          <div class="panel-head"><span>PERSONNEL RECORD</span><span class="muted">REF AN-2027</span></div>
-          <dl>
-            <div><dt>Name</dt><dd>Arian Nouri</dd></div>
-            <div><dt>Base</dt><dd>Ottawa, Ontario, Canada</dd></div>
-            <div><dt>Program</dt><dd>Bachelor of Computer Science</dd></div>
-            <div><dt>Stream</dt><dd>Computer &amp; Internet Security</dd></div>
-            <div><dt>Institution</dt><dd>Carleton University</dd></div>
-            <div><dt>Expected</dt><dd>April 2027</dd></div>
-            <div><dt>Languages</dt><dd>English · French · فارسی</dd></div>
-            <div><dt>Focus</dt><dd>Security · Software · Hardware</dd></div>
-          </dl>
-          <div class="stamp" aria-hidden="true">VERIFIED</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="section wrap" id="experience">
-      <header class="sec-head"><span class="sec-no">[02]</span><h2>Experience</h2><span class="sec-sub">MISSION LOG · 4 ENTRIES</span></header>
-      <ol class="log">
-        <li class="log-item">
-          <div class="log-time"><span class="dot ok pulse"></span>2026 — PRESENT</div>
-          <div class="log-body">
-            <h3>Client Support Engineer <span>Department of National Defence</span></h3>
-            <p>Gather requirements, analyze workflows, and deliver project-management and engineering solutions. Designed ATLAS to turn AI-generated meeting summaries into structured, trackable actions.</p>
-            <ul class="tags"><li>Power Platform</li><li>Requirements</li><li>Client support</li></ul>
-          </div>
-        </li>
-        <li class="log-item">
-          <div class="log-time"><span class="dot ok pulse"></span>2025 — PRESENT</div>
-          <div class="log-body">
-            <h3>Operations Manager / Systems Specialist <span>Wellington Cowork</span></h3>
-            <p>Manage operations while maintaining the CRM, integrations, website, and automated client workflows.</p>
-            <ul class="tags"><li>Operations</li><li>GoHighLevel</li><li>Zapier</li><li>Framer</li></ul>
-          </div>
-        </li>
-        <li class="log-item">
-          <div class="log-time"><span class="dot"></span>2025 — 2026</div>
-          <div class="log-body">
-            <h3>Junior Application Developer <span>Department of National Defence</span></h3>
-            <p>Developed a project-lifecycle solution with workflows, dashboards, prototypes, documentation, demonstrations, and transition guidance.</p>
-            <ul class="tags"><li>Power Fx</li><li>SharePoint</li><li>JavaScript</li><li>Python</li></ul>
-          </div>
-        </li>
-        <li class="log-item">
-          <div class="log-time"><span class="dot"></span>2024 — 2025</div>
-          <div class="log-body">
-            <h3>IT-01 Technical Analyst <span>Royal Canadian Mounted Police</span></h3>
-            <p>Delivered first-level support across 200+ applications, devices, and systems while protecting sensitive information.</p>
-            <ul class="tags"><li>Incident triage</li><li>Access management</li><li>Documentation</li></ul>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <!-- OPERATIONS / PROJECTS -->
-    <section class="section wrap" id="operations">
-      <header class="sec-head"><span class="sec-no">[03]</span><h2>Projects</h2><span class="sec-sub">CASE FILES · 12 OPERATIONS</span></header>
-      <div class="filters" role="toolbar" aria-label="Filter projects">
-        <button class="filter active" data-filter="all" aria-pressed="true">All <i>12</i></button>
-        <button class="filter" data-filter="sw" aria-pressed="false">Software <i>06</i></button>
-        <button class="filter" data-filter="hw" aria-pressed="false">Hardware <i>06</i></button>
-        <button class="filter" data-filter="active" aria-pressed="false">In progress <i>03</i></button>
-      </div>
-      <div class="ops">
-        <article class="op" data-type="sw" data-status="done">
-          <header><span class="code">SW.01</span><span class="status ok">Functional</span></header>
-          <h3>ATLAS Action Management</h3>
-          <p class="op-class">Professional workflow system · DND</p>
-          <p class="brief">Internal system that converts meeting outputs into structured, trackable actions with ownership, priority, due dates, supporting records, and automated updates.</p>
-          <ul class="stack"><li>Power Apps</li><li>Power Fx</li><li>Power Automate</li><li>SharePoint Online</li><li>Microsoft 365</li></ul>
-        </article>
-        <article class="op" data-type="sw" data-status="done">
-          <header><span class="code">SW.02</span><span class="status ok">Functional</span></header>
-          <h3>Benefits Management Platform</h3>
-          <p class="op-class">Professional business system · DND</p>
-          <p class="brief">Multi-screen project-lifecycle solution covering outcomes, benefits, KPIs, approvals, dashboards, review tools, user guidance, and reporting.</p>
-          <ul class="stack"><li>Power Apps</li><li>SharePoint</li><li>Power Automate</li><li>Power BI</li><li>JavaScript</li><li>SQL</li></ul>
-        </article>
-        <article class="op" data-type="sw" data-status="done">
-          <header><span class="code">SW.03</span><span class="status ok">Functional</span></header>
-          <h3>Coworking Operations Automation</h3>
-          <p class="op-class">Business automation · Wellington Cowork</p>
-          <p class="brief">Connected lead capture, communications, onboarding, bookings, inquiries, and daily operations through a streamlined CRM workflow.</p>
-          <ul class="stack"><li>GoHighLevel</li><li>Zapier</li><li>Framer</li><li>CRM integrations</li><li>Email automation</li></ul>
-        </article>
-        <article class="op" data-type="sw" data-status="done" data-link="https://readeasier.ca">
-          <header><span class="code">SW.04</span><span class="status ok">Launched</span></header>
-          <h3>ReadEasier.ca</h3>
-          <p class="op-class">Accessibility platform</p>
-          <p class="brief">Responsive reading toolkit with bionic reading, rapid reading, text-to-speech, line highlighting, colour overlays, and focus tools.</p>
-          <ul class="stack"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Web APIs</li></ul>
-        </article>
-        <article class="op" data-type="sw" data-status="done">
-          <header><span class="code">SW.05</span><span class="status ok">Completed</span></header>
-          <h3>Cybersecurity Terminal Simulation</h3>
-          <p class="op-class">Educational simulation</p>
-          <p class="brief">Interactive browser terminal with simulated commands, fictional security scenarios, visual effects, navigation, and vault-style challenges.</p>
-          <ul class="stack"><li>JavaScript</li><li>Node.js</li><li>HTML/CSS</li></ul>
-        </article>
-        <article class="op" data-type="sw" data-status="done">
-          <header><span class="code">SW.06</span><span class="status ok">Completed</span></header>
-          <h3>Portfolio HCI Evaluation</h3>
-          <p class="op-class">Academic UX research</p>
-          <p class="brief">Evaluated portfolio usability through interviews, task analysis, and formal testing, then produced recruiter-focused wireframes and recommendations.</p>
-          <ul class="stack"><li>Figma</li><li>Usability testing</li><li>Cognitive walkthroughs</li><li>KLM-GOMS</li></ul>
-        </article>
-        <article class="op" data-type="hw" data-status="done">
-          <header><span class="code">HW.01</span><span class="status ok">Functional</span></header>
-          <h3>ESP32 Wireless Security Analyzer</h3>
-          <p class="op-class">Embedded security · authorized lab testing</p>
-          <p class="brief">Modified open-source firmware for authorized wireless-security testing in a controlled lab. Integrated the radio module, hand-wired a TFT display, and debugged firmware, libraries, and connections.</p>
-          <ul class="stack"><li>ESP32</li><li>C++</li><li>NRF24L01+</li><li>ILI9341 TFT</li><li>SPI</li><li>GPIO</li></ul>
-        </article>
-        <article class="op" data-type="hw" data-status="done">
-          <header><span class="code">HW.02</span><span class="status ok">Functional</span></header>
-          <h3>Offline Portfolio &amp; Résumé Server</h3>
-          <p class="op-class">Embedded web system</p>
-          <p class="brief">ESP32-hosted access point that serves a local portfolio and résumé with no internet, with stored content, OLED status, physical controls, and LED feedback.</p>
-          <ul class="stack"><li>ESP32</li><li>C++</li><li>SPIFFS</li><li>OLED</li><li>HTML/CSS</li></ul>
-        </article>
-        <article class="op" data-type="hw" data-status="done">
-          <header><span class="code">HW.03</span><span class="status ok">Completed</span></header>
-          <h3>Custom PC Design &amp; Assembly</h3>
-          <p class="op-class">Computer hardware</p>
-          <p class="brief">Designed and assembled multiple custom computers for different needs and budgets, then configured, tested, and tuned them for stability, thermals, and performance.</p>
-          <ul class="stack"><li>PC hardware</li><li>BIOS/UEFI</li><li>Thermals</li><li>Compatibility testing</li></ul>
-        </article>
-        <article class="op" data-type="hw" data-status="active">
-          <header><span class="code">HW.04</span><span class="status warn">In progress</span></header>
-          <h3>Modular Raspberry Pi Cyberdeck</h3>
-          <p class="op-class">Portable computing prototype</p>
-          <p class="brief">Modular portable computer built on Raspberry Pi and ESP32, with local displays, GPIO peripherals, storage, interface tools, and a custom 3D-printed enclosure.</p>
-          <ul class="stack"><li>Raspberry Pi</li><li>ESP32</li><li>Python</li><li>Bash</li><li>Linux</li><li>3D printing</li></ul>
-        </article>
-        <article class="op" data-type="hw" data-status="active">
-          <header><span class="code">HW.05</span><span class="status warn">In progress</span></header>
-          <h3>Thermal + Low-Light Imaging</h3>
-          <p class="op-class">Imaging research</p>
-          <p class="brief">Modular platform that combines thermal and low-light sensor feeds for visualization and controlled testing.</p>
-          <ul class="stack"><li>Embedded sensors</li><li>Thermal imaging</li><li>Low-light camera</li><li>Python/C++</li></ul>
-        </article>
-        <article class="op" data-type="hw" data-status="active">
-          <header><span class="code">HW.06</span><span class="status warn">In progress</span></header>
-          <h3>Ultra-Wideband Positioning</h3>
-          <p class="op-class">Positioning research</p>
-          <p class="brief">System for estimating and displaying the relative locations of tagged personnel or equipment using UWB ranging.</p>
-          <ul class="stack"><li>UWB modules</li><li>ESP32</li><li>C++/Python</li><li>Visualization</li></ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- CAPABILITIES -->
-    <section class="section wrap" id="capabilities">
-      <header class="sec-head"><span class="sec-no">[04]</span><h2>Skills</h2><span class="sec-sub">SYSTEM CAPABILITIES</span></header>
-      <div class="caps">
-        <div class="cap panel"><div class="panel-head"><span>LANGUAGES</span><span class="muted">CAP.01</span></div><ul class="tags"><li>Python</li><li>JavaScript</li><li>Java</li><li>C</li><li>C++</li><li>SQL</li><li>HTML</li><li>CSS</li><li>Bash</li></ul></div>
-        <div class="cap panel"><div class="panel-head"><span>PLATFORMS</span><span class="muted">CAP.02</span></div><ul class="tags"><li>Power Apps</li><li>Power Fx</li><li>Power Automate</li><li>SharePoint</li><li>Power BI</li><li>React</li><li>Node.js</li></ul></div>
-        <div class="cap panel"><div class="panel-head"><span>HARDWARE</span><span class="muted">CAP.03</span></div><ul class="tags"><li>ESP32</li><li>Raspberry Pi</li><li>SPI</li><li>I²C</li><li>UART</li><li>GPIO</li><li>PC assembly</li></ul></div>
-        <div class="cap panel"><div class="panel-head"><span>PRACTICE</span><span class="muted">CAP.04</span></div><ul class="tags"><li>Requirements</li><li>Troubleshooting</li><li>Documentation</li><li>Client support</li><li>Usability testing</li></ul></div>
-      </div>
-    </section>
-
-    <!-- CONSOLE -->
-    <section class="section wrap" id="console">
-      <header class="sec-head"><span class="sec-no">[//]</span><h2>Console</h2><span class="sec-sub">OPTIONAL · TYPE <b>help</b></span></header>
-      <div class="panel term" id="term">
-        <div class="panel-head"><span>guest@arinouri.ca: ~</span><span class="muted">TTY1</span></div>
-        <div class="term-out" id="termOut" aria-live="polite">
-          <p class="muted">Arian Nouri operator console. Type <b>help</b> for commands, or try <b>whoami</b>.</p>
-        </div>
-        <form class="term-in" id="termForm" autocomplete="off">
-          <label for="termInput">guest@arinouri:~$</label>
-          <input id="termInput" spellcheck="false" autocapitalize="off" aria-label="Console command">
-        </form>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section wrap contact" id="contact">
-      <header class="sec-head"><span class="sec-no">[05]</span><h2>Contact</h2><span class="sec-sub">OPEN CHANNEL</span></header>
-      <p class="contact-pre">Have a role, project, or difficult problem in mind?</p>
-      <a class="contact-mail" href="mailto:arinouri.cs@gmail.com">arinouri.cs@gmail.com <i>↗</i></a>
-      <div class="contact-links">
-        <a class="btn" href="https://linkedin.com/in/arinouri" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a class="btn" href="https://github.com/arinouri" target="_blank" rel="noopener">GitHub ↗</a>
-        <a class="btn btn-amber" href="RESUMEarinouri.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+    <section class="wrap contact" id="contact">
+      <div class="glitch-block big" data-text="OPEN CHANNEL">OPEN CHANNEL</div>
+      <a class="mail" href="mailto:arinouri.cs@gmail.com">arinouri.cs@gmail.com ↗</a>
+      <div class="hero-cta">
+        <a class="btn-outline" href="https://linkedin.com/in/arinouri" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn-outline" href="https://github.com/arinouri" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn-solid" href="RESUMEarinouri.pdf" target="_blank" rel="noopener">Résumé ↗</a>
       </div>
     </section>
   </main>
 
-  <footer class="footer wrap">
-    <span>© <b id="year"></b> Arian Nouri</span>
-    <span>Ottawa · 45.4215° N 75.6972° W</span>
-    <span>END OF FILE</span>
+  <footer class="wrap footer mono dim">
+    <span>© <b id="year"></b> ARIAN NOURI</span>
+    <span>DATA: CITY OF OTTAWA · ADSB.LOL · OPENFREEMAP / © OPENSTREETMAP</span>
   </footer>
 
-  <dialog id="caseFile" aria-labelledby="cfTitle">
-    <div class="panel-head"><span id="cfCode">CASE FILE</span><button class="cf-close" aria-label="Close case file">Close ✕</button></div>
-    <div class="cf-body">
-      <div class="cf-main">
-        <span class="status" id="cfStatus"></span>
-        <h2 id="cfTitle"></h2>
-        <p class="op-class" id="cfClass"></p>
-        <h4>Brief</h4>
-        <p id="cfBrief"></p>
-        <a class="btn btn-amber" id="cfLink" target="_blank" rel="noopener" hidden>Visit live site ↗</a>
-      </div>
-      <aside class="cf-side">
-        <h4>Stack</h4>
-        <ul class="tags" id="cfStack"></ul>
-        <h4>Type</h4>
-        <p id="cfType"></p>
-      </aside>
-    </div>
-  </dialog>
-
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/deck.gl@9.0.38/dist.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
