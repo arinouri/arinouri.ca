@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-15T18:14:44+00:00",
+ "generated": "2026-10-15T20:14:40+00:00",
  "clips": [
   {
    "id": "2026-10-15/zomboid_embarrassing.mp4",
@@ -1422,7 +1422,7 @@
    "folder": "2026-10-11_edits",
    "file": "zomboid_carfine.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "we're in a car, we're fine",
    "caption": "\"we're fine\" 🚗 (6 minutes later) 🚑 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #projectzomboid #zomboid #gaming #twitchclips #funny #fyp #shorts",
@@ -1435,7 +1435,7 @@
    "feedback_at": "",
    "slug": "zomboidcarfine",
    "dupes": [],
-   "updated_at": "2026-10-11T22:33:30-04:00",
+   "updated_at": "2026-10-15T15:44:53-04:00",
    "media": "media/2026-10-11_edits__zomboid_carfine.mp4",
    "thumb": "media/thumbs/2026-10-11_edits__zomboid_carfine.jpg",
    "hosted": true
@@ -4036,11 +4036,11 @@
   "other"
  ],
  "last_action": {
-  "id": 135,
-  "clip_id": "2026-10-11_edits/supercut_missingsomething_trim.mp4",
+  "id": 136,
+  "clip_id": "2026-10-11_edits/zomboid_carfine.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-15T13:46:12-04:00",
+  "ts": "2026-10-15T15:44:53-04:00",
   "undone": 0,
   "meta": ""
  }
