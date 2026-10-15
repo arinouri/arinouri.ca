@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-15T12:23:52+00:00",
+ "generated": "2026-10-15T16:19:43+00:00",
  "clips": [
   {
    "id": "2026-10-15/zomboid_embarrassing.mp4",
@@ -1287,7 +1287,7 @@
    "feedback_at": "",
    "slug": "supercutmissingsomethingtrim",
    "dupes": [],
-   "updated_at": "2026-10-11T22:32:47-04:00",
+   "updated_at": "2026-10-15T11:26:12-04:00",
    "media": "media/2026-10-11_edits__supercut_missingsomething_trim.mp4",
    "thumb": "media/thumbs/2026-10-11_edits__supercut_missingsomething_trim.jpg",
    "hosted": true
@@ -3905,7 +3905,7 @@
   "goal": 3,
   "timezone": "America/Toronto",
   "today": "2026-10-15",
-  "today_count": 0,
+  "today_count": 1,
   "today_met": false,
   "current": 0,
   "best": 1,
@@ -3916,7 +3916,7 @@
    {
     "date": "2026-10-15",
     "dow": "T",
-    "count": 0,
+    "count": 1,
     "met": false,
     "today": true,
     "future": false
@@ -4016,7 +4016,7 @@
    {
     "date": "2026-10-15",
     "dow": "Thu",
-    "count": 0,
+    "count": 1,
     "met": false,
     "today": true
    }
@@ -4036,11 +4036,11 @@
   "other"
  ],
  "last_action": {
-  "id": 132,
-  "clip_id": "2026-10-08/zomboid_z2_7032_letmeeatyou.mp4",
-  "prev_status": "approved",
-  "new_status": "posted",
-  "ts": "2026-10-15T04:48:37-04:00",
+  "id": 134,
+  "clip_id": "2026-10-11_edits/supercut_missingsomething_trim.mp4",
+  "prev_status": "posted",
+  "new_status": "approved",
+  "ts": "2026-10-15T11:26:12-04:00",
   "undone": 0,
   "meta": ""
  }
