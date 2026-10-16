@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-16T21:17:26+00:00",
+ "generated": "2026-10-16T23:17:29+00:00",
  "clips": [
   {
    "id": "2026-10-16_vods/fishing_consensus.mp4",
@@ -374,7 +374,7 @@
    "folder": "2026-10-15",
    "file": "zomboid_nojoke.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "this shit is no joke",
    "caption": "bandage dirty. too much pain to sleep. 🩹😴 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #projectzomboid #zomboid #gaming #twitchclips #funny #fyp #shorts",
@@ -387,7 +387,7 @@
    "feedback_at": "",
    "slug": "zomboidnojoke",
    "dupes": [],
-   "updated_at": "2026-10-15T18:16:22-04:00",
+   "updated_at": "2026-10-16T18:20:01-04:00",
    "media": "media/2026-10-15__zomboid_nojoke.mp4",
    "thumb": "media/thumbs/2026-10-15__zomboid_nojoke.jpg",
    "hosted": true
@@ -4358,11 +4358,11 @@
   "other"
  ],
  "last_action": {
-  "id": 194,
-  "clip_id": "2026-10-16/mortuary_gurney.mp4",
-  "prev_status": "pending",
-  "new_status": "approved",
-  "ts": "2026-10-16T17:01:21-04:00",
+  "id": 195,
+  "clip_id": "2026-10-15/zomboid_nojoke.mp4",
+  "prev_status": "approved",
+  "new_status": "posted",
+  "ts": "2026-10-16T18:20:01-04:00",
   "undone": 0,
   "meta": ""
  }
