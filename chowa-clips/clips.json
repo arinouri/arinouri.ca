@@ -1,12 +1,12 @@
 {
- "generated": "2026-10-15T22:45:44+00:00",
+ "generated": "2026-10-16T01:16:02+00:00",
  "clips": [
   {
    "id": "2026-10-15/zomboid_embarrassing.mp4",
    "folder": "2026-10-15",
    "file": "zomboid_embarrassing.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "that's pretty embarrassing",
    "caption": "didn't even go out the door 🚪😭 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #projectzomboid #zomboid #gaming #twitchclips #funny #fyp #shorts",
@@ -19,7 +19,7 @@
    "feedback_at": "",
    "slug": "zomboidembarrassing",
    "dupes": [],
-   "updated_at": "2026-10-15T18:16:21-04:00",
+   "updated_at": "2026-10-15T20:17:47-04:00",
    "media": "media/2026-10-15__zomboid_embarrassing.mp4",
    "thumb": "media/thumbs/2026-10-15__zomboid_embarrassing.jpg",
    "hosted": true
@@ -4036,12 +4036,12 @@
   "other"
  ],
  "last_action": {
-  "id": 186,
-  "clip_id": "2026-10-08_big/aquarium_yt_0608_morayjepsen.mp4",
-  "prev_status": "pending",
-  "new_status": "rejected",
-  "ts": "2026-10-15T18:23:55-04:00",
+  "id": 187,
+  "clip_id": "2026-10-15/zomboid_embarrassing.mp4",
+  "prev_status": "approved",
+  "new_status": "posted",
+  "ts": "2026-10-15T20:17:47-04:00",
   "undone": 0,
-  "meta": "{\"reasons\": [], \"feedback\": \"\"}"
+  "meta": ""
  }
 }
