@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-16T11:44:57+00:00",
+ "generated": "2026-10-16T16:19:04+00:00",
  "clips": [
   {
    "id": "2026-10-16/zomboid_wizard101.mp4",
@@ -328,7 +328,7 @@
    "folder": "2026-10-12_scares",
    "file": "scare_lookingatme.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "she's looking at me, i swear",
    "caption": "the body is staring 👁️👁️ #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #mortuaryassistant #horrorgaming #jumpscare #twitchclips #scary #fyp #shorts",
@@ -341,7 +341,7 @@
    "feedback_at": "",
    "slug": "scarelookingatme",
    "dupes": [],
-   "updated_at": "2026-10-15T18:16:23-04:00",
+   "updated_at": "2026-10-16T11:23:09-04:00",
    "media": "media/2026-10-12_scares__scare_lookingatme.mp4",
    "thumb": "media/thumbs/2026-10-12_scares__scare_lookingatme.jpg",
    "hosted": true
@@ -4174,11 +4174,11 @@
   "other"
  ],
  "last_action": {
-  "id": 187,
-  "clip_id": "2026-10-15/zomboid_embarrassing.mp4",
+  "id": 188,
+  "clip_id": "2026-10-12_scares/scare_lookingatme.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-15T20:17:47-04:00",
+  "ts": "2026-10-16T11:23:09-04:00",
   "undone": 0,
   "meta": ""
  }
