@@ -10,10 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111827'/%3E%3Cpath d='M6 22l7-7 5 4 8-10' stroke='%2334d399' stroke-width='3' fill='none'/%3E%3C/svg%3E" />
   <script>
-    // The app lives in the arena repo (public); the hourly version tag keeps browsers from holding old copies.
+    // The app lives in the arena repo (public). We load it pinned to the newest commit so a CDN can never serve a stale copy.
     window.ARENA_V = Math.floor(Date.now() / 36e5);
     window.ARENA_DATA = "https://raw.githubusercontent.com/arinouri/ai-stock-picks-arena/main/site/data/";
-    document.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/arinouri/ai-stock-picks-arena@main/site/app.css?v=' + window.ARENA_V + '">');
   </script>
 </head>
 <body>
@@ -22,6 +21,16 @@
   <footer class="foot">
     <p>Prices come from Yahoo Finance through an automated GitHub Action. Built by <a href="https://github.com/arinouri">@arinouri</a>. The code, the database and every pick are public on <a id="repo-link" href="https://github.com/arinouri/ai-stock-picks-arena">GitHub</a>.</p>
   </footer>
-  <script type="module">import("https://cdn.jsdelivr.net/gh/arinouri/ai-stock-picks-arena@main/site/app.js?v=" + window.ARENA_V);</script>
+  <script type="module">
+    let ref = "main";
+    try {
+      const r = await fetch("https://api.github.com/repos/arinouri/ai-stock-picks-arena/commits/main", { headers: { Accept: "application/vnd.github.sha" } });
+      if (r.ok) { const t = (await r.text()).trim(); if (/^[0-9a-f]{40}$/.test(t)) ref = t; }
+    } catch (e) {}
+    const base = "https://cdn.jsdelivr.net/gh/arinouri/ai-stock-picks-arena@" + ref + "/site/";
+    const q = ref === "main" ? "?v=" + window.ARENA_V : "";
+    const l = document.createElement("link"); l.rel = "stylesheet"; l.href = base + "app.css" + q; document.head.appendChild(l);
+    import(base + "app.js" + q);
+  </script>
 </body>
 </html>
