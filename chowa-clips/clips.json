@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-16T16:19:04+00:00",
+ "generated": "2026-10-16T18:17:26+00:00",
  "clips": [
   {
    "id": "2026-10-16/zomboid_wizard101.mp4",
@@ -167,7 +167,7 @@
    "folder": "2026-10-15",
    "file": "zomboid_noweapon.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "i don't have my weapon",
    "caption": "four zombies. zero weapons. 🪓🧟 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #projectzomboid #zomboid #gaming #twitchclips #funny #fyp #shorts",
@@ -180,7 +180,7 @@
    "feedback_at": "",
    "slug": "zomboidnoweapon",
    "dupes": [],
-   "updated_at": "2026-10-15T18:16:21-04:00",
+   "updated_at": "2026-10-16T13:46:37-04:00",
    "media": "media/2026-10-15__zomboid_noweapon.mp4",
    "thumb": "media/thumbs/2026-10-15__zomboid_noweapon.jpg",
    "hosted": true
@@ -4174,11 +4174,11 @@
   "other"
  ],
  "last_action": {
-  "id": 188,
-  "clip_id": "2026-10-12_scares/scare_lookingatme.mp4",
+  "id": 189,
+  "clip_id": "2026-10-15/zomboid_noweapon.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-16T11:23:09-04:00",
+  "ts": "2026-10-16T13:46:37-04:00",
   "undone": 0,
   "meta": ""
  }
