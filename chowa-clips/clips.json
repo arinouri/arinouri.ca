@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-16T01:16:02+00:00",
+ "generated": "2026-10-16T04:19:27+00:00",
  "clips": [
   {
    "id": "2026-10-15/zomboid_embarrassing.mp4",
@@ -3904,9 +3904,9 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-10-15",
-  "today_count": 51,
-  "today_met": true,
+  "today": "2026-10-16",
+  "today_count": 0,
+  "today_met": false,
   "current": 1,
   "best": 1,
   "cycle_progress": 1,
@@ -3918,7 +3918,7 @@
     "dow": "T",
     "count": 51,
     "met": true,
-    "today": true,
+    "today": false,
     "future": false
    },
    {
@@ -3926,8 +3926,8 @@
     "dow": "F",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-10-17",
@@ -3972,13 +3972,6 @@
   ],
   "last7": [
    {
-    "date": "2026-10-09",
-    "dow": "Fri",
-    "count": 0,
-    "met": false,
-    "today": false
-   },
-   {
     "date": "2026-10-10",
     "dow": "Sat",
     "count": 1,
@@ -4018,6 +4011,13 @@
     "dow": "Thu",
     "count": 51,
     "met": true,
+    "today": false
+   },
+   {
+    "date": "2026-10-16",
+    "dow": "Fri",
+    "count": 0,
+    "met": false,
     "today": true
    }
   ],
