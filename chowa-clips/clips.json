@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T18:19:45+00:00",
+ "generated": "2026-10-17T20:14:05+00:00",
  "clips": [
   {
    "id": "2026-10-17/zomboid_howdoidrink.mp4",
@@ -512,7 +512,7 @@
    "folder": "2026-10-15",
    "file": "zomboid_lockedin.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "we're locked in",
    "caption": "fireplace. locked in. lamppost. 🔥🪦 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #projectzomboid #zomboid #gaming #twitchclips #funny #fyp #shorts",
@@ -525,7 +525,7 @@
    "feedback_at": "",
    "slug": "zomboidlockedin",
    "dupes": [],
-   "updated_at": "2026-10-15T18:16:23-04:00",
+   "updated_at": "2026-10-17T15:44:21-04:00",
    "media": "media/2026-10-15__zomboid_lockedin.mp4",
    "thumb": "media/thumbs/2026-10-15__zomboid_lockedin.jpg",
    "hosted": true
@@ -4404,11 +4404,11 @@
   "other"
  ],
  "last_action": {
-  "id": 198,
-  "clip_id": "2026-10-12_scares/scare_nonono.mp4",
+  "id": 199,
+  "clip_id": "2026-10-15/zomboid_lockedin.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-17T13:51:15-04:00",
+  "ts": "2026-10-17T15:44:21-04:00",
   "undone": 0,
   "meta": ""
  }
