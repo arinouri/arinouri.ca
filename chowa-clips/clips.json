@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T16:19:39+00:00",
+ "generated": "2026-10-17T18:19:45+00:00",
  "clips": [
   {
    "id": "2026-10-17/zomboid_howdoidrink.mp4",
@@ -673,7 +673,7 @@
    "folder": "2026-10-12_scares",
    "file": "scare_nonono.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "no no no no no no",
    "caption": "the demon said it's her fault 😨 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #mortuaryassistant #horrorgaming #jumpscare #twitchclips #scary #fyp #shorts",
@@ -686,7 +686,7 @@
    "feedback_at": "",
    "slug": "scarenonono",
    "dupes": [],
-   "updated_at": "2026-10-15T18:16:25-04:00",
+   "updated_at": "2026-10-17T13:51:15-04:00",
    "media": "media/2026-10-12_scares__scare_nonono.mp4",
    "thumb": "media/thumbs/2026-10-12_scares__scare_nonono.jpg",
    "hosted": true
@@ -4404,11 +4404,11 @@
   "other"
  ],
  "last_action": {
-  "id": 197,
-  "clip_id": "2026-10-15/zomboid_killingwitheyes.mp4",
+  "id": 198,
+  "clip_id": "2026-10-12_scares/scare_nonono.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-17T11:23:45-04:00",
+  "ts": "2026-10-17T13:51:15-04:00",
   "undone": 0,
   "meta": ""
  }
