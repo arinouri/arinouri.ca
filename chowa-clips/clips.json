@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-16T23:17:29+00:00",
+ "generated": "2026-10-17T01:19:03+00:00",
  "clips": [
   {
    "id": "2026-10-16_vods/fishing_consensus.mp4",
@@ -581,7 +581,7 @@
    "folder": "2026-10-12_scares",
    "file": "scare_pleaseplease.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "i hate this already",
    "caption": "13 pleases and 10 no's 😭 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #mortuaryassistant #horrorgaming #jumpscare #twitchclips #scary #fyp #shorts",
@@ -594,7 +594,7 @@
    "feedback_at": "",
    "slug": "scarepleaseplease",
    "dupes": [],
-   "updated_at": "2026-10-15T18:16:24-04:00",
+   "updated_at": "2026-10-16T20:16:32-04:00",
    "media": "media/2026-10-12_scares__scare_pleaseplease.mp4",
    "thumb": "media/thumbs/2026-10-12_scares__scare_pleaseplease.jpg",
    "hosted": true
@@ -4358,11 +4358,11 @@
   "other"
  ],
  "last_action": {
-  "id": 195,
-  "clip_id": "2026-10-15/zomboid_nojoke.mp4",
+  "id": 196,
+  "clip_id": "2026-10-12_scares/scare_pleaseplease.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-16T18:20:01-04:00",
+  "ts": "2026-10-16T20:16:32-04:00",
   "undone": 0,
   "meta": ""
  }
