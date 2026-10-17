@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T20:14:05+00:00",
+ "generated": "2026-10-17T23:12:54+00:00",
  "clips": [
   {
    "id": "2026-10-17/zomboid_howdoidrink.mp4",
@@ -946,7 +946,7 @@
    "folder": "2026-10-11_light",
    "file": "mortuary_dontdiehere.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "did he say don't die here?",
    "caption": "he said \"you alright?\" 😭 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #mortuaryassistant #horrorgaming #twitchclips #funny #fyp #shorts",
@@ -964,7 +964,7 @@
      "status": "rejected"
     }
    ],
-   "updated_at": "2026-10-15T18:16:26-04:00",
+   "updated_at": "2026-10-17T18:20:46-04:00",
    "media": "media/2026-10-11_light__mortuary_dontdiehere.mp4",
    "thumb": "media/thumbs/2026-10-11_light__mortuary_dontdiehere.jpg",
    "hosted": true
@@ -2136,7 +2136,7 @@
    "dupes": [
     {
      "id": "2026-10-11_light/mortuary_dontdiehere.mp4",
-     "status": "approved"
+     "status": "posted"
     }
    ],
    "updated_at": "2026-10-11T22:55:09-04:00",
@@ -4404,11 +4404,11 @@
   "other"
  ],
  "last_action": {
-  "id": 199,
-  "clip_id": "2026-10-15/zomboid_lockedin.mp4",
+  "id": 200,
+  "clip_id": "2026-10-11_light/mortuary_dontdiehere.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-17T15:44:21-04:00",
+  "ts": "2026-10-17T18:20:46-04:00",
   "undone": 0,
   "meta": ""
  }
