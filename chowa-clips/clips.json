@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T01:19:03+00:00",
+ "generated": "2026-10-17T04:17:26+00:00",
  "clips": [
   {
    "id": "2026-10-16_vods/fishing_consensus.mp4",
@@ -4226,9 +4226,9 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-10-16",
-  "today_count": 4,
-  "today_met": true,
+  "today": "2026-10-17",
+  "today_count": 0,
+  "today_met": false,
   "current": 2,
   "best": 2,
   "cycle_progress": 2,
@@ -4248,7 +4248,7 @@
     "dow": "F",
     "count": 4,
     "met": true,
-    "today": true,
+    "today": false,
     "future": false
    },
    {
@@ -4256,8 +4256,8 @@
     "dow": "S",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-10-18",
@@ -4293,13 +4293,6 @@
    }
   ],
   "last7": [
-   {
-    "date": "2026-10-10",
-    "dow": "Sat",
-    "count": 1,
-    "met": false,
-    "today": false
-   },
    {
     "date": "2026-10-11",
     "dow": "Sun",
@@ -4340,6 +4333,13 @@
     "dow": "Fri",
     "count": 4,
     "met": true,
+    "today": false
+   },
+   {
+    "date": "2026-10-17",
+    "dow": "Sat",
+    "count": 0,
+    "met": false,
     "today": true
    }
   ],
