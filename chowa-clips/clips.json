@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T23:12:54+00:00",
+ "generated": "2026-10-18T01:14:03+00:00",
  "clips": [
   {
    "id": "2026-10-17/zomboid_howdoidrink.mp4",
@@ -742,7 +742,7 @@
    "folder": "2026-10-12",
    "file": "zomboid_howdoi.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "i would already know what to do",
    "caption": "skipped the tutorial, asked 'how do i' for 5 hours 📚😭 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #projectzomboid #zomboid #gaming #twitchclips #funny #fyp #shorts",
@@ -755,7 +755,7 @@
    "feedback_at": "",
    "slug": "zomboidhowdoi",
    "dupes": [],
-   "updated_at": "2026-10-15T18:16:25-04:00",
+   "updated_at": "2026-10-17T20:24:38-04:00",
    "media": "media/2026-10-12__zomboid_howdoi.mp4",
    "thumb": "media/thumbs/2026-10-12__zomboid_howdoi.jpg",
    "hosted": true
@@ -4404,11 +4404,11 @@
   "other"
  ],
  "last_action": {
-  "id": 200,
-  "clip_id": "2026-10-11_light/mortuary_dontdiehere.mp4",
+  "id": 201,
+  "clip_id": "2026-10-12/zomboid_howdoi.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-17T18:20:46-04:00",
+  "ts": "2026-10-17T20:24:38-04:00",
   "undone": 0,
   "meta": ""
  }
