@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T12:13:06+00:00",
+ "generated": "2026-10-18T18:15:57+00:00",
  "clips": [
   {
    "id": "2026-10-18/zomboid_illprotectyou.mp4",
@@ -834,7 +834,7 @@
    "folder": "2026-10-12",
    "file": "zomboid_backwards.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "no, i know what i'm doing",
    "caption": "she does it every time 🧟‍♀️🔙 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #projectzomboid #zomboid #gaming #twitchclips #funny #fyp #shorts",
@@ -847,7 +847,7 @@
    "feedback_at": "",
    "slug": "zomboidbackwards",
    "dupes": [],
-   "updated_at": "2026-10-15T18:16:26-04:00",
+   "updated_at": "2026-10-18T13:22:33-04:00",
    "media": "media/2026-10-12__zomboid_backwards.mp4",
    "thumb": "media/thumbs/2026-10-12__zomboid_backwards.jpg",
    "hosted": true
@@ -857,20 +857,20 @@
    "folder": "2026-10-12",
    "file": "zomboid_youredead.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "i'm freaking out, i don't know what to do",
    "caption": "\"what does that mean?\" 🩸🧟 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #projectzomboid #zomboid #gaming #twitchclips #funny #fyp #shorts",
    "hook": "\"I'M FREAKING OUT, / I DON'T KNOW WHAT TO DO\"",
    "info": "(23.9s): PANIC → DIAGNOSIS: 'SAVE MY LIFE! Oh my god, they're everywhere! I'm freaking out, I don't know what to do' → calm health-panel tutorial → 'does any of that say it's bitten?' 'yes.' → 'oh, you're dead.' 'what does that mean?' 'you're gonna die.'\nAlt hooks: \"OH, YOU'RE DEAD.\" / \"WHAT DOES THAT MEAN?\"\nSource: https://www.twitch.tv/videos/2651721192 @ 2:12:49–2:12:56 + 2:13:07–2:13:18 + 2:13:18–2:13:24 · Starts 31 s after the end of the POSTED clip 'let me out' (2:11:40–2:12:18); the earlier 2:12:35–2:12:48 lead-in was cut to respect the ±30 s rule.\nQC: 1080x1920, whole head with headroom in the cam band (sheet + full-res frames checked), captions/hook in the black bands off her face and off the game, Discord voice-overlay usernames blurred, harsh swears beeped, loudness-normalized to about -14 LUFS, one impact hit max. Ends before an unrelated dark joke from the friend.",
-   "note": "",
+   "note": "Buffer sent YT/TT/IG 2026-10-18 13:43 ET",
    "edited": 0,
    "feedback_reasons": [],
    "feedback_text": "",
    "feedback_at": "",
    "slug": "zomboidyouredead",
    "dupes": [],
-   "updated_at": "2026-10-15T18:16:26-04:00",
+   "updated_at": "2026-10-18T13:50:42-04:00",
    "media": "media/2026-10-12__zomboid_youredead.mp4",
    "thumb": "media/thumbs/2026-10-12__zomboid_youredead.jpg",
    "hosted": true
@@ -4473,11 +4473,11 @@
   "other"
  ],
  "last_action": {
-  "id": 201,
-  "clip_id": "2026-10-12/zomboid_howdoi.mp4",
+  "id": 203,
+  "clip_id": "2026-10-12/zomboid_youredead.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-17T20:24:38-04:00",
+  "ts": "2026-10-18T13:50:42-04:00",
   "undone": 0,
   "meta": ""
  }
