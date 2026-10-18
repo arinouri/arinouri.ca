@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T18:15:57+00:00",
+ "generated": "2026-10-18T20:21:23+00:00",
  "clips": [
   {
    "id": "2026-10-18/zomboid_illprotectyou.mp4",
@@ -880,7 +880,7 @@
    "folder": "2026-10-12",
    "file": "zomboid_farmdude.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "i'm not a fighter, i'm a freaking farm dude",
    "caption": "bitten 3 times. she's fine. 🧑‍🌾🧟 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #projectzomboid #zomboid #gaming #twitchclips #funny #fyp #shorts",
@@ -893,7 +893,7 @@
    "feedback_at": "",
    "slug": "zomboidfarmdude",
    "dupes": [],
-   "updated_at": "2026-10-15T18:16:26-04:00",
+   "updated_at": "2026-10-18T15:51:08-04:00",
    "media": "media/2026-10-12__zomboid_farmdude.mp4",
    "thumb": "media/thumbs/2026-10-12__zomboid_farmdude.jpg",
    "hosted": true
@@ -4473,11 +4473,11 @@
   "other"
  ],
  "last_action": {
-  "id": 203,
-  "clip_id": "2026-10-12/zomboid_youredead.mp4",
+  "id": 204,
+  "clip_id": "2026-10-12/zomboid_farmdude.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-18T13:50:42-04:00",
+  "ts": "2026-10-18T15:51:08-04:00",
   "undone": 0,
   "meta": ""
  }
