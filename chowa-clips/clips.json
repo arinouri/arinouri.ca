@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T01:16:33+00:00",
+ "generated": "2026-10-19T04:21:27+00:00",
  "clips": [
   {
    "id": "2026-10-18/zomboid_illprotectyou.mp4",
@@ -4341,7 +4341,7 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-10-18",
+  "today": "2026-10-19",
   "today_count": 0,
   "today_met": false,
   "current": 0,
@@ -4351,20 +4351,12 @@
   "days_to_reward": 7,
   "cycle_days": [
    {
-    "date": "2026-10-18",
-    "dow": "S",
-    "count": 0,
-    "met": false,
-    "today": true,
-    "future": false
-   },
-   {
     "date": "2026-10-19",
     "dow": "M",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-10-20",
@@ -4405,16 +4397,17 @@
     "met": false,
     "today": false,
     "future": true
+   },
+   {
+    "date": "2026-10-25",
+    "dow": "S",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
    }
   ],
   "last7": [
-   {
-    "date": "2026-10-12",
-    "dow": "Mon",
-    "count": 0,
-    "met": false,
-    "today": false
-   },
    {
     "date": "2026-10-13",
     "dow": "Tue",
@@ -4453,6 +4446,13 @@
    {
     "date": "2026-10-18",
     "dow": "Sun",
+    "count": 0,
+    "met": false,
+    "today": false
+   },
+   {
+    "date": "2026-10-19",
+    "dow": "Mon",
     "count": 0,
     "met": false,
     "today": true
