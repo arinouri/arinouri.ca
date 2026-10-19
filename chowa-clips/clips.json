@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T12:20:25+00:00",
+ "generated": "2026-10-19T16:44:52+00:00",
  "clips": [
   {
    "id": "2026-10-19/zomboid_toobusydying.mp4",
@@ -535,7 +535,7 @@
    "folder": "2026-10-16",
    "file": "mortuary_gurney.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "this gurney don't move",
    "caption": "mortuary assistant vs. one (1) gurney 🛏️😤 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #mortuaryassistant #horrorgame #gaming #twitchclips #funny #fyp #shorts",
@@ -548,7 +548,7 @@
    "feedback_at": "",
    "slug": "mortuarygurney",
    "dupes": [],
-   "updated_at": "2026-10-16T17:01:21-04:00",
+   "updated_at": "2026-10-19T11:39:58-04:00",
    "media": "media/2026-10-16__mortuary_gurney.mp4",
    "thumb": "media/thumbs/2026-10-16__mortuary_gurney.jpg",
    "hosted": true
@@ -4588,11 +4588,11 @@
   "other"
  ],
  "last_action": {
-  "id": 206,
-  "clip_id": "2026-10-16/zomboid_firestation.mp4",
+  "id": 207,
+  "clip_id": "2026-10-16/mortuary_gurney.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-18T20:24:08-04:00",
+  "ts": "2026-10-19T11:39:58-04:00",
   "undone": 0,
   "meta": ""
  }
