@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T23:16:31+00:00",
+ "generated": "2026-10-19T01:16:33+00:00",
  "clips": [
   {
    "id": "2026-10-18/zomboid_illprotectyou.mp4",
@@ -374,7 +374,7 @@
    "folder": "2026-10-16",
    "file": "zomboid_firestation.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "i'm fighting a war out here",
    "caption": "25 zombies down. then she opened the door 🚒🧟 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #projectzomboid #zomboid #gaming #twitchclips #funny #fyp #shorts",
@@ -387,7 +387,7 @@
    "feedback_at": "",
    "slug": "zomboidfirestation",
    "dupes": [],
-   "updated_at": "2026-10-16T17:01:20-04:00",
+   "updated_at": "2026-10-18T20:24:08-04:00",
    "media": "media/2026-10-16__zomboid_firestation.mp4",
    "thumb": "media/thumbs/2026-10-16__zomboid_firestation.jpg",
    "hosted": true
@@ -4473,11 +4473,11 @@
   "other"
  ],
  "last_action": {
-  "id": 205,
-  "clip_id": "2026-10-11_light/mortuary_edit_pushingmyfears.mp4",
+  "id": 206,
+  "clip_id": "2026-10-16/zomboid_firestation.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-18T18:21:48-04:00",
+  "ts": "2026-10-18T20:24:08-04:00",
   "undone": 0,
   "meta": ""
  }
