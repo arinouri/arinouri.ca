@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T16:44:52+00:00",
+ "generated": "2026-10-19T19:17:02+00:00",
  "clips": [
   {
    "id": "2026-10-19/zomboid_toobusydying.mp4",
@@ -1270,7 +1270,7 @@
    "folder": "2026-10-11_light",
    "file": "mortuary_peerpressure_fix.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "this is genuine peer pressure",
    "caption": "chat said no quitting 😭 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #mortuaryassistant #horrorgaming #twitchclips #funny #fyp #shorts",
@@ -1288,7 +1288,7 @@
      "status": "rejected"
     }
    ],
-   "updated_at": "2026-10-15T18:16:28-04:00",
+   "updated_at": "2026-10-19T14:43:57-04:00",
    "media": "media/2026-10-11_light__mortuary_peerpressure_fix.mp4",
    "thumb": "media/thumbs/2026-10-11_light__mortuary_peerpressure_fix.jpg",
    "hosted": true
@@ -2376,7 +2376,7 @@
    "dupes": [
     {
      "id": "2026-10-11_light/mortuary_peerpressure_fix.mp4",
-     "status": "approved"
+     "status": "posted"
     }
    ],
    "updated_at": "2026-10-11T22:55:09-04:00",
@@ -4588,11 +4588,11 @@
   "other"
  ],
  "last_action": {
-  "id": 207,
-  "clip_id": "2026-10-16/mortuary_gurney.mp4",
+  "id": 208,
+  "clip_id": "2026-10-11_light/mortuary_peerpressure_fix.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-19T11:39:58-04:00",
+  "ts": "2026-10-19T14:43:57-04:00",
   "undone": 0,
   "meta": ""
  }
