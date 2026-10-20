@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19T20:20:41+00:00",
+ "generated": "2026-10-20T00:11:43+00:00",
  "clips": [
   {
    "id": "2026-10-19/zomboid_toobusydying.mp4",
@@ -2596,20 +2596,20 @@
    "folder": "2026-10-10_stream",
    "file": "mortuary_edit_mason.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "mason, you scared me",
    "caption": "the game didn't get her. Mason opening the door did 😭🚪 then he became her emotional support 🥹 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #mortuaryassistant #horrorgaming #jumpscare #irl #funny #fyp #shorts",
    "hook": "THE SCARIEST PART / OF HER HORROR STREAM",
    "info": "(22.2s): the real jump scare of the stream: Mason opens her bedroom door mid-game and she SCREAMS. \"Mason, you scared me! ...Sorry, Mason.\" Then she recruits him as emotional support: \"Mason, come here. Mason, I'm scared.\" \"Close your eyes, okay Mason?\" \"Mason, don't leave me. Don't go.\" \"Aww, Mason's so cute.\" \"Mason opened the door, it scared me bro.\" Ends on a slow-mo replay of the scream (loops back to the start).\nAlt hooks: \"MASON OPENED THE DOOR\" / \"FORGET THE GAME, MASON IS THE JUMP SCARE\"\nSource: https://www.twitch.tv/videos/2897450709 @ 1:43:14–1:43:16 + 1:43:15–1:43:21 + 1:43:21–1:43:23 + 1:43:35–1:43:39 + 1:43:47–1:43:49 + 1:44:10–1:44:14 + 1:44:16–1:44:21",
-   "note": "",
+   "note": "live 2026-10-19 18:17 ET: YT https://www.youtube.com/shorts/y31iuQEsrIQ | TT https://tiktok.com/@chowaobby.clips/video/7698506495041735944 | IG https://www.instagram.com/reel/DesT6GCE9hF/",
    "edited": 0,
    "feedback_reasons": [],
    "feedback_text": "",
    "feedback_at": "",
    "slug": "mortuaryeditmason",
    "dupes": [],
-   "updated_at": "2026-10-15T18:18:41-04:00",
+   "updated_at": "2026-10-19T19:53:10-04:00",
    "media": "media/2026-10-10_stream__mortuary_edit_mason.mp4",
    "thumb": "media/thumbs/2026-10-10_stream__mortuary_edit_mason.jpg",
    "hosted": true
@@ -4588,11 +4588,11 @@
   "other"
  ],
  "last_action": {
-  "id": 209,
-  "clip_id": "2026-10-11_light/protip_workfast.mp4",
+  "id": 210,
+  "clip_id": "2026-10-10_stream/mortuary_edit_mason.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-19T15:44:35-04:00",
+  "ts": "2026-10-19T19:53:10-04:00",
   "undone": 0,
   "meta": ""
  }
