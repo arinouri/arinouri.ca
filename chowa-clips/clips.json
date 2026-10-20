@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T01:17:45+00:00",
+ "generated": "2026-10-20T04:12:12+00:00",
  "clips": [
   {
    "id": "2026-10-19/zomboid_toobusydying.mp4",
@@ -4456,9 +4456,9 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-10-19",
-  "today_count": 8,
-  "today_met": true,
+  "today": "2026-10-20",
+  "today_count": 0,
+  "today_met": false,
   "current": 1,
   "best": 2,
   "cycle_progress": 1,
@@ -4470,7 +4470,7 @@
     "dow": "M",
     "count": 8,
     "met": true,
-    "today": true,
+    "today": false,
     "future": false
    },
    {
@@ -4478,8 +4478,8 @@
     "dow": "T",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-10-21",
@@ -4524,13 +4524,6 @@
   ],
   "last7": [
    {
-    "date": "2026-10-13",
-    "dow": "Tue",
-    "count": 0,
-    "met": false,
-    "today": false
-   },
-   {
     "date": "2026-10-14",
     "dow": "Wed",
     "count": 0,
@@ -4570,6 +4563,13 @@
     "dow": "Mon",
     "count": 8,
     "met": true,
+    "today": false
+   },
+   {
+    "date": "2026-10-20",
+    "dow": "Tue",
+    "count": 0,
+    "met": false,
     "today": true
    }
   ],
