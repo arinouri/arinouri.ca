@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T12:15:59+00:00",
+ "generated": "2026-10-22T16:19:34+00:00",
  "clips": [
   {
    "id": "2026-10-22_newvod/casino_playsmart.mp4",
@@ -2928,7 +2928,7 @@
    "folder": "2026-10-10",
    "file": "fishing_0338_prettyboring.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "this game is pretty f***ing boring",
    "caption": "friend explaining the fishing bar → \"OH MY GOD I GOT A BIG FISH! look at it! I CAUGHT IT!\" 🎣 → \"throw it in. good work\" → \"so I feel like this game is pretty f***ing boring\" → \"we're just fishing bro. stupid. I just wanted a fish\" 😭 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #fishing #gaming #twitchclips #funny #fyp #shorts",
@@ -2941,7 +2941,7 @@
    "feedback_at": "",
    "slug": "prettyboring",
    "dupes": [],
-   "updated_at": "2026-10-15T18:19:23-04:00",
+   "updated_at": "2026-10-22T11:23:03-04:00",
    "media": "media/2026-10-10__fishing_0338_prettyboring.mp4",
    "thumb": "media/thumbs/2026-10-10__fishing_0338_prettyboring.jpg",
    "hosted": true
@@ -3020,7 +3020,7 @@
    "folder": "2026-10-09",
    "file": "zomboid_z1_20794_suddenlynaked.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "suddenly i'm naked",
    "caption": "\"wait, why am I still dying? I'm confused\" → \"I'm in critical damage now\" \"I don't think you should be in the car\" → \"the car is literally broken… it disappeared\" → \"wait, why am I naked?\" \"why did you take all your clothes off?\" \"I didn't! suddenly I'm naked!\" → \"you ripped every piece of clothing you ever wore\" → \"no! I swear I just took off my bandages!\" → \"I still have the ear protectors\" → \"so why did I get naked for? I'm so confused\" 🧟‍♀️🩲 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#projectzomboid #zomboid #gamingfunny #twitchclips #chowaobby #fyp #shorts",
@@ -3033,7 +3033,7 @@
    "feedback_at": "",
    "slug": "suddenlynaked",
    "dupes": [],
-   "updated_at": "2026-10-15T18:22:02-04:00",
+   "updated_at": "2026-10-22T11:23:03-04:00",
    "media": "media/2026-10-09__zomboid_z1_20794_suddenlynaked.mp4",
    "thumb": "media/thumbs/2026-10-09__zomboid_z1_20794_suddenlynaked.jpg",
    "hosted": true
@@ -4795,11 +4795,11 @@
   "other"
  ],
  "last_action": {
-  "id": 231,
-  "clip_id": "2026-10-16/zomboid_tutorialroast.mp4",
-  "prev_status": "pending",
-  "new_status": "approved",
-  "ts": "2026-10-21T22:03:12-04:00",
+  "id": 233,
+  "clip_id": "2026-10-10/fishing_0338_prettyboring.mp4",
+  "prev_status": "approved",
+  "new_status": "posted",
+  "ts": "2026-10-22T11:23:03-04:00",
   "undone": 0,
   "meta": ""
  }
