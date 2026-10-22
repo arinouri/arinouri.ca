@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T16:19:34+00:00",
+ "generated": "2026-10-22T23:14:45+00:00",
  "clips": [
   {
    "id": "2026-10-22_newvod/casino_playsmart.mp4",
@@ -443,7 +443,7 @@
    "folder": "2026-10-16_vods",
    "file": "fishing_consensus.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "what's the consensus to this game?",
    "caption": "me in every new game 🎣 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #twitchclips #gaming #funny #fyp #shorts",
@@ -456,7 +456,7 @@
    "feedback_at": "",
    "slug": "fishingconsensus",
    "dupes": [],
-   "updated_at": "2026-10-21T22:03:10-04:00",
+   "updated_at": "2026-10-22T18:24:05-04:00",
    "media": "media/2026-10-16_vods__fishing_consensus.mp4",
    "thumb": "media/thumbs/2026-10-16_vods__fishing_consensus.jpg",
    "hosted": true
@@ -673,7 +673,7 @@
    "folder": "2026-10-16",
    "file": "zomboid_tutorialroast.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "it really will be such a shame to lose you",
    "caption": "the tutorial was not on her side 💀⌨️ (where's F1??) #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #projectzomboid #zomboid #gaming #twitchclips #funny #fyp #shorts",
@@ -686,7 +686,7 @@
    "feedback_at": "",
    "slug": "zomboidtutorialroast",
    "dupes": [],
-   "updated_at": "2026-10-21T22:03:12-04:00",
+   "updated_at": "2026-10-22T18:24:05-04:00",
    "media": "media/2026-10-16__zomboid_tutorialroast.mp4",
    "thumb": "media/thumbs/2026-10-16__zomboid_tutorialroast.jpg",
    "hosted": true
@@ -4795,11 +4795,11 @@
   "other"
  ],
  "last_action": {
-  "id": 233,
-  "clip_id": "2026-10-10/fishing_0338_prettyboring.mp4",
+  "id": 235,
+  "clip_id": "2026-10-16_vods/fishing_consensus.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-22T11:23:03-04:00",
+  "ts": "2026-10-22T18:24:05-04:00",
   "undone": 0,
   "meta": ""
  }
