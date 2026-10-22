@@ -120,7 +120,7 @@ function planePos(p, now) {
 function buildLayers(now) {
   const pulse = (Math.sin(now / 300) + 1) / 2;
   const list = [...planes.values()].map(p => ({ ...p, pos: planePos(p, now) }));
-  const camColor = c => c === activeCam ? [255, 255, 255, 255] : c.mto ? [143, 162, 255, 235] : [95, 225, 255, 235];
+  const camColor = c => c === activeCam || c === hoverCam ? [255, 255, 255, 255] : c.mto ? [143, 162, 255, 235] : [95, 225, 255, 235];
   return [
     new deck.ScatterplotLayer({
       id: 'cam-ground', data: cams, visible: layersOn.cams,
@@ -132,13 +132,13 @@ function buildLayers(now) {
       getRadius: 30 + pulse * 60, filled: false, stroked: true, getLineColor: [255, 255, 255, 230 - pulse * 180], lineWidthMinPixels: 1.5,
       updateTriggers: { getRadius: pulse, getLineColor: pulse }
     }),
+    // Icons are centred on the camera's real location (deck.gl anchors at the bottom by default,
+    // which drew every icon floating above its spot). Hover/click picking is done in camAt() below.
     new deck.IconLayer({
-      id: 'cams', data: cams, visible: layersOn.cams, pickable: true, billboard: true,
-      getIcon: () => ({ url: CAM_ICON, width: 64, height: 64, mask: true }),
-      getPosition: c => [c.longitude, c.latitude, 0], getSize: c => c === activeCam || c === hoverCam ? 30 : 19, sizeUnits: 'pixels',
-      getColor: camColor, onClick: ({ object }) => object && openCam(object),
-      onHover: ({ object }) => { hoverCam = object || null; map.getCanvas().style.cursor = object ? 'pointer' : ''; },
-      updateTriggers: { getSize: [activeCam, hoverCam], getColor: activeCam }
+      id: 'cams', data: cams, visible: layersOn.cams, pickable: false, billboard: true,
+      getIcon: () => ({ url: CAM_ICON, width: 64, height: 64, anchorY: 32, mask: true }),
+      getPosition: c => [c.longitude, c.latitude, 0], getSize: c => c === activeCam || c === hoverCam ? 26 : 19, sizeUnits: 'pixels',
+      getColor: camColor, updateTriggers: { getSize: [activeCam, hoverCam], getColor: [activeCam, hoverCam] }
     }),
     new deck.IconLayer({
       id: 'enforce', data: enforce, visible: layersOn.enforce, pickable: true,
@@ -184,14 +184,48 @@ function buildLayers(now) {
 }
 
 function getTooltip({ object, layer }) {
-  if (!object || !layer) return null;
+  if (!object || !layer || hoverCam) return null;
   const box = html => ({ html, style: { background: '#000', border: '1px solid rgba(255,255,255,.3)', color: '#fff', font: '11px/1.5 Space Mono, monospace', padding: '8px 10px', letterSpacing: '.04em' } });
   if (layer.id === 'planes') return box(`<b style="color:${object.mil ? '#ff7882' : '#ffc96e'}">${object.call}</b> ${object.mil ? '· MILITARY' : ''}<br>${object.type || 'UNKNOWN TYPE'}<br>ALT ${object.altFt === 'GND' ? 'GROUND' : object.altFt.toLocaleString() + ' FT'} · ${Math.round(object.gs || 0)} KT<br>HDG ${Math.round(object.track || 0)}° · SQK ${object.squawk || '—'}`);
-  if (layer.id === 'cams') return box(`<b style="color:#5fe1ff">${object.mto ? 'MTO' : 'CITY'} CAM ${object.camera_number}</b><br>${object.name}<br><span style="opacity:.6">CLICK FOR LIVE FEED</span>`);
   if (layer.id === 'incidents') return box(`<b style="color:${object.closure ? '#ff4d5e' : '#ffb547'}">${object.type}</b><br>${object.headline}`);
   if (layer.id === 'enforce') return box(`<b style="color:#d36bff">${object.kind}</b><br>${object.name}`);
   return null;
 }
+
+/* ---------- Camera hover / click: always the camera nearest the pointer ---------- */
+const camTip = document.createElement('div');
+camTip.className = 'cam-tip';
+camTip.hidden = true;
+map.getContainer().appendChild(camTip);
+function camAt(pt, radius) {
+  if (!layersOn.cams || !cams.length) return null;
+  let best = null, bestD = radius * radius;
+  for (const c of cams) {
+    const p = map.project([c.longitude, c.latitude]);
+    const d = (p.x - pt.x) ** 2 + (p.y - pt.y) ** 2;
+    if (d < bestD) { bestD = d; best = c; }
+  }
+  return best;
+}
+function setHover(c, pt) {
+  if (c !== hoverCam) {
+    hoverCam = c;
+    if (reduced) overlay.setProps({ layers: buildLayers(performance.now()) });
+  }
+  map.getCanvas().style.cursor = c ? 'pointer' : '';
+  if (!c) { camTip.hidden = true; return; }
+  camTip.innerHTML = `<b>${c.mto ? 'MTO' : 'CITY'} CAM ${c.camera_number}</b><br>${c.name}<br><span>CLICK FOR LIVE FEED</span>`;
+  camTip.style.transform = `translate(${pt.x + 14}px, ${pt.y + 14}px)`;
+  camTip.hidden = false;
+}
+map.on('mousemove', e => { if (!map.isMoving()) setHover(camAt(e.point, 16), e.point); });
+map.on('mouseout', () => setHover(null));
+map.on('movestart', () => setHover(null));
+map.on('click', e => {
+  const touch = e.originalEvent && e.originalEvent.pointerType === 'touch';
+  const c = camAt(e.point, touch ? 26 : 16);
+  if (c) { setHover(null); openCam(c); }
+});
 
 /* ---------- Feeds ---------- */
 async function loadCams() {
