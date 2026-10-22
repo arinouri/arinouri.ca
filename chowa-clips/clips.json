@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T04:12:12+00:00",
+ "generated": "2026-10-22T07:18:20+00:00",
  "clips": [
   {
    "id": "2026-10-19/zomboid_toobusydying.mp4",
@@ -190,7 +190,7 @@
    "folder": "2026-10-17",
    "file": "zomboid_howdoidrink.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "rejected",
    "title": "how do i drink?",
    "caption": "day one in the zombie apocalypse: a tutorial 🧟‍♀️🥞 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #projectzomboid #zomboid #gaming #twitchclips #funny #fyp #shorts",
@@ -200,10 +200,10 @@
    "edited": 0,
    "feedback_reasons": [],
    "feedback_text": "",
-   "feedback_at": "",
+   "feedback_at": "2026-10-21T22:03:09-04:00",
    "slug": "zomboidhowdoidrink",
    "dupes": [],
-   "updated_at": "2026-10-17T07:28:57-04:00",
+   "updated_at": "2026-10-21T22:03:09-04:00",
    "media": "media/2026-10-17__zomboid_howdoidrink.mp4",
    "thumb": "media/thumbs/2026-10-17__zomboid_howdoidrink.jpg",
    "hosted": true
@@ -213,7 +213,7 @@
    "folder": "2026-10-17",
    "file": "zomboid_survived0hours.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "rejected",
    "title": "have you ever seen anyone panic like that?",
    "caption": "survived: 0 hours. zombies killed: 1. panic level: generational 🧟‍♀️💀 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #projectzomboid #zomboid #gaming #twitchclips #funny #fyp #shorts",
@@ -223,10 +223,10 @@
    "edited": 0,
    "feedback_reasons": [],
    "feedback_text": "",
-   "feedback_at": "",
+   "feedback_at": "2026-10-21T22:03:09-04:00",
    "slug": "zomboidsurvived0hours",
    "dupes": [],
-   "updated_at": "2026-10-17T07:28:57-04:00",
+   "updated_at": "2026-10-21T22:03:09-04:00",
    "media": "media/2026-10-17__zomboid_survived0hours.mp4",
    "thumb": "media/thumbs/2026-10-17__zomboid_survived0hours.jpg",
    "hosted": true
@@ -236,7 +236,7 @@
    "folder": "2026-10-16_vods",
    "file": "fishing_consensus.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "approved",
    "title": "what's the consensus to this game?",
    "caption": "me in every new game 🎣 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #twitchclips #gaming #funny #fyp #shorts",
@@ -249,7 +249,7 @@
    "feedback_at": "",
    "slug": "fishingconsensus",
    "dupes": [],
-   "updated_at": "2026-10-16T17:15:04-04:00",
+   "updated_at": "2026-10-21T22:03:10-04:00",
    "media": "media/2026-10-16_vods__fishing_consensus.mp4",
    "thumb": "media/thumbs/2026-10-16_vods__fishing_consensus.jpg",
    "hosted": true
@@ -259,7 +259,7 @@
    "folder": "2026-10-16_vods",
    "file": "fishing_bigfish.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "rejected",
    "title": "oh, what the hell is that?",
    "caption": "the fish gamble went wrong 🐟💀 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #twitchclips #gaming #funny #fyp #shorts",
@@ -269,10 +269,10 @@
    "edited": 0,
    "feedback_reasons": [],
    "feedback_text": "",
-   "feedback_at": "",
+   "feedback_at": "2026-10-21T22:03:10-04:00",
    "slug": "fishingbigfish",
    "dupes": [],
-   "updated_at": "2026-10-16T17:15:04-04:00",
+   "updated_at": "2026-10-21T22:03:10-04:00",
    "media": "media/2026-10-16_vods__fishing_bigfish.mp4",
    "thumb": "media/thumbs/2026-10-16_vods__fishing_bigfish.jpg",
    "hosted": true
@@ -282,7 +282,7 @@
    "folder": "2026-10-16_vods",
    "file": "league_bestfriends.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "rejected",
    "title": "my two best friends in the whole wide world",
    "caption": "tech support from the boys 💻😭 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #twitchclips #gaming #funny #fyp #shorts",
@@ -292,10 +292,10 @@
    "edited": 0,
    "feedback_reasons": [],
    "feedback_text": "",
-   "feedback_at": "",
+   "feedback_at": "2026-10-21T22:03:10-04:00",
    "slug": "leaguebestfriends",
    "dupes": [],
-   "updated_at": "2026-10-16T17:17:17-04:00",
+   "updated_at": "2026-10-21T22:03:10-04:00",
    "media": "media/2026-10-16_vods__league_bestfriends.mp4",
    "thumb": "media/thumbs/2026-10-16_vods__league_bestfriends.jpg",
    "hosted": true
@@ -305,7 +305,7 @@
    "folder": "2026-10-16_mortuary",
    "file": "mortuary_windows.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "rejected",
    "title": "oh my god, please",
    "caption": "the window said hi 🪟😭 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #mortuaryassistant #horrorgaming #jumpscare #twitchclips #scary #fyp #shorts",
@@ -315,10 +315,10 @@
    "edited": 0,
    "feedback_reasons": [],
    "feedback_text": "",
-   "feedback_at": "",
+   "feedback_at": "2026-10-21T22:03:11-04:00",
    "slug": "mortuarywindows",
    "dupes": [],
-   "updated_at": "2026-10-16T17:03:20-04:00",
+   "updated_at": "2026-10-21T22:03:11-04:00",
    "media": "media/2026-10-16_mortuary__mortuary_windows.mp4",
    "thumb": "media/thumbs/2026-10-16_mortuary__mortuary_windows.jpg",
    "hosted": true
@@ -328,7 +328,7 @@
    "folder": "2026-10-16_mortuary",
    "file": "mortuary_dontdothis.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "rejected",
    "title": "don't do this to me",
    "caption": "how many pleases is that 😭 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #mortuaryassistant #horrorgaming #jumpscare #twitchclips #scary #fyp #shorts",
@@ -338,10 +338,10 @@
    "edited": 0,
    "feedback_reasons": [],
    "feedback_text": "",
-   "feedback_at": "",
+   "feedback_at": "2026-10-21T22:03:11-04:00",
    "slug": "mortuarydontdothis",
    "dupes": [],
-   "updated_at": "2026-10-16T17:03:20-04:00",
+   "updated_at": "2026-10-21T22:03:11-04:00",
    "media": "media/2026-10-16_mortuary__mortuary_dontdothis.mp4",
    "thumb": "media/thumbs/2026-10-16_mortuary__mortuary_dontdothis.jpg",
    "hosted": true
@@ -351,7 +351,7 @@
    "folder": "2026-10-16_mortuary",
    "file": "mortuary_twitching.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "rejected",
    "title": "it's literally just twitching",
    "caption": "next stream: 9am 🌞 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #mortuaryassistant #horrorgaming #jumpscare #twitchclips #scary #fyp #shorts",
@@ -361,10 +361,10 @@
    "edited": 0,
    "feedback_reasons": [],
    "feedback_text": "",
-   "feedback_at": "",
+   "feedback_at": "2026-10-21T22:03:11-04:00",
    "slug": "mortuarytwitching",
    "dupes": [],
-   "updated_at": "2026-10-16T17:03:20-04:00",
+   "updated_at": "2026-10-21T22:03:11-04:00",
    "media": "media/2026-10-16_mortuary__mortuary_twitching.mp4",
    "thumb": "media/thumbs/2026-10-16_mortuary__mortuary_twitching.jpg",
    "hosted": true
@@ -374,7 +374,7 @@
    "folder": "2026-10-16_mortuary",
    "file": "mortuary_headphones.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "rejected",
    "title": "oh my god, it's right here",
    "caption": "taking the headphones off fixes everything right? 🎧 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #mortuaryassistant #horrorgaming #jumpscare #twitchclips #scary #fyp #shorts",
@@ -384,10 +384,10 @@
    "edited": 0,
    "feedback_reasons": [],
    "feedback_text": "",
-   "feedback_at": "",
+   "feedback_at": "2026-10-21T22:03:11-04:00",
    "slug": "mortuaryheadphones",
    "dupes": [],
-   "updated_at": "2026-10-16T17:03:20-04:00",
+   "updated_at": "2026-10-21T22:03:11-04:00",
    "media": "media/2026-10-16_mortuary__mortuary_headphones.mp4",
    "thumb": "media/thumbs/2026-10-16_mortuary__mortuary_headphones.jpg",
    "hosted": true
@@ -397,7 +397,7 @@
    "folder": "2026-10-16_mortuary",
    "file": "mortuary_badfeeling.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "rejected",
    "title": "i have such a bad feeling",
    "caption": "her instincts were right 💀 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #mortuaryassistant #horrorgaming #jumpscare #twitchclips #scary #fyp #shorts",
@@ -407,10 +407,10 @@
    "edited": 0,
    "feedback_reasons": [],
    "feedback_text": "",
-   "feedback_at": "",
+   "feedback_at": "2026-10-21T22:03:12-04:00",
    "slug": "mortuarybadfeeling",
    "dupes": [],
-   "updated_at": "2026-10-16T17:03:20-04:00",
+   "updated_at": "2026-10-21T22:03:12-04:00",
    "media": "media/2026-10-16_mortuary__mortuary_badfeeling.mp4",
    "thumb": "media/thumbs/2026-10-16_mortuary__mortuary_badfeeling.jpg",
    "hosted": true
@@ -443,7 +443,7 @@
    "folder": "2026-10-16",
    "file": "zomboid_goated.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "rejected",
    "title": "i'm just goated like that",
    "caption": "low-key pro. can't find the kitchen. 🐐🪜 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #projectzomboid #zomboid #gaming #twitchclips #funny #fyp #shorts",
@@ -453,10 +453,10 @@
    "edited": 0,
    "feedback_reasons": [],
    "feedback_text": "",
-   "feedback_at": "",
+   "feedback_at": "2026-10-21T22:03:12-04:00",
    "slug": "zomboidgoated",
    "dupes": [],
-   "updated_at": "2026-10-16T07:44:13-04:00",
+   "updated_at": "2026-10-21T22:03:12-04:00",
    "media": "media/2026-10-16__zomboid_goated.mp4",
    "thumb": "media/thumbs/2026-10-16__zomboid_goated.jpg",
    "hosted": true
@@ -466,7 +466,7 @@
    "folder": "2026-10-16",
    "file": "zomboid_tutorialroast.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "approved",
    "title": "it really will be such a shame to lose you",
    "caption": "the tutorial was not on her side 💀⌨️ (where's F1??) #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #projectzomboid #zomboid #gaming #twitchclips #funny #fyp #shorts",
@@ -479,7 +479,7 @@
    "feedback_at": "",
    "slug": "zomboidtutorialroast",
    "dupes": [],
-   "updated_at": "2026-10-16T07:44:13-04:00",
+   "updated_at": "2026-10-21T22:03:12-04:00",
    "media": "media/2026-10-16__zomboid_tutorialroast.mp4",
    "thumb": "media/thumbs/2026-10-16__zomboid_tutorialroast.jpg",
    "hosted": true
@@ -4456,7 +4456,7 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-10-20",
+  "today": "2026-10-22",
   "today_count": 0,
   "today_met": false,
   "current": 1,
@@ -4466,36 +4466,20 @@
   "days_to_reward": 6,
   "cycle_days": [
    {
-    "date": "2026-10-19",
-    "dow": "M",
-    "count": 8,
+    "date": "2026-10-21",
+    "dow": "W",
+    "count": 12,
     "met": true,
     "today": false,
     "future": false
-   },
-   {
-    "date": "2026-10-20",
-    "dow": "T",
-    "count": 0,
-    "met": false,
-    "today": true,
-    "future": false
-   },
-   {
-    "date": "2026-10-21",
-    "dow": "W",
-    "count": 0,
-    "met": false,
-    "today": false,
-    "future": true
    },
    {
     "date": "2026-10-22",
     "dow": "T",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-10-23",
@@ -4520,23 +4504,25 @@
     "met": false,
     "today": false,
     "future": true
+   },
+   {
+    "date": "2026-10-26",
+    "dow": "M",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
+   },
+   {
+    "date": "2026-10-27",
+    "dow": "T",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
    }
   ],
   "last7": [
-   {
-    "date": "2026-10-14",
-    "dow": "Wed",
-    "count": 0,
-    "met": false,
-    "today": false
-   },
-   {
-    "date": "2026-10-15",
-    "dow": "Thu",
-    "count": 51,
-    "met": true,
-    "today": false
-   },
    {
     "date": "2026-10-16",
     "dow": "Fri",
@@ -4570,6 +4556,20 @@
     "dow": "Tue",
     "count": 0,
     "met": false,
+    "today": false
+   },
+   {
+    "date": "2026-10-21",
+    "dow": "Wed",
+    "count": 12,
+    "met": true,
+    "today": false
+   },
+   {
+    "date": "2026-10-22",
+    "dow": "Thu",
+    "count": 0,
+    "met": false,
     "today": true
    }
   ],
@@ -4588,12 +4588,12 @@
   "other"
  ],
  "last_action": {
-  "id": 219,
-  "clip_id": "2026-10-18/zomboid_hammerhunt.mp4",
+  "id": 231,
+  "clip_id": "2026-10-16/zomboid_tutorialroast.mp4",
   "prev_status": "pending",
-  "new_status": "rejected",
-  "ts": "2026-10-19T21:03:35-04:00",
+  "new_status": "approved",
+  "ts": "2026-10-21T22:03:12-04:00",
   "undone": 0,
-  "meta": "{\"reasons\": [], \"feedback\": \"\"}"
+  "meta": ""
  }
 }
