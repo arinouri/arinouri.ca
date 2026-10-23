@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T21:18:06+00:00",
+ "generated": "2026-10-23T23:14:22+00:00",
  "clips": [
   {
    "id": "2026-10-23_progress/inscryption_whatdoesthatmean.mp4",
@@ -399,7 +399,7 @@
    "state": "yes",
    "media": "media/ac1a76805b45.1080.mp4",
    "thumb": "media/thumbs/ac1a76805b45.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-15/zomboid_killingwitheyes.mp4",
