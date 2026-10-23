@@ -335,18 +335,15 @@ function ccHist(){return LS.get("cc_hist",[]);}       // [{qid,clip_id,prev_stat
 function ccPendingCount(){return ccQueue().filter(q=>q.state!=="synced").length;}
 function ccLogout(){localStorage.removeItem("cc_pw");location.reload();}
 function ccStatusPill(){const n=ccPendingCount();const el=document.getElementById("ccsync");if(!el)return;
-  el.style.pointerEvents="auto";el.onclick=ccSetGh;el.textContent=n?`⏳ ${n} to sync`:(ccBox?"☁︎ synced":"☁︎ offline-ready");el.title=n?"Saved on this device; will be sent to the box when it's reachable":"All actions have reached the box";}
+  el.textContent=n?`⏳ ${n} to sync`:(ccBox?"☁︎ synced":"☁︎ offline-ready");el.title=n?"Saved on this device; will be sent to the box when it's reachable":"All actions have reached the box";}
 async function ccLoadManifest(){
   const r=await fetch("clips.json?t="+Date.now(),{cache:"no-store"}); if(!r.ok) throw new Error("clips.json HTTP "+r.status);
   MANIFEST=await r.json();
   // drop synced overlay entries that the manifest already reflects
   const gen=Date.parse(MANIFEST.generated||0), ov=ccOverlay(); let ch=false;
-  const byId={}; for(const c of MANIFEST.clips) byId[c.id]=c;
-  for(const [id,o] of Object.entries(ov)){ const m=byId[id];
-    const done = !m || (o.vid&&m.vid!==o.vid) || (o.status? m.status===o.status : (o.syncedAt&&Date.parse(o.syncedAt)<gen));
-    if(o.syncedAt && done && !ccQueue().some(q=>q.state!=="synced"&&q.body&&q.body.id===id)){delete ov[id];ch=true;} }
+  for(const [id,o] of Object.entries(ov)){ if(o.syncedAt && Date.parse(o.syncedAt)<gen && !ccQueue().some(q=>q.state!=="synced"&&q.body&&q.body.id===id)){delete ov[id];ch=true;} }
   if(ch) LS.set("cc_overlay",ov);
-  LS.set("cc_queue",ccQueue().filter(q=>q.state!=="synced"||(q.body&&ov[q.body.id])));
+  LS.set("cc_queue",ccQueue().filter(q=>q.state!=="synced"||Date.parse(q.syncedAt)>=gen));
 }
 function ccView(){
   const ov=ccOverlay();
@@ -368,29 +365,12 @@ function ccEnqueue(path,body,overlay){
 async function ccBoxUrl(){
   try{const r=await fetch("url.json?t="+Date.now(),{cache:"no-store"});const j=await r.json();return (j.url||"").replace(/\/$/,"");}catch(e){return "";}
 }
-const CC_STATE_REPO="arinouri/chowa-clips-state";   // PRIVATE repo; token lives only in this browser
-function ccGhTok(){return localStorage.getItem("cc_gh")||"";}
-function ccSetGh(){const t=prompt("Paste the fine-grained GitHub token for "+CC_STATE_REPO+" (Contents: read & write). Stored only on this device. Leave empty to remove.",ccGhTok());
-  if(t===null)return; if(t.trim())localStorage.setItem("cc_gh",t.trim()); else localStorage.removeItem("cc_gh"); ccSync();}
-async function ccGhPut(item){
-  const name=item.ts.replace(/[:.]/g,"-")+"_"+item.qid+".json";
-  const content=btoa(unescape(encodeURIComponent(JSON.stringify({path:item.path,body:item.body,ts:item.ts,qid:item.qid,ua:navigator.userAgent}))));
-  const r=await fetch("https://api.github.com/repos/"+CC_STATE_REPO+"/contents/swipes/"+name,{method:"PUT",
-    headers:{"Authorization":"Bearer "+ccGhTok(),"Accept":"application/vnd.github+json"},body:JSON.stringify({message:"swipe "+(item.body.status||item.path),content})});
-  if(r.status===422) return {};   // already uploaded (retry after a lost response)
-  if(r.status===401||r.status===403||r.status===404) throw new Error("GitHub token rejected (HTTP "+r.status+")");
-  if(!r.ok) throw new Error("GitHub HTTP "+r.status); return {};
-}
 async function ccSync(){
   if(ccSyncing) return; const pend=ccQueue().filter(q=>q.state!=="synced"); if(!pend.length){ccStatusPill();return;}
   ccSyncing=true;
   try{
-    const gh=!!ccGhTok(); const base=gh?"gh":(ccBox||await ccBoxUrl()); if(!base) throw new Error("no sync target");
+    const base=ccBox||await ccBoxUrl(); if(!base) throw new Error("no box url");
     for(const item of pend){
-      if(gh){ await ccGhPut(item); const now=new Date().toISOString();
-        LS.set("cc_queue",ccQueue().map(q=>q.qid===item.qid?Object.assign(q,{state:"synced",syncedAt:now}):q));
-        const id=item.body&&item.body.id; if(id){const ov=ccOverlay(); if(ov[id]){ov[id].syncedAt=now;LS.set("cc_overlay",ov);}}
-        ccBox="gh"; continue; }
       const r=await fetch(base+item.path,{method:"POST",mode:"cors",credentials:"omit",
         headers:{"Content-Type":"application/json","Authorization":"Basic "+btoa("clips:"+ccPw())},body:JSON.stringify(item.body)});
       if(r.status===401) throw new Error("box rejected password");
@@ -413,7 +393,7 @@ addEventListener("visibilitychange",()=>{if(!document.hidden) ccSync();});
 async function api(path,body){
   if(path==="/api/clips"||path==="/api/stats"){ await ccLoadManifest(); ccSync(); return ccView(); }
   if(path==="/api/streak"){ return ccView().streak; }
-  const id=body&&body.id, c=id?ccFind(id):null; if(c&&c.vid) body=Object.assign({},body,{vid:c.vid});
+  const id=body&&body.id, c=id?ccFind(id):null;
   if(path==="/api/clip/save"){ if(!c) throw new Error("unknown clip");
     const f={}; for(const k of ["title","caption","hashtags","note"]) if(body[k]!=null) f[k]=body[k];
     if(["title","caption","hashtags"].some(k=>k in f&&f[k]!==(c[k]||""))) f.edited=1;
@@ -421,7 +401,7 @@ async function api(path,body){
   if(path==="/api/clip/feedback"){ if(!c) throw new Error("unknown clip");
     const f={feedback_reasons:body.reasons||[],feedback_text:body.feedback||""}; ccEnqueue("/api/clip/feedback",body,f); return Object.assign({},c,f);}
   if(path==="/api/clip/status"){ if(!c) throw new Error("unknown clip");
-    const f={status:body.status,vid:c.vid}; for(const k of ["title","caption","hashtags","note"]) if(body[k]!=null) f[k]=body[k];
+    const f={status:body.status}; for(const k of ["title","caption","hashtags","note"]) if(body[k]!=null) f[k]=body[k];
     if(body.status==="rejected"){f.feedback_reasons=body.reasons||[];f.feedback_text=body.feedback||"";}
     const qid=ccEnqueue("/api/clip/status",body,f);
     const h=ccHist(); h.push({qid,clip_id:id,prev_status:c.status,new_status:body.status,prev:{feedback_reasons:c.feedback_reasons,feedback_text:c.feedback_text}}); LS.set("cc_hist",h.slice(-50));
