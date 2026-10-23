@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T17:09:40+00:00",
+ "generated": "2026-10-23T18:18:46+00:00",
  "clips": [
   {
    "id": "2026-10-23_progress/inscryption_whatdoesthatmean.mp4",
@@ -127,36 +127,11 @@
    "hosted": true
   },
   {
-   "id": "2026-10-23/league_mommy.mp4",
-   "folder": "2026-10-23",
-   "file": "league_mommy.mp4",
-   "kind": "short",
-   "status": "pending",
-   "title": "mommy, come pick me up",
-   "caption": "went in brave, came out calling for mom 😭 #chowaobby on youtube, twitch and kick!",
-   "hashtags": "#chowaobby #leagueoflegends #gaming #funny #twitchclips #shorts",
-   "hook": "\"MOMMY, COME PICK ME UP\"",
-   "info": "(32.1s): Confident-then-panic League teamfight: hook-first \"mommy, come pick me up\" → \"I am putting my balls in this, I am dipping into their hands, dip it boy\" → screaming \"oh my god, I love you, I love you\" at her teammate → \"no I am scared, mommy come pick me up, mommy I am scared\" → \"holy s***… wait, how are we losing?\" Alt hooks: \"dip it boy… mommy help\" / \"she went in so confident\" Source: https://www.twitch.tv/videos/2906361554 @ 4:50:49–4:50:51 + 4:50:07–4:50:15 + 4:50:31–4:50:41 + 4:50:45–4:50:52 + 4:50:56–4:51:01 + 4:51:06–4:51:08 QC: 1080x1920, 32.1s, 26MB, contact sheet checked (sheets/league_mommy.jpg), capfix overlaps 0, one caption line at a time. Facecam: whole head with headroom. Game sharp, no blur needed (only in-game champion tags). 4 beeps.",
-   "note": "",
-   "edited": 0,
-   "feedback_reasons": [],
-   "feedback_text": "",
-   "feedback_at": "",
-   "slug": "leaguemommy",
-   "dupes": [],
-   "updated_at": "2026-10-23T07:33:41-04:00",
-   "vid": "ee85c482b177",
-   "state": "pending",
-   "media": "media/ee85c482b177.mp4",
-   "thumb": "media/thumbs/ee85c482b177.jpg",
-   "hosted": true
-  },
-  {
    "id": "2026-10-23/cooking_knower.mp4",
    "folder": "2026-10-23",
    "file": "cooking_knower.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "approved",
    "title": "i'm a knower, okay? i know things",
    "caption": "professional cookie dough critic 👩‍🍳 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #baking #irl #funny #fyp #shorts",
@@ -169,36 +144,11 @@
    "feedback_at": "",
    "slug": "cookingknower",
    "dupes": [],
-   "updated_at": "2026-10-23T07:33:41-04:00",
+   "updated_at": "2026-10-23T13:21:15-04:00",
    "vid": "cc6cc00cbceb",
-   "state": "pending",
-   "media": "media/cc6cc00cbceb.mp4",
+   "state": "yes",
+   "media": "media/cc6cc00cbceb.1080.mp4",
    "thumb": "media/thumbs/cc6cc00cbceb.jpg",
-   "hosted": true
-  },
-  {
-   "id": "2026-10-23/lobby_fivegulps.mp4",
-   "folder": "2026-10-23",
-   "file": "lobby_fivegulps.mp4",
-   "kind": "short",
-   "status": "pending",
-   "title": "i did drink! i drank like five gulps",
-   "caption": "chat said drink water and meant it 💧 #chowaobby #chowaobby on youtube, twitch and kick!",
-   "hashtags": "#chowaobby #twitchclips #streamer #funnymoments #leagueoflegends #hydrate #fyp",
-   "hook": "\"CHAT WOULD NOT LET HER SKIP WATER\"",
-   "info": "(20.8s): League lobby: chat keeps demanding she drink water — \"I DID drink! I drank like five gulps, bruh\" → friend: \"I think they want you to drink water\" → she chugs on camera → \"okay, that is enough, that is enough!\" → \"you guys troll me, stop trolling me!\" Alt hooks: \"hydration check went too far\" / \"chat: drink. her: i DID\" / \"five gulps was not enough for chat\" Source: https://www.twitch.tv/videos/2906361554 @ 4:55:45–4:55:49 + 4:55:52–4:55:57 + 4:55:58–4:56:07 + 4:56:14–4:56:17 QC: 1080x1920, 20.8s, 4MB, contact sheet checked (sheets/lobby_fivegulps.jpg), capfix overlaps 0, one caption line at a time. 20.8s, 1080x1920, capfix overlaps 0, 0 beeps, tight blur over friends list/profile only, face fully in frame, sheet viewed",
-   "note": "",
-   "edited": 0,
-   "feedback_reasons": [],
-   "feedback_text": "",
-   "feedback_at": "",
-   "slug": "lobbyfivegulps",
-   "dupes": [],
-   "updated_at": "2026-10-23T07:33:41-04:00",
-   "vid": "1ba9879717f5",
-   "state": "pending",
-   "media": "media/1ba9879717f5.mp4",
-   "thumb": "media/thumbs/1ba9879717f5.jpg",
    "hosted": true
   },
   {
@@ -206,7 +156,7 @@
    "folder": "2026-10-23",
    "file": "outro_fartthreat.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "approved",
    "title": "if you're not on the next one, i'm gonna fart in your face",
    "caption": "attendance is mandatory 😤💨 #chowaobby #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #twitchclips #streamer #funnymoments #streamerlife #fyp",
@@ -219,10 +169,10 @@
    "feedback_at": "",
    "slug": "outrofartthreat",
    "dupes": [],
-   "updated_at": "2026-10-23T07:33:41-04:00",
+   "updated_at": "2026-10-23T13:21:15-04:00",
    "vid": "22a89b00a209",
-   "state": "pending",
-   "media": "media/22a89b00a209.mp4",
+   "state": "yes",
+   "media": "media/22a89b00a209.1080.mp4",
    "thumb": "media/thumbs/22a89b00a209.jpg",
    "hosted": true
   },
@@ -424,7 +374,7 @@
    "state": "yes",
    "media": "media/2c1e78a2a6d1.1080.mp4",
    "thumb": "media/thumbs/2c1e78a2a6d1.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-15/zomboid_nojoke.mp4",
@@ -1606,7 +1556,7 @@
   "goal": 3,
   "timezone": "America/Toronto",
   "today": "2026-10-23",
-  "today_count": 7,
+  "today_count": 11,
   "today_met": true,
   "current": 1,
   "best": 2,
@@ -1617,7 +1567,7 @@
    {
     "date": "2026-10-23",
     "dow": "F",
-    "count": 7,
+    "count": 11,
     "met": true,
     "today": true,
     "future": false
@@ -1717,7 +1667,7 @@
    {
     "date": "2026-10-23",
     "dow": "Fri",
-    "count": 7,
+    "count": 11,
     "met": true,
     "today": true
    }
@@ -1737,12 +1687,12 @@
   "other"
  ],
  "last_action": {
-  "id": 279,
-  "clip_id": "2026-10-23/league_ownbangs.mp4",
+  "id": 283,
+  "clip_id": "2026-10-23/outro_fartthreat.mp4",
   "prev_status": "pending",
-  "new_status": "rejected",
-  "ts": "2026-10-23T10:33:47-04:00",
+  "new_status": "approved",
+  "ts": "2026-10-23T13:21:15-04:00",
   "undone": 0,
-  "meta": "{\"reasons\": [], \"feedback\": \"\"}"
+  "meta": ""
  }
 }
