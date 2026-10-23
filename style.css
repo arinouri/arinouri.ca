@@ -68,8 +68,9 @@ a{color:inherit}
     repeating-linear-gradient(0deg,rgba(80,110,255,.045) 0 1px,transparent 1px 3px);
 }
 .hero-copy{position:absolute;z-index:5;left:var(--gutter);bottom:clamp(80px,13vh,130px);max-width:640px;pointer-events:none}
-.hero-copy>*{pointer-events:auto}
-.hero-copy .title{display:block;margin-top:14px;font-size:clamp(56px,9vw,132px)}
+/* only the buttons and the name itself catch the mouse, so cameras behind the hero text stay clickable */
+.hero-copy a,.hero-copy .title{pointer-events:auto}
+.hero-copy .title{display:block;width:fit-content;margin-top:14px;font-size:clamp(56px,9vw,132px)}
 .hero-copy p{margin:18px 0 0;font-size:clamp(16px,1.4vw,19px);color:var(--text-2);max-width:48ch;text-shadow:0 1px 12px #000,0 0 3px #000}
 .hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 

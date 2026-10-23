@@ -109,6 +109,14 @@ const ENF_ICON = svgIcon('<svg xmlns="http://www.w3.org/2000/svg" width="64" hei
 const ALT_SCALE = .22;
 const overlay = new deck.MapboxOverlay({ interleaved: false, layers: [], pickingRadius: 8, getTooltip });
 map.addControl(overlay);
+// deck.gl draws into a div that MapLibre puts in the top-left control corner, which the site CSS
+// offsets (top:64px, left:gutter). That shifted every camera/plane/incident icon away from its real
+// spot, so hovers and clicks missed. Move the drawing layer to sit exactly over the map.
+function placeDeck() {
+  const c = document.getElementById('deckgl-overlay');
+  if (c && c.parentElement.parentElement !== map.getContainer()) map.getCanvasContainer().after(c.parentElement);
+}
+placeDeck();
 
 function planePos(p, now) {
   const dt = (now - p.t0) / 1000;
@@ -419,6 +427,7 @@ map.on('load', async () => {
   Promise.all([loadCams(), loadIncidents(), loadPlanes(), loadEnforcement()]).then(sitrep);
   setInterval(() => loadPlanes().then(sitrep), 10000);
   setInterval(() => loadIncidents().then(sitrep), 120000);
+  placeDeck();
   intro(VIEWS.downtown);
   if (reduced) setTimeout(() => overlay.setProps({ layers: buildLayers(performance.now()) }), 800);
   else requestAnimationFrame(frame);
