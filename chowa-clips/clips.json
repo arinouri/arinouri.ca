@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T14:46:35+00:00",
+ "generated": "2026-10-23T16:25:07+00:00",
  "clips": [
   {
    "id": "2026-10-23_progress/inscryption_whatdoesthatmean.mp4",
@@ -252,56 +252,6 @@
    "hosted": true
   },
   {
-   "id": "2026-10-22_newvod/inscryption_baddecision.mp4",
-   "folder": "2026-10-22_newvod",
-   "file": "inscryption_baddecision.mp4",
-   "kind": "short",
-   "status": "approved",
-   "title": "i made a bad decision",
-   "caption": "i made a bad decision 😭 #chowaobby on youtube, twitch and kick!",
-   "hashtags": "#chowaobby #twitchclips #funny #gaming #fyp #shorts",
-   "hook": "\"I MADE A BAD DECISION\"",
-   "info": "(27.7s): Inscryption repeat-line supercut: 'I made a bad decision' ×6 across the match, 'lucky me!', 'bro I lose', the music giving her anxiety → 'dude, I lose' → Leshy: 'I won't be killing you quite yet'.\nSource: https://www.twitch.tv/videos/2906361554 @ 0:41:26–0:41:30 + 0:36:51–0:36:56 + 0:38:23–0:38:25 + 0:40:36–0:40:37 + 0:40:42–0:40:43 + 0:41:01–0:41:04 + 0:41:26–0:41:34 + 0:41:42–0:41:45\nQC: 1080x1920, 27.7s, 15MB, contact sheet checked, head in frame, no visible usernames.",
-   "note": "",
-   "edited": 0,
-   "feedback_reasons": [],
-   "feedback_text": "",
-   "feedback_at": "",
-   "slug": "inscryptionbaddecision",
-   "dupes": [],
-   "updated_at": "2026-10-23T10:27:47-04:00",
-   "vid": "74c46e681d3c",
-   "state": "yes",
-   "media": "media/74c46e681d3c.1080.mp4",
-   "thumb": "media/thumbs/74c46e681d3c.jpg",
-   "hosted": true
-  },
-  {
-   "id": "2026-10-22_newvod/inscryption_sacrifice.mp4",
-   "folder": "2026-10-22_newvod",
-   "file": "inscryption_sacrifice.mp4",
-   "kind": "short",
-   "status": "approved",
-   "title": "what does sacrificing you mean?",
-   "caption": "what does sacrificing you mean? 😭 #chowaobby on youtube, twitch and kick!",
-   "hashtags": "#chowaobby #twitchclips #funny #gaming #fyp #shorts",
-   "hook": "\"I MUST SACRIFICE YOU\"",
-   "info": "(23.2s): Hook 'I must sacrifice you'; 'wait, do I die? no way' → 'you've lost… may be the only way to mitigate my disappointment' → 'one of the two mistakes you can make… I must sacrifice you' → 'what does sacrificing you mean?'\nSource: https://www.twitch.tv/videos/2906361554 @ 0:27:19–0:27:21 + 0:24:29–0:24:33 + 0:24:43–0:24:45 + 0:24:51–0:24:57 + 0:27:12–0:27:14 + 0:27:17–0:27:21 + 0:27:22–0:27:27\nQC: 1080x1920, 23.2s, 9MB, contact sheet checked, head in frame, no visible usernames.",
-   "note": "",
-   "edited": 0,
-   "feedback_reasons": [],
-   "feedback_text": "",
-   "feedback_at": "",
-   "slug": "inscryptionsacrifice",
-   "dupes": [],
-   "updated_at": "2026-10-23T10:27:50-04:00",
-   "vid": "e9dcd2fdd66a",
-   "state": "yes",
-   "media": "media/e9dcd2fdd66a.1080.mp4",
-   "thumb": "media/thumbs/e9dcd2fdd66a.jpg",
-   "hosted": true
-  },
-  {
    "id": "2026-10-19/zomboid_toobusydying.mp4",
    "folder": "2026-10-19",
    "file": "zomboid_toobusydying.mp4",
@@ -331,7 +281,7 @@
    "folder": "2026-10-16_vods",
    "file": "fishing_consensus.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "what's the consensus to this game?",
    "caption": "me in every new game 🎣 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #twitchclips #gaming #funny #fyp #shorts",
@@ -344,7 +294,7 @@
    "feedback_at": "",
    "slug": "fishingconsensus",
    "dupes": [],
-   "updated_at": "2026-10-23T10:27:43-04:00",
+   "updated_at": "2026-10-22T18:24:05-04:00",
    "vid": "663f4d9bc2b8",
    "state": "yes",
    "media": "media/663f4d9bc2b8.1080.mp4",
@@ -352,111 +302,11 @@
    "hosted": true
   },
   {
-   "id": "2026-10-16_vods/fishing_bigfish.mp4",
-   "folder": "2026-10-16_vods",
-   "file": "fishing_bigfish.mp4",
-   "kind": "short",
-   "status": "approved",
-   "title": "oh, what the hell is that?",
-   "caption": "the fish gamble went wrong 🐟💀 #chowaobby on youtube, twitch and kick!",
-   "hashtags": "#chowaobby #twitchclips #gaming #funny #fyp #shorts",
-   "hook": "\"OH, WHAT THE HELL IS THAT?\"",
-   "info": "Hook-first: opens on 'oh, what the hell is that?', cuts back to the creepy shrine text ('creatures below can hear your footsteps and voice'), 'look at this big fish!', the fish gamble, then whatever comes out at sundown and 'don't leave me… guys? I don't know where to go'.\nSource: https://www.twitch.tv/videos/2797524450 @ 0:25:14 (hook) + 0:24:36–0:24:42 + 0:24:49–0:25:00 + 0:25:05–0:25:17 + 0:25:23–0:25:28\nQC: sheets/fishing_bigfish.jpg — whole head in frame, hook 0s, word captions, swears beeped, <25MB.",
-   "note": "",
-   "edited": 0,
-   "feedback_reasons": [],
-   "feedback_text": "",
-   "feedback_at": "",
-   "slug": "fishingbigfish",
-   "dupes": [],
-   "updated_at": "2026-10-23T10:27:44-04:00",
-   "vid": "69b5f6df0b9f",
-   "state": "yes",
-   "media": "media/69b5f6df0b9f.1080.mp4",
-   "thumb": "media/thumbs/69b5f6df0b9f.jpg",
-   "hosted": true
-  },
-  {
-   "id": "2026-10-16_mortuary/mortuary_windows.mp4",
-   "folder": "2026-10-16_mortuary",
-   "file": "mortuary_windows.mp4",
-   "kind": "short",
-   "status": "approved",
-   "title": "oh my god, please",
-   "caption": "the window said hi 🪟😭 #chowaobby on youtube, twitch and kick!",
-   "hashtags": "#chowaobby #mortuaryassistant #horrorgaming #jumpscare #twitchclips #scary #fyp #shorts",
-   "hook": "\"OH MY GOD, PLEASE\"",
-   "info": "Opens on her scream; cut back to her calmly inspecting a body ('this is so gross') and reading 'these old windows never stay latched'… then the window bangs and she screams again → 'I'm gonna puke'.\nSource: https://www.twitch.tv/videos/2897450709 @ 0:22:08 (hook) + 0:21:49–0:22:21\nQC: sheets/mortuary_windows.jpg — whole head in frame, hook 0s, word captions, swears beeped, <12MB, no overlap with used.json (±30 s).",
-   "note": "",
-   "edited": 0,
-   "feedback_reasons": [],
-   "feedback_text": "",
-   "feedback_at": "",
-   "slug": "mortuarywindows",
-   "dupes": [],
-   "updated_at": "2026-10-23T10:27:44-04:00",
-   "vid": "ea726659776b",
-   "state": "yes",
-   "media": "media/ea726659776b.1080.mp4",
-   "thumb": "media/thumbs/ea726659776b.jpg",
-   "hosted": true
-  },
-  {
-   "id": "2026-10-16_mortuary/mortuary_headphones.mp4",
-   "folder": "2026-10-16_mortuary",
-   "file": "mortuary_headphones.mp4",
-   "kind": "short",
-   "status": "approved",
-   "title": "oh my god, it's right here",
-   "caption": "taking the headphones off fixes everything right? 🎧 #chowaobby on youtube, twitch and kick!",
-   "hashtags": "#chowaobby #mortuaryassistant #horrorgaming #jumpscare #twitchclips #scary #fyp #shorts",
-   "hook": "\"OH MY GOD, IT'S RIGHT HERE\"",
-   "info": "Opens on 'oh my god, it's right here'; cut back to paperwork → 'No! don't do it to me' → 'do I have to turn around? I'm gonna take off my headphones' → ten 'please's → 'what do I do?' → it's right there.\nSource: https://www.twitch.tv/videos/2897450709 @ 1:03:11 (hook) + 1:02:14–1:03:12\nQC: sheets/mortuary_headphones.jpg — whole head in frame, hook 0s, word captions, swears beeped, <12MB, no overlap with used.json (±30 s).",
-   "note": "",
-   "edited": 0,
-   "feedback_reasons": [],
-   "feedback_text": "",
-   "feedback_at": "",
-   "slug": "mortuaryheadphones",
-   "dupes": [],
-   "updated_at": "2026-10-23T10:27:45-04:00",
-   "vid": "f1bcbaa7fc6b",
-   "state": "yes",
-   "media": "media/f1bcbaa7fc6b.1080.mp4",
-   "thumb": "media/thumbs/f1bcbaa7fc6b.jpg",
-   "hosted": true
-  },
-  {
-   "id": "2026-10-16_mortuary/mortuary_badfeeling.mp4",
-   "folder": "2026-10-16_mortuary",
-   "file": "mortuary_badfeeling.mp4",
-   "kind": "short",
-   "status": "approved",
-   "title": "i have such a bad feeling",
-   "caption": "her instincts were right 💀 #chowaobby on youtube, twitch and kick!",
-   "hashtags": "#chowaobby #mortuaryassistant #horrorgaming #jumpscare #twitchclips #scary #fyp #shorts",
-   "hook": "\"I HAVE SUCH A BAD FEELING\"",
-   "info": "Opens on 'no no no no'; cut back to 'I have such a bad feeling right now… I'm just really scared' while she walks to the body, then the quiet build until it hits.\nSource: https://www.twitch.tv/videos/2897450709 @ 2:01:43 (hook) + 2:01:06–2:01:46\nQC: sheets/mortuary_badfeeling.jpg — whole head in frame, hook 0s, word captions, swears beeped, <12MB, no overlap with used.json (±30 s).",
-   "note": "",
-   "edited": 0,
-   "feedback_reasons": [],
-   "feedback_text": "",
-   "feedback_at": "",
-   "slug": "mortuarybadfeeling",
-   "dupes": [],
-   "updated_at": "2026-10-23T10:27:46-04:00",
-   "vid": "2a9437333ef6",
-   "state": "yes",
-   "media": "media/2a9437333ef6.1080.mp4",
-   "thumb": "media/thumbs/2a9437333ef6.jpg",
-   "hosted": true
-  },
-  {
    "id": "2026-10-16/zomboid_tutorialroast.mp4",
    "folder": "2026-10-16",
    "file": "zomboid_tutorialroast.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "it really will be such a shame to lose you",
    "caption": "the tutorial was not on her side 💀⌨️ (where's F1??) #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #projectzomboid #zomboid #gaming #twitchclips #funny #fyp #shorts",
@@ -469,7 +319,7 @@
    "feedback_at": "",
    "slug": "zomboidtutorialroast",
    "dupes": [],
-   "updated_at": "2026-10-23T10:27:47-04:00",
+   "updated_at": "2026-10-22T18:24:05-04:00",
    "vid": "ec3303a5bf87",
    "state": "yes",
    "media": "media/ec3303a5bf87.1080.mp4",
@@ -549,7 +399,7 @@
    "state": "yes",
    "media": "media/3fb487bef90d.1080.mp4",
    "thumb": "media/thumbs/3fb487bef90d.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-15/zomboid_noweapon.mp4",
@@ -1024,7 +874,7 @@
    "state": "yes",
    "media": "media/72c4492a722d.1080.mp4",
    "thumb": "media/thumbs/72c4492a722d.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-11_edits/supercut_missingsomething_trim.mp4",
@@ -1049,7 +899,7 @@
    "state": "yes",
    "media": "media/f1673dd9bd6e.1080.mp4",
    "thumb": "media/thumbs/f1673dd9bd6e.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-11_edits/supercut_missingsomething.mp4",
@@ -1074,7 +924,7 @@
    "state": "yes",
    "media": "media/56cc0d772082.1080.mp4",
    "thumb": "media/thumbs/56cc0d772082.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-11_edits/supercut_imdone.mp4",
@@ -1099,7 +949,7 @@
    "state": "yes",
    "media": "media/768d97be49ee.1080.mp4",
    "thumb": "media/thumbs/768d97be49ee.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-11_edits/expectation_reality.mp4",
@@ -1124,7 +974,7 @@
    "state": "yes",
    "media": "media/6f94dd1e9874.1080.mp4",
    "thumb": "media/thumbs/6f94dd1e9874.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-11_edits/zomboid_carfine.mp4",
@@ -1149,7 +999,7 @@
    "state": "yes",
    "media": "media/a3c7ad4e6716.1080.mp4",
    "thumb": "media/thumbs/a3c7ad4e6716.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-10_stream/mortuary_5686_headphones.mp4",
@@ -1174,7 +1024,7 @@
    "state": "yes",
    "media": "media/5f28a54b1494.1080.mp4",
    "thumb": "media/thumbs/5f28a54b1494.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-10_stream/mortuary_edit_mason.mp4",
@@ -1249,7 +1099,7 @@
    "state": "yes",
    "media": "media/c3f1527b488d.1080.mp4",
    "thumb": "media/thumbs/c3f1527b488d.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-10/fishing_0338_prettyboring.mp4",
@@ -1324,7 +1174,7 @@
    "state": "yes",
    "media": "media/f44ffb1a1e15.1080.mp4",
    "thumb": "media/thumbs/f44ffb1a1e15.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-08/zomboid_z2_7032_letmeeatyou.mp4",
@@ -1349,7 +1199,7 @@
    "state": "yes",
    "media": "media/151d5cb23011.1080.mp4",
    "thumb": "media/thumbs/151d5cb23011.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-07/zomboid_z1_10331_liability.mp4",
@@ -1374,7 +1224,7 @@
    "state": "yes",
    "media": "media/388889226eed.1080.mp4",
    "thumb": "media/thumbs/388889226eed.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-07/zomboid_z1_10250_straightmoves.mp4",
@@ -1399,7 +1249,7 @@
    "state": "yes",
    "media": "media/fa7a99baf12c.1080.mp4",
    "thumb": "media/thumbs/fa7a99baf12c.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-06/zomboid_z1_8410_dontlikethisgame.mp4",
@@ -1424,7 +1274,7 @@
    "state": "yes",
    "media": "media/2c71494cd137.1080.mp4",
    "thumb": "media/thumbs/2c71494cd137.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-06/zomboid_z1_11806_scarymusic.mp4",
@@ -1449,7 +1299,7 @@
    "state": "yes",
    "media": "media/8aeee8d72645.1080.mp4",
    "thumb": "media/thumbs/8aeee8d72645.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-04/cookies_4237_stinkyhands.mp4",
@@ -1474,7 +1324,7 @@
    "state": "yes",
    "media": "media/16fca8e4e64a.1080.mp4",
    "thumb": "media/thumbs/16fca8e4e64a.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-04/palworld_1428_whatwasthat.mp4",
@@ -1499,7 +1349,7 @@
    "state": "yes",
    "media": "media/af505b28d7f7.1080.mp4",
    "thumb": "media/thumbs/af505b28d7f7.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-04/yt_gyubee_0560_doctor.mp4",
@@ -1524,7 +1374,7 @@
    "state": "yes",
    "media": "media/2bf9a21b6f70.1080.mp4",
    "thumb": "media/thumbs/2bf9a21b6f70.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-02/palworld_0950_ankylosaurus.mp4",
@@ -1549,7 +1399,7 @@
    "state": "yes",
    "media": "media/3a9203958220.1080.mp4",
    "thumb": "media/thumbs/3a9203958220.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-02/zomboid_z1_5821_twoofthem.mp4",
@@ -1574,7 +1424,7 @@
    "state": "yes",
    "media": "media/8eeb3ac799a8.1080.mp4",
    "thumb": "media/thumbs/8eeb3ac799a8.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-02/roblox_1840_defense.mp4",
@@ -1599,7 +1449,7 @@
    "state": "yes",
    "media": "media/2ef85e2931c6.1080.mp4",
    "thumb": "media/thumbs/2ef85e2931c6.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-01_c/yt_aquarium_0325_dory.mp4",
@@ -1624,7 +1474,7 @@
    "state": "yes",
    "media": "media/73ed363c5fc0.1080.mp4",
    "thumb": "media/thumbs/73ed363c5fc0.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-01_c/roblox_2752_goldfish.mp4",
@@ -1649,7 +1499,7 @@
    "state": "yes",
    "media": "media/1186e60c8271.1080.mp4",
    "thumb": "media/thumbs/1186e60c8271.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-01_b/01_let_me_out.mp4",
@@ -1674,7 +1524,7 @@
    "state": "yes",
    "media": "media/b39b388bce44.1080.mp4",
    "thumb": "media/thumbs/b39b388bce44.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-01_b/02_shark_swam_back.mp4",
@@ -1699,7 +1549,7 @@
    "state": "yes",
    "media": "media/e5d34ab4196c.1080.mp4",
    "thumb": "media/thumbs/e5d34ab4196c.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-01_b/04_eight_year_olds.mp4",
@@ -1724,7 +1574,7 @@
    "state": "yes",
    "media": "media/74efbb2ecb74.1080.mp4",
    "thumb": "media/thumbs/74efbb2ecb74.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-01_b/09_marsupial.mp4",
@@ -1749,7 +1599,7 @@
    "state": "yes",
    "media": "media/c4939a06180c.1080.mp4",
    "thumb": "media/thumbs/c4939a06180c.jpg",
-   "hosted": true
+   "hosted": false
   }
  ],
  "streak": {
@@ -1894,5 +1744,6 @@
   "ts": "2026-10-23T10:33:47-04:00",
   "undone": 0,
   "meta": "{\"reasons\": [], \"feedback\": \"\"}"
- }
+ },
+ "repair_note": "2026-10-23 12:xx ET: reverted bogus 10:27:43-50 status burst (6 rejected restored, 2 posted restored); pruned posted<10-16 media"
 }
