@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T05:10:25+00:00",
+ "generated": "2026-10-23T05:11:18+00:00",
  "clips": [
   {
    "id": "2026-10-22_newvod/casino_playsmart.mp4",
@@ -49,7 +49,7 @@
    "state": "pending",
    "media": "media/db2405a91e8b.mp4",
    "thumb": "media/thumbs/db2405a91e8b.jpg",
-   "hosted": false
+   "hosted": true
   },
   {
    "id": "2026-10-22_newvod/roblox_rightclick.mp4",
@@ -74,7 +74,7 @@
    "state": "pending",
    "media": "media/382029c66d58.mp4",
    "thumb": "media/thumbs/382029c66d58.jpg",
-   "hosted": false
+   "hosted": true
   },
   {
    "id": "2026-10-22_newvod/backrooms_almondwater.mp4",
@@ -99,7 +99,7 @@
    "state": "pending",
    "media": "media/f546c12220a9.mp4",
    "thumb": "media/thumbs/f546c12220a9.jpg",
-   "hosted": false
+   "hosted": true
   },
   {
    "id": "2026-10-22_newvod/casino_fourchickens.mp4",
@@ -124,7 +124,7 @@
    "state": "pending",
    "media": "media/abdfb125a5b9.mp4",
    "thumb": "media/thumbs/abdfb125a5b9.jpg",
-   "hosted": false
+   "hosted": true
   },
   {
    "id": "2026-10-22_newvod/league_uncletony.mp4",
@@ -149,7 +149,7 @@
    "state": "pending",
    "media": "media/783624cc3e93.mp4",
    "thumb": "media/thumbs/783624cc3e93.jpg",
-   "hosted": false
+   "hosted": true
   },
   {
    "id": "2026-10-19/zomboid_toobusydying.mp4",
