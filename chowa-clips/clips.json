@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T18:18:46+00:00",
+ "generated": "2026-10-23T21:18:06+00:00",
  "clips": [
   {
    "id": "2026-10-23_progress/inscryption_whatdoesthatmean.mp4",
@@ -181,20 +181,20 @@
    "folder": "2026-10-22_newvod",
    "file": "casino_playsmart.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "we gotta play these games smart",
    "caption": "we gotta play these games smart 😭 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #twitchclips #funny #gaming #fyp #shorts",
    "hook": "\"WE GOTTA PLAY THESE GAMES SMART\"",
    "info": "(29.9s): Gamble With Your Friends: 'we gotta play these games smart… we have to be careful' → '$100? no, do 30' → 'let's play blackjack' → 'ooh, we keep losing' → 'I'll just sell your eye again' → 'dude, we're f***ed' (hook-first, confident→fail).\nSource: https://www.twitch.tv/videos/2906361554 @ 3:37:11–3:37:17 + 3:22:41–3:22:43 + 3:22:49–3:22:51 + 3:31:30–3:31:34 + 3:31:48–3:31:50 + 3:32:11–3:32:11 + 3:32:59–3:32:59 + 3:36:32–3:36:39 + 3:37:11–3:37:17\nQC: 1080x1920, 29.9s, 20MB, contact sheet checked, head in frame, no visible usernames.",
-   "note": "",
+   "note": "Buffer sent YT/TT 2026-10-23 15:43 ET",
    "edited": 0,
    "feedback_reasons": [],
    "feedback_text": "",
    "feedback_at": "",
    "slug": "casinoplaysmart",
    "dupes": [],
-   "updated_at": "2026-10-23T10:27:47-04:00",
+   "updated_at": "2026-10-23T16:44:36-04:00",
    "vid": "0279c42637d0",
    "state": "yes",
    "media": "media/0279c42637d0.1080.mp4",
@@ -499,7 +499,7 @@
    "state": "yes",
    "media": "media/de25bfe6410c.1080.mp4",
    "thumb": "media/thumbs/de25bfe6410c.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-12_scares/scare_pleaseplease.mp4",
@@ -1687,11 +1687,11 @@
   "other"
  ],
  "last_action": {
-  "id": 283,
-  "clip_id": "2026-10-23/outro_fartthreat.mp4",
-  "prev_status": "pending",
-  "new_status": "approved",
-  "ts": "2026-10-23T13:21:15-04:00",
+  "id": 284,
+  "clip_id": "2026-10-22_newvod/casino_playsmart.mp4",
+  "prev_status": "approved",
+  "new_status": "posted",
+  "ts": "2026-10-23T16:44:36-04:00",
   "undone": 0,
   "meta": ""
  }
