@@ -1,6 +1,31 @@
 {
- "generated": "2026-10-24T16:18:25+00:00",
+ "generated": "2026-10-24T17:18:52+00:00",
  "clips": [
+  {
+   "id": "2026-10-24_request/valorant_doubleheadshot.mp4",
+   "folder": "2026-10-24_request",
+   "file": "valorant_doubleheadshot.mp4",
+   "kind": "short",
+   "status": "pending",
+   "title": "valorant doubleheadshot",
+   "caption": "",
+   "hashtags": "",
+   "hook": "",
+   "info": "",
+   "note": "",
+   "edited": 0,
+   "feedback_reasons": [],
+   "feedback_text": "",
+   "feedback_at": "",
+   "slug": "valorantdoubleheadshot",
+   "dupes": [],
+   "updated_at": "2026-10-24T13:16:43-04:00",
+   "vid": "23997c66684f",
+   "state": "pending",
+   "media": "media/23997c66684f.mp4",
+   "thumb": "media/thumbs/23997c66684f.jpg",
+   "hosted": true
+  },
   {
    "id": "2026-10-24/wobbly_alwaysbeenyou.mp4",
    "folder": "2026-10-24",
