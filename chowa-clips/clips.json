@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-24T20:46:19+00:00",
+ "generated": "2026-10-24T23:20:52+00:00",
  "clips": [
   {
    "id": "2026-10-24_request/valorant_doubleheadshot.mp4",
@@ -256,7 +256,7 @@
    "folder": "2026-10-23_progress",
    "file": "inscryption_whatdoesthatmean.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "what does that mean?",
    "caption": "",
    "hashtags": "",
@@ -269,7 +269,7 @@
    "feedback_at": "",
    "slug": "inscryptionwhatdoesthatmean",
    "dupes": [],
-   "updated_at": "2026-10-23T10:30:03-04:00",
+   "updated_at": "2026-10-24T15:43:00-04:00",
    "vid": "4b733d89c538",
    "state": "yes",
    "media": "media/4b733d89c538.1080.mp4",
@@ -331,7 +331,7 @@
    "folder": "2026-10-23_progress",
    "file": "streamdeck_whatsthat.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "what's a stream deck?",
    "caption": "",
    "hashtags": "",
@@ -344,7 +344,7 @@
    "feedback_at": "",
    "slug": "streamdeckwhatsthat",
    "dupes": [],
-   "updated_at": "2026-10-23T10:32:49-04:00",
+   "updated_at": "2026-10-24T18:17:00-04:00",
    "vid": "928032253243",
    "state": "yes",
    "media": "media/928032253243.1080.mp4",
@@ -929,7 +929,7 @@
    "state": "yes",
    "media": "media/86b1c6c61eb1.1080.mp4",
    "thumb": "media/thumbs/86b1c6c61eb1.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-11_light/mortuary_edit_imdone.mp4",
