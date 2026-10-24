@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-24T12:19:27+00:00",
+ "generated": "2026-10-24T16:18:25+00:00",
  "clips": [
   {
    "id": "2026-10-24/wobbly_alwaysbeenyou.mp4",
@@ -674,7 +674,7 @@
    "state": "yes",
    "media": "media/1d5b4c62b076.1080.mp4",
    "thumb": "media/thumbs/1d5b4c62b076.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-15/zomboid_lockedin.mp4",
