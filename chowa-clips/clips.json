@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-23T23:14:22+00:00",
+ "generated": "2026-10-24T00:19:07+00:00",
  "clips": [
   {
    "id": "2026-10-23_progress/inscryption_whatdoesthatmean.mp4",
@@ -524,7 +524,7 @@
    "state": "yes",
    "media": "media/577f2ae788ab.1080.mp4",
    "thumb": "media/thumbs/577f2ae788ab.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-12_scares/scare_nonono.mp4",
