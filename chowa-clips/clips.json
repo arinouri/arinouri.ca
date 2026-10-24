@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-24T01:18:40+00:00",
+ "generated": "2026-10-24T04:13:16+00:00",
  "clips": [
   {
    "id": "2026-10-23_progress/inscryption_whatdoesthatmean.mp4",
@@ -1555,9 +1555,9 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-10-23",
-  "today_count": 11,
-  "today_met": true,
+  "today": "2026-10-24",
+  "today_count": 0,
+  "today_met": false,
   "current": 1,
   "best": 2,
   "cycle_progress": 1,
@@ -1569,7 +1569,7 @@
     "dow": "F",
     "count": 11,
     "met": true,
-    "today": true,
+    "today": false,
     "future": false
    },
    {
@@ -1577,8 +1577,8 @@
     "dow": "S",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-10-25",
@@ -1623,13 +1623,6 @@
   ],
   "last7": [
    {
-    "date": "2026-10-17",
-    "dow": "Sat",
-    "count": 0,
-    "met": false,
-    "today": false
-   },
-   {
     "date": "2026-10-18",
     "dow": "Sun",
     "count": 0,
@@ -1669,6 +1662,13 @@
     "dow": "Fri",
     "count": 11,
     "met": true,
+    "today": false
+   },
+   {
+    "date": "2026-10-24",
+    "dow": "Sat",
+    "count": 0,
+    "met": false,
     "today": true
    }
   ],
