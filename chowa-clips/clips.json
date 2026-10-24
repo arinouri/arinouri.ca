@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-24T18:12:08+00:00",
+ "generated": "2026-10-24T20:18:33+00:00",
  "clips": [
   {
    "id": "2026-10-24_request/valorant_doubleheadshot.mp4",
@@ -724,7 +724,7 @@
    "state": "yes",
    "media": "media/357ce290f499.1080.mp4",
    "thumb": "media/thumbs/357ce290f499.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-12_scares/scare_lookingatme.mp4",
