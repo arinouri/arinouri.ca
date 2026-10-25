@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-24T23:20:52+00:00",
+ "generated": "2026-10-25T01:16:44+00:00",
  "clips": [
   {
    "id": "2026-10-24_request/valorant_doubleheadshot.mp4",
@@ -306,7 +306,7 @@
    "folder": "2026-10-23_progress",
    "file": "gamble_quentinfollowers.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "all i care about is that i hit 50 before you",
    "caption": "",
    "hashtags": "",
@@ -319,7 +319,7 @@
    "feedback_at": "",
    "slug": "gamblequentinfollowers",
    "dupes": [],
-   "updated_at": "2026-10-23T10:31:56-04:00",
+   "updated_at": "2026-10-24T20:12:00-04:00",
    "vid": "d23eed0d7d72",
    "state": "yes",
    "media": "media/d23eed0d7d72.1080.mp4",
@@ -824,7 +824,7 @@
    "state": "yes",
    "media": "media/d62e125c5233.1080.mp4",
    "thumb": "media/thumbs/d62e125c5233.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-12/zomboid_backwards.mp4",
