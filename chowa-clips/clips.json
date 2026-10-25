@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T18:18:00+00:00",
+ "generated": "2026-10-25T20:16:19+00:00",
  "clips": [
   {
    "id": "2026-10-25_b/valorant_lockedin.mp4",
@@ -1174,7 +1174,7 @@
    "state": "yes",
    "media": "media/64eec0789042.1080.mp4",
    "thumb": "media/thumbs/64eec0789042.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-11_light/mortuary_dontdiehere.mp4",
