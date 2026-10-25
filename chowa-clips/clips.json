@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T14:50:18+00:00",
+ "generated": "2026-10-25T18:18:00+00:00",
  "clips": [
   {
    "id": "2026-10-25_b/valorant_lockedin.mp4",
@@ -1124,7 +1124,7 @@
    "state": "yes",
    "media": "media/2ba8feb6559c.1080.mp4",
    "thumb": "media/thumbs/2ba8feb6559c.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-12/zomboid_youredead.mp4",
@@ -1149,7 +1149,7 @@
    "state": "yes",
    "media": "media/ae118425770f.1080.mp4",
    "thumb": "media/thumbs/ae118425770f.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-12/zomboid_farmdude.mp4",
