@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T20:16:19+00:00",
+ "generated": "2026-10-25T23:16:37+00:00",
  "clips": [
   {
    "id": "2026-10-25_b/valorant_lockedin.mp4",
@@ -656,7 +656,7 @@
    "folder": "2026-10-23",
    "file": "cooking_knower.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "i'm a knower, okay? i know things",
    "caption": "professional cookie dough critic 👩‍🍳 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #baking #irl #funny #fyp #shorts",
@@ -669,7 +669,7 @@
    "feedback_at": "",
    "slug": "cookingknower",
    "dupes": [],
-   "updated_at": "2026-10-23T13:21:15-04:00",
+   "updated_at": "2026-10-25T18:24:31-04:00",
    "vid": "cc6cc00cbceb",
    "state": "yes",
    "media": "media/cc6cc00cbceb.1080.mp4",
@@ -681,7 +681,7 @@
    "folder": "2026-10-23",
    "file": "outro_fartthreat.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "if you're not on the next one, i'm gonna fart in your face",
    "caption": "attendance is mandatory 😤💨 #chowaobby #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #twitchclips #streamer #funnymoments #streamerlife #fyp",
@@ -694,7 +694,7 @@
    "feedback_at": "",
    "slug": "outrofartthreat",
    "dupes": [],
-   "updated_at": "2026-10-23T13:21:15-04:00",
+   "updated_at": "2026-10-25T18:24:31-04:00",
    "vid": "22a89b00a209",
    "state": "yes",
    "media": "media/22a89b00a209.1080.mp4",
@@ -1264,7 +1264,7 @@
    "state": "yes",
    "media": "media/31574b06341e.1080.mp4",
    "thumb": "media/thumbs/31574b06341e.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-11_light/mortuary_peerpressure_fix.mp4",
@@ -2212,12 +2212,12 @@
   "other"
  ],
  "last_action": {
-  "id": 296,
-  "clip_id": "2026-10-25_b/valorant_idontgotthis.mp4",
-  "prev_status": "pending",
-  "new_status": "rejected",
-  "ts": "2026-10-25T09:50:41-04:00",
+  "id": 298,
+  "clip_id": "2026-10-23/outro_fartthreat.mp4",
+  "prev_status": "approved",
+  "new_status": "posted",
+  "ts": "2026-10-25T18:24:31-04:00",
   "undone": 0,
-  "meta": "{\"reasons\": [], \"feedback\": \"Weird clip doesn\\u2019t make sense\"}"
+  "meta": ""
  }
 }
