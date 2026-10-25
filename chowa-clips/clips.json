@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T13:12:46+00:00",
+ "generated": "2026-10-25T14:20:48+00:00",
  "clips": [
   {
    "id": "2026-10-25_b/valorant_lockedin.mp4",
@@ -74,31 +74,6 @@
    "state": "pending",
    "media": "media/9063d7387632.mp4",
    "thumb": "media/thumbs/9063d7387632.jpg",
-   "hosted": true
-  },
-  {
-   "id": "2026-10-25_b/valorant_idontgotthis.mp4",
-   "folder": "2026-10-25_b",
-   "file": "valorant_idontgotthis.mp4",
-   "kind": "short",
-   "status": "pending",
-   "title": "we got this. i don't got this",
-   "caption": "confidence: 1 second. results: 0 🫠 #chowaobby #valorant #funny #fail",
-   "hashtags": "#chowaobby #valorant #funny #fail",
-   "hook": "\"WE GOT THIS. I DON'T GOT THIS\"",
-   "info": "(23.5s) — rank 4\nSource: https://www.twitch.tv/videos/2908956367 @ 1:47:16–1:47:25 + 2:38:49–2:38:55 + 2:38:59–2:39:02 + 2:39:06–2:39:12\nQC: 1080x1920, 23.5s, 6.6MB, 0 beep(s); contact sheet viewed (sheets/valorant_idontgotthis.jpg): whole head + headroom, one caption line, gameplay sharp, only tight blur boxes.",
-   "note": "",
-   "edited": 0,
-   "feedback_reasons": [],
-   "feedback_text": "",
-   "feedback_at": "",
-   "slug": "valorantidontgotthis",
-   "dupes": [],
-   "updated_at": "2026-10-25T09:12:26-04:00",
-   "vid": "ac4a1ba32dad",
-   "state": "pending",
-   "media": "media/ac4a1ba32dad.mp4",
-   "thumb": "media/thumbs/ac4a1ba32dad.jpg",
    "hosted": true
   },
   {
@@ -2106,7 +2081,7 @@
   "goal": 3,
   "timezone": "America/Toronto",
   "today": "2026-10-25",
-  "today_count": 0,
+  "today_count": 1,
   "today_met": false,
   "current": 2,
   "best": 2,
@@ -2133,7 +2108,7 @@
    {
     "date": "2026-10-25",
     "dow": "S",
-    "count": 0,
+    "count": 1,
     "met": false,
     "today": true,
     "future": false
@@ -2217,7 +2192,7 @@
    {
     "date": "2026-10-25",
     "dow": "Sun",
-    "count": 0,
+    "count": 1,
     "met": false,
     "today": true
    }
@@ -2237,12 +2212,12 @@
   "other"
  ],
  "last_action": {
-  "id": 295,
-  "clip_id": "2026-10-24_request/valorant_doubleheadshot.mp4",
+  "id": 296,
+  "clip_id": "2026-10-25_b/valorant_idontgotthis.mp4",
   "prev_status": "pending",
-  "new_status": "approved",
-  "ts": "2026-10-24T16:42:31-04:00",
+  "new_status": "rejected",
+  "ts": "2026-10-25T09:50:41-04:00",
   "undone": 0,
-  "meta": ""
+  "meta": "{\"reasons\": [], \"feedback\": \"Weird clip doesn\\u2019t make sense\"}"
  }
 }
