@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T14:20:48+00:00",
+ "generated": "2026-10-25T14:50:18+00:00",
  "clips": [
   {
    "id": "2026-10-25_b/valorant_lockedin.mp4",
@@ -20,10 +20,10 @@
    "slug": "valorantlockedin",
    "dupes": [],
    "updated_at": "2026-10-25T09:12:26-04:00",
-   "vid": "5d9997a8c612",
+   "vid": "6bdecadfd6f6",
    "state": "pending",
-   "media": "media/5d9997a8c612.mp4",
-   "thumb": "media/thumbs/5d9997a8c612.jpg",
+   "media": "media/6bdecadfd6f6.mp4",
+   "thumb": "media/thumbs/6bdecadfd6f6.jpg",
    "hosted": true
   },
   {
@@ -45,10 +45,10 @@
    "slug": "valorantworstsmoke",
    "dupes": [],
    "updated_at": "2026-10-25T09:12:26-04:00",
-   "vid": "c4acb107ea4e",
+   "vid": "d6da17a569f2",
    "state": "pending",
-   "media": "media/c4acb107ea4e.mp4",
-   "thumb": "media/thumbs/c4acb107ea4e.jpg",
+   "media": "media/d6da17a569f2.mp4",
+   "thumb": "media/thumbs/d6da17a569f2.jpg",
    "hosted": true
   },
   {
@@ -70,10 +70,10 @@
    "slug": "valoranttwokills",
    "dupes": [],
    "updated_at": "2026-10-25T09:12:26-04:00",
-   "vid": "9063d7387632",
+   "vid": "44ef8570ef0a",
    "state": "pending",
-   "media": "media/9063d7387632.mp4",
-   "thumb": "media/thumbs/9063d7387632.jpg",
+   "media": "media/44ef8570ef0a.mp4",
+   "thumb": "media/thumbs/44ef8570ef0a.jpg",
    "hosted": true
   },
   {
@@ -95,10 +95,10 @@
    "slug": "valorantgangsternow",
    "dupes": [],
    "updated_at": "2026-10-25T09:12:26-04:00",
-   "vid": "9005100c1e0b",
+   "vid": "9ad06a34a502",
    "state": "pending",
-   "media": "media/9005100c1e0b.mp4",
-   "thumb": "media/thumbs/9005100c1e0b.jpg",
+   "media": "media/9ad06a34a502.mp4",
+   "thumb": "media/thumbs/9ad06a34a502.jpg",
    "hosted": true
   },
   {
@@ -120,10 +120,10 @@
    "slug": "chatpeanuts",
    "dupes": [],
    "updated_at": "2026-10-25T07:34:53-04:00",
-   "vid": "287187f502f0",
+   "vid": "60aeedbf35f7",
    "state": "pending",
-   "media": "media/287187f502f0.mp4",
-   "thumb": "media/thumbs/287187f502f0.jpg",
+   "media": "media/60aeedbf35f7.mp4",
+   "thumb": "media/thumbs/60aeedbf35f7.jpg",
    "hosted": true
   },
   {
@@ -145,10 +145,10 @@
    "slug": "valorantlittleroom",
    "dupes": [],
    "updated_at": "2026-10-25T07:37:20-04:00",
-   "vid": "a1c8c04ddcbd",
+   "vid": "981bf0854780",
    "state": "pending",
-   "media": "media/a1c8c04ddcbd.mp4",
-   "thumb": "media/thumbs/a1c8c04ddcbd.jpg",
+   "media": "media/981bf0854780.mp4",
+   "thumb": "media/thumbs/981bf0854780.jpg",
    "hosted": true
   },
   {
@@ -170,10 +170,10 @@
    "slug": "valorantlevel17",
    "dupes": [],
    "updated_at": "2026-10-25T07:37:20-04:00",
-   "vid": "1c8ce09de352",
+   "vid": "eed4db9d5afc",
    "state": "pending",
-   "media": "media/1c8ce09de352.mp4",
-   "thumb": "media/thumbs/1c8ce09de352.jpg",
+   "media": "media/eed4db9d5afc.mp4",
+   "thumb": "media/thumbs/eed4db9d5afc.jpg",
    "hosted": true
   },
   {
@@ -195,10 +195,10 @@
    "slug": "valorantkeeppracticing",
    "dupes": [],
    "updated_at": "2026-10-25T07:37:20-04:00",
-   "vid": "d5d71dc28fcc",
+   "vid": "a9f68bd40212",
    "state": "pending",
-   "media": "media/d5d71dc28fcc.mp4",
-   "thumb": "media/thumbs/d5d71dc28fcc.jpg",
+   "media": "media/a9f68bd40212.mp4",
+   "thumb": "media/thumbs/a9f68bd40212.jpg",
    "hosted": true
   },
   {
@@ -220,10 +220,10 @@
    "slug": "wobblyclown",
    "dupes": [],
    "updated_at": "2026-10-25T07:37:20-04:00",
-   "vid": "3fdf52d75378",
+   "vid": "a4ec8e712a59",
    "state": "pending",
-   "media": "media/3fdf52d75378.mp4",
-   "thumb": "media/thumbs/3fdf52d75378.jpg",
+   "media": "media/a4ec8e712a59.mp4",
+   "thumb": "media/thumbs/a4ec8e712a59.jpg",
    "hosted": true
   },
   {
@@ -245,10 +245,10 @@
    "slug": "wobblyjellyman",
    "dupes": [],
    "updated_at": "2026-10-25T07:37:20-04:00",
-   "vid": "7993692ee5af",
+   "vid": "f773e6dcb165",
    "state": "pending",
-   "media": "media/7993692ee5af.mp4",
-   "thumb": "media/thumbs/7993692ee5af.jpg",
+   "media": "media/f773e6dcb165.mp4",
+   "thumb": "media/thumbs/f773e6dcb165.jpg",
    "hosted": true
   },
   {
@@ -270,10 +270,10 @@
    "slug": "wobblymagnet",
    "dupes": [],
    "updated_at": "2026-10-25T07:37:20-04:00",
-   "vid": "9264be9cbeb6",
+   "vid": "5ebf5cc89ba4",
    "state": "pending",
-   "media": "media/9264be9cbeb6.mp4",
-   "thumb": "media/thumbs/9264be9cbeb6.jpg",
+   "media": "media/5ebf5cc89ba4.mp4",
+   "thumb": "media/thumbs/5ebf5cc89ba4.jpg",
    "hosted": true
   },
   {
