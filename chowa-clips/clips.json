@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-26T16:22:16+00:00",
+ "generated": "2026-10-26T19:16:00+00:00",
  "clips": [
   {
    "id": "2026-10-26/valorant_okaygotit.mp4",
@@ -1219,7 +1219,7 @@
    "state": "yes",
    "media": "media/b627093607b1.1080.mp4",
    "thumb": "media/thumbs/b627093607b1.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-11_light/protip_workfast.mp4",
