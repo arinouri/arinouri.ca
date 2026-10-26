@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-26T20:15:43+00:00",
+ "generated": "2026-10-26T23:16:58+00:00",
  "clips": [
   {
    "id": "2026-10-26/valorant_okaygotit.mp4",
@@ -256,7 +256,7 @@
    "folder": "2026-10-24",
    "file": "wobbly_goodaim.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "i'm like lowkey good aim",
    "caption": "holy aim 🎯 (she missed seven) #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #wobblylife #funny #gaming #twitchclips #shorts",
@@ -269,7 +269,7 @@
    "feedback_at": "",
    "slug": "wobblygoodaim",
    "dupes": [],
-   "updated_at": "2026-10-24T16:42:28-04:00",
+   "updated_at": "2026-10-26T18:16:45-04:00",
    "vid": "8957b38e46c0",
    "state": "yes",
    "media": "media/8957b38e46c0.1080.mp4",
@@ -2137,11 +2137,11 @@
   "other"
  ],
  "last_action": {
-  "id": 310,
-  "clip_id": "2026-10-25/wobbly_magnet.mp4",
-  "prev_status": "pending",
-  "new_status": "approved",
-  "ts": "2026-10-26T07:36:48-04:00",
+  "id": 311,
+  "clip_id": "2026-10-24/wobbly_goodaim.mp4",
+  "prev_status": "approved",
+  "new_status": "posted",
+  "ts": "2026-10-26T18:16:45-04:00",
   "undone": 0,
   "meta": ""
  }
