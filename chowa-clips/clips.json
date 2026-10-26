@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-26T01:21:07+00:00",
+ "generated": "2026-10-26T04:15:07+00:00",
  "clips": [
   {
    "id": "2026-10-25_b/valorant_lockedin.mp4",
@@ -2080,46 +2080,22 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-10-25",
-  "today_count": 1,
+  "today": "2026-10-26",
+  "today_count": 0,
   "today_met": false,
-  "current": 2,
+  "current": 0,
   "best": 2,
-  "cycle_progress": 2,
+  "cycle_progress": 0,
   "reward_days": 7,
-  "days_to_reward": 5,
+  "days_to_reward": 7,
   "cycle_days": [
-   {
-    "date": "2026-10-23",
-    "dow": "F",
-    "count": 11,
-    "met": true,
-    "today": false,
-    "future": false
-   },
-   {
-    "date": "2026-10-24",
-    "dow": "S",
-    "count": 11,
-    "met": true,
-    "today": false,
-    "future": false
-   },
-   {
-    "date": "2026-10-25",
-    "dow": "S",
-    "count": 1,
-    "met": false,
-    "today": true,
-    "future": false
-   },
    {
     "date": "2026-10-26",
     "dow": "M",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-10-27",
@@ -2144,16 +2120,33 @@
     "met": false,
     "today": false,
     "future": true
+   },
+   {
+    "date": "2026-10-30",
+    "dow": "F",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
+   },
+   {
+    "date": "2026-10-31",
+    "dow": "S",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
+   },
+   {
+    "date": "2026-11-01",
+    "dow": "S",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
    }
   ],
   "last7": [
-   {
-    "date": "2026-10-19",
-    "dow": "Mon",
-    "count": 8,
-    "met": true,
-    "today": false
-   },
    {
     "date": "2026-10-20",
     "dow": "Tue",
@@ -2193,6 +2186,13 @@
     "date": "2026-10-25",
     "dow": "Sun",
     "count": 1,
+    "met": false,
+    "today": false
+   },
+   {
+    "date": "2026-10-26",
+    "dow": "Mon",
+    "count": 0,
     "met": false,
     "today": true
    }
