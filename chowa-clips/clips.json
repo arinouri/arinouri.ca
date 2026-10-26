@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25T23:16:37+00:00",
+ "generated": "2026-10-26T01:21:07+00:00",
  "clips": [
   {
    "id": "2026-10-25_b/valorant_lockedin.mp4",
@@ -281,7 +281,7 @@
    "folder": "2026-10-24_request",
    "file": "valorant_doubleheadshot.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "valorant doubleheadshot",
    "caption": "",
    "hashtags": "",
@@ -294,7 +294,7 @@
    "feedback_at": "",
    "slug": "valorantdoubleheadshot",
    "dupes": [],
-   "updated_at": "2026-10-24T16:42:31-04:00",
+   "updated_at": "2026-10-25T20:16:56-04:00",
    "vid": "23997c66684f",
    "state": "yes",
    "media": "media/23997c66684f.1080.mp4",
@@ -824,7 +824,7 @@
    "state": "yes",
    "media": "media/a5e7df86afa2.1080.mp4",
    "thumb": "media/thumbs/a5e7df86afa2.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-16/mortuary_gurney.mp4",
@@ -2212,11 +2212,11 @@
   "other"
  ],
  "last_action": {
-  "id": 298,
-  "clip_id": "2026-10-23/outro_fartthreat.mp4",
+  "id": 299,
+  "clip_id": "2026-10-24_request/valorant_doubleheadshot.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-25T18:24:31-04:00",
+  "ts": "2026-10-25T20:16:56-04:00",
   "undone": 0,
   "meta": ""
  }
