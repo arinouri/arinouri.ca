@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-27T00:14:41+00:00",
+ "generated": "2026-10-27T01:14:39+00:00",
  "clips": [
   {
    "id": "2026-10-26/valorant_okaygotit.mp4",
@@ -231,7 +231,7 @@
    "folder": "2026-10-24",
    "file": "wobbly_alwaysbeenyou.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "it's always been you",
    "caption": "3 minutes of driving without knowing she was driving 🛵😭 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #wobblylife #funny #gaming #twitchclips #shorts",
@@ -244,7 +244,7 @@
    "feedback_at": "",
    "slug": "wobblyalwaysbeenyou",
    "dupes": [],
-   "updated_at": "2026-10-24T16:42:28-04:00",
+   "updated_at": "2026-10-26T20:18:24-04:00",
    "vid": "9c53ad1d40b2",
    "state": "yes",
    "media": "media/9c53ad1d40b2.1080.mp4",
@@ -281,7 +281,7 @@
    "folder": "2026-10-24",
    "file": "wobbly_icecream.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "my skills are not in gaming, but my skills are in cooking",
    "caption": "professional cook, unemployed ice cream worker 🍦😭 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #wobblylife #funny #gaming #icecream #shorts",
@@ -294,7 +294,7 @@
    "feedback_at": "",
    "slug": "wobblyicecream",
    "dupes": [],
-   "updated_at": "2026-10-24T16:42:28-04:00",
+   "updated_at": "2026-10-26T20:18:24-04:00",
    "vid": "4b9961069dab",
    "state": "yes",
    "media": "media/4b9961069dab.1080.mp4",
@@ -1474,7 +1474,7 @@
    "state": "yes",
    "media": "media/27caa8bcf3f7.1080.mp4",
    "thumb": "media/thumbs/27caa8bcf3f7.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-10/cooking_0496_unitedcondom.mp4",
@@ -2137,11 +2137,11 @@
   "other"
  ],
  "last_action": {
-  "id": 311,
-  "clip_id": "2026-10-24/wobbly_goodaim.mp4",
+  "id": 313,
+  "clip_id": "2026-10-24/wobbly_alwaysbeenyou.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-26T18:16:45-04:00",
+  "ts": "2026-10-26T20:18:24-04:00",
   "undone": 0,
   "meta": ""
  }
