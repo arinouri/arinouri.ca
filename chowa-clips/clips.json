@@ -1,6 +1,31 @@
 {
- "generated": "2026-10-27T04:20:17+00:00",
+ "generated": "2026-10-27T11:17:29+00:00",
  "clips": [
+  {
+   "id": "2026-10-27/league_noway_bot.mp4",
+   "folder": "2026-10-27",
+   "file": "league_noway_bot.mp4",
+   "kind": "short",
+   "status": "pending",
+   "title": "there's no way i'm playing bot",
+   "caption": "swore she'd never play bot lane… then clicked the wrong button 😭 #chowaobby #leagueoflegends #funny #twitchclips",
+   "hashtags": "#chowaobby #leagueoflegends #funny #twitchclips",
+   "hook": "\"THERE'S NO WAY I'M PLAYING BOT\"",
+   "info": "(25.4s) — rank 1\nAlt hooks: she begged for top lane. then she clicked the wrong button / \"that was an accident\"\nSource: https://www.twitch.tv/videos/2651720970 @ 2:53:21–2:53:25 + 2:53:25–2:53:38 + 2:53:39–2:53:47\nQC: 1080x1920, 25.4s, ~5MB, 0 beeps; contact sheet + per-second frames viewed (sheets/league_noway_bot.jpg): whole head with headroom every frame (clip ends before she leans out of frame), one caption line, gameplay sharp, no blur. Champ select briefly shows the stream overlay background for ~1s when the swap pop-up opens. Captions checked against large-v3 and medium.en (with and without prompt) plus the base transcript: \"bot for random\" kept (3 of 4 readings), disputed \"ask/yes\" after \"didn't mean to\" and \"oh s***/that was an accident\" dropped rather than guessed.",
+   "note": "",
+   "edited": 0,
+   "feedback_reasons": [],
+   "feedback_text": "",
+   "feedback_at": "",
+   "slug": "leaguenowaybot",
+   "dupes": [],
+   "updated_at": "2026-10-27T07:17:26-04:00",
+   "vid": "4c090e2b88f8",
+   "state": "pending",
+   "media": "media/4c090e2b88f8.mp4",
+   "thumb": "media/thumbs/4c090e2b88f8.jpg",
+   "hosted": true
+  },
   {
    "id": "2026-10-26/valorant_okaygotit.mp4",
    "folder": "2026-10-26",
