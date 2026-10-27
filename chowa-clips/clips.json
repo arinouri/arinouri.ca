@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-26T23:16:58+00:00",
+ "generated": "2026-10-27T00:14:41+00:00",
  "clips": [
   {
    "id": "2026-10-26/valorant_okaygotit.mp4",
@@ -1449,7 +1449,7 @@
    "state": "yes",
    "media": "media/bdc099b0ca0b.1080.mp4",
    "thumb": "media/thumbs/bdc099b0ca0b.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-10_stream/mortuary_edit_ballsy.mp4",
