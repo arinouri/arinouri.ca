@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-29T16:21:05+00:00",
+ "generated": "2026-10-29T22:18:33+00:00",
  "clips": [
   {
    "id": "2026-10-29/bomb_leadasquad.mp4",
@@ -381,7 +381,7 @@
    "folder": "2026-10-25",
    "file": "wobbly_magnet.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "you swerve to every obstacle like a magnet",
    "caption": "an entire open road and she found every obstacle 🚗🧲 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #wobblylife #funny #gaming #driving #shorts",
@@ -394,7 +394,7 @@
    "feedback_at": "",
    "slug": "wobblymagnet",
    "dupes": [],
-   "updated_at": "2026-10-26T07:36:48-04:00",
+   "updated_at": "2026-10-29T18:17:39-04:00",
    "vid": "5ebf5cc89ba4",
    "state": "yes",
    "media": "media/5ebf5cc89ba4.1080.mp4",
@@ -2337,11 +2337,11 @@
   "other"
  ],
  "last_action": {
-  "id": 317,
-  "clip_id": "2026-10-24/valorant_somanyrules.mp4",
+  "id": 318,
+  "clip_id": "2026-10-25/wobbly_magnet.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-29T11:19:49-04:00",
+  "ts": "2026-10-29T18:17:39-04:00",
   "undone": 0,
   "meta": ""
  }
