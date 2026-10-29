@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-29T12:13:52+00:00",
+ "generated": "2026-10-29T15:16:02+00:00",
  "clips": [
   {
    "id": "2026-10-29/bomb_leadasquad.mp4",
@@ -82,11 +82,11 @@
    "file": "bomb_numberthree.mp4",
    "kind": "short",
    "status": "pending",
-   "title": "bomb numberthree",
+   "title": "why did you tell him three?",
    "caption": "",
-   "hashtags": "",
-   "hook": "",
-   "info": "",
+   "hashtags": "#chowaobby #bombbanana #funny #twitchclips",
+   "hook": "\"SHE'S MUTE. SHE SIGNALS \"3\"\"",
+   "info": "(18.23s)\nSource: https://www.twitch.tv/videos/2913478481 @ 2:29:31–2:29:37 + 2:29:39–2:29:42 + 2:29:51–2:29:54 + 2:29:56–2:29:57 + 2:29:59–2:30:05\nQC: 1080x1920, 18.23s, 5.4MB, 0 beeps. Re-rendered 2026-10-29 10:50 AM ET (same file name → new dashboard vid; failed v1 kept in held/2026-10-29_qcfail/). Contact sheet viewed (sheets/bomb_numberthree.jpg): whole head in the facecam band (she leans in once, still in frame), emote wheel + 3-finger glove + MUTE/DEAF lobby visible, one caption line in the band, hook in top band, no blur. Caption words cross-checked across 3 models.",
    "note": "",
    "edited": 0,
    "feedback_reasons": [],
@@ -95,10 +95,10 @@
    "slug": "bombnumberthree",
    "dupes": [],
    "updated_at": "2026-10-29T07:52:19-04:00",
-   "vid": "e30cd22a52b4",
+   "vid": "7d51b284a97f",
    "state": "pending",
-   "media": "media/e30cd22a52b4.mp4",
-   "thumb": "media/thumbs/e30cd22a52b4.jpg",
+   "media": "media/7d51b284a97f.mp4",
+   "thumb": "media/thumbs/7d51b284a97f.jpg",
    "hosted": true
   },
   {
