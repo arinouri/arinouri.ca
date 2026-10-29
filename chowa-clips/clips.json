@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-29T15:23:04+00:00",
+ "generated": "2026-10-29T16:21:05+00:00",
  "clips": [
   {
    "id": "2026-10-29/bomb_leadasquad.mp4",
@@ -1724,7 +1724,7 @@
    "state": "yes",
    "media": "media/9ee643321c4f.1080.mp4",
    "thumb": "media/thumbs/9ee643321c4f.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-09/zomboid_z1_20794_suddenlynaked.mp4",
@@ -1749,7 +1749,7 @@
    "state": "yes",
    "media": "media/47a6d751450b.1080.mp4",
    "thumb": "media/thumbs/47a6d751450b.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-08/zomboid_z1_15756_deathtrap.mp4",
