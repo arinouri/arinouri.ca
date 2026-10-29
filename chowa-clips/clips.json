@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-27T11:17:29+00:00",
+ "generated": "2026-10-29T07:14:54+00:00",
  "clips": [
   {
    "id": "2026-10-27/league_noway_bot.mp4",
@@ -2030,46 +2030,22 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-10-27",
+  "today": "2026-10-29",
   "today_count": 0,
   "today_met": false,
-  "current": 1,
+  "current": 0,
   "best": 2,
-  "cycle_progress": 1,
+  "cycle_progress": 0,
   "reward_days": 7,
-  "days_to_reward": 6,
+  "days_to_reward": 7,
   "cycle_days": [
-   {
-    "date": "2026-10-26",
-    "dow": "M",
-    "count": 11,
-    "met": true,
-    "today": false,
-    "future": false
-   },
-   {
-    "date": "2026-10-27",
-    "dow": "T",
-    "count": 0,
-    "met": false,
-    "today": true,
-    "future": false
-   },
-   {
-    "date": "2026-10-28",
-    "dow": "W",
-    "count": 0,
-    "met": false,
-    "today": false,
-    "future": true
-   },
    {
     "date": "2026-10-29",
     "dow": "T",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-10-30",
@@ -2094,23 +2070,33 @@
     "met": false,
     "today": false,
     "future": true
+   },
+   {
+    "date": "2026-11-02",
+    "dow": "M",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
+   },
+   {
+    "date": "2026-11-03",
+    "dow": "T",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
+   },
+   {
+    "date": "2026-11-04",
+    "dow": "W",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
    }
   ],
   "last7": [
-   {
-    "date": "2026-10-21",
-    "dow": "Wed",
-    "count": 12,
-    "met": true,
-    "today": false
-   },
-   {
-    "date": "2026-10-22",
-    "dow": "Thu",
-    "count": 0,
-    "met": false,
-    "today": false
-   },
    {
     "date": "2026-10-23",
     "dow": "Fri",
@@ -2142,6 +2128,20 @@
    {
     "date": "2026-10-27",
     "dow": "Tue",
+    "count": 0,
+    "met": false,
+    "today": false
+   },
+   {
+    "date": "2026-10-28",
+    "dow": "Wed",
+    "count": 0,
+    "met": false,
+    "today": false
+   },
+   {
+    "date": "2026-10-29",
+    "dow": "Thu",
     "count": 0,
     "met": false,
     "today": true
