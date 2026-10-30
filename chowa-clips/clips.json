@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-30T04:12:16+00:00",
+ "generated": "2026-10-30T21:16:51+00:00",
  "clips": [
   {
    "id": "2026-10-29/bomb_leadasquad.mp4",
@@ -849,7 +849,7 @@
    "state": "yes",
    "media": "media/0279c42637d0.1080.mp4",
    "thumb": "media/thumbs/0279c42637d0.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-19/zomboid_toobusydying.mp4",
