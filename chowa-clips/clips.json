@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-30T00:17:56+00:00",
+ "generated": "2026-10-30T01:17:01+00:00",
  "clips": [
   {
    "id": "2026-10-29/bomb_leadasquad.mp4",
@@ -256,7 +256,7 @@
    "folder": "2026-10-25_b",
    "file": "valorant_twokills.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "did you see my two kills?",
    "caption": "two kills and she's telling the whole lobby 😤 #chowaobby #valorant #funny #twitchclips",
    "hashtags": "#chowaobby #valorant #funny #twitchclips",
@@ -269,7 +269,7 @@
    "feedback_at": "",
    "slug": "valoranttwokills",
    "dupes": [],
-   "updated_at": "2026-10-26T07:36:46-04:00",
+   "updated_at": "2026-10-29T20:21:44-04:00",
    "vid": "44ef8570ef0a",
    "state": "yes",
    "media": "media/44ef8570ef0a.1080.mp4",
@@ -281,7 +281,7 @@
    "folder": "2026-10-25",
    "file": "chat_peanuts.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "i'll just say peanuts",
    "caption": "when a cringe memory hits: PEANUTS 🥜😭 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #relatable #funny #streamer #twitchclips #shorts",
@@ -294,7 +294,7 @@
    "feedback_at": "",
    "slug": "chatpeanuts",
    "dupes": [],
-   "updated_at": "2026-10-26T07:36:46-04:00",
+   "updated_at": "2026-10-29T20:21:44-04:00",
    "vid": "60aeedbf35f7",
    "state": "yes",
    "media": "media/60aeedbf35f7.1080.mp4",
@@ -874,7 +874,7 @@
    "state": "yes",
    "media": "media/6a16f929af57.1080.mp4",
    "thumb": "media/thumbs/6a16f929af57.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-16_vods/fishing_consensus.mp4",
@@ -2337,11 +2337,11 @@
   "other"
  ],
  "last_action": {
-  "id": 318,
-  "clip_id": "2026-10-25/wobbly_magnet.mp4",
+  "id": 320,
+  "clip_id": "2026-10-25_b/valorant_twokills.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-29T18:17:39-04:00",
+  "ts": "2026-10-29T20:21:44-04:00",
   "undone": 0,
   "meta": ""
  }
