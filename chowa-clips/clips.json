@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-30T21:16:51+00:00",
+ "generated": "2026-10-30T23:21:02+00:00",
  "clips": [
   {
    "id": "2026-10-29/bomb_leadasquad.mp4",
@@ -356,7 +356,7 @@
    "folder": "2026-10-25",
    "file": "wobbly_jellyman.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "who the hell is the jelly man",
    "caption": "jelly delivery service, 1 star ⭐🍮 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #wobblylife #funny #gaming #coop #shorts",
@@ -369,7 +369,7 @@
    "feedback_at": "",
    "slug": "wobblyjellyman",
    "dupes": [],
-   "updated_at": "2026-10-26T07:36:48-04:00",
+   "updated_at": "2026-10-30T18:17:02-04:00",
    "vid": "f773e6dcb165",
    "state": "yes",
    "media": "media/f773e6dcb165.1080.mp4",
@@ -774,7 +774,7 @@
    "state": "yes",
    "media": "media/6e752a7c690b.1080.mp4",
    "thumb": "media/thumbs/6e752a7c690b.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-23/cooking_knower.mp4",
@@ -2337,11 +2337,11 @@
   "other"
  ],
  "last_action": {
-  "id": 320,
-  "clip_id": "2026-10-25_b/valorant_twokills.mp4",
+  "id": 321,
+  "clip_id": "2026-10-25/wobbly_jellyman.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-29T20:21:44-04:00",
+  "ts": "2026-10-30T18:17:02-04:00",
   "undone": 0,
   "meta": ""
  }
