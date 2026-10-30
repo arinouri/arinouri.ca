@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-29T22:18:33+00:00",
+ "generated": "2026-10-30T00:17:56+00:00",
  "clips": [
   {
    "id": "2026-10-29/bomb_leadasquad.mp4",
@@ -899,7 +899,7 @@
    "state": "yes",
    "media": "media/663f4d9bc2b8.1080.mp4",
    "thumb": "media/thumbs/663f4d9bc2b8.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-16/zomboid_tutorialroast.mp4",
@@ -924,7 +924,7 @@
    "state": "yes",
    "media": "media/ec3303a5bf87.1080.mp4",
    "thumb": "media/thumbs/ec3303a5bf87.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-16/zomboid_firestation.mp4",
