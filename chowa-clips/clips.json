@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-31T04:14:50+00:00",
+ "generated": "2026-10-31T20:11:59+00:00",
  "clips": [
   {
    "id": "2026-10-29/bomb_leadasquad.mp4",
@@ -674,7 +674,7 @@
    "state": "yes",
    "media": "media/4b733d89c538.1080.mp4",
    "thumb": "media/thumbs/4b733d89c538.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-23_progress/roblox_builtdifferent.mp4",
