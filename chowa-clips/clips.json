@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-31T00:18:19+00:00",
+ "generated": "2026-10-31T04:14:50+00:00",
  "clips": [
   {
    "id": "2026-10-29/bomb_leadasquad.mp4",
@@ -2205,7 +2205,7 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-10-30",
+  "today": "2026-10-31",
   "today_count": 0,
   "today_met": false,
   "current": 0,
@@ -2215,20 +2215,12 @@
   "days_to_reward": 7,
   "cycle_days": [
    {
-    "date": "2026-10-30",
-    "dow": "F",
-    "count": 0,
-    "met": false,
-    "today": true,
-    "future": false
-   },
-   {
     "date": "2026-10-31",
     "dow": "S",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-11-01",
@@ -2269,16 +2261,17 @@
     "met": false,
     "today": false,
     "future": true
+   },
+   {
+    "date": "2026-11-06",
+    "dow": "F",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
    }
   ],
   "last7": [
-   {
-    "date": "2026-10-24",
-    "dow": "Sat",
-    "count": 11,
-    "met": true,
-    "today": false
-   },
    {
     "date": "2026-10-25",
     "dow": "Sun",
@@ -2317,6 +2310,13 @@
    {
     "date": "2026-10-30",
     "dow": "Fri",
+    "count": 0,
+    "met": false,
+    "today": false
+   },
+   {
+    "date": "2026-10-31",
+    "dow": "Sat",
     "count": 0,
     "met": false,
     "today": true
