@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-30T23:21:02+00:00",
+ "generated": "2026-10-31T00:18:19+00:00",
  "clips": [
   {
    "id": "2026-10-29/bomb_leadasquad.mp4",
@@ -306,7 +306,7 @@
    "folder": "2026-10-25",
    "file": "valorant_level17.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "i literally just stood there and died the entire time",
    "caption": "level 17 and every level was a spectator level 👀 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #valorant #funny #gaming #storytime #shorts",
@@ -319,7 +319,7 @@
    "feedback_at": "",
    "slug": "valorantlevel17",
    "dupes": [],
-   "updated_at": "2026-10-26T07:36:47-04:00",
+   "updated_at": "2026-10-30T20:15:27-04:00",
    "vid": "eed4db9d5afc",
    "state": "yes",
    "media": "media/eed4db9d5afc.1080.mp4",
@@ -331,7 +331,7 @@
    "folder": "2026-10-25",
    "file": "wobbly_clown.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "i have one right next to me",
    "caption": "the clown was in the lobby the whole time 🤡 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #wobblylife #funny #gaming #coop #shorts",
@@ -344,7 +344,7 @@
    "feedback_at": "",
    "slug": "wobblyclown",
    "dupes": [],
-   "updated_at": "2026-10-26T07:36:47-04:00",
+   "updated_at": "2026-10-30T20:15:27-04:00",
    "vid": "a4ec8e712a59",
    "state": "yes",
    "media": "media/a4ec8e712a59.1080.mp4",
@@ -699,7 +699,7 @@
    "state": "yes",
    "media": "media/73a1d7e442af.1080.mp4",
    "thumb": "media/thumbs/73a1d7e442af.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-23_progress/gamble_quentinfollowers.mp4",
@@ -2337,11 +2337,11 @@
   "other"
  ],
  "last_action": {
-  "id": 321,
-  "clip_id": "2026-10-25/wobbly_jellyman.mp4",
+  "id": 323,
+  "clip_id": "2026-10-25/valorant_level17.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-10-30T18:17:02-04:00",
+  "ts": "2026-10-30T20:15:27-04:00",
   "undone": 0,
   "meta": ""
  }
