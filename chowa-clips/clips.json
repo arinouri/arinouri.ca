@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-01T03:20:14+00:00",
+ "generated": "2026-11-01T04:14:37+00:00",
  "clips": [
   {
    "id": "2026-10-31_volume3/pal_onlyoneviewer.mp4",
@@ -2505,9 +2505,9 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-10-31",
-  "today_count": 16,
-  "today_met": true,
+  "today": "2026-11-01",
+  "today_count": 0,
+  "today_met": false,
   "current": 1,
   "best": 2,
   "cycle_progress": 1,
@@ -2519,7 +2519,7 @@
     "dow": "S",
     "count": 16,
     "met": true,
-    "today": true,
+    "today": false,
     "future": false
    },
    {
@@ -2527,8 +2527,8 @@
     "dow": "S",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-11-02",
@@ -2573,13 +2573,6 @@
   ],
   "last7": [
    {
-    "date": "2026-10-25",
-    "dow": "Sun",
-    "count": 1,
-    "met": false,
-    "today": false
-   },
-   {
     "date": "2026-10-26",
     "dow": "Mon",
     "count": 11,
@@ -2619,6 +2612,13 @@
     "dow": "Sat",
     "count": 16,
     "met": true,
+    "today": false
+   },
+   {
+    "date": "2026-11-01",
+    "dow": "Sun",
+    "count": 0,
+    "met": false,
     "today": true
    }
   ],
