@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-01T04:14:37+00:00",
+ "generated": "2026-11-02T08:15:57+00:00",
  "clips": [
   {
    "id": "2026-10-31_volume3/pal_onlyoneviewer.mp4",
@@ -506,7 +506,7 @@
    "folder": "2026-10-29",
    "file": "trivia_noai.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "no one use ai",
    "caption": "",
    "hashtags": "#chowaobby #trivia #funny #twitchclips #gaming",
@@ -519,7 +519,7 @@
    "feedback_at": "",
    "slug": "trivianoai",
    "dupes": [],
-   "updated_at": "2026-10-31T22:45:32-04:00",
+   "updated_at": "2026-11-01T18:04:16-05:00",
    "vid": "4e9edcb91522",
    "state": "yes",
    "media": "media/4e9edcb91522.1080.mp4",
@@ -724,7 +724,7 @@
    "state": "yes",
    "media": "media/23997c66684f.1080.mp4",
    "thumb": "media/thumbs/23997c66684f.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-24/wobbly_alwaysbeenyou.mp4",
@@ -1099,7 +1099,7 @@
    "state": "yes",
    "media": "media/cc6cc00cbceb.1080.mp4",
    "thumb": "media/thumbs/cc6cc00cbceb.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-23/outro_fartthreat.mp4",
@@ -1124,7 +1124,7 @@
    "state": "yes",
    "media": "media/22a89b00a209.1080.mp4",
    "thumb": "media/thumbs/22a89b00a209.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-22_newvod/casino_playsmart.mp4",
@@ -2505,38 +2505,22 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-11-01",
+  "today": "2026-11-02",
   "today_count": 0,
   "today_met": false,
-  "current": 1,
+  "current": 0,
   "best": 2,
-  "cycle_progress": 1,
+  "cycle_progress": 0,
   "reward_days": 7,
-  "days_to_reward": 6,
+  "days_to_reward": 7,
   "cycle_days": [
-   {
-    "date": "2026-10-31",
-    "dow": "S",
-    "count": 16,
-    "met": true,
-    "today": false,
-    "future": false
-   },
-   {
-    "date": "2026-11-01",
-    "dow": "S",
-    "count": 0,
-    "met": false,
-    "today": true,
-    "future": false
-   },
    {
     "date": "2026-11-02",
     "dow": "M",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-11-03",
@@ -2569,16 +2553,25 @@
     "met": false,
     "today": false,
     "future": true
+   },
+   {
+    "date": "2026-11-07",
+    "dow": "S",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
+   },
+   {
+    "date": "2026-11-08",
+    "dow": "S",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
    }
   ],
   "last7": [
-   {
-    "date": "2026-10-26",
-    "dow": "Mon",
-    "count": 11,
-    "met": true,
-    "today": false
-   },
    {
     "date": "2026-10-27",
     "dow": "Tue",
@@ -2619,6 +2612,13 @@
     "dow": "Sun",
     "count": 0,
     "met": false,
+    "today": false
+   },
+   {
+    "date": "2026-11-02",
+    "dow": "Mon",
+    "count": 0,
+    "met": false,
     "today": true
    }
   ],
@@ -2637,12 +2637,12 @@
   "other"
  ],
  "last_action": {
-  "id": 339,
-  "clip_id": "2026-10-26/valorant_ratemyskills.mp4",
-  "prev_status": "pending",
-  "new_status": "rejected",
-  "ts": "2026-10-31T22:45:34-04:00",
+  "id": 340,
+  "clip_id": "2026-10-29/trivia_noai.mp4",
+  "prev_status": "approved",
+  "new_status": "posted",
+  "ts": "2026-11-01T18:04:16-05:00",
   "undone": 0,
-  "meta": "{\"reasons\": [], \"feedback\": \"\"}"
+  "meta": ""
  }
 }
