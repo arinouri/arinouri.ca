@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02T13:18:20+00:00",
+ "generated": "2026-11-02T23:19:49+00:00",
  "clips": [
   {
    "id": "2026-11-02/z1_weepysleepy.mp4",
@@ -974,7 +974,7 @@
    "state": "yes",
    "media": "media/8957b38e46c0.1080.mp4",
    "thumb": "media/thumbs/8957b38e46c0.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-24/wobbly_icecream.mp4",
