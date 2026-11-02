@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02T12:28:44+00:00",
+ "generated": "2026-11-02T13:18:20+00:00",
  "clips": [
   {
    "id": "2026-11-02/z1_weepysleepy.mp4",
@@ -1081,7 +1081,7 @@
    "folder": "2026-10-24",
    "file": "valorant_notevenhere.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "arian made me hop in this game and he's not even here",
    "caption": "the duo partner who disappeared 👻 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #valorant #funny #duo #twitchclips #shorts",
@@ -1094,7 +1094,7 @@
    "feedback_at": "",
    "slug": "valorantnotevenhere",
    "dupes": [],
-   "updated_at": "2026-10-24T16:42:30-04:00",
+   "updated_at": "2026-11-02T07:33:49-05:00",
    "vid": "a16f76235884",
    "state": "yes",
    "media": "media/a16f76235884.1080.mp4",
@@ -1106,7 +1106,7 @@
    "folder": "2026-10-24",
    "file": "valorant_toolittle.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "this is too little. i mean, too much",
    "caption": "she will never know if it was too little or too much 😭 #chowaobby on youtube, twitch and kick!",
    "hashtags": "#chowaobby #valorant #funny #gaming #firsttime #shorts",
@@ -1119,7 +1119,7 @@
    "feedback_at": "",
    "slug": "valoranttoolittle",
    "dupes": [],
-   "updated_at": "2026-10-24T16:42:31-04:00",
+   "updated_at": "2026-11-02T07:33:18-05:00",
    "vid": "fd683a45479e",
    "state": "yes",
    "media": "media/fd683a45479e.1080.mp4",
@@ -2837,11 +2837,11 @@
   "other"
  ],
  "last_action": {
-  "id": 340,
-  "clip_id": "2026-10-29/trivia_noai.mp4",
+  "id": 342,
+  "clip_id": "2026-10-24/valorant_notevenhere.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-11-01T18:04:16-05:00",
+  "ts": "2026-11-02T07:33:49-05:00",
   "undone": 0,
   "meta": ""
  }
