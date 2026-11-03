@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03T00:13:22+00:00",
+ "generated": "2026-11-03T02:13:52+00:00",
  "clips": [
   {
    "id": "2026-11-02/z1_weepysleepy.mp4",
@@ -949,7 +949,7 @@
    "state": "yes",
    "media": "media/9c53ad1d40b2.1080.mp4",
    "thumb": "media/thumbs/9c53ad1d40b2.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-24/wobbly_goodaim.mp4",
@@ -999,7 +999,7 @@
    "state": "yes",
    "media": "media/4b9961069dab.1080.mp4",
    "thumb": "media/thumbs/4b9961069dab.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-24/valorant_somanyrules.mp4",
