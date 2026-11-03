@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02T23:19:49+00:00",
+ "generated": "2026-11-03T00:13:22+00:00",
  "clips": [
   {
    "id": "2026-11-02/z1_weepysleepy.mp4",
@@ -731,7 +731,7 @@
    "folder": "2026-10-29",
    "file": "bomb_numberthree.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "why did you tell him three?",
    "caption": "",
    "hashtags": "#chowaobby #bombbanana #funny #twitchclips",
@@ -744,7 +744,7 @@
    "feedback_at": "",
    "slug": "bombnumberthree",
    "dupes": [],
-   "updated_at": "2026-10-31T22:45:32-04:00",
+   "updated_at": "2026-11-02T18:22:44-05:00",
    "vid": "7d51b284a97f",
    "state": "yes",
    "media": "media/7d51b284a97f.1080.mp4",
@@ -2837,11 +2837,11 @@
   "other"
  ],
  "last_action": {
-  "id": 342,
-  "clip_id": "2026-10-24/valorant_notevenhere.mp4",
+  "id": 343,
+  "clip_id": "2026-10-29/bomb_numberthree.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-11-02T07:33:49-05:00",
+  "ts": "2026-11-02T18:22:44-05:00",
   "undone": 0,
   "meta": ""
  }
