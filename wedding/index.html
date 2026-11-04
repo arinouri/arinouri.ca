@@ -79,9 +79,9 @@ video.hero-media.on{opacity:1}
 .hero-in{position:relative;z-index:2;padding-inline:20px;display:grid;gap:22px;justify-items:center;animation:rise 1.8s ease both}
 .hero .eyebrow{color:#14284B}
 .hero .when{color:#14284B;font-weight:500}
-.hero .names{text-shadow:0 1px 18px rgba(251,247,238,.55)}
+.hero .names{text-shadow:0 0 22px rgba(251,247,238,.75),0 0 6px rgba(251,247,238,.6)}
 .hero .when,.hero .eyebrow{text-shadow:0 0 12px rgba(251,247,238,.9),0 0 2px rgba(251,247,238,.9)}
-@media (max-width:760px){video.hero-media{object-position:18% 50%}}
+@media (max-width:760px){video.hero-media{object-position:62% 50%}}
 .names{font-size:clamp(3.2rem,11vw,8.5rem);font-style:italic;letter-spacing:-.01em;line-height:1}
 .names .amp{font-style:normal;font-size:.55em;vertical-align:.18em;margin-inline:.12em;opacity:.85}
 .when{font-size:.86rem;letter-spacing:.34em;text-transform:uppercase;font-weight:400}
@@ -381,11 +381,10 @@ td.hi,th.hi{background:color-mix(in srgb,var(--jade) 12%,transparent)}
 <!-- ================= HOME ================= -->
 <main id="view-home" data-view="home">
   <header class="hero">
-    <!-- Live shoreline: plays img/ocean.mp4 if you add one, otherwise the free Mixkit clip "Tropical beach with calm water" -->
-    <video class="hero-media" id="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
-      <source src="img/ocean.mp4" type="video/mp4">
-      <source src="https://assets.mixkit.co/videos/26166/26166-720.mp4" type="video/mp4">
-    </video>
+    <!-- Live beach: free Pexels clip "Sea view with palm tree leaves swinging in wind" (smaller file on phones) -->
+    <video class="hero-media" id="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true"
+      data-phone="https://videos.pexels.com/video-files/10455397/10455397-sd_960_444_30fps.mp4"
+      data-desktop="https://videos.pexels.com/video-files/10455397/10455397-hd_1366_632_30fps.mp4"></video>
     <div class="hero-in">
       <p class="eyebrow">Together with their families</p>
       <h1 class="names">Maral<span class="amp">&amp;</span>Armin</h1>
@@ -817,14 +816,15 @@ const RSVP = {
   cc: ""            /* add the travel agent's email here, e.g. "agent@example.com" */
 };
 
-/* ---- hero video: local ocean.mp4 first, then the Mixkit shoreline clip ---- */
+/* ---- hero video: phone or desktop size of the Pexels beach clip ---- */
 (function(){
   const v=document.getElementById("hero-video");
-  if(matchMedia("(prefers-reduced-motion: reduce)").matches){v.removeAttribute("autoplay");v.pause();}
-  const show=()=>{v.classList.add("on");if(!matchMedia("(prefers-reduced-motion: reduce)").matches)v.play().catch(()=>{});};
+  const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  v.src=matchMedia("(max-width:760px)").matches?v.dataset.phone:v.dataset.desktop;
+  const show=()=>{v.classList.add("on");if(!still)v.play().catch(()=>{});};
   v.addEventListener("loadeddata",show,{once:true});
-  if(v.readyState>=2)show();
-  const srcs=v.querySelectorAll("source");srcs[srcs.length-1].addEventListener("error",()=>v.remove());
+  v.addEventListener("error",()=>v.remove(),{once:true});
+  if(still){v.removeAttribute("autoplay");v.pause();}
 })();
 
 /* ---- views ---- */
