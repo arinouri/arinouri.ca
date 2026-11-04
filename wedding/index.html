@@ -75,13 +75,13 @@ a{color:inherit}
 img.hero-media{animation:drift 30s ease-in-out infinite alternate}
 video.hero-media{z-index:0;opacity:0;transition:opacity 1.2s ease}
 video.hero-media.on{opacity:1}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,247,238,.55),rgba(251,247,238,.12) 42%,rgba(251,247,238,0) 60%);z-index:1}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 38% at 50% 30%,rgba(251,247,238,.62),rgba(251,247,238,0) 100%),linear-gradient(180deg,rgba(251,247,238,.35),rgba(251,247,238,0) 55%);z-index:1}
 .hero-in{position:relative;z-index:2;padding-inline:20px;display:grid;gap:22px;justify-items:center;animation:rise 1.8s ease both}
 .hero .eyebrow{color:#14284B}
 .hero .when{color:#14284B;font-weight:500}
 .hero .names{text-shadow:0 0 22px rgba(251,247,238,.75),0 0 6px rgba(251,247,238,.6)}
 .hero .when,.hero .eyebrow{text-shadow:0 0 12px rgba(251,247,238,.9),0 0 2px rgba(251,247,238,.9)}
-@media (max-width:760px){video.hero-media{object-position:62% 50%}}
+@media (max-width:760px){video.hero-media{object-position:4% 50%}}
 .names{font-size:clamp(3.2rem,11vw,8.5rem);font-style:italic;letter-spacing:-.01em;line-height:1}
 .names .amp{font-style:normal;font-size:.55em;vertical-align:.18em;margin-inline:.12em;opacity:.85}
 .when{font-size:.86rem;letter-spacing:.34em;text-transform:uppercase;font-weight:400}
