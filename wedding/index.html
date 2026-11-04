@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Maral & Armin are getting married on November 25, 2027 at Grand Palladium Costa Mujeres, Mexico. Details, booking and RSVP.">
+<meta property="og:title" content="Maral & Armin · November 25, 2027">
+<meta property="og:description" content="Join us in Costa Mujeres, Mexico, November 22–27, 2027. Details, booking and RSVP.">
+<meta property="og:image" content="https://arinouri.ca/wedding/img/p02.jpg">
+<meta property="og:url" content="https://arinouri.ca/wedding/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' font-family='Georgia,serif' font-style='italic' fill='%233F7E70'%3EM%26A%3C/text%3E%3C/svg%3E">
+<title>Maral &amp; Armin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&family=Vazirmatn:wght@300;400;500;600&display=swap">
+<style>
+
+/* Layout: one cinematic ocean opener, then a quiet editorial column; each nav tab is its own view */
+:root{
+  --foam:#EEF3F1;      /* page ground, cool sea-foam white */
+  --paper:#F8FAF9;     /* raised surfaces: invite card, form */
+  --ink:#12333A;       /* deep lagoon text */
+  --muted:#5B7378;     /* secondary text */
+  --jade:#3F7E70;      /* accent, after the resort's name */
+  --sand:#CDBB9C;      /* hairlines, ornaments */
+  --line:#D5E0DD;
+  --onsea:#F4F8F7;     /* text over the ocean */
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Jost","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --wide:1120px; --text:640px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --foam:#0C1E22;--paper:#11292E;--ink:#E3ECEA;--muted:#9DB3B2;--jade:#7CC0AE;--sand:#9F8E70;--line:#22403F;--onsea:#F4F8F7;color-scheme:dark}}
+:root[data-theme="dark"]{--foam:#0C1E22;--paper:#11292E;--ink:#E3ECEA;--muted:#9DB3B2;--jade:#7CC0AE;--sand:#9F8E70;--line:#22403F;--onsea:#F4F8F7;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--foam);color:var(--ink);font-family:var(--body);font-weight:300;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--jade);outline-offset:3px}
+.eyebrow{font-size:.74rem;letter-spacing:.32em;text-transform:uppercase;font-weight:500;color:var(--jade)}
+.wrap{max-width:var(--wide);margin-inline:auto;padding-inline:20px}
+.btn{display:inline-flex;align-items:center;gap:.6em;font:500 .78rem/1 var(--body);letter-spacing:.24em;text-transform:uppercase;padding:1.1em 2em;border:1px solid currentColor;background:transparent;color:inherit;text-decoration:none;cursor:pointer;transition:background .3s,color .3s}
+.btn:hover{background:var(--ink);color:var(--foam);border-color:var(--ink)}
+.btn.solid{background:var(--jade);border-color:var(--jade);color:#fff}
+.btn.solid:hover{background:var(--ink);border-color:var(--ink);color:var(--foam)}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:20;padding-top:env(safe-area-inset-top,0px);transition:background .4s,color .4s,box-shadow .4s;color:var(--onsea)}
+.nav.solid{background:color-mix(in srgb,var(--foam) 92%,transparent);backdrop-filter:blur(10px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.mono{font-family:var(--display);font-style:italic;font-size:1.35rem;text-decoration:none;white-space:nowrap}
+.links{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.links a{text-decoration:none;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:400;padding:6px 0;border-bottom:1px solid transparent}
+.links a[aria-current="page"],.links a:hover{border-bottom-color:currentColor}
+.menu{display:none;background:none;border:0;color:inherit;font:500 .72rem var(--body);letter-spacing:.24em;text-transform:uppercase;cursor:pointer;padding:8px 0}
+@media (max-width:900px){
+  .menu{display:block}
+  .links{position:fixed;inset:0;top:0;flex-direction:column;align-items:center;justify-content:center;gap:26px;background:var(--foam);color:var(--ink);transform:translateY(-100%);transition:transform .45s ease;padding-top:env(safe-area-inset-top,0px)}
+  .links a{font-size:.9rem}
+  .links{visibility:hidden}
+  .nav.open .links{transform:none;visibility:visible}
+  .nav.open .menu{position:relative;z-index:2;color:var(--ink)}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:max(560px,100svh);overflow:hidden;color:var(--onsea);display:grid;align-items:start;justify-items:center;text-align:center;background:#3E7FA6}
+.hero-in{padding-top:clamp(120px,20svh,220px)}
+.hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 70%}
+img.hero-media{animation:drift 30s ease-in-out infinite alternate}
+video.hero-media{z-index:1}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,30,50,.38),rgba(8,30,50,.12) 45%,rgba(8,30,36,.25));z-index:1}
+.hero-in{position:relative;z-index:2;padding-inline:20px;display:grid;gap:22px;justify-items:center;animation:rise 1.8s ease both}
+.hero .eyebrow{color:var(--onsea);opacity:.9}
+.names{font-size:clamp(3.2rem,11vw,8.5rem);font-style:italic;letter-spacing:-.01em;line-height:1}
+.names .amp{font-style:normal;font-size:.55em;vertical-align:.18em;margin-inline:.12em;opacity:.85}
+.when{font-size:.86rem;letter-spacing:.34em;text-transform:uppercase;font-weight:400}
+.when span{display:inline-block;margin-inline:.9em;opacity:.6}
+.cue{position:absolute;bottom:calc(28px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);z-index:2;font-size:.68rem;letter-spacing:.32em;text-transform:uppercase;text-decoration:none;display:grid;justify-items:center;gap:12px}
+.cue i{width:1px;height:46px;background:linear-gradient(var(--onsea),transparent);animation:drip 2.4s ease-in-out infinite}
+@keyframes rise{from{opacity:.001;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes drip{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(72px,11vw,140px)}
+.story{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,90px);align-items:center}
+.story h2{font-size:clamp(2.2rem,4.6vw,3.6rem);margin-block:14px 26px}
+.story h2 em{color:var(--jade)}
+.story p+p{margin-top:1.1em}
+.story .copy{max-width:520px}
+.sig{font-family:var(--display);font-style:italic;font-size:1.3rem;margin-top:28px;color:var(--muted)}
+.photo{position:relative;aspect-ratio:4/5;max-width:100%;background:linear-gradient(160deg,#BCD3D3,#E6D9C2 70%,#D7C3A2);display:grid;place-items:center;overflow:hidden}
+.photo::before{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.7)}
+.photo span{position:relative;font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:#4A5F62;background:rgba(255,255,255,.65);padding:.7em 1.2em}
+.photo{margin:0}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo::before{z-index:1}
+.story.flip{grid-template-columns:minmax(0,6fr) minmax(0,5fr);margin-top:clamp(56px,8vw,110px)}
+.story.flip .photo{aspect-ratio:1/1}
+.timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-block:clamp(64px,9vw,110px) 0;border-top:1px solid var(--sand);padding-top:26px;gap:16px;text-align:center}
+.timeline div{display:grid;gap:4px}
+.timeline dt{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--jade);font-weight:500}
+.timeline dd{margin:0;font-family:var(--display);font-style:italic;font-size:1.3rem}
+@media (max-width:760px){.story,.story.flip{grid-template-columns:minmax(0,1fr)}.story.flip .photo{order:-1}.timeline{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}}
+
+/* invitation */
+.invite-band{background:linear-gradient(rgba(10,35,40,.25),rgba(10,35,40,.25)),url("img/p08.jpg") center 40%/cover}
+.invite{max-width:600px;margin-inline:auto;background:var(--paper);padding:clamp(40px,8vw,80px) clamp(24px,6vw,64px);text-align:center;position:relative;box-shadow:0 30px 60px -30px rgba(18,51,58,.35);display:grid;gap:22px;justify-items:center}
+.invite::before{content:"";position:absolute;inset:12px;border:1px solid var(--sand);pointer-events:none}
+.invite .small{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.invite h2{font-size:clamp(2.6rem,7vw,4rem);font-style:italic}
+.invite .rule{width:56px;height:1px;background:var(--sand)}
+.invite .place{font-family:var(--display);font-size:1.3rem;line-height:1.5}
+.invite .meta{font-size:.82rem;letter-spacing:.2em;text-transform:uppercase}
+
+/* sub pages */
+.page{padding-top:68px}
+.page-head{padding-block:clamp(70px,10vw,120px) clamp(40px,6vw,64px);text-align:center;display:grid;gap:18px;justify-items:center}
+.page-head h1{font-size:clamp(2.8rem,7vw,5rem);font-style:italic}
+.page-head p{max-width:var(--text);color:var(--muted)}
+.soon{display:inline-block;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;border:1px solid var(--sand);padding:.6em 1.2em;color:var(--muted)}
+.coming{max-width:760px;margin-inline:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.coming div{background:var(--foam);padding:28px 24px;display:grid;gap:6px}
+.coming h3{font-size:1.25rem}
+.coming p{font-size:.92rem;color:var(--muted);line-height:1.6}
+.center{text-align:center;margin-top:44px}
+.page section{padding-top:0}
+
+/* booking */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:28px;border-block:1px solid var(--line);padding-block:32px;max-width:900px;margin-inline:auto;text-align:center}
+.facts dt{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:6px 0 0;font-family:var(--display);font-size:1.35rem}
+.block{max-width:900px;margin:clamp(64px,9vw,110px) auto 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(24px,5vw,60px)}
+.block>header h2{font-size:clamp(1.9rem,3.4vw,2.5rem);margin-top:10px}
+.block>header p{color:var(--muted);font-size:.95rem;margin-top:14px}
+@media (max-width:760px){.block{grid-template-columns:minmax(0,1fr)}}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:26px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;counter-increment:s}
+.steps li::before{content:counter(s);font-family:var(--display);font-style:italic;font-size:1.8rem;line-height:1;color:var(--jade)}
+.steps b{font-weight:500;display:block;margin-bottom:2px}
+.steps p{color:var(--muted);font-size:.95rem}
+.table-x{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;min-width:420px}
+th,td{text-align:left;padding:15px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;color:var(--muted)}
+td.n,th.n{text-align:right;white-space:nowrap}
+td small{display:block;color:var(--muted);font-size:.82rem}
+tfoot td{border-bottom:0;font-weight:500}
+.tbd{color:var(--muted);font-style:italic}
+.secure{display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;margin-top:28px;padding:20px 22px;border:1px solid var(--jade);font-size:.92rem}
+.secure svg{width:24px;height:24px;stroke:var(--jade);fill:none;stroke-width:1.5}
+
+form{display:grid;grid-template-columns:1fr 1fr;gap:22px 20px;background:var(--paper);padding:clamp(24px,5vw,44px);border:1px solid var(--line)}
+.f{display:grid;gap:7px;min-width:0}
+.f.full{grid-column:1/-1}
+label,.legend{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--sand);padding:8px 2px;border-radius:0;width:100%}
+textarea{border:1px solid var(--sand);padding:10px;min-height:96px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--jade)}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 14px) 55%,calc(100% - 9px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+select option{background:var(--paper);color:var(--ink)}
+.choice{display:flex;flex-wrap:wrap;gap:10px}
+.choice label{display:flex;align-items:center;gap:10px;border:1px solid var(--sand);padding:12px 18px;cursor:pointer;letter-spacing:.14em;color:var(--ink);font-weight:400}
+.choice input{width:auto;accent-color:var(--jade)}
+.choice label:has(input:checked){border-color:var(--jade);background:color-mix(in srgb,var(--jade) 10%,transparent)}
+.err{color:#B4483A;font-size:.82rem;min-height:1em}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.form-foot p{font-size:.85rem;color:var(--muted);max-width:360px}
+@media (max-width:620px){form{grid-template-columns:minmax(0,1fr)}}
+.thanks{grid-column:1/-1;text-align:center;display:grid;gap:14px;justify-items:center;padding-block:30px}
+.thanks h3{font-size:2.2rem;font-style:italic}
+.thanks p{color:var(--muted);max-width:440px}
+.note{font-size:.8rem;border:1px dashed var(--sand);padding:10px 14px;color:var(--muted)}
+
+.gallery{columns:3 280px;column-gap:14px}
+.gallery button{display:block;width:100%;margin:0 0 14px;padding:0;border:0;background:var(--line);cursor:zoom-in;break-inside:avoid;overflow:hidden}
+.gallery img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;transition:transform .8s ease}
+.gallery button:nth-child(3n+2) img{aspect-ratio:4/5}
+.gallery button:hover img{transform:scale(1.04)}
+.lightbox{position:fixed;inset:0;z-index:40;background:rgba(6,20,24,.94);display:grid;grid-template-columns:56px minmax(0,1fr) 56px;align-items:center;padding:calc(56px + env(safe-area-inset-top,0px)) 8px calc(24px + env(safe-area-inset-bottom,0px))}
+.lightbox img{max-height:100%;max-width:100%;margin:auto;object-fit:contain}
+.lightbox button{background:none;border:0;color:#F4F8F7;cursor:pointer;font:300 2.6rem var(--display)}
+.lb-x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:18px;font:500 .72rem var(--body)!important;letter-spacing:.24em;text-transform:uppercase}
+footer{text-align:center;padding-block:70px 60px;border-top:1px solid var(--line);display:grid;gap:10px;justify-items:center}
+footer .mono{font-size:2rem}
+footer p{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@keyframes drift{from{transform:scale(1.02)}to{transform:scale(1.1) translateY(-1%)}}
+
+/* final-build additions */
+.lead-photo{position:relative;max-width:var(--wide);margin:0 auto clamp(56px,8vw,90px);aspect-ratio:21/9;overflow:hidden}
+.lead-photo img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:620px){.lead-photo{aspect-ratio:4/3}}
+.sec{max-width:900px;margin:clamp(64px,9vw,110px) auto 0}
+.sec:first-child{margin-top:0}
+.sec>header{display:grid;gap:10px;margin-bottom:28px}
+.sec>header h2{font-size:clamp(1.9rem,3.4vw,2.5rem)}
+.sec>header p{color:var(--muted);max-width:var(--text)}
+.list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 40px}
+.list div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding-block:14px;border-bottom:1px solid var(--line);align-items:baseline}
+.list b{font-weight:500}
+.list span{color:var(--muted);font-size:.9rem;text-align:right}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.cards>div{background:var(--foam);padding:26px 24px;display:grid;gap:8px;align-content:start}
+.cards h3{font-size:1.3rem}
+.cards p{font-size:.93rem;color:var(--muted);line-height:1.65}
+.cards .tag{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--jade);font-weight:500}
+.room{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,56px);align-items:start}
+.room ul{margin:14px 0 0;padding-left:1.1em;color:var(--muted);font-size:.95rem}
+.room ul li+li{margin-top:6px}
+@media (max-width:760px){.room{grid-template-columns:minmax(0,1fr)}}
+.days{list-style:none;margin:0;padding:0;display:grid}
+.days li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;padding-block:24px;border-bottom:1px solid var(--line)}
+.days li:first-child{border-top:1px solid var(--line)}
+.days time{display:grid;gap:2px}
+.days time b{font-family:var(--display);font-size:1.6rem;font-weight:400;line-height:1.1}
+.days time span{font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+.days h3{font-size:1.35rem;margin-bottom:4px}
+.days p{color:var(--muted);font-size:.95rem}
+.days li.big{background:color-mix(in srgb,var(--jade) 8%,transparent);padding-inline:18px;margin-inline:-18px}
+.days li.big h3{color:var(--jade);font-style:italic}
+@media (max-width:560px){.days li{grid-template-columns:minmax(0,1fr);gap:8px}}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-of-type{border-top:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding-block:20px;font-family:var(--display);font-size:1.2rem;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--body);font-weight:300;color:var(--jade);font-size:1.4rem;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding-bottom:22px;color:var(--muted);max-width:var(--text)}
+.contact{text-align:center;margin-top:56px;display:grid;gap:10px;justify-items:center}
+.contact .addr{font-family:var(--display);font-size:1.3rem;user-select:all;word-break:break-all}
+.copy-btn{font:500 .68rem var(--body);letter-spacing:.22em;text-transform:uppercase;background:none;border:1px solid var(--sand);color:var(--ink);padding:.7em 1.2em;cursor:pointer}
+.city{margin-top:30px}
+.city h3{font-size:1.25rem;margin-bottom:10px}
+td.hi,th.hi{background:color-mix(in srgb,var(--jade) 12%,transparent)}
+.price-note{font-size:.85rem;color:var(--muted);margin-top:10px;font-style:italic}
+.sending{opacity:.6;pointer-events:none}
+.form-err{grid-column:1/-1;border:1px solid #B4483A;padding:14px 16px;font-size:.9rem;display:grid;gap:6px}
+.form-err b{font-weight:500;color:#B4483A}
+.hp{position:absolute;inset-inline-start:0;top:0;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.mini-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:var(--wide);margin-inline:auto}
+.mini-gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+@media (max-width:520px){table{min-width:0;font-size:.86rem}th,td{padding:12px 5px}th{letter-spacing:.12em}}
+
+/* language switcher */
+.nav-in{gap:14px}
+.nav-in .mono{margin-inline-end:auto}
+.lang{position:relative;order:2}
+.links{order:1}.menu{order:3}
+.lang-btn{display:flex;align-items:center;gap:8px;background:transparent;color:inherit;border:1px solid currentColor;padding:7px 12px;font:500 .72rem var(--body);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.lang-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5}
+.lang-list{position:absolute;top:calc(100% + 8px);inset-inline-end:0;list-style:none;margin:0;padding:6px;background:var(--paper);color:var(--ink);border:1px solid var(--line);box-shadow:0 18px 40px -18px rgba(18,51,58,.4);min-width:170px;z-index:30}
+.lang-list button{display:block;width:100%;text-align:start;background:none;border:0;color:inherit;padding:10px 12px;font:400 1rem var(--body);cursor:pointer}
+.lang-list button[dir="rtl"]{font-family:"Vazirmatn",Tahoma,sans-serif;text-align:end}
+.lang-list button:hover,.lang-list button[aria-current="true"]{background:color-mix(in srgb,var(--jade) 12%,transparent);color:var(--jade)}
+@media (max-width:900px){.lang-btn{padding:6px 10px}.nav.open .lang{visibility:hidden}}
+/* right-to-left (Dari / Farsi) */
+:root[dir="rtl"]{--display:"Vazirmatn",Tahoma,sans-serif;--body:"Vazirmatn",Tahoma,sans-serif}
+[dir="rtl"] body{font-size:16px;line-height:1.95}
+[dir="rtl"] .eyebrow,[dir="rtl"] .links a,[dir="rtl"] .btn,[dir="rtl"] .when,[dir="rtl"] .cue,[dir="rtl"] label,[dir="rtl"] .legend,[dir="rtl"] th,[dir="rtl"] .facts dt,[dir="rtl"] .timeline dt,[dir="rtl"] .soon,[dir="rtl"] .invite .small,[dir="rtl"] .invite .meta,[dir="rtl"] .tag,[dir="rtl"] .days time span,[dir="rtl"] footer p,[dir="rtl"] .lang-btn,[dir="rtl"] .copy-btn,[dir="rtl"] .menu{letter-spacing:0;text-transform:none}
+[dir="rtl"] .eyebrow{font-size:.9rem}
+[dir="rtl"] .links a{font-size:.88rem}
+[dir="rtl"] .names,[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,[dir="rtl"] .invite h2,[dir="rtl"] .sig,[dir="rtl"] .timeline dd,[dir="rtl"] .days time b,[dir="rtl"] .facts dd{font-style:normal;font-weight:500;line-height:1.5}
+[dir="rtl"] .names{font-weight:600}
+[dir="rtl"] .names .amp{font-size:.6em;vertical-align:.15em;margin-inline:.3em}
+[dir="rtl"] .list span{text-align:left}
+[dir="rtl"] td,[dir="rtl"] th{text-align:right}
+[dir="rtl"] td.n,[dir="rtl"] th.n{text-align:left;direction:ltr}
+[dir="rtl"] select{background-position:14px 55%,9px 55%}
+[dir="rtl"] .lb-nav{transform:scaleX(-1)}
+[dir="rtl"] .addr{direction:ltr}
+</style>
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="mono" href="#home">M &amp; A</a>
+    <div class="lang" id="lang">
+      <button class="lang-btn" id="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Language"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span id="lang-cur">English</span></button>
+      <ul class="lang-list" id="lang-list" hidden>
+        <li><button type="button" data-lang="en" lang="en">English</button></li>
+        <li><button type="button" data-lang="fr" lang="fr">Français</button></li>
+        <li><button type="button" data-lang="uz" lang="uz">Oʻzbekcha</button></li>
+        <li><button type="button" data-lang="prs" lang="prs" dir="rtl">دری</button></li>
+        <li><button type="button" data-lang="fa" lang="fa" dir="rtl">فارسی</button></li>
+      </ul>
+    </div>
+    <button class="menu" id="menu" aria-expanded="false" aria-controls="links">Menu</button>
+    <ul class="links" id="links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#resort">Resort</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#dresscode">Dress Code</a></li>
+      <li><a href="#booking">Booking &amp; RSVP</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= HOME ================= -->
+<main id="view-home" data-view="home">
+  <header class="hero">
+    <img class="hero-media" src="img/p07.jpg" alt="">
+    <!-- Drop a clip named ocean.mp4 into the img folder and it plays here automatically -->
+    <video class="hero-media" id="hero-video" autoplay muted loop playsinline preload="auto" poster="img/p07.jpg" hidden>
+      <source src="img/ocean.mp4" type="video/mp4">
+    </video>
+    <div class="hero-in">
+      <p class="eyebrow">Together with their families</p>
+      <h1 class="names">Maral<span class="amp">&amp;</span>Armin</h1>
+      <p class="when"><span>November 25, 2027</span>·<span>Costa Mujeres, Mexico</span></p>
+    </div>
+    <a class="cue" href="#story">Scroll to discover<i></i></a>
+  </header>
+
+  <section id="story">
+    <div class="wrap story">
+      <figure class="photo tall"><img src="img/p02.jpg" alt="Armin on one knee proposing to Maral on the beach" style="object-position:58% 50%"></figure>
+      <div class="copy">
+        <p class="eyebrow">Our story</p>
+        <h2>A little bit of coincidence, or maybe <em>fate</em>.</h2>
+        <p>Maral and Armin's story began almost ten years ago at a lounge during an open mic night. Maral's friend knew one of the performers, who happened to be a friend of Armin's, and the two ended up sitting in the same area and talking that night.</p>
+        <p>A few days later, they crossed paths again completely unexpectedly. They both had separate plans that day, but at the last minute each changed their mind and somehow ended up at the same café at the same time. Looking back, it feels like one of those moments that was simply meant to happen. From that day on, they were inseparable.</p>
+      </div>
+    </div>
+    <div class="wrap story flip">
+      <div class="copy">
+        <p>Over the years, Maral and Armin have grown together and built a life side by side. They've been there for each other through moves, graduations, career changes, moving in together, difficult moments, happy ones, and everything in between. Through every new chapter, they've continued to choose each other.</p>
+        <p>In June 2026, nearly a decade after they first met, they took their first resort vacation together. On a beautiful beach, Armin asked Maral to marry him, and of course, she said yes.</p>
+        <p>Now their story is bringing them back to the beach, this time surrounded by the people they love most, as they say "I do" and begin the next chapter of their lives together.</p>
+        <p class="sig">With love, Maral &amp; Armin</p>
+      </div>
+      <figure class="photo"><img src="img/p03.jpg" alt="Maral showing her engagement ring beside Armin" style="object-position:58% 40%"></figure>
+    </div>
+    <dl class="wrap timeline">
+      <div><dt>A decade ago</dt><dd>Open mic night</dd></div>
+      <div><dt>Days later</dt><dd>The same café</dd></div>
+      <div><dt>June 2026</dt><dd>She said yes</dd></div>
+      <div><dt>Nov 25, 2027</dt><dd>"I do"</dd></div>
+    </dl>
+  </section>
+
+  <section class="invite-band">
+    <div class="wrap">
+      <div class="invite">
+        <p class="small">Together with their families<br>you are invited to celebrate the wedding of</p>
+        <h2>Maral &amp; Armin</h2>
+        <div class="rule"></div>
+        <p class="place">Thursday, November 25, 2027<br>Grand Palladium Costa Mujeres<br>Cancún, Mexico</p>
+        <p class="meta">Join us November 22 – 27 · Five nights</p>
+        <div class="rule"></div>
+        <a class="btn solid" href="#details">View wedding details</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= RESORT ================= -->
+<main class="page" id="view-resort" data-view="resort" hidden>
+  <div class="wrap page-head">
+    <p class="eyebrow">Where we're staying</p>
+    <h1>Grand Palladium Costa Mujeres</h1>
+    <p>An all-inclusive, five-star beachfront resort in Costa Mujeres, just north of Cancún and about 35 minutes from Cancún International Airport.</p>
+  </div>
+  <section class="wrap">
+    <div class="lead-photo"><img src="img/p08.jpg" alt="Palm trees framing the beach and turquoise water" style="object-position:50% 55%"></div>
+
+    <div class="sec">
+      <header><p class="eyebrow">At a glance</p><h2>The resort</h2></header>
+      <div class="list">
+        <div><b>Plan</b><span>All-inclusive</span></div>
+        <div><b>Location</b><span>Costa Mujeres, Cancún</span></div>
+        <div><b>From the airport</b><span>About 35 min</span></div>
+        <div><b>Beach</b><span>White sand, lifeguards</span></div>
+        <div><b>Restaurants</b><span>10+ incl. buffet</span></div>
+        <div><b>Spa</b><span>Zentropia Palladium Spa</span></div>
+      </div>
+    </div>
+
+    <div class="sec room">
+      <div>
+        <p class="eyebrow">Our group room</p>
+        <h2 style="font-size:clamp(1.9rem,3.4vw,2.5rem);margin-top:10px">Junior Suite<br>Garden / Lagoon View</h2>
+      </div>
+      <div>
+        <p>A modern suite overlooking the tropical gardens or the lagoon, with a furnished terrace to relax on between beach days.</p>
+        <ul>
+          <li>One king bed or two double beds (preference requested, not guaranteed)</li>
+          <li>Sleeps up to 4: 1 to 3 adults and up to 2 children</li>
+          <li>Air conditioning, minibar, Wi-Fi and 24-hour room service</li>
+        </ul>
+        <p style="margin-top:18px"><a class="btn" href="#booking">See prices</a></p>
+      </div>
+    </div>
+
+    <div class="sec">
+      <header><p class="eyebrow">Dining</p><h2>Restaurants</h2><p>All included in your stay. À la carte restaurants are dinner only, and some take reservations.</p></header>
+      <div class="list">
+        <div><b>Isla Blanca</b><span>International buffet</span></div>
+        <div><b>Portofino</b><span>Italian</span></div>
+        <div><b>El Dorado</b><span>Steakhouse</span></div>
+        <div><b>La Adelita</b><span>Mexican</span></div>
+        <div><b>Chang Thai</b><span>Thai</span></div>
+        <div><b>Sumptuori</b><span>Japanese teppanyaki</span></div>
+        <div><b>Boghali</b><span>Indian</span></div>
+        <div><b>Poseidón Beach Club</b><span>Lunch by the sea</span></div>
+        <div><b>Piacere</b><span>Coffee &amp; snacks</span></div>
+        <div><b>Chic Cabaret</b><span>Dinner show, extra fee</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <header><p class="eyebrow">Days by the water</p><h2>Pools, beach &amp; more</h2></header>
+      <div class="cards">
+        <div><span class="tag">Pools</span><h3>Pools &amp; swim-up bar</h3><p>A large main pool with the Splash swim-up bar, plus more pools around the resort and a shallow splash pool for kids.</p></div>
+        <div><span class="tag">Beach</span><h3>Beach</h3><p>A white-sand beach with lifeguards, loungers and the Poseidón Beach Club.</p></div>
+        <div><span class="tag">Bars</span><h3>Bars</h3><p>Lobby, pool and beach bars, the Xtra Time sports bar and the Eclipse sky bar.</p></div>
+        <div><span class="tag">Spa</span><h3>Zentropia Spa</h3><p>Hydrotherapy circuit, saunas, steam rooms and a gym. Massages and treatments cost extra.</p></div>
+        <div><span class="tag">Activities</span><h3>Things to do</h3><p>Yoga, kayaks, catamarans, snorkelling, tennis and paddle courts, plus live music and nightly shows.</p></div>
+        <div><span class="tag">Kids</span><h3>Kids &amp; teens clubs</h3><p>Baby Club (1–3), Kids Club (4–12) and Teens Club (13–18) keep younger guests busy.</p></div>
+      </div>
+      <p class="center"><a class="btn" href="https://www.palladiumhotelgroup.com/en/hotels/mexico/costamujerescancun/grand-palladium-select-costa-mujeres" target="_blank" rel="noopener">See photos on the resort website ↗</a></p>
+    </div>
+  </section>
+</main>
+
+<!-- ================= DETAILS ================= -->
+<main class="page" id="view-details" data-view="details" hidden>
+  <div class="wrap page-head">
+    <p class="eyebrow">The wedding trip</p>
+    <h1>Wedding Details</h1>
+    <p>Five nights in Mexico, one very special Thursday. Here's the overview of the whole trip.</p>
+  </div>
+  <section class="wrap">
+    <dl class="facts">
+      <div><dt>Wedding day</dt><dd>Thu, Nov 25, 2027</dd></div>
+      <div><dt>Trip dates</dt><dd>Nov 22 – 27</dd></div>
+      <div><dt>Resort</dt><dd>Grand Palladium</dd></div>
+      <div><dt>Fly into</dt><dd>Cancún (CUN)</dd></div>
+    </dl>
+
+    <div class="sec">
+      <header><p class="eyebrow">Itinerary</p><h2>The week at a glance</h2><p>Ceremony times and any group events will be added here as they're confirmed.</p></header>
+      <ol class="days">
+        <li><time><span>Monday</span><b>Nov 22</b></time><div><h3>Arrival</h3><p>Fly into Cancún, take the 35-minute transfer to the resort, check in and find the beach.</p></div></li>
+        <li><time><span>Tue – Wed</span><b>Nov 23 – 24</b></time><div><h3>Beach days</h3><p>Pools, spa, excursions or doing nothing at all. Group plans to be announced.</p></div></li>
+        <li class="big"><time><span>Thursday</span><b>Nov 25</b></time><div><h3>The wedding</h3><p>Ceremony and reception at the resort. Time and location on the property to come.</p></div></li>
+        <li><time><span>Friday</span><b>Nov 26</b></time><div><h3>Free day</h3><p>Rest, recover and enjoy one more day in the sun.</p></div></li>
+        <li><time><span>Saturday</span><b>Nov 27</b></time><div><h3>Departure</h3><p>Check out and head home.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="sec">
+      <header><p class="eyebrow">Getting there</p><h2>Travel</h2></header>
+      <div class="cards">
+        <div><span class="tag">Flights</span><h3>From Ottawa or Toronto</h3><p>Group packages are priced from both cities. Our travel agent books flights and your room together.</p></div>
+        <div><span class="tag">Arrival</span><h3>Cancún airport</h3><p>The resort is about 35 minutes north of Cancún International Airport (CUN).</p></div>
+        <div><span class="tag">Documents</span><h3>Passports</h3><p>Bring a valid passport. Check the expiry date well before you book.</p></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <header><p class="eyebrow">Mark your calendar</p><h2>Important dates</h2></header>
+      <div class="list">
+        <div><b>RSVP &amp; book by</b><span>August 27, 2027</span></div>
+        <div><b>Arrival</b><span>Monday, Nov 22, 2027</span></div>
+        <div><b>Wedding day</b><span>Thursday, Nov 25, 2027</span></div>
+        <div><b>Departure</b><span>Saturday, Nov 27, 2027</span></div>
+      </div>
+      <p class="center"><a class="btn solid" href="#booking">Booking &amp; RSVP</a></p>
+    </div>
+  </section>
+</main>
+
+<!-- ================= DRESS CODE ================= -->
+<main class="page" id="view-dresscode" data-view="dresscode" hidden>
+  <div class="wrap page-head">
+    <p class="eyebrow">What to wear</p>
+    <h1>Dress Code</h1>
+    <p>Beach formal for the wedding, resort wear for the rest of the week. Think light fabrics and shoes that can handle sand.</p>
+  </div>
+  <section class="wrap">
+    <div class="lead-photo"><img src="img/p06.jpg" alt="Maral and Armin toasting on the beach" style="object-position:50% 60%"></div>
+    <div class="sec">
+      <header><p class="eyebrow">Thursday, Nov 25</p><h2>The wedding: beach formal</h2></header>
+      <div class="cards">
+        <div><span class="tag">Ladies</span><h3>Flowing &amp; elegant</h3><p>Maxi or midi dresses and jumpsuits in light, breathable fabrics like chiffon, linen or silk. Please leave white and ivory to the bride.</p></div>
+        <div><span class="tag">Gentlemen</span><h3>Light &amp; tailored</h3><p>Linen or cotton dress shirts with chinos or linen trousers. A light suit is welcome; ties are optional.</p></div>
+        <div><span class="tag">Shoes</span><h3>Sand-friendly</h3><p>Wedges, block heels or dressy flat sandals. Leave the stilettos at home.</p></div>
+      </div>
+    </div>
+    <div class="sec">
+      <header><p class="eyebrow">The rest of the week</p><h2>Around the resort</h2></header>
+      <div class="cards">
+        <div><span class="tag">Daytime</span><h3>Resort casual</h3><p>Swimwear by the pool and beach, with a cover-up for the buffet and bars.</p></div>
+        <div><span class="tag">Evenings</span><h3>Dinner dress code</h3><p>For à la carte dinners, men need sleeved shirts and long pants or dressy shorts. Sundresses and casual dresses are perfect for women.</p></div>
+        <div><span class="tag">Pack</span><h3>Don't forget</h3><p>Sunscreen, sunglasses, a light layer for air-conditioned rooms and evenings.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= GALLERY ================= -->
+<main class="page" id="view-gallery" data-view="gallery" hidden>
+  <div class="wrap page-head">
+    <p class="eyebrow">Our engagement</p>
+    <h1>Gallery</h1>
+    <p>The day Armin asked, on the beach in June 2026.</p>
+  </div>
+  <section class="wrap">
+    <div class="gallery" id="gallery-grid">
+      <button data-i="0"><img loading="lazy" src="img/p01.jpg" alt="Maral walking toward Armin and the rose circle"></button>
+      <button data-i="1"><img loading="lazy" src="img/p02.jpg" alt="Armin proposing on one knee"></button>
+      <button data-i="2"><img loading="lazy" src="img/p03.jpg" alt="Maral showing her ring"></button>
+      <button data-i="3"><img loading="lazy" src="img/p04.jpg" alt="Popping champagne under the palms"></button>
+      <button data-i="4"><img loading="lazy" src="img/p05.jpg" alt="Champagne spray and laughter"></button>
+      <button data-i="5"><img loading="lazy" src="img/p06.jpg" alt="A toast on the beach"></button>
+      <button data-i="6"><img loading="lazy" src="img/p07.jpg" alt="Looking back from the water's edge"></button>
+      <button data-i="7"><img loading="lazy" src="img/p08.jpg" alt="Between two palms in the rose circle"></button>
+      <button data-i="8"><img loading="lazy" src="img/p09.jpg" alt="Holding hands after the yes"></button>
+      <button data-i="9"><img loading="lazy" src="img/p10.jpg" alt="Armin lifting Maral in the rose circle"></button>
+    </div>
+  </section>
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lb-x" id="lb-x" aria-label="Close">Close</button>
+    <button class="lb-nav" id="lb-prev" aria-label="Previous photo">‹</button>
+    <img id="lb-img" alt="">
+    <button class="lb-nav" id="lb-next" aria-label="Next photo">›</button>
+  </div>
+</main>
+
+<!-- ================= FAQ ================= -->
+<main class="page" id="view-faq" data-view="faq" hidden>
+  <div class="wrap page-head">
+    <p class="eyebrow">Good to know</p>
+    <h1>Questions &amp; Answers</h1>
+  </div>
+  <section class="wrap">
+    <div class="sec faq">
+      <details><summary>When is the wedding?</summary><p>Thursday, November 25, 2027. The group stay runs five nights, arriving Monday, November 22 and leaving Saturday, November 27.</p></details>
+      <details><summary>How do I book?</summary><p>Send your RSVP on the Booking &amp; RSVP page. Our travel agent will contact you to confirm your room and flights and take your deposit securely.</p></details>
+      <details><summary>Why should I book through the travel agent?</summary><p>Booking with the group gets you our group rate and keeps everyone together on the same dates, so we can plan events around you.</p></details>
+      <details><summary>Can I arrive early or stay longer?</summary><p>Ask the travel agent when they contact you. They can quote different dates or a different departure city.</p></details>
+      <details><summary>What's included at the resort?</summary><p>It's all-inclusive: meals, drinks, the à la carte restaurants, pools, beach and most activities. Spa treatments, the Chic Cabaret dinner show and some excursions cost extra.</p></details>
+      <details><summary>Do I need a passport?</summary><p>Yes. Bring a valid passport and check its expiry date before you book. Make sure the name on your booking matches your passport exactly.</p></details>
+      <details><summary>What's the weather like in late November?</summary><p>Warm and sunny, usually in the high 20s °C during the day and comfortable in the evenings.</p></details>
+      <details><summary>Are children's rates available?</summary><p>Yes. Child and teen rates are listed on the Booking &amp; RSVP page, and the resort has clubs for babies, kids and teens.</p></details>
+      <details><summary>Should I get travel insurance?</summary><p>We recommend it. Your travel agent can help you pick a plan.</p></details>
+    </div>
+    <div class="contact">
+      <p class="eyebrow">Still have a question?</p>
+      <p>Email Maral at</p>
+      <p class="addr" id="addr">Maral.iriken@gmail.com</p>
+      <button class="copy-btn" id="copy-addr" type="button">Copy email</button>
+    </div>
+  </section>
+</main>
+
+<!-- ================= BOOKING ================= -->
+<main class="page" id="view-booking" data-view="booking" hidden>
+  <div class="wrap page-head">
+    <p class="eyebrow">Join us on the beach</p>
+    <h1>Booking &amp; RSVP</h1>
+    <p>We've arranged a group rate at Grand Palladium Costa Mujeres through our travel agent. Here's what it costs, how booking works, and the form to let us know you're coming.</p>
+  </div>
+
+  <section class="wrap">
+    <dl class="facts">
+      <div><dt>Dates</dt><dd>Nov 22 – 27, 2027</dd></div>
+      <div><dt>Stay</dt><dd>5 nights</dd></div>
+      <div><dt>Plan</dt><dd>All-inclusive</dd></div>
+      <div><dt>RSVP by</dt><dd>Aug 27, 2027</dd></div>
+    </dl>
+
+    <div class="block">
+      <header>
+        <p class="eyebrow">How it works</p>
+        <h2>Booking in four steps</h2>
+      </header>
+      <ol class="steps">
+        <li><div><b>Send your RSVP</b><p>Fill in the form below with who's coming and where you're flying from.</p></div></li>
+        <li><div><b>Our travel agent contacts you</b><p>They'll confirm your room and flights, answer questions and send your quote.</p></div></li>
+        <li><div><b>Pay your deposit securely</b><p>The agent sends a secure payment link or takes it over the phone.</p></div></li>
+        <li><div><b>Pay the balance and pack</b><p>Final payment is due before the trip. Then it's beach time.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="block">
+      <header>
+        <p class="eyebrow">Cost breakdown</p>
+        <h2>Junior Suite Garden / Lagoon View</h2>
+        <p>Per person, in Canadian dollars, for the full five-night stay, by departure city. Most couples book double occupancy (highlighted).</p>
+      </header>
+      <div>
+        <div class="city">
+          <h3>Departing Ottawa</h3>
+          <div class="table-x">
+            <table>
+              <thead><tr><th>Occupancy</th><th class="n">Base</th><th class="n">Taxes</th><th class="n">Total</th></tr></thead>
+              <tbody>
+                <tr><td>Single</td><td class="n">$2,402.00</td><td class="n">$587.15</td><td class="n">$2,989.15</td></tr>
+                <tr class="hi-row"><td class="hi">Double</td><td class="n hi">$1,850.00</td><td class="n hi">$587.15</td><td class="n hi"><b>$2,437.15</b></td></tr>
+                <tr><td>Triple</td><td class="n">$1,777.00</td><td class="n">$587.15</td><td class="n">$2,364.15</td></tr>
+                <tr><td>Child<small>Age 2</small></td><td class="n">$747.00</td><td class="n">$587.15</td><td class="n">$1,334.15</td></tr>
+                <tr><td>1st &amp; 2nd child<small>Ages 3–12</small></td><td class="n">$1,298.00</td><td class="n">$587.15</td><td class="n">$1,885.15</td></tr>
+                <tr><td>1st &amp; 2nd teen<small>Ages 13–17</small></td><td class="n">$1,629.00</td><td class="n">$587.15</td><td class="n">$2,216.15</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="city">
+          <h3>Departing Toronto</h3>
+          <div class="table-x">
+            <table>
+              <thead><tr><th>Occupancy</th><th class="n">Base</th><th class="n">Taxes</th><th class="n">Total</th></tr></thead>
+              <tbody>
+                <tr><td>Single</td><td class="n">$2,382.00</td><td class="n">$587.15</td><td class="n">$2,969.15</td></tr>
+                <tr><td class="hi">Double</td><td class="n hi">$1,830.00</td><td class="n hi">$587.15</td><td class="n hi"><b>$2,417.15</b></td></tr>
+                <tr><td>Triple</td><td class="n">$1,757.00</td><td class="n">$587.15</td><td class="n">$2,344.15</td></tr>
+                <tr><td>Child<small>Age 2</small></td><td class="n">$727.00</td><td class="n">$587.15</td><td class="n">$1,314.15</td></tr>
+                <tr><td>1st &amp; 2nd child<small>Ages 3–12</small></td><td class="n">$1,278.00</td><td class="n">$587.15</td><td class="n">$1,865.15</td></tr>
+                <tr><td>1st &amp; 2nd teen<small>Ages 13–17</small></td><td class="n">$1,609.00</td><td class="n">$587.15</td><td class="n">$2,196.15</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="price-note">Prices are per person in CAD. Other room categories and deposit details are available from the travel agent.</p>
+        <div class="secure">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="1"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          <p><b style="font-weight:500">We never ask for card details on this website.</b> Payments go straight to our travel agent through their secure payment link or over the phone, so your information stays protected.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block" id="rsvp">
+      <header>
+        <p class="eyebrow">RSVP</p>
+        <h2>Will you join us?</h2>
+        <p>Please reply by August 27, 2027. Your RSVP goes to Maral and our travel agent, who will reach out to finish your booking.</p>
+      </header>
+      <form id="rsvp-form" novalidate>
+        <div class="hp" aria-hidden="true"><label for="r-honey">Leave empty</label><input id="r-honey" name="_honey" tabindex="-1" autocomplete="off"></div>
+        <div class="f"><label for="r-name">Full name</label><input id="r-name" name="name" autocomplete="name" required><span class="err" data-for="r-name"></span></div>
+        <div class="f"><label for="r-email">Email</label><input id="r-email" name="email" type="email" autocomplete="email" required><span class="err" data-for="r-email"></span></div>
+        <div class="f full"><label for="r-phone">Phone</label><input id="r-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="f full"><span class="legend" id="att-l">Attending</span>
+          <div class="choice" role="radiogroup" aria-labelledby="att-l">
+            <label><input type="radio" name="attending" id="r-yes" value="Joyfully accepts" checked> Joyfully accepts</label>
+            <label><input type="radio" name="attending" id="r-no" value="Regretfully declines"> Regretfully declines</label>
+          </div></div>
+        <div class="f" data-yes><label for="r-city">Departing from</label>
+          <select id="r-city" name="departure"><option value="Ottawa">Ottawa</option><option value="Toronto">Toronto</option><option value="Other / booking my own flight">Other / booking my own flight</option></select></div>
+        <div class="f" data-yes><label for="r-occ">Room occupancy</label>
+          <select id="r-occ" name="occupancy"><option value="Double (2 adults)">Double (2 adults)</option><option value="Single (1 adult)">Single (1 adult)</option><option value="Triple (3 adults)">Triple (3 adults)</option><option value="Family with children">Family with children</option></select></div>
+        <div class="f" data-yes><label for="r-adults">Adults</label>
+          <select id="r-adults" name="adults"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option></select></div>
+        <div class="f" data-yes><label for="r-kids">Children &amp; ages</label><input id="r-kids" name="children" placeholder="e.g. 2 kids, ages 5 and 14"></div>
+        <div class="f full"><label for="r-party">Full names of everyone in your party</label><input id="r-party" name="party" placeholder="As they appear on passports"></div>
+        <div class="f full"><label for="r-notes">Dietary needs or questions</label><textarea id="r-notes" name="notes"></textarea></div>
+        <div class="form-foot">
+          <p id="foot-note">Please don't include card numbers here. The travel agent will send you a secure way to pay.</p>
+          <button class="btn solid" type="submit" id="r-submit">Send RSVP</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a class="mono" href="#home">M &amp; A</a>
+  <p>November 25, 2027 · Costa Mujeres, Mexico</p>
+</footer>
+
+<script>
+/* ---- languages ---- */
+const I18N={"fr":{"t":{"Menu":"Menu","Home":"Accueil","Resort":"Hôtel","Details":"Détails","Dress Code":"Tenue","Booking & RSVP":"Réservation & RSVP","Gallery":"Galerie","FAQ":"FAQ","Together with their families":"Avec leurs familles","November 25, 2027":"25 novembre 2027","Costa Mujeres, Mexico":"Costa Mujeres, Mexique","Scroll to discover":"Défiler pour découvrir","Armin on one knee proposing to Maral on the beach":"Armin, un genou à terre, demande Maral en mariage sur la plage","Our story":"Notre histoire","A little bit of coincidence, or maybe":"Un peu de hasard, ou peut-être le ","fate":"destin","Maral and Armin's story began almost ten years ago at a lounge during an open mic night. Maral's friend knew one of the performers, who happened to be a friend of Armin's, and the two ended up sitting in the same area and talking that night.":"L'histoire de Maral et Armin a commencé il y a presque dix ans, dans un lounge, lors d'une soirée micro ouvert. Une amie de Maral connaissait l'un des artistes, qui était justement un ami d'Armin, et tous deux se sont retrouvés assis au même endroit à discuter toute la soirée.","A few days later, they crossed paths again completely unexpectedly. They both had separate plans that day, but at the last minute each changed their mind and somehow ended up at the same café at the same time. Looking back, it feels like one of those moments that was simply meant to happen. From that day on, they were inseparable.":"Quelques jours plus tard, leurs chemins se sont croisés à nouveau, de façon totalement inattendue. Ils avaient chacun d'autres projets ce jour-là, mais à la dernière minute, chacun a changé d'avis et ils se sont retrouvés dans le même café, au même moment. Avec le recul, c'était l'un de ces moments qui devaient simplement arriver. Depuis ce jour, ils sont inséparables.","Over the years, Maral and Armin have grown together and built a life side by side. They've been there for each other through moves, graduations, career changes, moving in together, difficult moments, happy ones, and everything in between. Through every new chapter, they've continued to choose each other.":"Au fil des années, Maral et Armin ont grandi ensemble et bâti une vie côte à côte. Ils ont été là l'un pour l'autre à travers les déménagements, les remises de diplômes, les changements de carrière, leur installation ensemble, les moments difficiles, les moments heureux et tout ce qu'il y a entre les deux. À chaque nouveau chapitre, ils ont continué à se choisir.","In June 2026, nearly a decade after they first met, they took their first resort vacation together. On a beautiful beach, Armin asked Maral to marry him, and of course, she said yes.":"En juin 2026, près de dix ans après leur rencontre, ils ont fait leurs premières vacances ensemble dans un complexe hôtelier. Sur une magnifique plage, Armin a demandé Maral en mariage et, bien sûr, elle a dit oui.","Now their story is bringing them back to the beach, this time surrounded by the people they love most, as they say \"I do\" and begin the next chapter of their lives together.":"Aujourd'hui, leur histoire les ramène à la plage, cette fois entourés des personnes qu'ils aiment le plus, pour se dire « oui » et commencer ensemble le prochain chapitre de leur vie.","With love, Maral & Armin":"Avec amour, Maral & Armin","Maral showing her engagement ring beside Armin":"Maral montre sa bague de fiançailles à côté d'Armin","A decade ago":"Il y a dix ans","Open mic night":"Soirée micro ouvert","Days later":"Quelques jours plus tard","The same café":"Le même café","June 2026":"Juin 2026","She said yes":"Elle a dit oui","Nov 25, 2027":"25 nov. 2027","\"I do\"":"« Oui »","you are invited to celebrate the wedding of":"vous invitent à célébrer le mariage de","Thursday, November 25, 2027":"Jeudi 25 novembre 2027","Cancún, Mexico":"Cancún, Mexique","Join us November 22 – 27 · Five nights":"Rejoignez-nous du 22 au 27 novembre · Cinq nuits","View wedding details":"Voir les détails du mariage","Where we're staying":"Notre hôtel","An all-inclusive, five-star beachfront resort in Costa Mujeres, just north of Cancún and about 35 minutes from Cancún International Airport.":"Un complexe tout compris cinq étoiles en bord de mer à Costa Mujeres, juste au nord de Cancún, à environ 35 minutes de l'aéroport international de Cancún.","Palm trees framing the beach and turquoise water":"Des palmiers encadrent la plage et l'eau turquoise","At a glance":"En bref","The resort":"L'hôtel","Plan":"Formule","All-inclusive":"Tout compris","Location":"Emplacement","From the airport":"Depuis l'aéroport","About 35 min":"Environ 35 min","Beach":"Plage","White sand, lifeguards":"Sable blanc, sauveteurs","Restaurants":"Restaurants","10+ incl. buffet":"Plus de 10, buffet inclus","Spa":"Spa","Our group room":"Notre chambre de groupe","Junior Suite":"Suite junior","Garden / Lagoon View":"Vue jardin / lagune","A modern suite overlooking the tropical gardens or the lagoon, with a furnished terrace to relax on between beach days.":"Une suite moderne donnant sur les jardins tropicaux ou la lagune, avec une terrasse meublée pour se détendre entre deux journées de plage.","One king bed or two double beds (preference requested, not guaranteed)":"Un lit king ou deux lits doubles (selon les préférences, sans garantie)","Sleeps up to 4: 1 to 3 adults and up to 2 children":"Jusqu'à 4 personnes : 1 à 3 adultes et jusqu'à 2 enfants","Air conditioning, minibar, Wi-Fi and 24-hour room service":"Climatisation, minibar, Wi-Fi et service en chambre 24 h/24","See prices":"Voir les prix","Dining":"Restauration","All included in your stay. À la carte restaurants are dinner only, and some take reservations.":"Tout est inclus dans votre séjour. Les restaurants à la carte sont ouverts le soir seulement, et certains demandent une réservation.","International buffet":"Buffet international","Italian":"Italien","Steakhouse":"Grillades","Mexican":"Mexicain","Thai":"Thaïlandais","Japanese teppanyaki":"Teppanyaki japonais","Indian":"Indien","Lunch by the sea":"Déjeuner face à la mer","Coffee & snacks":"Café & collations","Dinner show, extra fee":"Dîner-spectacle, en supplément","Days by the water":"Au bord de l'eau","Pools, beach & more":"Piscines, plage & plus","Pools":"Piscines","Pools & swim-up bar":"Piscines & bar dans l'eau","A large main pool with the Splash swim-up bar, plus more pools around the resort and a shallow splash pool for kids.":"Une grande piscine principale avec le bar Splash dans l'eau, d'autres piscines dans le complexe et une pataugeoire pour les enfants.","A white-sand beach with lifeguards, loungers and the Poseidón Beach Club.":"Une plage de sable blanc avec sauveteurs, chaises longues et le Poseidón Beach Club.","Bars":"Bars","Lobby, pool and beach bars, the Xtra Time sports bar and the Eclipse sky bar.":"Bars du lobby, de la piscine et de la plage, le bar sportif Xtra Time et le bar panoramique Eclipse.","Hydrotherapy circuit, saunas, steam rooms and a gym. Massages and treatments cost extra.":"Circuit d'hydrothérapie, saunas, hammams et salle de sport. Massages et soins en supplément.","Activities":"Activités","Things to do":"À faire","Yoga, kayaks, catamarans, snorkelling, tennis and paddle courts, plus live music and nightly shows.":"Yoga, kayak, catamaran, plongée en apnée, tennis et padel, ainsi que musique live et spectacles chaque soir.","Kids":"Enfants","Kids & teens clubs":"Clubs enfants & ados","Baby Club (1–3), Kids Club (4–12) and Teens Club (13–18) keep younger guests busy.":"Le Baby Club (1–3 ans), le Kids Club (4–12 ans) et le Teens Club (13–18 ans) occupent les plus jeunes.","See photos on the resort website ↗":"Voir les photos sur le site de l'hôtel ↗","The wedding trip":"Le voyage de mariage","Wedding Details":"Détails du mariage","Five nights in Mexico, one very special Thursday. Here's the overview of the whole trip.":"Cinq nuits au Mexique, un jeudi très spécial. Voici l'aperçu de tout le voyage.","Wedding day":"Jour du mariage","Thu, Nov 25, 2027":"Jeu. 25 nov. 2027","Trip dates":"Dates du voyage","Nov 22 – 27":"22 – 27 nov.","Fly into":"Arrivée à","Itinerary":"Programme","The week at a glance":"La semaine en un coup d'œil","Ceremony times and any group events will be added here as they're confirmed.":"Les horaires de la cérémonie et les activités de groupe seront ajoutés dès qu'ils seront confirmés.","Monday":"Lundi","Nov 22":"22 nov.","Arrival":"Arrivée","Fly into Cancún, take the 35-minute transfer to the resort, check in and find the beach.":"Vol vers Cancún, transfert de 35 minutes jusqu'à l'hôtel, enregistrement, puis direction la plage.","Tue – Wed":"Mar. – mer.","Nov 23 – 24":"23 – 24 nov.","Beach days":"Journées plage","Pools, spa, excursions or doing nothing at all. Group plans to be announced.":"Piscines, spa, excursions ou simplement ne rien faire. Activités de groupe à venir.","Thursday":"Jeudi","Nov 25":"25 nov.","The wedding":"Le mariage","Ceremony and reception at the resort. Time and location on the property to come.":"Cérémonie et réception à l'hôtel. Heure et lieu exact à venir.","Friday":"Vendredi","Nov 26":"26 nov.","Free day":"Journée libre","Rest, recover and enjoy one more day in the sun.":"Reposez-vous et profitez d'une journée de plus au soleil.","Saturday":"Samedi","Nov 27":"27 nov.","Departure":"Départ","Check out and head home.":"Départ de l'hôtel et retour à la maison.","Getting there":"Comment s'y rendre","Travel":"Voyage","Flights":"Vols","From Ottawa or Toronto":"Depuis Ottawa ou Toronto","Group packages are priced from both cities. Our travel agent books flights and your room together.":"Les forfaits de groupe sont proposés au départ des deux villes. Notre agence de voyages réserve vos vols et votre chambre ensemble.","Cancún airport":"Aéroport de Cancún","The resort is about 35 minutes north of Cancún International Airport (CUN).":"L'hôtel se trouve à environ 35 minutes au nord de l'aéroport international de Cancún (CUN).","Documents":"Documents","Passports":"Passeports","Bring a valid passport. Check the expiry date well before you book.":"Apportez un passeport valide. Vérifiez sa date d'expiration bien avant de réserver.","Mark your calendar":"À noter","Important dates":"Dates importantes","RSVP & book by":"RSVP et réservation avant le","August 27, 2027":"27 août 2027","Monday, Nov 22, 2027":"Lundi 22 nov. 2027","Thursday, Nov 25, 2027":"Jeudi 25 nov. 2027","Saturday, Nov 27, 2027":"Samedi 27 nov. 2027","What to wear":"Quoi porter","Beach formal for the wedding, resort wear for the rest of the week. Think light fabrics and shoes that can handle sand.":"Chic de plage pour le mariage, tenue de vacances le reste de la semaine. Pensez à des tissus légers et à des chaussures adaptées au sable.","Maral and Armin toasting on the beach":"Maral et Armin trinquent sur la plage","Thursday, Nov 25":"Jeudi 25 nov.","The wedding: beach formal":"Le mariage : chic de plage","Ladies":"Mesdames","Flowing & elegant":"Fluide & élégant","Maxi or midi dresses and jumpsuits in light, breathable fabrics like chiffon, linen or silk. Please leave white and ivory to the bride.":"Robes longues ou mi-longues et combinaisons en tissus légers et respirants comme la mousseline, le lin ou la soie. Merci de laisser le blanc et l'ivoire à la mariée.","Gentlemen":"Messieurs","Light & tailored":"Léger & ajusté","Linen or cotton dress shirts with chinos or linen trousers. A light suit is welcome; ties are optional.":"Chemise en lin ou en coton avec un chino ou un pantalon en lin. Un costume léger est bienvenu ; la cravate est facultative.","Shoes":"Chaussures","Sand-friendly":"Adaptées au sable","Wedges, block heels or dressy flat sandals. Leave the stilettos at home.":"Compensées, talons larges ou sandales plates habillées. Laissez les talons aiguilles à la maison.","The rest of the week":"Le reste de la semaine","Around the resort":"À l'hôtel","Daytime":"En journée","Resort casual":"Décontracté","Swimwear by the pool and beach, with a cover-up for the buffet and bars.":"Maillot de bain à la piscine et à la plage, avec un paréo ou une tenue légère pour le buffet et les bars.","Evenings":"En soirée","Dinner dress code":"Code vestimentaire du soir","For à la carte dinners, men need sleeved shirts and long pants or dressy shorts. Sundresses and casual dresses are perfect for women.":"Pour les dîners à la carte, les hommes doivent porter une chemise à manches et un pantalon long ou un bermuda habillé. Les robes d'été et robes décontractées sont parfaites pour les femmes.","Pack":"Valise","Don't forget":"À ne pas oublier","Sunscreen, sunglasses, a light layer for air-conditioned rooms and evenings.":"Crème solaire, lunettes de soleil, et une petite couche pour les chambres climatisées et les soirées.","Our engagement":"Nos fiançailles","The day Armin asked, on the beach in June 2026.":"Le jour où Armin a fait sa demande, sur la plage, en juin 2026.","Maral walking toward Armin and the rose circle":"Maral marche vers Armin et le cercle de roses","Armin proposing on one knee":"Armin fait sa demande, un genou à terre","Maral showing her ring":"Maral montre sa bague","Popping champagne under the palms":"Le champagne saute sous les palmiers","Champagne spray and laughter":"Champagne et éclats de rire","A toast on the beach":"Un toast sur la plage","Looking back from the water's edge":"Un regard en arrière au bord de l'eau","Between two palms in the rose circle":"Entre deux palmiers dans le cercle de roses","Holding hands after the yes":"Main dans la main après le oui","Armin lifting Maral in the rose circle":"Armin soulève Maral dans le cercle de roses","Close":"Fermer","Previous photo":"Photo précédente","Next photo":"Photo suivante","Good to know":"Bon à savoir","Questions & Answers":"Questions & réponses","When is the wedding?":"Quand a lieu le mariage ?","Thursday, November 25, 2027. The group stay runs five nights, arriving Monday, November 22 and leaving Saturday, November 27.":"Le jeudi 25 novembre 2027. Le séjour de groupe dure cinq nuits : arrivée le lundi 22 novembre et départ le samedi 27 novembre.","How do I book?":"Comment réserver ?","Send your RSVP on the Booking & RSVP page. Our travel agent will contact you to confirm your room and flights and take your deposit securely.":"Envoyez votre RSVP sur la page Réservation & RSVP. Notre agence de voyages vous contactera pour confirmer votre chambre et vos vols et prendre votre acompte en toute sécurité.","Why should I book through the travel agent?":"Pourquoi réserver avec l'agence de voyages ?","Booking with the group gets you our group rate and keeps everyone together on the same dates, so we can plan events around you.":"Réserver avec le groupe vous donne accès à notre tarif de groupe et garde tout le monde ensemble aux mêmes dates, pour que nous puissions organiser les activités.","Can I arrive early or stay longer?":"Puis-je arriver plus tôt ou rester plus longtemps ?","Ask the travel agent when they contact you. They can quote different dates or a different departure city.":"Demandez à l'agence de voyages lorsqu'elle vous contactera. Elle peut proposer d'autres dates ou une autre ville de départ.","What's included at the resort?":"Qu'est-ce qui est inclus à l'hôtel ?","It's all-inclusive: meals, drinks, the à la carte restaurants, pools, beach and most activities. Spa treatments, the Chic Cabaret dinner show and some excursions cost extra.":"C'est tout compris : repas, boissons, restaurants à la carte, piscines, plage et la plupart des activités. Les soins au spa, le dîner-spectacle Chic Cabaret et certaines excursions sont en supplément.","Do I need a passport?":"Ai-je besoin d'un passeport ?","Yes. Bring a valid passport and check its expiry date before you book. Make sure the name on your booking matches your passport exactly.":"Oui. Apportez un passeport valide et vérifiez sa date d'expiration avant de réserver. Le nom sur votre réservation doit correspondre exactement à votre passeport.","What's the weather like in late November?":"Quel temps fait-il fin novembre ?","Warm and sunny, usually in the high 20s °C during the day and comfortable in the evenings.":"Chaud et ensoleillé, généralement autour de 28 °C le jour, avec des soirées agréables.","Are children's rates available?":"Y a-t-il des tarifs pour enfants ?","Yes. Child and teen rates are listed on the Booking & RSVP page, and the resort has clubs for babies, kids and teens.":"Oui. Les tarifs enfants et ados sont indiqués sur la page Réservation & RSVP, et l'hôtel a des clubs pour les bébés, les enfants et les ados.","Should I get travel insurance?":"Dois-je prendre une assurance voyage ?","We recommend it. Your travel agent can help you pick a plan.":"Nous la recommandons. Votre agence de voyages peut vous aider à choisir.","Still have a question?":"Encore une question ?","Email Maral at":"Écrivez à Maral à","Copy email":"Copier l'adresse","Join us on the beach":"Rejoignez-nous sur la plage","We've arranged a group rate at Grand Palladium Costa Mujeres through our travel agent. Here's what it costs, how booking works, and the form to let us know you're coming.":"Nous avons obtenu un tarif de groupe au Grand Palladium Costa Mujeres par l'intermédiaire de notre agence de voyages. Voici les prix, le fonctionnement de la réservation et le formulaire pour nous dire que vous venez.","Dates":"Dates","Nov 22 – 27, 2027":"22 – 27 nov. 2027","Stay":"Séjour","5 nights":"5 nuits","RSVP by":"RSVP avant le","Aug 27, 2027":"27 août 2027","How it works":"Fonctionnement","Booking in four steps":"Réserver en quatre étapes","Send your RSVP":"Envoyez votre RSVP","Fill in the form below with who's coming and where you're flying from.":"Remplissez le formulaire ci-dessous : qui vient et d'où vous partez.","Our travel agent contacts you":"Notre agence de voyages vous contacte","They'll confirm your room and flights, answer questions and send your quote.":"Elle confirme votre chambre et vos vols, répond à vos questions et vous envoie votre devis.","Pay your deposit securely":"Payez votre acompte en toute sécurité","The agent sends a secure payment link or takes it over the phone.":"L'agence envoie un lien de paiement sécurisé ou prend le paiement par téléphone.","Pay the balance and pack":"Payez le solde et faites vos valises","Final payment is due before the trip. Then it's beach time.":"Le paiement final est dû avant le voyage. Ensuite, place à la plage.","Cost breakdown":"Détail des prix","Junior Suite Garden / Lagoon View":"Suite junior vue jardin / lagune","Per person, in Canadian dollars, for the full five-night stay, by departure city. Most couples book double occupancy (highlighted).":"Par personne, en dollars canadiens, pour les cinq nuits, selon la ville de départ. La plupart des couples réservent en occupation double (en surbrillance).","Departing Ottawa":"Départ d'Ottawa","Occupancy":"Occupation","Base":"Base","Taxes":"Taxes","Total":"Total","Single":"Simple","Double":"Double","Triple":"Triple","Child":"Enfant","Age 2":"2 ans","1st & 2nd child":"1er & 2e enfant","Ages 3–12":"3–12 ans","1st & 2nd teen":"1er & 2e ado","Ages 13–17":"13–17 ans","Departing Toronto":"Départ de Toronto","Prices are per person in CAD. Other room categories and deposit details are available from the travel agent.":"Prix par personne en CAD. Les autres catégories de chambres et les détails de l'acompte sont disponibles auprès de l'agence de voyages.","We never ask for card details on this website.":"Nous ne demandons jamais vos informations de carte sur ce site.","Payments go straight to our travel agent through their secure payment link or over the phone, so your information stays protected.":"Les paiements se font directement auprès de notre agence de voyages, par lien de paiement sécurisé ou par téléphone, pour que vos informations restent protégées.","RSVP":"RSVP","Will you join us?":"Serez-vous des nôtres ?","Please reply by August 27, 2027. Your RSVP goes to Maral and our travel agent, who will reach out to finish your booking.":"Merci de répondre avant le 27 août 2027. Votre RSVP est envoyé à Maral et à notre agence de voyages, qui vous contactera pour finaliser votre réservation.","Leave empty":"Laisser vide","Full name":"Nom complet","Email":"Courriel","Phone":"Téléphone","Attending":"Présence","Joyfully accepts":"Accepte avec joie","Regretfully declines":"Décline avec regret","Departing from":"Départ de","Other / booking my own flight":"Autre / je réserve mon propre vol","Room occupancy":"Occupation de la chambre","Double (2 adults)":"Double (2 adultes)","Single (1 adult)":"Simple (1 adulte)","Triple (3 adults)":"Triple (3 adultes)","Family with children":"Famille avec enfants","Adults":"Adultes","Children & ages":"Enfants & âges","e.g. 2 kids, ages 5 and 14":"ex. 2 enfants, 5 et 14 ans","Full names of everyone in your party":"Noms complets de toutes les personnes de votre groupe","As they appear on passports":"Tels qu'ils figurent sur les passeports","Dietary needs or questions":"Restrictions alimentaires ou questions","Please don't include card numbers here. The travel agent will send you a secure way to pay.":"Merci de ne pas inscrire de numéro de carte ici. L'agence de voyage vous enverra un moyen de paiement sécurisé.","Send RSVP":"Envoyer le RSVP","November 25, 2027 · Costa Mujeres, Mexico":"25 novembre 2027 · Costa Mujeres, Mexique"},"j":{"close":"Fermer","sending":"Envoi…","copied":"Copié","nameErr":"Veuillez indiquer votre nom.","emailErr":"Veuillez indiquer un courriel où vous joindre.","cardErr":"Un numéro de carte semble avoir été saisi. Veuillez le retirer ; les paiements sont gérés en toute sécurité par l'agence de voyages.","sent":"RSVP envoyé","yesTitle":"À bientôt au Mexique !","noTitle":"Vous nous manquerez","yesMsg":"Merci, {name}. Notre agence de voyages vous écrira à {email} pour confirmer votre chambre et vos vols et vous envoyer un lien de paiement sécurisé.","noMsg":"Merci de nous avoir prévenus, {name}. Vous serez avec nous par le cœur.","failTitle":"Votre RSVP n'a pas été envoyé.","failMsg":"Vérifiez votre connexion et réessayez, ou envoyez votre réponse par courriel à Maral :"}},"uz":{"t":{"Menu":"Menyu","Home":"Bosh sahifa","Resort":"Mehmonxona","Details":"Tafsilotlar","Dress Code":"Kiyinish","Booking & RSVP":"Bron va javob","Gallery":"Galereya","FAQ":"Savollar","Together with their families":"Oilalari bilan birga","November 25, 2027":"2027-yil 25-noyabr","Costa Mujeres, Mexico":"Kosta Muxeres, Meksika","Scroll to discover":"Pastga aylantiring","Armin on one knee proposing to Maral on the beach":"Armin sohilda bir tizzasini bukib, Maralga turmush taklif qilmoqda","Our story":"Bizning hikoyamiz","A little bit of coincidence, or maybe":"Biroz tasodif, balki ","fate":"taqdir","Maral and Armin's story began almost ten years ago at a lounge during an open mic night. Maral's friend knew one of the performers, who happened to be a friend of Armin's, and the two ended up sitting in the same area and talking that night.":"Maral va Arminning hikoyasi qariyb o‘n yil oldin, bir loungeda o‘tgan ochiq mikrofon kechasida boshlangan. Maralning dugonasi ijrochilardan birini tanirdi, u esa Arminning do‘sti bo‘lib chiqdi. Shu tariqa ikkalasi bir joyda o‘tirib qolishdi va butun oqshom suhbatlashishdi.","A few days later, they crossed paths again completely unexpectedly. They both had separate plans that day, but at the last minute each changed their mind and somehow ended up at the same café at the same time. Looking back, it feels like one of those moments that was simply meant to happen. From that day on, they were inseparable.":"Bir necha kundan so‘ng ular yana kutilmaganda uchrashib qolishdi. O‘sha kuni ikkalasining ham boshqa rejalari bor edi, ammo so‘nggi daqiqada har biri fikrini o‘zgartirdi va negadir bir vaqtda bitta kafega kelib qolishdi. Ortga qarab, bu shunchaki bo‘lishi kerak bo‘lgan lahzalardan biri bo‘lgandek tuyuladi. O‘sha kundan boshlab ular ajralmas bo‘lishdi.","Over the years, Maral and Armin have grown together and built a life side by side. They've been there for each other through moves, graduations, career changes, moving in together, difficult moments, happy ones, and everything in between. Through every new chapter, they've continued to choose each other.":"Yillar davomida Maral va Armin birga ulg‘ayib, yonma-yon hayot qurishdi. Ko‘chishlar, bitiruvlar, kasb o‘zgarishlari, birga yashay boshlash, og‘ir va quvonchli damlar va ularning orasidagi hamma narsada bir-birlariga suyanch bo‘lishdi. Har bir yangi bobda ular yana va yana bir-birlarini tanlashdi.","In June 2026, nearly a decade after they first met, they took their first resort vacation together. On a beautiful beach, Armin asked Maral to marry him, and of course, she said yes.":"2026-yil iyun oyida, tanishganlariga qariyb o‘n yil bo‘lganda, ular birinchi marta birga kurortga dam olishga borishdi. Go‘zal sohilda Armin Maralga turmush qurishni taklif qildi va, albatta, u «ha» dedi.","Now their story is bringing them back to the beach, this time surrounded by the people they love most, as they say \"I do\" and begin the next chapter of their lives together.":"Endi ularning hikoyasi ularni yana sohilga qaytarmoqda. Bu safar eng yaqin insonlari qurshovida ular «ha» deyishadi va hayotlarining yangi bobini birga boshlashadi.","With love, Maral & Armin":"Muhabbat bilan, Maral va Armin","Maral showing her engagement ring beside Armin":"Maral Armin yonida unashuv uzugini ko‘rsatmoqda","A decade ago":"O‘n yil oldin","Open mic night":"Ochiq mikrofon kechasi","Days later":"Bir necha kundan so‘ng","The same café":"O‘sha kafe","June 2026":"2026-yil iyun","She said yes":"U «ha» dedi","Nov 25, 2027":"2027-yil 25-noyabr","\"I do\"":"«Ha»","you are invited to celebrate the wedding of":"Sizni to‘yga taklif qiladi:","Maral & Armin":"Maral va Armin","Thursday, November 25, 2027":"Payshanba, 2027-yil 25-noyabr","Cancún, Mexico":"Kankun, Meksika","Join us November 22 – 27 · Five nights":"22–27-noyabr kunlari biz bilan bo‘ling · Besh kecha","View wedding details":"To‘y tafsilotlarini ko‘rish","Where we're staying":"Qayerda turamiz","An all-inclusive, five-star beachfront resort in Costa Mujeres, just north of Cancún and about 35 minutes from Cancún International Airport.":"Kosta Muxeresdagi besh yulduzli, hammasi kiritilgan sohilbo‘yi mehmonxona. Kankundan sal shimolda, Kankun xalqaro aeroportidan taxminan 35 daqiqa uzoqlikda.","Palm trees framing the beach and turquoise water":"Palma daraxtlari sohil va moviy suvni o‘rab turibdi","At a glance":"Qisqacha","The resort":"Mehmonxona","Plan":"Tarif","All-inclusive":"Hammasi kiritilgan","Location":"Manzil","Costa Mujeres, Cancún":"Kosta Muxeres, Kankun","From the airport":"Aeroportdan","About 35 min":"Taxminan 35 daqiqa","Beach":"Sohil","White sand, lifeguards":"Oq qum, qutqaruvchilar","Restaurants":"Restoranlar","10+ incl. buffet":"10 dan ortiq, bufet bilan","Spa":"Spa","Our group room":"Guruh xonamiz","Junior Suite":"Junior Suite","Garden / Lagoon View":"Bog‘ / laguna manzarasi","A modern suite overlooking the tropical gardens or the lagoon, with a furnished terrace to relax on between beach days.":"Tropik bog‘lar yoki lagunaga qaragan zamonaviy xona. Sohil kunlari orasida dam olish uchun jihozlangan ayvoni bor.","One king bed or two double beds (preference requested, not guaranteed)":"Bitta katta yoki ikkita ikki kishilik karavot (istak so‘raladi, kafolatlanmaydi)","Sleeps up to 4: 1 to 3 adults and up to 2 children":"4 kishigacha: 1–3 kattalar va 2 tagacha bola","Air conditioning, minibar, Wi-Fi and 24-hour room service":"Konditsioner, minibar, Wi-Fi va 24 soatlik xona xizmati","See prices":"Narxlarni ko‘rish","Dining":"Ovqatlanish","All included in your stay. À la carte restaurants are dinner only, and some take reservations.":"Hammasi narxga kiritilgan. A la carte restoranlar faqat kechki ovqat uchun ochiq, ba’zilariga oldindan joy band qilinadi.","International buffet":"Xalqaro bufet","Italian":"Italyan","Steakhouse":"Steykxaus","Mexican":"Meksika","Thai":"Tailand","Japanese teppanyaki":"Yapon teppanyaki","Indian":"Hind","Lunch by the sea":"Dengiz bo‘yida tushlik","Coffee & snacks":"Qahva va yengil taomlar","Dinner show, extra fee":"Kechki shou, qo‘shimcha to‘lov","Days by the water":"Suv bo‘yidagi kunlar","Pools, beach & more":"Basseynlar, sohil va boshqalar","Pools":"Basseynlar","Pools & swim-up bar":"Basseynlar va suv ichidagi bar","A large main pool with the Splash swim-up bar, plus more pools around the resort and a shallow splash pool for kids.":"Splash suv ichidagi bari bilan katta asosiy basseyn, mehmonxona bo‘ylab boshqa basseynlar va bolalar uchun sayoz basseyn.","A white-sand beach with lifeguards, loungers and the Poseidón Beach Club.":"Qutqaruvchilar, shezlonglar va Poseidón Beach Club bor oq qumli sohil.","Bars":"Barlar","Lobby, pool and beach bars, the Xtra Time sports bar and the Eclipse sky bar.":"Lobbi, basseyn va sohil barlari, Xtra Time sport bari va Eclipse osmon bari.","Hydrotherapy circuit, saunas, steam rooms and a gym. Massages and treatments cost extra.":"Gidroterapiya, saunalar, bug‘ xonalari va sport zali. Massaj va muolajalar alohida to‘lanadi.","Activities":"Mashg‘ulotlar","Things to do":"Nima qilish mumkin","Yoga, kayaks, catamarans, snorkelling, tennis and paddle courts, plus live music and nightly shows.":"Yoga, kayak, katamaran, snorkeling, tennis va padel maydonchalari, shuningdek jonli musiqa va har kechagi shoular.","Kids":"Bolalar","Kids & teens clubs":"Bolalar va o‘smirlar klublari","Baby Club (1–3), Kids Club (4–12) and Teens Club (13–18) keep younger guests busy.":"Baby Club (1–3), Kids Club (4–12) va Teens Club (13–18) yosh mehmonlarni band qiladi.","See photos on the resort website ↗":"Mehmonxona saytida rasmlarni ko‘rish ↗","The wedding trip":"To‘y safari","Wedding Details":"To‘y tafsilotlari","Five nights in Mexico, one very special Thursday. Here's the overview of the whole trip.":"Meksikada besh kecha va bitta juda maxsus payshanba. Butun safar haqida umumiy ma’lumot.","Wedding day":"To‘y kuni","Thu, Nov 25, 2027":"Payshanba, 25-noyabr, 2027","Trip dates":"Safar sanalari","Nov 22 – 27":"22–27-noyabr","Fly into":"Uchib boriladigan joy","Itinerary":"Dastur","The week at a glance":"Bir hafta qisqacha","Ceremony times and any group events will be added here as they're confirmed.":"Marosim vaqti va guruh tadbirlari tasdiqlangach shu yerga qo‘shiladi.","Monday":"Dushanba","Nov 22":"22-noyabr","Arrival":"Yetib kelish","Fly into Cancún, take the 35-minute transfer to the resort, check in and find the beach.":"Kankunga uching, mehmonxonagacha 35 daqiqalik transferdan so‘ng joylashing va sohilga chiqing.","Tue – Wed":"Seshanba – Chorshanba","Nov 23 – 24":"23–24-noyabr","Beach days":"Sohil kunlari","Pools, spa, excursions or doing nothing at all. Group plans to be announced.":"Basseyn, spa, ekskursiyalar yoki shunchaki dam olish. Guruh rejalari keyinroq e’lon qilinadi.","Thursday":"Payshanba","Nov 25":"25-noyabr","The wedding":"To‘y","Ceremony and reception at the resort. Time and location on the property to come.":"Mehmonxonada nikoh marosimi va ziyofat. Vaqti va aniq joyi keyinroq ma’lum qilinadi.","Friday":"Juma","Nov 26":"26-noyabr","Free day":"Bo‘sh kun","Rest, recover and enjoy one more day in the sun.":"Dam oling va quyoshda yana bir kunni maroqli o‘tkazing.","Saturday":"Shanba","Nov 27":"27-noyabr","Departure":"Jo‘nab ketish","Check out and head home.":"Xonani topshirib, uyga qaytish.","Getting there":"Qanday borish mumkin","Travel":"Safar","Flights":"Parvozlar","From Ottawa or Toronto":"Ottava yoki Torontodan","Group packages are priced from both cities. Our travel agent books flights and your room together.":"Guruh paketlari ikkala shahardan ham taklif qilinadi. Sayohat agentimiz parvoz va xonangizni birga bron qiladi.","Cancún airport":"Kankun aeroporti","The resort is about 35 minutes north of Cancún International Airport (CUN).":"Mehmonxona Kankun xalqaro aeroportidan (CUN) taxminan 35 daqiqa shimolda joylashgan.","Documents":"Hujjatlar","Passports":"Pasportlar","Bring a valid passport. Check the expiry date well before you book.":"Amaldagi pasport oling. Bron qilishdan ancha oldin amal qilish muddatini tekshiring.","Mark your calendar":"Taqvimingizga belgilang","Important dates":"Muhim sanalar","RSVP & book by":"Javob va bron muddati","August 27, 2027":"2027-yil 27-avgust","Monday, Nov 22, 2027":"Dushanba, 2027-yil 22-noyabr","Thursday, Nov 25, 2027":"Payshanba, 2027-yil 25-noyabr","Saturday, Nov 27, 2027":"Shanba, 2027-yil 27-noyabr","What to wear":"Nima kiyish kerak","Beach formal for the wedding, resort wear for the rest of the week. Think light fabrics and shoes that can handle sand.":"To‘y uchun sohilbop rasmiy kiyim, haftaning qolgan kunlari uchun kurort kiyimi. Yengil matolar va qumga mos poyabzal tanlang.","Maral and Armin toasting on the beach":"Maral va Armin sohilda qadah ko‘tarmoqda","Thursday, Nov 25":"Payshanba, 25-noyabr","The wedding: beach formal":"To‘y: sohilbop rasmiy kiyim","Ladies":"Ayollar","Flowing & elegant":"Yengil va nafis","Maxi or midi dresses and jumpsuits in light, breathable fabrics like chiffon, linen or silk. Please leave white and ivory to the bride.":"Shifon, zig‘ir yoki ipak kabi yengil matolardan uzun yoki o‘rta uzunlikdagi ko‘ylaklar va kombinezonlar. Iltimos, oq va fil suyagi rangini kelinga qoldiring.","Gentlemen":"Erkaklar","Light & tailored":"Yengil va tartibli","Linen or cotton dress shirts with chinos or linen trousers. A light suit is welcome; ties are optional.":"Chino yoki zig‘ir shim bilan zig‘ir yoki paxta ko‘ylak. Yengil kostyum ham mos; galstuk shart emas.","Shoes":"Poyabzal","Sand-friendly":"Qumga mos","Wedges, block heels or dressy flat sandals. Leave the stilettos at home.":"Platforma, keng poshnali yoki chiroyli tekis sandallar. Ingichka poshnalarni uyda qoldiring.","The rest of the week":"Haftaning qolgan kunlari","Around the resort":"Mehmonxonada","Daytime":"Kunduzi","Resort casual":"Erkin kurort uslubi","Swimwear by the pool and beach, with a cover-up for the buffet and bars.":"Basseyn va sohilda cho‘milish kiyimi, bufet va barlar uchun ustidan yopinchiq.","Evenings":"Kechqurun","Dinner dress code":"Kechki ovqat kiyim qoidasi","For à la carte dinners, men need sleeved shirts and long pants or dressy shorts. Sundresses and casual dresses are perfect for women.":"A la carte kechki ovqatlarda erkaklar yengli ko‘ylak va uzun shim yoki chiroyli shortik kiyishi kerak. Ayollar uchun yozgi va erkin ko‘ylaklar juda mos.","Pack":"Jomadon","Don't forget":"Unutmang","Sunscreen, sunglasses, a light layer for air-conditioned rooms and evenings.":"Quyoshdan himoya kremi, ko‘zoynak va konditsionerli xonalar hamda kechqurun uchun yengil ustki kiyim.","Our engagement":"Unashuvimiz","The day Armin asked, on the beach in June 2026.":"Armin taklif qilgan kun, 2026-yil iyun oyida sohilda.","Maral walking toward Armin and the rose circle":"Maral Armin va atirgullar doirasi tomon yurmoqda","Armin proposing on one knee":"Armin bir tizzasini bukib taklif qilmoqda","Maral showing her ring":"Maral uzugini ko‘rsatmoqda","Popping champagne under the palms":"Palmalar ostida shampan ochilmoqda","Champagne spray and laughter":"Shampan sachrashi va kulgu","A toast on the beach":"Sohilda qadah ko‘tarish","Looking back from the water's edge":"Suv bo‘yida ortga qarash","Between two palms in the rose circle":"Ikki palma orasida, atirgullar doirasida","Holding hands after the yes":"«Ha»dan keyin qo‘l ushlashib","Armin lifting Maral in the rose circle":"Armin Maralni atirgullar doirasida ko‘tarmoqda","Close":"Yopish","Previous photo":"Oldingi rasm","Next photo":"Keyingi rasm","Good to know":"Bilish foydali","Questions & Answers":"Savol va javoblar","When is the wedding?":"To‘y qachon?","Thursday, November 25, 2027. The group stay runs five nights, arriving Monday, November 22 and leaving Saturday, November 27.":"2027-yil 25-noyabr, payshanba. Guruh safari besh kecha davom etadi: 22-noyabr, dushanba kuni kelib, 27-noyabr, shanba kuni ketiladi.","How do I book?":"Qanday bron qilaman?","Send your RSVP on the Booking & RSVP page. Our travel agent will contact you to confirm your room and flights and take your deposit securely.":"Bron va javob sahifasida javobingizni yuboring. Sayohat agentimiz xona va parvozlaringizni tasdiqlash hamda oldindan to‘lovni xavfsiz qabul qilish uchun siz bilan bog‘lanadi.","Why should I book through the travel agent?":"Nega sayohat agenti orqali bron qilish kerak?","Booking with the group gets you our group rate and keeps everyone together on the same dates, so we can plan events around you.":"Guruh bilan bron qilsangiz, guruh narxidan foydalanasiz va hamma bir xil sanalarda birga bo‘ladi, shunda tadbirlarni rejalashtira olamiz.","Can I arrive early or stay longer?":"Ertaroq kelsam yoki uzoqroq qolsam bo‘ladimi?","Ask the travel agent when they contact you. They can quote different dates or a different departure city.":"Agent siz bilan bog‘langanda so‘rang. U boshqa sanalar yoki boshqa jo‘nash shahri uchun narx aytib bera oladi.","What's included at the resort?":"Mehmonxonada nimalar kiritilgan?","It's all-inclusive: meals, drinks, the à la carte restaurants, pools, beach and most activities. Spa treatments, the Chic Cabaret dinner show and some excursions cost extra.":"Hammasi kiritilgan: ovqat, ichimliklar, a la carte restoranlar, basseynlar, sohil va ko‘pgina mashg‘ulotlar. Spa muolajalari, Chic Cabaret kechki shousi va ba’zi ekskursiyalar alohida to‘lanadi.","Do I need a passport?":"Pasport kerakmi?","Yes. Bring a valid passport and check its expiry date before you book. Make sure the name on your booking matches your passport exactly.":"Ha. Amaldagi pasport oling va bron qilishdan oldin muddatini tekshiring. Bron qilingan ism pasportdagi ism bilan aynan bir xil bo‘lishi kerak.","What's the weather like in late November?":"Noyabr oxirida ob-havo qanday?","Warm and sunny, usually in the high 20s °C during the day and comfortable in the evenings.":"Iliq va quyoshli, kunduzi odatda 27–29 °C atrofida, kechqurun esa yoqimli.","Are children's rates available?":"Bolalar uchun narxlar bormi?","Yes. Child and teen rates are listed on the Booking & RSVP page, and the resort has clubs for babies, kids and teens.":"Ha. Bolalar va o‘smirlar narxlari Bron va javob sahifasida ko‘rsatilgan, mehmonxonada esa chaqaloqlar, bolalar va o‘smirlar uchun klublar bor.","Should I get travel insurance?":"Sayohat sug‘urtasi kerakmi?","We recommend it. Your travel agent can help you pick a plan.":"Tavsiya qilamiz. Sayohat agentingiz mos rejani tanlashga yordam beradi.","Still have a question?":"Yana savolingiz bormi?","Email Maral at":"Maralga yozing:","Copy email":"Emailni nusxalash","Join us on the beach":"Sohilda biz bilan bo‘ling","We've arranged a group rate at Grand Palladium Costa Mujeres through our travel agent. Here's what it costs, how booking works, and the form to let us know you're coming.":"Sayohat agentimiz orqali Grand Palladium Costa Mujeres mehmonxonasida guruh narxini kelishdik. Quyida narxlar, bron qilish tartibi va kelishingizni bildirish uchun shakl bor.","Dates":"Sanalar","Nov 22 – 27, 2027":"22–27-noyabr, 2027","Stay":"Muddat","5 nights":"5 kecha","RSVP by":"Javob muddati","Aug 27, 2027":"27-avgust, 2027","How it works":"Qanday ishlaydi","Booking in four steps":"To‘rt qadamda bron","Send your RSVP":"Javobingizni yuboring","Fill in the form below with who's coming and where you're flying from.":"Quyidagi shaklda kim kelishini va qayerdan uchishingizni yozing.","Our travel agent contacts you":"Sayohat agentimiz bog‘lanadi","They'll confirm your room and flights, answer questions and send your quote.":"U xona va parvozlaringizni tasdiqlaydi, savollarga javob beradi va narxni yuboradi.","Pay your deposit securely":"Oldindan to‘lovni xavfsiz to‘lang","The agent sends a secure payment link or takes it over the phone.":"Agent xavfsiz to‘lov havolasini yuboradi yoki to‘lovni telefon orqali qabul qiladi.","Pay the balance and pack":"Qolgan summani to‘lab, yo‘lga tayyorlaning","Final payment is due before the trip. Then it's beach time.":"Yakuniy to‘lov safardan oldin amalga oshiriladi. Keyin esa sohil kutmoqda.","Cost breakdown":"Narxlar","Junior Suite Garden / Lagoon View":"Junior Suite, bog‘ / laguna manzarasi","Per person, in Canadian dollars, for the full five-night stay, by departure city. Most couples book double occupancy (highlighted).":"Bir kishi uchun, Kanada dollarida, besh kechalik safar uchun, jo‘nash shahriga qarab. Ko‘pchilik juftliklar ikki kishilik joyni tanlaydi (ajratib ko‘rsatilgan).","Departing Ottawa":"Ottavadan jo‘nash","Occupancy":"Joylashuv","Base":"Asosiy","Taxes":"Soliqlar","Total":"Jami","Single":"Bir kishilik","Double":"Ikki kishilik","Triple":"Uch kishilik","Child":"Bola","Age 2":"2 yosh","1st & 2nd child":"1- va 2-bola","Ages 3–12":"3–12 yosh","1st & 2nd teen":"1- va 2-o‘smir","Ages 13–17":"13–17 yosh","Departing Toronto":"Torontodan jo‘nash","Prices are per person in CAD. Other room categories and deposit details are available from the travel agent.":"Narxlar bir kishi uchun, CAD da. Boshqa xona turlari va oldindan to‘lov tafsilotlarini sayohat agentidan bilib olishingiz mumkin.","We never ask for card details on this website.":"Bu saytda hech qachon karta ma’lumotlarini so‘ramaymiz.","Payments go straight to our travel agent through their secure payment link or over the phone, so your information stays protected.":"To‘lovlar xavfsiz to‘lov havolasi yoki telefon orqali to‘g‘ridan-to‘g‘ri sayohat agentimizga amalga oshiriladi, shuning uchun ma’lumotlaringiz himoyalangan.","RSVP":"Javob","Will you join us?":"Biz bilan bo‘lasizmi?","Please reply by August 27, 2027. Your RSVP goes to Maral and our travel agent, who will reach out to finish your booking.":"Iltimos, 2027-yil 27-avgustgacha javob bering. Javobingiz Maral va sayohat agentimizga boradi, agent bronni yakunlash uchun siz bilan bog‘lanadi.","Leave empty":"Bo‘sh qoldiring","Full name":"To‘liq ism","Email":"Email","Phone":"Telefon","Attending":"Ishtirok","Joyfully accepts":"Mamnuniyat bilan qatnashaman","Regretfully declines":"Afsuski, qatnasha olmayman","Departing from":"Jo‘nash shahri","Ottawa":"Ottava","Toronto":"Toronto","Other / booking my own flight":"Boshqa / parvozni o‘zim bron qilaman","Room occupancy":"Xonada necha kishi","Double (2 adults)":"Ikki kishilik (2 katta)","Single (1 adult)":"Bir kishilik (1 katta)","Triple (3 adults)":"Uch kishilik (3 katta)","Family with children":"Bolali oila","Adults":"Kattalar","Children & ages":"Bolalar va yoshlari","e.g. 2 kids, ages 5 and 14":"masalan, 2 bola, 5 va 14 yosh","Full names of everyone in your party":"Guruhingizdagi barchaning to‘liq ismlari","As they appear on passports":"Pasportdagidek","Dietary needs or questions":"Ovqatlanish talablari yoki savollar","Please don't include card numbers here. The travel agent will send you a secure way to pay.":"Iltimos, bu yerga karta raqamini yozmang. Sayohat agenti sizga xavfsiz to‘lov usulini yuboradi.","Send RSVP":"Javobni yuborish","November 25, 2027 · Costa Mujeres, Mexico":"2027-yil 25-noyabr · Kosta Muxeres, Meksika"},"j":{"close":"Yopish","sending":"Yuborilmoqda…","copied":"Nusxalandi","nameErr":"Iltimos, ismingizni yozing.","emailErr":"Iltimos, siz bilan bog‘lanish uchun email yozing.","cardErr":"Karta raqami yozilganga o‘xshaydi. Iltimos, uni o‘chiring; to‘lovlarni sayohat agenti xavfsiz qabul qiladi.","sent":"Javob yuborildi","yesTitle":"Meksikada ko‘rishguncha!","noTitle":"Sizni sog‘inamiz","yesMsg":"Rahmat, {name}. Sayohat agentimiz xona va parvozlaringizni tasdiqlash hamda xavfsiz to‘lov havolasini yuborish uchun {email} manziliga yozadi.","noMsg":"Xabar berganingiz uchun rahmat, {name}. Qalbimizda biz bilan bo‘lasiz.","failTitle":"Javobingiz yuborilmadi.","failMsg":"Internetni tekshirib, qayta urinib ko‘ring yoki javobingizni Maralga email orqali yuboring:"}},"fa":{"t":{"Menu":"منو","Home":"خانه","Resort":"هتل","Details":"جزئیات","Dress Code":"پوشش","Booking & RSVP":"رزرو و پاسخ","Gallery":"گالری","FAQ":"پرسش‌ها","Together with their families":"به همراه خانواده‌هایشان","Maral":"مارال","Armin":"آرمین","November 25, 2027":"۲۵ نوامبر ۲۰۲۷","Costa Mujeres, Mexico":"کوستا موخرس، مکزیک","Scroll to discover":"برای دیدن ادامه، پایین بروید","Armin on one knee proposing to Maral on the beach":"آرمین در ساحل زانو زده و از مارال خواستگاری می‌کند","Our story":"داستان ما","A little bit of coincidence, or maybe":"کمی تصادف، یا شاید ","fate":"سرنوشت","Maral and Armin's story began almost ten years ago at a lounge during an open mic night. Maral's friend knew one of the performers, who happened to be a friend of Armin's, and the two ended up sitting in the same area and talking that night.":"داستان مارال و آرمین تقریباً ده سال پیش، در یک لانژ و در شبی با اجرای آزاد شروع شد. دوست مارال یکی از اجراکنندگان را می‌شناخت که اتفاقاً دوست آرمین هم بود، و آن شب این دو کنار هم نشستند و ساعت‌ها با هم حرف زدند.","A few days later, they crossed paths again completely unexpectedly. They both had separate plans that day, but at the last minute each changed their mind and somehow ended up at the same café at the same time. Looking back, it feels like one of those moments that was simply meant to happen. From that day on, they were inseparable.":"چند روز بعد، کاملاً غیرمنتظره دوباره سر راه هم قرار گرفتند. هر دو آن روز برنامه‌های دیگری داشتند، اما در لحظهٔ آخر هر کدام نظرشان عوض شد و به طرز عجیبی هم‌زمان سر از یک کافه درآوردند. حالا که به گذشته نگاه می‌کنند، انگار یکی از همان لحظه‌هایی بود که باید اتفاق می‌افتاد. از آن روز به بعد، از هم جدا نشدند.","Over the years, Maral and Armin have grown together and built a life side by side. They've been there for each other through moves, graduations, career changes, moving in together, difficult moments, happy ones, and everything in between. Through every new chapter, they've continued to choose each other.":"در طول این سال‌ها، مارال و آرمین در کنار هم بزرگ شدند و زندگی‌شان را با هم ساختند. در اسباب‌کشی‌ها، فارغ‌التحصیلی‌ها، تغییرات شغلی، شروع زندگی مشترک، روزهای سخت و روزهای شاد، و همه‌چیزِ بین آن‌ها، پشت هم بودند. در هر فصل تازه، باز هم یکدیگر را انتخاب کردند.","In June 2026, nearly a decade after they first met, they took their first resort vacation together. On a beautiful beach, Armin asked Maral to marry him, and of course, she said yes.":"در ژوئن ۲۰۲۶، نزدیک به یک دهه پس از آشنایی‌شان، اولین سفرشان را به یک ریزورت رفتند. در ساحلی زیبا، آرمین از مارال خواستگاری کرد و البته، او بله گفت.","Now their story is bringing them back to the beach, this time surrounded by the people they love most, as they say \"I do\" and begin the next chapter of their lives together.":"حالا داستانشان آن‌ها را دوباره به ساحل برمی‌گرداند؛ این بار در کنار عزیزترین آدم‌های زندگی‌شان، تا «بله» بگویند و فصل تازهٔ زندگی‌شان را با هم آغاز کنند.","With love, Maral & Armin":"با عشق، مارال و آرمین","Maral showing her engagement ring beside Armin":"مارال کنار آرمین حلقهٔ نامزدی‌اش را نشان می‌دهد","A decade ago":"ده سال پیش","Open mic night":"شب اجرای آزاد","Days later":"چند روز بعد","The same café":"همان کافه","June 2026":"ژوئن ۲۰۲۶","She said yes":"او بله گفت","Nov 25, 2027":"۲۵ نوامبر ۲۰۲۷","\"I do\"":"«بله»","you are invited to celebrate the wedding of":"شما را به جشن عروسی‌شان دعوت می‌کنند","Maral & Armin":"مارال و آرمین","Thursday, November 25, 2027":"پنجشنبه، ۲۵ نوامبر ۲۰۲۷","Grand Palladium Costa Mujeres":"هتل گرند پالادیوم کوستا موخرس","Cancún, Mexico":"کانکون، مکزیک","Join us November 22 – 27 · Five nights":"۲۲ تا ۲۷ نوامبر همراه ما باشید · پنج شب","View wedding details":"دیدن جزئیات عروسی","Where we're staying":"محل اقامت ما","An all-inclusive, five-star beachfront resort in Costa Mujeres, just north of Cancún and about 35 minutes from Cancún International Airport.":"یک ریزورت پنج‌ستارهٔ ساحلی با پذیرایی کامل (آل‌اینکلوسیو) در کوستا موخرس، کمی شمال کانکون و حدود ۳۵ دقیقه تا فرودگاه بین‌المللی کانکون.","Palm trees framing the beach and turquoise water":"درختان نخل که ساحل و آب فیروزه‌ای را قاب گرفته‌اند","At a glance":"در یک نگاه","The resort":"هتل","Plan":"نوع پذیرایی","All-inclusive":"آل‌اینکلوسیو (همه‌چیز شامل)","Location":"موقعیت","Costa Mujeres, Cancún":"کوستا موخرس، کانکون","From the airport":"از فرودگاه","About 35 min":"حدود ۳۵ دقیقه","Beach":"ساحل","White sand, lifeguards":"شن سفید، نجات‌غریق","Restaurants":"رستوران‌ها","10+ incl. buffet":"بیش از ۱۰، همراه با بوفه","Spa":"اسپا","Our group room":"اتاق گروهی ما","Junior Suite":"جونیور سوئیت","Garden / Lagoon View":"رو به باغ / تالاب","A modern suite overlooking the tropical gardens or the lagoon, with a furnished terrace to relax on between beach days.":"سوئیتی مدرن رو به باغ‌های استوایی یا تالاب، با تراسی مبله برای استراحت بین روزهای ساحل.","One king bed or two double beds (preference requested, not guaranteed)":"یک تخت کینگ یا دو تخت دونفره (طبق درخواست، بدون تضمین)","Sleeps up to 4: 1 to 3 adults and up to 2 children":"ظرفیت تا ۴ نفر: ۱ تا ۳ بزرگسال و حداکثر ۲ کودک","Air conditioning, minibar, Wi-Fi and 24-hour room service":"تهویهٔ مطبوع، مینی‌بار، وای‌فای و سرویس اتاق ۲۴ ساعته","See prices":"دیدن قیمت‌ها","Dining":"غذا","All included in your stay. À la carte restaurants are dinner only, and some take reservations.":"همه در هزینهٔ اقامت شما گنجانده شده است. رستوران‌های آلاکارت فقط برای شام باز هستند و بعضی نیاز به رزرو دارند.","International buffet":"بوفهٔ بین‌المللی","Italian":"ایتالیایی","Steakhouse":"استیک‌هاوس","Mexican":"مکزیکی","Thai":"تایلندی","Japanese teppanyaki":"تپانیاکی ژاپنی","Indian":"هندی","Lunch by the sea":"ناهار کنار دریا","Coffee & snacks":"قهوه و میان‌وعده","Dinner show, extra fee":"شام با نمایش، با هزینهٔ اضافه","Days by the water":"روزهای کنار آب","Pools, beach & more":"استخرها، ساحل و بیشتر","Pools":"استخرها","Pools & swim-up bar":"استخرها و بار داخل استخر","A large main pool with the Splash swim-up bar, plus more pools around the resort and a shallow splash pool for kids.":"یک استخر اصلی بزرگ با بار Splash داخل آب، استخرهای دیگر در سراسر هتل و یک استخر کم‌عمق برای بچه‌ها.","A white-sand beach with lifeguards, loungers and the Poseidón Beach Club.":"ساحلی با شن سفید، نجات‌غریق، صندلی‌های آفتاب‌گیری و Poseidón Beach Club.","Bars":"بارها","Lobby, pool and beach bars, the Xtra Time sports bar and the Eclipse sky bar.":"بارهای لابی، استخر و ساحل، بار ورزشی Xtra Time و بار Eclipse.","Zentropia Spa":"اسپای Zentropia","Hydrotherapy circuit, saunas, steam rooms and a gym. Massages and treatments cost extra.":"آب‌درمانی، سونا، اتاق بخار و باشگاه ورزشی. ماساژ و خدمات درمانی هزینهٔ جداگانه دارند.","Activities":"فعالیت‌ها","Things to do":"چه کارهایی می‌شود کرد","Yoga, kayaks, catamarans, snorkelling, tennis and paddle courts, plus live music and nightly shows.":"یوگا، کایاک، کاتاماران، غواصی سطحی، زمین تنیس و پدل، همراه با موسیقی زنده و نمایش‌های شبانه.","Kids":"کودکان","Kids & teens clubs":"باشگاه کودکان و نوجوانان","Baby Club (1–3), Kids Club (4–12) and Teens Club (13–18) keep younger guests busy.":"Baby Club (۱ تا ۳ سال)، Kids Club (۴ تا ۱۲ سال) و Teens Club (۱۳ تا ۱۸ سال) مهمانان کوچک‌تر را سرگرم می‌کنند.","See photos on the resort website ↗":"دیدن عکس‌ها در وب‌سایت هتل ↗","The wedding trip":"سفر عروسی","Wedding Details":"جزئیات عروسی","Five nights in Mexico, one very special Thursday. Here's the overview of the whole trip.":"پنج شب در مکزیک و یک پنجشنبهٔ خیلی خاص. این خلاصهٔ کل سفر است.","Wedding day":"روز عروسی","Thu, Nov 25, 2027":"پنجشنبه ۲۵ نوامبر ۲۰۲۷","Trip dates":"تاریخ سفر","Nov 22 – 27":"۲۲ تا ۲۷ نوامبر","Grand Palladium":"گرند پالادیوم","Fly into":"فرودگاه مقصد","Cancún (CUN)":"کانکون (CUN)","Itinerary":"برنامه","The week at a glance":"هفته در یک نگاه","Ceremony times and any group events will be added here as they're confirmed.":"ساعت مراسم و برنامه‌های گروهی پس از قطعی شدن اینجا اضافه می‌شوند.","Monday":"دوشنبه","Nov 22":"۲۲ نوامبر","Arrival":"ورود","Fly into Cancún, take the 35-minute transfer to the resort, check in and find the beach.":"پرواز به کانکون، ۳۵ دقیقه انتقال تا هتل، تحویل اتاق و رفتن به ساحل.","Tue – Wed":"سه‌شنبه – چهارشنبه","Nov 23 – 24":"۲۳ تا ۲۴ نوامبر","Beach days":"روزهای ساحل","Pools, spa, excursions or doing nothing at all. Group plans to be announced.":"استخر، اسپا، گشت‌وگذار یا فقط استراحت. برنامه‌های گروهی بعداً اعلام می‌شود.","Thursday":"پنجشنبه","Nov 25":"۲۵ نوامبر","The wedding":"عروسی","Ceremony and reception at the resort. Time and location on the property to come.":"مراسم عقد و جشن در هتل. ساعت و محل دقیق بعداً اعلام می‌شود.","Friday":"جمعه","Nov 26":"۲۶ نوامبر","Free day":"روز آزاد","Rest, recover and enjoy one more day in the sun.":"استراحت کنید و یک روز دیگر از آفتاب لذت ببرید.","Saturday":"شنبه","Nov 27":"۲۷ نوامبر","Departure":"بازگشت","Check out and head home.":"تحویل اتاق و بازگشت به خانه.","Getting there":"چطور برسیم","Travel":"سفر","Flights":"پرواز","From Ottawa or Toronto":"از اتاوا یا تورنتو","Group packages are priced from both cities. Our travel agent books flights and your room together.":"بسته‌های گروهی از هر دو شهر قیمت‌گذاری شده‌اند. آژانس مسافرتی ما پرواز و اتاق شما را با هم رزرو می‌کند.","Cancún airport":"فرودگاه کانکون","The resort is about 35 minutes north of Cancún International Airport (CUN).":"هتل حدود ۳۵ دقیقه در شمال فرودگاه بین‌المللی کانکون (CUN) قرار دارد.","Documents":"مدارک","Passports":"گذرنامه","Bring a valid passport. Check the expiry date well before you book.":"گذرنامهٔ معتبر همراه داشته باشید. تاریخ انقضای آن را خیلی پیش از رزرو بررسی کنید.","Mark your calendar":"در تقویمتان علامت بزنید","Important dates":"تاریخ‌های مهم","RSVP & book by":"مهلت پاسخ و رزرو","August 27, 2027":"۲۷ اوت ۲۰۲۷","Monday, Nov 22, 2027":"دوشنبه ۲۲ نوامبر ۲۰۲۷","Thursday, Nov 25, 2027":"پنجشنبه ۲۵ نوامبر ۲۰۲۷","Saturday, Nov 27, 2027":"شنبه ۲۷ نوامبر ۲۰۲۷","What to wear":"چه بپوشیم","Beach formal for the wedding, resort wear for the rest of the week. Think light fabrics and shoes that can handle sand.":"برای عروسی پوشش رسمیِ ساحلی، و برای بقیهٔ هفته لباس راحت تفریحی. پارچه‌های سبک و کفش مناسب شن را در نظر بگیرید.","Maral and Armin toasting on the beach":"مارال و آرمین در ساحل جام‌هایشان را به هم می‌زنند","Thursday, Nov 25":"پنجشنبه ۲۵ نوامبر","The wedding: beach formal":"عروسی: رسمیِ ساحلی","Ladies":"خانم‌ها","Flowing & elegant":"روان و شیک","Maxi or midi dresses and jumpsuits in light, breathable fabrics like chiffon, linen or silk. Please leave white and ivory to the bride.":"پیراهن بلند یا میدی و سرهمی از پارچه‌های سبک و خنک مثل حریر، کتان یا ابریشم. لطفاً رنگ سفید و شیری را برای عروس بگذارید.","Gentlemen":"آقایان","Light & tailored":"سبک و آراسته","Linen or cotton dress shirts with chinos or linen trousers. A light suit is welcome; ties are optional.":"پیراهن کتان یا نخی با شلوار چینو یا کتان. کت‌وشلوار سبک هم مناسب است؛ کراوات اختیاری است.","Shoes":"کفش","Sand-friendly":"مناسب شن","Wedges, block heels or dressy flat sandals. Leave the stilettos at home.":"کفش لژدار، پاشنهٔ پهن یا صندل تخت مجلسی. کفش پاشنه‌سوزنی را در خانه بگذارید.","The rest of the week":"بقیهٔ هفته","Around the resort":"در هتل","Daytime":"روز","Resort casual":"راحت و تفریحی","Swimwear by the pool and beach, with a cover-up for the buffet and bars.":"مایو کنار استخر و ساحل، با یک روپوش برای بوفه و بارها.","Evenings":"عصر و شب","Dinner dress code":"پوشش شام","For à la carte dinners, men need sleeved shirts and long pants or dressy shorts. Sundresses and casual dresses are perfect for women.":"برای شام در رستوران‌های آلاکارت، آقایان باید پیراهن آستین‌دار و شلوار بلند یا شلوارک رسمی بپوشند. برای خانم‌ها پیراهن تابستانی و لباس راحت عالی است.","Pack":"چمدان","Don't forget":"فراموش نکنید","Sunscreen, sunglasses, a light layer for air-conditioned rooms and evenings.":"کرم ضدآفتاب، عینک آفتابی و یک لباس سبک برای اتاق‌های خنک و شب‌ها.","Our engagement":"نامزدی ما","The day Armin asked, on the beach in June 2026.":"روزی که آرمین خواستگاری کرد، در ساحل، ژوئن ۲۰۲۶.","Maral walking toward Armin and the rose circle":"مارال به سمت آرمین و حلقهٔ گل‌های رز می‌رود","Armin proposing on one knee":"آرمین زانو زده و خواستگاری می‌کند","Maral showing her ring":"مارال حلقه‌اش را نشان می‌دهد","Popping champagne under the palms":"باز کردن شامپاین زیر نخل‌ها","Champagne spray and laughter":"پاشیدن شامپاین و خنده","A toast on the beach":"به سلامتی در ساحل","Looking back from the water's edge":"نگاهی به عقب در کنار آب","Between two palms in the rose circle":"میان دو نخل، در حلقهٔ گل‌های رز","Holding hands after the yes":"دست در دست پس از بله","Armin lifting Maral in the rose circle":"آرمین مارال را در حلقهٔ گل‌های رز بلند می‌کند","Close":"بستن","Previous photo":"عکس قبلی","Next photo":"عکس بعدی","Good to know":"خوب است بدانید","Questions & Answers":"پرسش و پاسخ","When is the wedding?":"عروسی کی است؟","Thursday, November 25, 2027. The group stay runs five nights, arriving Monday, November 22 and leaving Saturday, November 27.":"پنجشنبه ۲۵ نوامبر ۲۰۲۷. اقامت گروهی پنج شب است: ورود دوشنبه ۲۲ نوامبر و بازگشت شنبه ۲۷ نوامبر.","How do I book?":"چطور رزرو کنم؟","Send your RSVP on the Booking & RSVP page. Our travel agent will contact you to confirm your room and flights and take your deposit securely.":"پاسخ خود را در صفحهٔ رزرو و پاسخ بفرستید. آژانس مسافرتی ما با شما تماس می‌گیرد تا اتاق و پروازتان را تأیید کند و پیش‌پرداخت را به‌صورت امن دریافت کند.","Why should I book through the travel agent?":"چرا از طریق آژانس مسافرتی رزرو کنم؟","Booking with the group gets you our group rate and keeps everyone together on the same dates, so we can plan events around you.":"با رزرو گروهی از قیمت گروهی ما استفاده می‌کنید و همه در تاریخ‌های یکسان کنار هم هستند تا بتوانیم برنامه‌ها را هماهنگ کنیم.","Can I arrive early or stay longer?":"می‌توانم زودتر بیایم یا بیشتر بمانم؟","Ask the travel agent when they contact you. They can quote different dates or a different departure city.":"وقتی آژانس با شما تماس گرفت بپرسید. می‌توانند برای تاریخ دیگر یا شهر مبدأ دیگر قیمت بدهند.","What's included at the resort?":"در هتل چه چیزهایی شامل است؟","It's all-inclusive: meals, drinks, the à la carte restaurants, pools, beach and most activities. Spa treatments, the Chic Cabaret dinner show and some excursions cost extra.":"همه‌چیز شامل است: غذا، نوشیدنی، رستوران‌های آلاکارت، استخرها، ساحل و بیشتر فعالیت‌ها. خدمات اسپا، شام نمایشی Chic Cabaret و بعضی گشت‌ها هزینهٔ جداگانه دارند.","Do I need a passport?":"گذرنامه لازم است؟","Yes. Bring a valid passport and check its expiry date before you book. Make sure the name on your booking matches your passport exactly.":"بله. گذرنامهٔ معتبر همراه داشته باشید و پیش از رزرو تاریخ انقضای آن را بررسی کنید. نام شما در رزرو باید دقیقاً با گذرنامه یکی باشد.","What's the weather like in late November?":"آب‌وهوا در اواخر نوامبر چطور است؟","Warm and sunny, usually in the high 20s °C during the day and comfortable in the evenings.":"گرم و آفتابی، معمولاً حدود ۲۷ تا ۲۹ درجهٔ سانتی‌گراد در روز و هوای دلپذیر در شب.","Are children's rates available?":"قیمت ویژهٔ کودکان وجود دارد؟","Yes. Child and teen rates are listed on the Booking & RSVP page, and the resort has clubs for babies, kids and teens.":"بله. قیمت کودکان و نوجوانان در صفحهٔ رزرو و پاسخ آمده است و هتل برای نوزادان، کودکان و نوجوانان باشگاه دارد.","Should I get travel insurance?":"بیمهٔ مسافرتی بگیرم؟","We recommend it. Your travel agent can help you pick a plan.":"توصیه می‌کنیم. آژانس مسافرتی می‌تواند در انتخاب طرح مناسب کمکتان کند.","Still have a question?":"هنوز سؤالی دارید؟","Email Maral at":"به مارال ایمیل بزنید:","Copy email":"کپی ایمیل","Join us on the beach":"در ساحل همراه ما باشید","We've arranged a group rate at Grand Palladium Costa Mujeres through our travel agent. Here's what it costs, how booking works, and the form to let us know you're coming.":"از طریق آژانس مسافرتی‌مان قیمت گروهی در هتل گرند پالادیوم کوستا موخرس گرفته‌ایم. در اینجا هزینه‌ها، روند رزرو و فرم اعلام حضور را می‌بینید.","Dates":"تاریخ","Nov 22 – 27, 2027":"۲۲ تا ۲۷ نوامبر ۲۰۲۷","Stay":"اقامت","5 nights":"۵ شب","RSVP by":"مهلت پاسخ","Aug 27, 2027":"۲۷ اوت ۲۰۲۷","How it works":"روند کار","Booking in four steps":"رزرو در چهار مرحله","Send your RSVP":"پاسخ خود را بفرستید","Fill in the form below with who's coming and where you're flying from.":"فرم پایین را پر کنید: چه کسانی می‌آیند و از کجا پرواز می‌کنید.","Our travel agent contacts you":"آژانس مسافرتی با شما تماس می‌گیرد","They'll confirm your room and flights, answer questions and send your quote.":"اتاق و پروازتان را تأیید می‌کنند، به سؤال‌هایتان پاسخ می‌دهند و پیش‌فاکتور را می‌فرستند.","Pay your deposit securely":"پیش‌پرداخت را امن بپردازید","The agent sends a secure payment link or takes it over the phone.":"آژانس یک لینک پرداخت امن می‌فرستد یا پرداخت را تلفنی انجام می‌دهد.","Pay the balance and pack":"باقی مبلغ را بپردازید و چمدان ببندید","Final payment is due before the trip. Then it's beach time.":"پرداخت نهایی پیش از سفر است. بعد از آن، وقت ساحل است.","Cost breakdown":"جزئیات هزینه","Junior Suite Garden / Lagoon View":"جونیور سوئیت رو به باغ / تالاب","Per person, in Canadian dollars, for the full five-night stay, by departure city. Most couples book double occupancy (highlighted).":"به ازای هر نفر، به دلار کانادا، برای کل پنج شب، بر اساس شهر مبدأ. بیشتر زوج‌ها اتاق دونفره رزرو می‌کنند (پررنگ شده).","Departing Ottawa":"پرواز از اتاوا","Occupancy":"ظرفیت اتاق","Base":"پایه","Taxes":"مالیات","Total":"جمع","Single":"یک‌نفره","Double":"دونفره","Triple":"سه‌نفره","Child":"کودک","Age 2":"۲ ساله","1st & 2nd child":"کودک اول و دوم","Ages 3–12":"۳ تا ۱۲ سال","1st & 2nd teen":"نوجوان اول و دوم","Ages 13–17":"۱۳ تا ۱۷ سال","Departing Toronto":"پرواز از تورنتو","Prices are per person in CAD. Other room categories and deposit details are available from the travel agent.":"قیمت‌ها به ازای هر نفر و به دلار کانادا است. سایر انواع اتاق و جزئیات پیش‌پرداخت را از آژانس مسافرتی بپرسید.","We never ask for card details on this website.":"ما هرگز در این وب‌سایت اطلاعات کارت بانکی نمی‌خواهیم.","Payments go straight to our travel agent through their secure payment link or over the phone, so your information stays protected.":"پرداخت‌ها مستقیم به آژانس مسافرتی ما و از طریق لینک امن یا تلفن انجام می‌شود تا اطلاعات شما محفوظ بماند.","RSVP":"پاسخ","Will you join us?":"همراه ما می‌آیید؟","Please reply by August 27, 2027. Your RSVP goes to Maral and our travel agent, who will reach out to finish your booking.":"لطفاً تا ۲۷ اوت ۲۰۲۷ پاسخ دهید. پاسخ شما برای مارال و آژانس مسافرتی ما ارسال می‌شود تا رزروتان را نهایی کنند.","Leave empty":"خالی بگذارید","Full name":"نام کامل","Email":"ایمیل","Phone":"تلفن","Attending":"حضور","Joyfully accepts":"با کمال میل می‌آیم","Regretfully declines":"متأسفانه نمی‌توانم بیایم","Departing from":"شهر مبدأ","Ottawa":"اتاوا","Toronto":"تورنتو","Other / booking my own flight":"دیگر / پروازم را خودم رزرو می‌کنم","Room occupancy":"ظرفیت اتاق","Double (2 adults)":"دونفره (۲ بزرگسال)","Single (1 adult)":"یک‌نفره (۱ بزرگسال)","Triple (3 adults)":"سه‌نفره (۳ بزرگسال)","Family with children":"خانواده با کودک","Adults":"بزرگسالان","Children & ages":"کودکان و سن آن‌ها","e.g. 2 kids, ages 5 and 14":"مثلاً ۲ کودک، ۵ و ۱۴ ساله","Full names of everyone in your party":"نام کامل همهٔ افراد گروه شما","As they appear on passports":"دقیقاً مانند گذرنامه","Dietary needs or questions":"رژیم غذایی خاص یا سؤال","Please don't include card numbers here. The travel agent will send you a secure way to pay.":"لطفاً شمارهٔ کارت را اینجا ننویسید. آژانس مسافرتی یک روش پرداخت امن برایتان می‌فرستد.","Send RSVP":"ارسال پاسخ","November 25, 2027 · Costa Mujeres, Mexico":"۲۵ نوامبر ۲۰۲۷ · کوستا موخرس، مکزیک"},"j":{"close":"بستن","sending":"در حال ارسال…","copied":"کپی شد","nameErr":"لطفاً نام خود را بنویسید.","emailErr":"لطفاً ایمیلی بنویسید که بتوانیم با شما در تماس باشیم.","cardErr":"به نظر می‌رسد شمارهٔ کارت وارد شده است. لطفاً آن را پاک کنید؛ پرداخت‌ها به‌صورت امن توسط آژانس مسافرتی انجام می‌شود.","sent":"پاسخ ارسال شد","yesTitle":"در مکزیک می‌بینیمتان!","noTitle":"جایتان خالی خواهد بود","yesMsg":"ممنون، {name}. آژانس مسافرتی ما از طریق {email} با شما تماس می‌گیرد تا اتاق و پروازتان را تأیید کند و لینک پرداخت امن بفرستد.","noMsg":"ممنون که خبر دادید، {name}. در دل ما همراهمان هستید.","failTitle":"پاسخ شما ارسال نشد.","failMsg":"اتصال اینترنت را بررسی کنید و دوباره امتحان کنید، یا پاسخ خود را به این ایمیل مارال بفرستید:"}},"prs":{"t":{"Menu":"مینو","Home":"خانه","Resort":"هوتل","Details":"جزئیات","Dress Code":"پوشش","Booking & RSVP":"رزرو و پاسخ","Gallery":"گالری","FAQ":"پرسش‌ها","Together with their families":"به همراه خانواده‌هایشان","Maral":"مارال","Armin":"آرمین","November 25, 2027":"۲۵ نومبر ۲۰۲۷","Costa Mujeres, Mexico":"کوستا موخرس، مکزیک","Scroll to discover":"برای دیدن ادامه، صفحه را پایین کنید","Armin on one knee proposing to Maral on the beach":"آرمین در ساحل زانو زده و از مارال خواستگاری می‌کند","Our story":"داستان ما","A little bit of coincidence, or maybe":"کمی تصادف، یا شاید ","fate":"سرنوشت","Maral and Armin's story began almost ten years ago at a lounge during an open mic night. Maral's friend knew one of the performers, who happened to be a friend of Armin's, and the two ended up sitting in the same area and talking that night.":"داستان مارال و آرمین تقریباً ده سال پیش، در یک لانژ و در شبی با اجرای آزاد شروع شد. دوست مارال یکی از اجراکنندگان را می‌شناخت که اتفاقاً دوست آرمین هم بود، و آن شب این دو کنار هم نشستند و ساعت‌ها با هم حرف زدند.","A few days later, they crossed paths again completely unexpectedly. They both had separate plans that day, but at the last minute each changed their mind and somehow ended up at the same café at the same time. Looking back, it feels like one of those moments that was simply meant to happen. From that day on, they were inseparable.":"چند روز بعد، کاملاً غیرمنتظره دوباره سر راه هم قرار گرفتند. هر دو آن روز برنامه‌های دیگری داشتند، اما در لحظهٔ آخر هر کدام نظرشان عوض شد و به طرز عجیبی هم‌زمان سر از یک کافه درآوردند. حالا که به گذشته نگاه می‌کنند، انگار یکی از همان لحظه‌هایی بود که باید اتفاق می‌افتاد. از آن روز به بعد، از هم جدا نشدند.","Over the years, Maral and Armin have grown together and built a life side by side. They've been there for each other through moves, graduations, career changes, moving in together, difficult moments, happy ones, and everything in between. Through every new chapter, they've continued to choose each other.":"در طول این سال‌ها، مارال و آرمین در کنار هم بزرگ شدند و زندگی‌شان را با هم ساختند. در اسباب‌کشی‌ها، فارغ‌التحصیلی‌ها، تغییرات شغلی، شروع زندگی مشترک، روزهای سخت و روزهای شاد، و همه‌چیزِ بین آن‌ها، پشت هم بودند. در هر فصل تازه، باز هم یکدیگر را انتخاب کردند.","In June 2026, nearly a decade after they first met, they took their first resort vacation together. On a beautiful beach, Armin asked Maral to marry him, and of course, she said yes.":"در جون ۲۰۲۶، نزدیک به یک دهه پس از آشنایی‌شان، اولین سفرشان را به یک ریزورت رفتند. در ساحلی زیبا، آرمین از مارال خواستگاری کرد و البته، او بله گفت.","Now their story is bringing them back to the beach, this time surrounded by the people they love most, as they say \"I do\" and begin the next chapter of their lives together.":"حالا داستانشان آن‌ها را دوباره به ساحل برمی‌گرداند؛ این بار در کنار عزیزترین آدم‌های زندگی‌شان، تا «بله» بگویند و فصل تازهٔ زندگی‌شان را با هم آغاز کنند.","With love, Maral & Armin":"با عشق، مارال و آرمین","Maral showing her engagement ring beside Armin":"مارال کنار آرمین حلقهٔ نامزدی‌اش را نشان می‌دهد","A decade ago":"ده سال پیش","Open mic night":"شب اجرای آزاد","Days later":"چند روز بعد","The same café":"همان کافه","June 2026":"جون ۲۰۲۶","She said yes":"او بله گفت","Nov 25, 2027":"۲۵ نومبر ۲۰۲۷","\"I do\"":"«بله»","you are invited to celebrate the wedding of":"شما را به جشن عروسی‌شان دعوت می‌کنند","Maral & Armin":"مارال و آرمین","Thursday, November 25, 2027":"پنجشنبه، ۲۵ نومبر ۲۰۲۷","Grand Palladium Costa Mujeres":"هوتل گرند پالادیوم کوستا موخرس","Cancún, Mexico":"کانکون، مکزیک","Join us November 22 – 27 · Five nights":"۲۲ تا ۲۷ نومبر همراه ما باشید · پنج شب","View wedding details":"دیدن جزئیات عروسی","Where we're staying":"محل اقامت ما","An all-inclusive, five-star beachfront resort in Costa Mujeres, just north of Cancún and about 35 minutes from Cancún International Airport.":"یک ریزورت پنج‌ستارهٔ ساحلی با پذیرایی کامل (آل‌اینکلوسیو) در کوستا موخرس، کمی شمال کانکون و حدود ۳۵ دقیقه تا میدان هوایی بین‌المللی کانکون.","Palm trees framing the beach and turquoise water":"درختان نخل که ساحل و آب فیروزه‌ای را قاب گرفته‌اند","At a glance":"در یک نگاه","The resort":"هوتل","Plan":"نوع پذیرایی","All-inclusive":"آل‌اینکلوسیو (همه‌چیز شامل)","Location":"موقعیت","Costa Mujeres, Cancún":"کوستا موخرس، کانکون","From the airport":"از میدان هوایی","About 35 min":"حدود ۳۵ دقیقه","Beach":"ساحل","White sand, lifeguards":"شن سفید، نجات‌غریق","Restaurants":"رستورانت‌ها","10+ incl. buffet":"بیش از ۱۰، همراه با بوفه","Spa":"اسپا","Our group room":"اتاق گروهی ما","Junior Suite":"جونیور سوئیت","Garden / Lagoon View":"رو به باغ / تالاب","A modern suite overlooking the tropical gardens or the lagoon, with a furnished terrace to relax on between beach days.":"سوئیتی مدرن رو به باغ‌های استوایی یا تالاب، با تراسی مبله برای استراحت بین روزهای ساحل.","One king bed or two double beds (preference requested, not guaranteed)":"یک تخت کینگ یا دو تخت دونفره (طبق درخواست، بدون تضمین)","Sleeps up to 4: 1 to 3 adults and up to 2 children":"ظرفیت تا ۴ نفر: ۱ تا ۳ بزرگسال و حداکثر ۲ طفل","Air conditioning, minibar, Wi-Fi and 24-hour room service":"تهویهٔ مطبوع، مینی‌بار، وای‌فای و سرویس اتاق ۲۴ ساعته","See prices":"دیدن قیمت‌ها","Dining":"غذا","All included in your stay. À la carte restaurants are dinner only, and some take reservations.":"همه در هزینهٔ اقامت شما گنجانده شده است. رستورانت‌های آلاکارت فقط برای شام باز هستند و بعضی نیاز به رزرو دارند.","International buffet":"بوفهٔ بین‌المللی","Italian":"ایتالیایی","Steakhouse":"استیک‌هاوس","Mexican":"مکزیکی","Thai":"تایلندی","Japanese teppanyaki":"تپانیاکی ژاپنی","Indian":"هندی","Lunch by the sea":"ناهار کنار دریا","Coffee & snacks":"قهوه و میان‌وعده","Dinner show, extra fee":"شام با نمایش، با هزینهٔ اضافه","Days by the water":"روزهای کنار آب","Pools, beach & more":"حوض‌های آب‌بازی، ساحل و بیشتر","Pools":"حوض‌های آب‌بازی","Pools & swim-up bar":"حوض‌های آب‌بازی و بار داخل حوض آب‌بازی","A large main pool with the Splash swim-up bar, plus more pools around the resort and a shallow splash pool for kids.":"یک حوض آب‌بازی اصلی بزرگ با بار Splash داخل آب، حوض‌های آب‌بازیِ دیگر در سراسر هوتل و یک حوض آب‌بازی کم‌عمق برای اطفال.","A white-sand beach with lifeguards, loungers and the Poseidón Beach Club.":"ساحلی با شن سفید، نجات‌غریق، صندلی‌های آفتاب‌گیری و Poseidón Beach Club.","Bars":"بارها","Lobby, pool and beach bars, the Xtra Time sports bar and the Eclipse sky bar.":"بارهای لابی، حوض آب‌بازی و ساحل، بار ورزشی Xtra Time و بار Eclipse.","Zentropia Spa":"اسپای Zentropia","Hydrotherapy circuit, saunas, steam rooms and a gym. Massages and treatments cost extra.":"آب‌درمانی، سونا، اتاق بخار و جمنازیم. ماساژ و خدمات درمانی هزینهٔ جداگانه دارند.","Activities":"فعالیت‌ها","Things to do":"چه کارهایی می‌شود کرد","Yoga, kayaks, catamarans, snorkelling, tennis and paddle courts, plus live music and nightly shows.":"یوگا، کایاک، کاتاماران، غواصی سطحی، زمین تنیس و پدل، همراه با موسیقی زنده و نمایش‌های شبانه.","Kids":"اطفال","Kids & teens clubs":"کلب اطفال و نوجوانان","Baby Club (1–3), Kids Club (4–12) and Teens Club (13–18) keep younger guests busy.":"Baby Club (۱ تا ۳ سال)، Kids Club (۴ تا ۱۲ سال) و Teens Club (۱۳ تا ۱۸ سال) مهمانان کوچک‌تر را سرگرم می‌کنند.","See photos on the resort website ↗":"دیدن عکس‌ها در وب‌سایت هوتل ↗","The wedding trip":"سفر عروسی","Wedding Details":"جزئیات عروسی","Five nights in Mexico, one very special Thursday. Here's the overview of the whole trip.":"پنج شب در مکزیک و یک پنجشنبهٔ خیلی خاص. این خلاصهٔ کل سفر است.","Wedding day":"روز عروسی","Thu, Nov 25, 2027":"پنجشنبه ۲۵ نومبر ۲۰۲۷","Trip dates":"تاریخ سفر","Nov 22 – 27":"۲۲ تا ۲۷ نومبر","Grand Palladium":"گرند پالادیوم","Fly into":"میدان هوایی مقصد","Cancún (CUN)":"کانکون (CUN)","Itinerary":"برنامه","The week at a glance":"هفته در یک نگاه","Ceremony times and any group events will be added here as they're confirmed.":"ساعت مراسم و برنامه‌های گروهی پس از قطعی شدن اینجا اضافه می‌شوند.","Monday":"دوشنبه","Nov 22":"۲۲ نومبر","Arrival":"ورود","Fly into Cancún, take the 35-minute transfer to the resort, check in and find the beach.":"پرواز به کانکون، ۳۵ دقیقه انتقال تا هوتل، تحویل اتاق و رفتن به ساحل.","Tue – Wed":"سه‌شنبه – چهارشنبه","Nov 23 – 24":"۲۳ تا ۲۴ نومبر","Beach days":"روزهای ساحل","Pools, spa, excursions or doing nothing at all. Group plans to be announced.":"حوض آب‌بازی، اسپا، گشت‌وگذار یا فقط استراحت. برنامه‌های گروهی بعداً اعلام می‌شود.","Thursday":"پنجشنبه","Nov 25":"۲۵ نومبر","The wedding":"عروسی","Ceremony and reception at the resort. Time and location on the property to come.":"مراسم نکاح و جشن در هوتل. ساعت و محل دقیق بعداً اعلام می‌شود.","Friday":"جمعه","Nov 26":"۲۶ نومبر","Free day":"روز آزاد","Rest, recover and enjoy one more day in the sun.":"استراحت کنید و یک روز دیگر از آفتاب لذت ببرید.","Saturday":"شنبه","Nov 27":"۲۷ نومبر","Departure":"بازگشت","Check out and head home.":"تحویل اتاق و بازگشت به خانه.","Getting there":"چطور برسیم","Travel":"سفر","Flights":"پرواز","From Ottawa or Toronto":"از اتاوا یا تورنتو","Group packages are priced from both cities. Our travel agent books flights and your room together.":"بسته‌های گروهی از هر دو شهر قیمت‌گذاری شده‌اند. آژانس سفر ما پرواز و اتاق شما را با هم رزرو می‌کند.","Cancún airport":"میدان هوایی کانکون","The resort is about 35 minutes north of Cancún International Airport (CUN).":"هوتل حدود ۳۵ دقیقه در شمال میدان هوایی بین‌المللی کانکون (CUN) قرار دارد.","Documents":"مدارک","Passports":"پاسپورت","Bring a valid passport. Check the expiry date well before you book.":"پاسپورتٔ معتبر همراه داشته باشید. تاریخ انقضای آن را خیلی پیش از رزرو بررسی کنید.","Mark your calendar":"در تقویمتان علامت بزنید","Important dates":"تاریخ‌های مهم","RSVP & book by":"مهلت پاسخ و رزرو","August 27, 2027":"۲۷ اگست ۲۰۲۷","Monday, Nov 22, 2027":"دوشنبه ۲۲ نومبر ۲۰۲۷","Thursday, Nov 25, 2027":"پنجشنبه ۲۵ نومبر ۲۰۲۷","Saturday, Nov 27, 2027":"شنبه ۲۷ نومبر ۲۰۲۷","What to wear":"چه بپوشیم","Beach formal for the wedding, resort wear for the rest of the week. Think light fabrics and shoes that can handle sand.":"برای عروسی پوشش رسمیِ ساحلی، و برای بقیهٔ هفته لباس راحت تفریحی. پارچه‌های سبک و کفش مناسب شن را در نظر بگیرید.","Maral and Armin toasting on the beach":"مارال و آرمین در ساحل جام‌هایشان را به هم می‌زنند","Thursday, Nov 25":"پنجشنبه ۲۵ نومبر","The wedding: beach formal":"عروسی: رسمیِ ساحلی","Ladies":"خانم‌ها","Flowing & elegant":"روان و شیک","Maxi or midi dresses and jumpsuits in light, breathable fabrics like chiffon, linen or silk. Please leave white and ivory to the bride.":"پیراهن بلند یا میدی و سرهمی از پارچه‌های سبک و خنک مثل حریر، کتان یا ابریشم. لطفاً رنگ سفید و شیری را برای عروس بگذارید.","Gentlemen":"آقایان","Light & tailored":"سبک و آراسته","Linen or cotton dress shirts with chinos or linen trousers. A light suit is welcome; ties are optional.":"پیراهن کتان یا نخی با شلوار چینو یا کتان. کت‌وشلوار سبک هم مناسب است؛ نکتایی اختیاری است.","Shoes":"کفش","Sand-friendly":"مناسب شن","Wedges, block heels or dressy flat sandals. Leave the stilettos at home.":"کفش لژدار، پاشنهٔ پهن یا صندل تخت مجلسی. کفش پاشنه‌سوزنی را در خانه بگذارید.","The rest of the week":"بقیهٔ هفته","Around the resort":"در هوتل","Daytime":"روز","Resort casual":"راحت و تفریحی","Swimwear by the pool and beach, with a cover-up for the buffet and bars.":"لباس آب‌بازی کنار حوض آب‌بازی و ساحل، با یک روپوش برای بوفه و بارها.","Evenings":"عصر و شب","Dinner dress code":"پوشش شام","For à la carte dinners, men need sleeved shirts and long pants or dressy shorts. Sundresses and casual dresses are perfect for women.":"برای شام در رستورانت‌های آلاکارت، آقایان باید پیراهن آستین‌دار و شلوار بلند یا نیکر رسمی بپوشند. برای خانم‌ها پیراهن تابستانی و لباس راحت عالی است.","Pack":"بکس سفری","Don't forget":"فراموش نکنید","Sunscreen, sunglasses, a light layer for air-conditioned rooms and evenings.":"کرم ضدآفتاب، عینک آفتابی و یک لباس سبک برای اتاق‌های خنک و شب‌ها.","Our engagement":"نامزدی ما","The day Armin asked, on the beach in June 2026.":"روزی که آرمین خواستگاری کرد، در ساحل، جون ۲۰۲۶.","Maral walking toward Armin and the rose circle":"مارال به سمت آرمین و حلقهٔ گل‌های رز می‌رود","Armin proposing on one knee":"آرمین زانو زده و خواستگاری می‌کند","Maral showing her ring":"مارال حلقه‌اش را نشان می‌دهد","Popping champagne under the palms":"باز کردن شامپاین زیر نخل‌ها","Champagne spray and laughter":"پاشیدن شامپاین و خنده","A toast on the beach":"به سلامتی در ساحل","Looking back from the water's edge":"نگاهی به عقب در کنار آب","Between two palms in the rose circle":"میان دو نخل، در حلقهٔ گل‌های رز","Holding hands after the yes":"دست در دست پس از بله","Armin lifting Maral in the rose circle":"آرمین مارال را در حلقهٔ گل‌های رز بلند می‌کند","Close":"بستن","Previous photo":"عکس قبلی","Next photo":"عکس بعدی","Good to know":"خوب است بدانید","Questions & Answers":"پرسش و پاسخ","When is the wedding?":"عروسی کی است؟","Thursday, November 25, 2027. The group stay runs five nights, arriving Monday, November 22 and leaving Saturday, November 27.":"پنجشنبه ۲۵ نومبر ۲۰۲۷. اقامت گروهی پنج شب است: ورود دوشنبه ۲۲ نومبر و بازگشت شنبه ۲۷ نومبر.","How do I book?":"چطور رزرو کنم؟","Send your RSVP on the Booking & RSVP page. Our travel agent will contact you to confirm your room and flights and take your deposit securely.":"پاسخ خود را در صفحهٔ رزرو و پاسخ بفرستید. آژانس سفر ما با شما تماس می‌گیرد تا اتاق و پروازتان را تأیید کند و پیش‌پرداخت را به‌صورت امن دریافت کند.","Why should I book through the travel agent?":"چرا از طریق آژانس سفر رزرو کنم؟","Booking with the group gets you our group rate and keeps everyone together on the same dates, so we can plan events around you.":"با رزرو گروهی از قیمت گروهی ما استفاده می‌کنید و همه در تاریخ‌های یکسان کنار هم هستند تا بتوانیم برنامه‌ها را هماهنگ کنیم.","Can I arrive early or stay longer?":"می‌توانم زودتر بیایم یا بیشتر بمانم؟","Ask the travel agent when they contact you. They can quote different dates or a different departure city.":"وقتی آژانس با شما تماس گرفت بپرسید. می‌توانند برای تاریخ دیگر یا شهر مبدأ دیگر قیمت بدهند.","What's included at the resort?":"در هوتل چه چیزهایی شامل است؟","It's all-inclusive: meals, drinks, the à la carte restaurants, pools, beach and most activities. Spa treatments, the Chic Cabaret dinner show and some excursions cost extra.":"همه‌چیز شامل است: غذا، نوشیدنی، رستورانت‌های آلاکارت، حوض‌های آب‌بازی، ساحل و بیشتر فعالیت‌ها. خدمات اسپا، شام نمایشی Chic Cabaret و بعضی گشت‌ها هزینهٔ جداگانه دارند.","Do I need a passport?":"پاسپورت لازم است؟","Yes. Bring a valid passport and check its expiry date before you book. Make sure the name on your booking matches your passport exactly.":"بله. پاسپورتٔ معتبر همراه داشته باشید و پیش از رزرو تاریخ انقضای آن را بررسی کنید. نام شما در رزرو باید دقیقاً با پاسپورت یکی باشد.","What's the weather like in late November?":"آب‌وهوا در اواخر نومبر چطور است؟","Warm and sunny, usually in the high 20s °C during the day and comfortable in the evenings.":"گرم و آفتابی، معمولاً حدود ۲۷ تا ۲۹ درجهٔ سانتی‌گراد در روز و هوای دلپذیر در شب.","Are children's rates available?":"قیمت ویژهٔ اطفال وجود دارد؟","Yes. Child and teen rates are listed on the Booking & RSVP page, and the resort has clubs for babies, kids and teens.":"بله. قیمت اطفال و نوجوانان در صفحهٔ رزرو و پاسخ آمده است و هوتل برای نوزادان، اطفال و نوجوانان کلب دارد.","Should I get travel insurance?":"بیمهٔ مسافرتی بگیرم؟","We recommend it. Your travel agent can help you pick a plan.":"توصیه می‌کنیم. آژانس سفر می‌تواند در انتخاب طرح مناسب کمکتان کند.","Still have a question?":"هنوز سؤالی دارید؟","Email Maral at":"به مارال ایمیل بفرستید:","Copy email":"کپی ایمیل","Join us on the beach":"در ساحل همراه ما باشید","We've arranged a group rate at Grand Palladium Costa Mujeres through our travel agent. Here's what it costs, how booking works, and the form to let us know you're coming.":"از طریق آژانس سفر‌مان قیمت گروهی در هوتل گرند پالادیوم کوستا موخرس گرفته‌ایم. در اینجا هزینه‌ها، روند رزرو و فرم اعلام حضور را می‌بینید.","Dates":"تاریخ","Nov 22 – 27, 2027":"۲۲ تا ۲۷ نومبر ۲۰۲۷","Stay":"اقامت","5 nights":"۵ شب","RSVP by":"مهلت پاسخ","Aug 27, 2027":"۲۷ اگست ۲۰۲۷","How it works":"روند کار","Booking in four steps":"رزرو در چهار مرحله","Send your RSVP":"پاسخ خود را بفرستید","Fill in the form below with who's coming and where you're flying from.":"فرم پایین را پر کنید: چه کسانی می‌آیند و از کجا پرواز می‌کنید.","Our travel agent contacts you":"آژانس سفر با شما تماس می‌گیرد","They'll confirm your room and flights, answer questions and send your quote.":"اتاق و پروازتان را تأیید می‌کنند، به سؤال‌هایتان پاسخ می‌دهند و قیمت پیشنهادی را می‌فرستند.","Pay your deposit securely":"پیش‌پرداخت را امن بپردازید","The agent sends a secure payment link or takes it over the phone.":"آژانس یک لینک پرداخت امن می‌فرستد یا پرداخت را از طریق تیلفون انجام می‌دهد.","Pay the balance and pack":"باقی مبلغ را بپردازید و بکس‌تان را آماده کنید","Final payment is due before the trip. Then it's beach time.":"پرداخت نهایی پیش از سفر است. بعد از آن، وقت ساحل است.","Cost breakdown":"جزئیات هزینه","Junior Suite Garden / Lagoon View":"جونیور سوئیت رو به باغ / تالاب","Per person, in Canadian dollars, for the full five-night stay, by departure city. Most couples book double occupancy (highlighted).":"به ازای هر نفر، به دالر کانادا، برای کل پنج شب، بر اساس شهر مبدأ. بیشتر زوج‌ها اتاق دونفره رزرو می‌کنند (پررنگ شده).","Departing Ottawa":"پرواز از اتاوا","Occupancy":"ظرفیت اتاق","Base":"پایه","Taxes":"مالیه","Total":"جمع","Single":"یک‌نفره","Double":"دونفره","Triple":"سه‌نفره","Child":"طفل","Age 2":"۲ ساله","1st & 2nd child":"طفل اول و دوم","Ages 3–12":"۳ تا ۱۲ سال","1st & 2nd teen":"نوجوان اول و دوم","Ages 13–17":"۱۳ تا ۱۷ سال","Departing Toronto":"پرواز از تورنتو","Prices are per person in CAD. Other room categories and deposit details are available from the travel agent.":"قیمت‌ها به ازای هر نفر و به دالر کانادا است. سایر انواع اتاق و جزئیات پیش‌پرداخت را از آژانس سفر بپرسید.","We never ask for card details on this website.":"ما هرگز در این وب‌سایت اطلاعات کارت بانکی نمی‌خواهیم.","Payments go straight to our travel agent through their secure payment link or over the phone, so your information stays protected.":"پرداخت‌ها مستقیم به آژانس سفر ما و از طریق لینک امن یا تیلفون انجام می‌شود تا اطلاعات شما محفوظ بماند.","RSVP":"پاسخ","Will you join us?":"همراه ما می‌آیید؟","Please reply by August 27, 2027. Your RSVP goes to Maral and our travel agent, who will reach out to finish your booking.":"لطفاً تا ۲۷ اگست ۲۰۲۷ پاسخ دهید. پاسخ شما برای مارال و آژانس سفر ما ارسال می‌شود تا رزروتان را نهایی کنند.","Leave empty":"خالی بگذارید","Full name":"نام کامل","Email":"ایمیل","Phone":"تیلفون","Attending":"حضور","Joyfully accepts":"با کمال میل می‌آیم","Regretfully declines":"متأسفانه نمی‌توانم بیایم","Departing from":"شهر مبدأ","Ottawa":"اتاوا","Toronto":"تورنتو","Other / booking my own flight":"دیگر / پروازم را خودم رزرو می‌کنم","Room occupancy":"ظرفیت اتاق","Double (2 adults)":"دونفره (۲ بزرگسال)","Single (1 adult)":"یک‌نفره (۱ بزرگسال)","Triple (3 adults)":"سه‌نفره (۳ بزرگسال)","Family with children":"خانواده با طفل","Adults":"بزرگسالان","Children & ages":"اطفال و سن آن‌ها","e.g. 2 kids, ages 5 and 14":"مثلاً ۲ طفل، ۵ و ۱۴ ساله","Full names of everyone in your party":"نام کامل همهٔ افراد گروه شما","As they appear on passports":"دقیقاً مانند پاسپورت","Dietary needs or questions":"رژیم غذایی خاص یا سؤال","Please don't include card numbers here. The travel agent will send you a secure way to pay.":"لطفاً شمارهٔ کارت را اینجا ننویسید. آژانس سفر یک روش پرداخت امن برایتان می‌فرستد.","Send RSVP":"ارسال پاسخ","November 25, 2027 · Costa Mujeres, Mexico":"۲۵ نومبر ۲۰۲۷ · کوستا موخرس، مکزیک"},"j":{"close":"بستن","sending":"در حال ارسال…","copied":"کپی شد","nameErr":"لطفاً نام خود را بنویسید.","emailErr":"لطفاً ایمیلی بنویسید که بتوانیم با شما در تماس باشیم.","cardErr":"به نظر می‌رسد شمارهٔ کارت وارد شده است. لطفاً آن را پاک کنید؛ پرداخت‌ها به‌صورت امن توسط آژانس سفر انجام می‌شود.","sent":"پاسخ ارسال شد","yesTitle":"در مکزیک می‌بینیمتان!","noTitle":"جایتان خالی خواهد بود","yesMsg":"تشکر، {name}. آژانس سفر ما از طریق {email} با شما تماس می‌گیرد تا اتاق و پروازتان را تأیید کند و لینک پرداخت امن بفرستد.","noMsg":"تشکر که خبر دادید، {name}. در دل ما همراهمان هستید.","failTitle":"پاسخ شما ارسال نشد.","failMsg":"اتصال اینترنت را بررسی کنید و دوباره امتحان کنید، یا پاسخ خود را به این ایمیل مارال بفرستید:"}}};
+const EN={menu:"Menu",close:"Close",copy:"Copy email",copied:"Copied",send:"Send RSVP",sending:"Sending…",
+ nameErr:"Please add your name.",emailErr:"Please add an email we can reach you at.",
+ cardErr:"It looks like a card number was entered. Please remove it; payments are handled securely by the travel agent.",
+ sent:"RSVP sent",yesTitle:"See you in Mexico!",noTitle:"We'll miss you",
+ yesMsg:"Thank you, {name}. Our travel agent will be in touch at {email} to confirm your room and flights and send a secure payment link.",
+ noMsg:"Thank you for letting us know, {name}. You'll be with us in spirit.",
+ failTitle:"Your RSVP didn't send.",failMsg:"Check your connection and try again, or email your reply to Maral at"};
+const LANGS={en:["English","ltr"],fr:["Français","ltr"],uz:["Oʻzbekcha","ltr"],prs:["دری","rtl"],fa:["فارسی","rtl"]};
+let LANG="en";
+function j(k){const L=I18N[LANG];return (L&&(L.j[k]||L.t[EN[k]]))||EN[k];}
+const TEXT=[],ATTR=[];
+(function collect(){
+  const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:n=>{const p=n.parentElement;if(!p||p.closest("script,style,.lang"))return NodeFilter.FILTER_REJECT;return /\p{L}/u.test(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});
+  let n;while(n=w.nextNode()){const v=n.nodeValue;TEXT.push([n,v,v.replace(/\s+/g," ").trim()]);}
+  document.querySelectorAll("[placeholder],[alt],[aria-label]").forEach(el=>{["placeholder","alt","aria-label"].forEach(a=>{const v=el.getAttribute(a);if(v&&!el.closest(".lang"))ATTR.push([el,a,v.trim()]);});});
+})();
+function setLang(code){
+  if(!LANGS[code])code="en";LANG=code;
+  const d=I18N[code]&&I18N[code].t;
+  TEXT.forEach(([n,orig,key])=>{const tr=d&&d[key];n.nodeValue=tr?orig.replace(key===orig.trim()?orig.trim():/\S[\s\S]*\S|\S/,tr):orig;});
+  ATTR.forEach(([el,a,key])=>el.setAttribute(a,(d&&d[key])||key));
+  const r=document.documentElement;r.lang=code==="prs"?"fa-AF":code;r.dir=LANGS[code][1];
+  document.getElementById("lang-cur").textContent=LANGS[code][0];
+  document.querySelectorAll(".amp").forEach(x=>x.textContent=LANGS[code][1]==="rtl"?"و":"&");
+  document.querySelectorAll(".lang-list button").forEach(b=>b.setAttribute("aria-current",b.dataset.lang===code));
+  if(typeof menu!=="undefined")menu.textContent=nav.classList.contains("open")?j("close"):j("menu");
+  const cb=document.getElementById("copy-addr");if(cb)cb.textContent=j("copy");
+  const sb=document.getElementById("r-submit");if(sb&&!form.classList.contains("sending"))sb.textContent=j("send");
+  try{localStorage.setItem("wedding-lang",code)}catch(e){}
+}
+(function(){
+  const btn=document.getElementById("lang-btn"),list=document.getElementById("lang-list");
+  const close=()=>{list.hidden=true;btn.setAttribute("aria-expanded","false");};
+  btn.addEventListener("click",e=>{e.stopPropagation();list.hidden=!list.hidden;btn.setAttribute("aria-expanded",!list.hidden);});
+  list.addEventListener("click",e=>{const b=e.target.closest("button[data-lang]");if(b){setLang(b.dataset.lang);close();}});
+  document.addEventListener("click",e=>{if(!e.target.closest(".lang"))close();});
+  addEventListener("keydown",e=>{if(e.key==="Escape")close();});
+})();
+/* ---- RSVP delivery: submissions are emailed via FormSubmit ---- */
+const RSVP = {
+  to: "Maral.iriken@gmail.com",
+  cc: ""            /* add the travel agent's email here, e.g. "agent@example.com" */
+};
+
+/* ---- hero video (plays only if img/ocean.mp4 exists) ---- */
+(function(){
+  const v=document.getElementById("hero-video");
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches){v.remove();return;}
+  v.addEventListener("canplay",()=>{v.hidden=false;v.play().catch(()=>{});},{once:true});
+  v.querySelector("source").addEventListener("error",()=>v.remove());
+})();
+
+/* ---- views ---- */
+const nav=document.getElementById("nav"), menu=document.getElementById("menu");
+const views=[...document.querySelectorAll("[data-view]")];
+function route(){
+  const h=(location.hash||"#home").slice(1);
+  if(h==="story"){show("home");return;}
+  if(h==="rsvp"){show("booking");document.getElementById("rsvp").scrollIntoView();return;}
+  show(views.some(v=>v.dataset.view===h)?h:"home",true);
+}
+function show(name,top){
+  views.forEach(v=>v.hidden=v.dataset.view!==name);
+  document.querySelectorAll(".links a").forEach(a=>{ if(a.getAttribute("href")==="#"+name) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  if(top) window.scrollTo(0,0);
+  nav.classList.remove("open"); menu.setAttribute("aria-expanded","false"); menu.textContent=j("menu");
+  onScroll();
+}
+document.addEventListener("click",e=>{
+  const a=e.target.closest('a[href="#story"]');
+  if(a){e.preventDefault();show("home");document.getElementById("story").scrollIntoView({behavior:"smooth"});}
+});
+window.addEventListener("hashchange",route);
+menu.addEventListener("click",()=>{const o=nav.classList.toggle("open");menu.setAttribute("aria-expanded",o);menu.textContent=o?j("close"):j("menu");});
+function onScroll(){
+  const home=!document.getElementById("view-home").hidden;
+  nav.classList.toggle("solid",!home||scrollY>window.innerHeight*0.7);
+}
+window.addEventListener("scroll",onScroll,{passive:true});
+route();
+(function(){let c=null;try{c=new URLSearchParams(location.search).get("lang")}catch(e){}
+  if(!c){try{c=localStorage.getItem("wedding-lang")}catch(e){}}
+  if(!c){const n=(navigator.language||"en").toLowerCase();c=n.startsWith("fr")?"fr":n.startsWith("uz")?"uz":(n==="fa-af"||n.startsWith("prs")||n.startsWith("ps"))?"prs":n.startsWith("fa")?"fa":"en";}
+  if(c!=="en")setLang(c);})();
+
+/* ---- copy email ---- */
+document.getElementById("copy-addr").addEventListener("click",e=>{
+  const b=e.currentTarget, t=document.getElementById("addr").textContent;
+  navigator.clipboard.writeText(t).then(()=>{b.textContent=j("copied");setTimeout(()=>b.textContent=j("copy"),2000);})
+  .catch(()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("addr"));const s=getSelection();s.removeAllRanges();s.addRange(r);});
+});
+
+/* ---- gallery lightbox ---- */
+(function(){
+  const imgs=[...document.querySelectorAll("#gallery-grid img")], lb=document.getElementById("lightbox"), li=document.getElementById("lb-img");
+  let i=0;
+  const open=n=>{i=(n+imgs.length)%imgs.length;li.src=imgs[i].src;li.alt=imgs[i].alt;lb.hidden=false;};
+  document.getElementById("gallery-grid").addEventListener("click",e=>{const b=e.target.closest("button");if(b)open(+b.dataset.i);});
+  document.getElementById("lb-prev").onclick=()=>open(i-1);
+  document.getElementById("lb-next").onclick=()=>open(i+1);
+  document.getElementById("lb-x").onclick=()=>lb.hidden=true;
+  lb.addEventListener("click",e=>{if(e.target===lb)lb.hidden=true;});
+  addEventListener("keydown",e=>{if(lb.hidden)return;if(e.key==="Escape")lb.hidden=true;if(e.key==="ArrowLeft")open(i-1);if(e.key==="ArrowRight")open(i+1);});
+})();
+
+/* ---- RSVP ---- */
+const form=document.getElementById("rsvp-form");
+function toggleYes(){const yes=document.getElementById("r-yes").checked;form.querySelectorAll("[data-yes]").forEach(e=>e.hidden=!yes);}
+form.addEventListener("change",toggleYes);toggleYes();
+form.addEventListener("submit",async e=>{
+  e.preventDefault();
+  form.querySelector(".form-err")?.remove();
+  let ok=true;const set=(id,m)=>{form.querySelector('[data-for="'+id+'"]').textContent=m;if(m)ok=false;};
+  const v=id=>form.querySelector("#"+id).value.trim();
+  const name=v("r-name"), email=v("r-email");
+  set("r-name",name?"":j("nameErr"));
+  set("r-email",/^\S+@\S+\.\S+$/.test(email)?"":j("emailErr"));
+  const foot=document.getElementById("foot-note");
+  if(/\b(?:\d[ -]?){13,19}\b/.test(v("r-notes")+" "+v("r-party")+" "+v("r-kids"))){ok=false;foot.textContent=j("cardErr");foot.style.color="#B4483A";}
+  if(!ok||v("r-honey"))return;
+  const yes=document.getElementById("r-yes").checked;
+  const data={
+    _subject:"Wedding RSVP: "+name+" ("+(yes?"Attending":"Not attending")+")",
+    _template:"table", _replyto:email,
+    Name:name, Email:email, Phone:v("r-phone"),
+    Attending:form.querySelector('input[name="attending"]:checked').value,
+    "Party names":v("r-party"), Notes:v("r-notes"), Language:LANGS[LANG][0]
+  };
+  if(yes){Object.assign(data,{"Departing from":v("r-city"),Occupancy:v("r-occ"),Adults:v("r-adults"),"Children & ages":v("r-kids")});}
+  if(RSVP.cc) data._cc=RSVP.cc;
+  const btn=document.getElementById("r-submit");btn.textContent=j("sending");form.classList.add("sending");
+  try{
+    const r=await fetch("https://formsubmit.co/ajax/"+RSVP.to,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(data)});
+    if(!r.ok) throw new Error(r.status);
+    const first=name.split(" ")[0];
+    const nm=esc(first),em=esc(email);
+    form.innerHTML='<div class="thanks"><p class="eyebrow">'+j("sent")+'</p><h3>'+j(yes?"yesTitle":"noTitle")+'</h3><p>'+j(yes?"yesMsg":"noMsg").replace("{name}",nm).replace("{email}",em)+'</p></div>';
+  }catch(err){
+    form.classList.remove("sending");btn.textContent=j("send");
+    const d=document.createElement("div");d.className="form-err";
+    d.innerHTML='<b>'+j("failTitle")+'</b><span>'+j("failMsg")+' <span style="user-select:all;direction:ltr;unicode-bidi:isolate">'+RSVP.to+'</span></span>';
+    form.querySelector(".form-foot").before(d);
+  }
+});
+function esc(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+</script>
+
+</body>
+</html>
