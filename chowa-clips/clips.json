@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05T05:12:49+00:00",
+ "generated": "2026-11-05T16:20:13+00:00",
  "clips": [
   {
    "id": "2026-11-02/z1_weepysleepy.mp4",
@@ -1024,7 +1024,7 @@
    "state": "yes",
    "media": "media/4aa48f4c4f8b.1080.mp4",
    "thumb": "media/thumbs/4aa48f4c4f8b.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-24/valorant_dragoncitymaster.mp4",
@@ -1049,7 +1049,7 @@
    "state": "yes",
    "media": "media/c6ed32b01efd.1080.mp4",
    "thumb": "media/thumbs/c6ed32b01efd.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-24/valorant_kindoffun.mp4",
@@ -1074,7 +1074,7 @@
    "state": "yes",
    "media": "media/aaceaa0de448.1080.mp4",
    "thumb": "media/thumbs/aaceaa0de448.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-24/valorant_notevenhere.mp4",
@@ -1149,7 +1149,7 @@
    "state": "yes",
    "media": "media/c1aa9b77535f.1080.mp4",
    "thumb": "media/thumbs/c1aa9b77535f.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-23_progress/inscryption_whatdoesthatmean.mp4",
