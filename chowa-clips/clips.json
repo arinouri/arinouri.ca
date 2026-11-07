@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-07T00:18:14+00:00",
+ "generated": "2026-11-07T01:16:31+00:00",
  "clips": [
   {
    "id": "2026-11-02/z1_weepysleepy.mp4",
@@ -824,7 +824,7 @@
    "state": "yes",
    "media": "media/eed4db9d5afc.1080.mp4",
    "thumb": "media/thumbs/eed4db9d5afc.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-25/wobbly_clown.mp4",
@@ -849,7 +849,7 @@
    "state": "yes",
    "media": "media/a4ec8e712a59.1080.mp4",
    "thumb": "media/thumbs/a4ec8e712a59.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-25/wobbly_jellyman.mp4",
