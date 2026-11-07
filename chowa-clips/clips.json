@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-06T07:16:18+00:00",
+ "generated": "2026-11-07T00:18:14+00:00",
  "clips": [
   {
    "id": "2026-11-02/z1_weepysleepy.mp4",
@@ -874,7 +874,7 @@
    "state": "yes",
    "media": "media/f773e6dcb165.1080.mp4",
    "thumb": "media/thumbs/f773e6dcb165.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-25/wobbly_magnet.mp4",
