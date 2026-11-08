@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-08T05:18:00+00:00",
+ "generated": "2026-11-08T23:17:58+00:00",
  "clips": [
   {
    "id": "2026-11-02/z1_weepysleepy.mp4",
@@ -724,7 +724,7 @@
    "state": "yes",
    "media": "media/4e9edcb91522.1080.mp4",
    "thumb": "media/thumbs/4e9edcb91522.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-29/bomb_numberthree.mp4",
