@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-07T05:11:56+00:00",
+ "generated": "2026-11-08T05:18:00+00:00",
  "clips": [
   {
    "id": "2026-11-02/z1_weepysleepy.mp4",
@@ -2705,7 +2705,7 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-11-07",
+  "today": "2026-11-08",
   "today_count": 0,
   "today_met": false,
   "current": 0,
@@ -2715,20 +2715,12 @@
   "days_to_reward": 7,
   "cycle_days": [
    {
-    "date": "2026-11-07",
+    "date": "2026-11-08",
     "dow": "S",
     "count": 0,
     "met": false,
     "today": true,
     "future": false
-   },
-   {
-    "date": "2026-11-08",
-    "dow": "S",
-    "count": 0,
-    "met": false,
-    "today": false,
-    "future": true
    },
    {
     "date": "2026-11-09",
@@ -2769,16 +2761,17 @@
     "met": false,
     "today": false,
     "future": true
+   },
+   {
+    "date": "2026-11-14",
+    "dow": "S",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
    }
   ],
   "last7": [
-   {
-    "date": "2026-11-01",
-    "dow": "Sun",
-    "count": 0,
-    "met": false,
-    "today": false
-   },
    {
     "date": "2026-11-02",
     "dow": "Mon",
@@ -2817,6 +2810,13 @@
    {
     "date": "2026-11-07",
     "dow": "Sat",
+    "count": 0,
+    "met": false,
+    "today": false
+   },
+   {
+    "date": "2026-11-08",
+    "dow": "Sun",
     "count": 0,
     "met": false,
     "today": true
