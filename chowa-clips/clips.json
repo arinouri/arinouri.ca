@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-09T05:18:29+00:00",
+ "generated": "2026-11-09T13:14:12+00:00",
  "clips": [
   {
    "id": "2026-11-02/z1_weepysleepy.mp4",
@@ -1099,7 +1099,7 @@
    "state": "yes",
    "media": "media/a16f76235884.1080.mp4",
    "thumb": "media/thumbs/a16f76235884.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-24/valorant_toolittle.mp4",
@@ -1124,7 +1124,7 @@
    "state": "yes",
    "media": "media/fd683a45479e.1080.mp4",
    "thumb": "media/thumbs/fd683a45479e.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-24/valorant_imbad.mp4",
