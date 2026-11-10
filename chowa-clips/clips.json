@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-09T13:14:12+00:00",
+ "generated": "2026-11-10T00:12:55+00:00",
  "clips": [
   {
    "id": "2026-11-02/z1_weepysleepy.mp4",
@@ -749,7 +749,7 @@
    "state": "yes",
    "media": "media/7d51b284a97f.1080.mp4",
    "thumb": "media/thumbs/7d51b284a97f.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-25_b/valorant_twokills.mp4",
