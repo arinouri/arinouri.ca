@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11T23:13:03+00:00",
+ "generated": "2026-11-11T23:17:06+00:00",
  "clips": [
   {
    "id": "2026-11-11_inscryption/mom_fake.mp4",
@@ -106,7 +106,7 @@
    "folder": "2026-11-11_inscryption",
    "file": "roblox_twomillion.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "approved",
    "title": "you owe me two million dollars",
    "caption": "",
    "hashtags": "#chowaobby #roblox #twitchclips #gaming",
@@ -119,10 +119,10 @@
    "feedback_at": "",
    "slug": "robloxtwomillion",
    "dupes": [],
-   "updated_at": "2026-11-11T15:48:53-05:00",
+   "updated_at": "2026-11-11T18:15:16-05:00",
    "vid": "62ebacea0d12",
-   "state": "pending",
-   "media": "media/62ebacea0d12.mp4",
+   "state": "yes",
+   "media": "media/62ebacea0d12.1080.mp4",
    "thumb": "media/thumbs/62ebacea0d12.jpg",
    "hosted": true
   },
@@ -499,6 +499,31 @@
    "state": "pending",
    "media": "media/c9a5f1ea54a0.mp4",
    "thumb": "media/thumbs/c9a5f1ea54a0.jpg",
+   "hosted": true
+  },
+  {
+   "id": "2026-11-11_inscryption/fn_kindergarten.mp4",
+   "folder": "2026-11-11_inscryption",
+   "file": "fn_kindergarten.mp4",
+   "kind": "short",
+   "status": "pending",
+   "title": "your fit was a blanket from home",
+   "caption": "",
+   "hashtags": "#chowaobby #fortnite #twitchclips #funny",
+   "hook": "\"your fit was a blanket from home\"",
+   "info": "(30.0s)\nSource: https://www.twitch.tv/videos/2925316249 @ 5:51:13–5:51:16 + 5:51:23–5:51:28 + 5:51:32–5:51:52 + 5:51:53–5:51:55 (streamed 2026-11-10)\nQC: 1080x1920, 20.4MB, sheets/fn_kindergarten.jpg; QC33 text 96% / timing 100% / recall 93% — PASS; covck OK; synccheck A/V in sync",
+   "note": "",
+   "edited": 0,
+   "feedback_reasons": [],
+   "feedback_text": "",
+   "feedback_at": "",
+   "slug": "fnkindergarten",
+   "dupes": [],
+   "updated_at": "2026-11-11T18:16:57-05:00",
+   "vid": "1d30dcbe29fd",
+   "state": "pending",
+   "media": "media/1d30dcbe29fd.mp4",
+   "thumb": "media/thumbs/1d30dcbe29fd.jpg",
    "hosted": true
   },
   {
@@ -3206,19 +3231,19 @@
   "goal": 3,
   "timezone": "America/Toronto",
   "today": "2026-11-11",
-  "today_count": 2,
-  "today_met": false,
-  "current": 0,
+  "today_count": 3,
+  "today_met": true,
+  "current": 1,
   "best": 2,
-  "cycle_progress": 0,
+  "cycle_progress": 1,
   "reward_days": 7,
-  "days_to_reward": 7,
+  "days_to_reward": 6,
   "cycle_days": [
    {
     "date": "2026-11-11",
     "dow": "W",
-    "count": 2,
-    "met": false,
+    "count": 3,
+    "met": true,
     "today": true,
     "future": false
    },
@@ -3317,8 +3342,8 @@
    {
     "date": "2026-11-11",
     "dow": "Wed",
-    "count": 2,
-    "met": false,
+    "count": 3,
+    "met": true,
     "today": true
    }
   ],
@@ -3337,12 +3362,12 @@
   "other"
  ],
  "last_action": {
-  "id": 346,
-  "clip_id": "2026-11-11_inscryption/rich_numberthree.mp4",
+  "id": 347,
+  "clip_id": "2026-11-11_inscryption/roblox_twomillion.mp4",
   "prev_status": "pending",
-  "new_status": "rejected",
-  "ts": "2026-11-11T18:12:28-05:00",
+  "new_status": "approved",
+  "ts": "2026-11-11T18:15:16-05:00",
   "undone": 0,
-  "meta": "{\"reasons\": [\"already posted\"], \"feedback\": \"\"}"
+  "meta": ""
  }
 }
