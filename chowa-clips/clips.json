@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11T21:52:47+00:00",
+ "generated": "2026-11-11T22:12:34+00:00",
  "clips": [
   {
    "id": "2026-11-11_inscryption/mom_fake.mp4",
@@ -424,6 +424,31 @@
    "state": "pending",
    "media": "media/e329346e5d78.mp4",
    "thumb": "media/thumbs/e329346e5d78.jpg",
+   "hosted": true
+  },
+  {
+   "id": "2026-11-11_inscryption/fn_stolechest.mp4",
+   "folder": "2026-11-11_inscryption",
+   "file": "fn_stolechest.mp4",
+   "kind": "short",
+   "status": "pending",
+   "title": "you just pulled up to steal that",
+   "caption": "",
+   "hashtags": "#chowaobby #fortnite #twitchclips #gaming",
+   "hook": "\"i saw it first\"",
+   "info": "(30.4s)\nSource: https://www.twitch.tv/videos/2925316249 @ 6:06:14–6:06:44 (streamed 2026-11-10)\nQC: 1080x1920, 17.1MB, sheets/fn_stolechest.jpg; QC33 text 93% / timing 100% / recall 91% — PASS; covck OK; synccheck A/V in sync",
+   "note": "",
+   "edited": 0,
+   "feedback_reasons": [],
+   "feedback_text": "",
+   "feedback_at": "",
+   "slug": "fnstolechest",
+   "dupes": [],
+   "updated_at": "2026-11-11T17:12:27-05:00",
+   "vid": "a02482e0298d",
+   "state": "pending",
+   "media": "media/a02482e0298d.mp4",
+   "thumb": "media/thumbs/a02482e0298d.jpg",
    "hosted": true
   },
   {
