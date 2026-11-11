@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-11T23:09:36+00:00",
+ "generated": "2026-11-11T23:13:03+00:00",
  "clips": [
   {
    "id": "2026-11-11_inscryption/mom_fake.mp4",
    "folder": "2026-11-11_inscryption",
    "file": "mom_fake.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "approved",
    "title": "my mom's fake",
    "caption": "",
    "hashtags": "#chowaobby #twitchstreamer #momsbelike #funny",
@@ -19,36 +19,11 @@
    "feedback_at": "",
    "slug": "momfake",
    "dupes": [],
-   "updated_at": "2026-11-11T15:48:53-05:00",
+   "updated_at": "2026-11-11T18:12:02-05:00",
    "vid": "a1d551946a36",
-   "state": "pending",
-   "media": "media/a1d551946a36.mp4",
+   "state": "yes",
+   "media": "media/a1d551946a36.1080.mp4",
    "thumb": "media/thumbs/a1d551946a36.jpg",
-   "hosted": true
-  },
-  {
-   "id": "2026-11-11_inscryption/rich_numberthree.mp4",
-   "folder": "2026-11-11_inscryption",
-   "file": "rich_numberthree.mp4",
-   "kind": "short",
-   "status": "pending",
-   "title": "number three, i haven't thought about it yet",
-   "caption": "",
-   "hashtags": "#chowaobby #twitchclips #funny #relatable",
-   "hook": "\"number three, i haven't thought about it yet\"",
-   "info": "(36.0s)\nNote: ⚠️ REPEAT — DO NOT POST: this moment was already posted as her own Short \"Three signs Maria has become rich\" (YouTube rXwGWUIUsNw, from Twitch clip 2228602681, Nov 11 ~1:08 AM ET). Found after this clip went to the New tab; the publish guard won't let it be removed, so please swipe it LEFT.\nSource: https://www.twitch.tv/videos/2925316249 @ 1:44:23–1:44:43 + 1:44:54–1:45:10 (streamed 2026-11-10)\nQC: 1080x1920, 10.0MB, sheets/rich_numberthree.jpg; QC33 text 98% / timing 100% / recall 100% — PASS; covck OK; synccheck A/V in sync",
-   "note": "",
-   "edited": 0,
-   "feedback_reasons": [],
-   "feedback_text": "",
-   "feedback_at": "",
-   "slug": "richnumberthree",
-   "dupes": [],
-   "updated_at": "2026-11-11T15:48:53-05:00",
-   "vid": "0da9c3988136",
-   "state": "pending",
-   "media": "media/0da9c3988136.mp4",
-   "thumb": "media/thumbs/0da9c3988136.jpg",
    "hosted": true
   },
   {
@@ -3231,7 +3206,7 @@
   "goal": 3,
   "timezone": "America/Toronto",
   "today": "2026-11-11",
-  "today_count": 0,
+  "today_count": 2,
   "today_met": false,
   "current": 0,
   "best": 2,
@@ -3242,7 +3217,7 @@
    {
     "date": "2026-11-11",
     "dow": "W",
-    "count": 0,
+    "count": 2,
     "met": false,
     "today": true,
     "future": false
@@ -3342,7 +3317,7 @@
    {
     "date": "2026-11-11",
     "dow": "Wed",
-    "count": 0,
+    "count": 2,
     "met": false,
     "today": true
    }
@@ -3362,12 +3337,12 @@
   "other"
  ],
  "last_action": {
-  "id": 343,
-  "clip_id": "2026-10-29/bomb_numberthree.mp4",
-  "prev_status": "approved",
-  "new_status": "posted",
-  "ts": "2026-11-02T18:22:44-05:00",
+  "id": 346,
+  "clip_id": "2026-11-11_inscryption/rich_numberthree.mp4",
+  "prev_status": "pending",
+  "new_status": "rejected",
+  "ts": "2026-11-11T18:12:28-05:00",
   "undone": 0,
-  "meta": ""
+  "meta": "{\"reasons\": [\"already posted\"], \"feedback\": \"\"}"
  }
 }
