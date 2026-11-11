@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11T22:12:34+00:00",
+ "generated": "2026-11-11T22:23:40+00:00",
  "clips": [
   {
    "id": "2026-11-11_inscryption/mom_fake.mp4",
@@ -449,6 +449,31 @@
    "state": "pending",
    "media": "media/a02482e0298d.mp4",
    "thumb": "media/thumbs/a02482e0298d.jpg",
+   "hosted": true
+  },
+  {
+   "id": "2026-11-11_inscryption/roblox_winsatlife.mp4",
+   "folder": "2026-11-11_inscryption",
+   "file": "roblox_winsatlife.mp4",
+   "kind": "short",
+   "status": "pending",
+   "title": "maria wins at life!",
+   "caption": "",
+   "hashtags": "#chowaobby #roblox #twitchclips #funny",
+   "hook": "\"maria wins at life!\"",
+   "info": "(41.1s)\nSource: https://www.twitch.tv/videos/2925316249 @ 4:32:56–4:33:12 + 4:33:30–4:33:41 + 4:33:49–4:33:58 + 4:34:34–4:34:39 (streamed 2026-11-10)\nQC: 1080x1920, 31.9MB, sheets/roblox_winsatlife.jpg; QC33 text 99% / timing 99% / recall 93% — PASS; covck OK; synccheck A/V in sync",
+   "note": "",
+   "edited": 0,
+   "feedback_reasons": [],
+   "feedback_text": "",
+   "feedback_at": "",
+   "slug": "robloxwinsatlife",
+   "dupes": [],
+   "updated_at": "2026-11-11T17:23:25-05:00",
+   "vid": "a98167a2d753",
+   "state": "pending",
+   "media": "media/a98167a2d753.mp4",
+   "thumb": "media/thumbs/a98167a2d753.jpg",
    "hosted": true
   },
   {
