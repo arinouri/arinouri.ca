@@ -6,8 +6,8 @@
 <meta name="description" content="Maral & Armin are getting married on November 25, 2027 at Grand Palladium Costa Mujeres, Mexico. Details and booking.">
 <meta property="og:title" content="Maral & Armin · November 25, 2027">
 <meta property="og:description" content="Join us in Costa Mujeres, Mexico, November 22–27, 2027. Details and booking.">
-<meta property="og:image" content="https://arinouri.ca/wedding/img/p02.jpg">
-<meta property="og:url" content="https://arinouri.ca/wedding/">
+<meta property="og:image" content="https://maralandarmin.ca/img/p02.jpg">
+<meta property="og:url" content="https://maralandarmin.ca/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' font-family='Georgia,serif' font-style='italic' fill='%233F7E70'%3EM%26A%3C/text%3E%3C/svg%3E">
@@ -1317,7 +1317,7 @@ const EN={menu:"Menu",close:"Close",copy:"Copy email",copyBoth:"Copy both emails
  noMsg:"Thank you for letting us know, {name}. You'll be with us in spirit.",
  failTitle:"Your RSVP didn't send.",failMsg:"Check your connection and try again, or email your reply to Maral at",
  pdfErr:"Please upload your completed booking form.",pdfType:"Please upload a PDF file.",pdfSize:"That file is over 5 MB. Please upload a smaller PDF.",
- previewTitle:"This is a preview.",previewMsg:"RSVPs can be sent from the live site at arinouri.ca/wedding.",
+ previewTitle:"This is a preview.",previewMsg:"RSVPs can be sent from the live site at maralandarmin.ca.",
  yesDone:"Thank you! Our travel agent will be in touch to confirm your room and flights and send a secure payment link.",
  noDone:"Thank you for letting us know. You'll be with us in spirit.",
  uploadDone:"Thank you! Maral has your booking form and will pass it on to Marsha. Marsha's office will be in touch to confirm your booking and take your deposit.",
@@ -1331,7 +1331,7 @@ const EN={menu:"Menu",close:"Close",copy:"Copy email",copyBoth:"Copy both emails
  errCount:"A room holds up to 4 guests: 1 to 3 adults and up to 2 children (including an infant).",errRoom:"Please choose a room type.",errSingle:"Single occupancy is for one adult travelling alone.",
  errIns:"Please choose yes or no for travel insurance.",errSign:"Please tick to confirm. Every adult needs to agree.",errNameShort:"Please add your name.",
  errAttach:"Your browser couldn't attach the form. Please email it to Maral instead.",errPdf:"Something went wrong making your form. Please try again, or download the blank form and fill it in yourself.",
- previewSend:"This is a preview. Forms can be sent from the live site at arinouri.ca/wedding.",
+ previewSend:"This is a preview. Forms can be sent from the live site at maralandarmin.ca.",
  zoomIn:"Zoom in",zoomOut:"Zoom out",sendForm:"Send my booking form"};
 const LANGS={en:["English","ltr"],fr:["Français","ltr"]};
 let LANG="en";
@@ -1365,7 +1365,7 @@ function setLang(code){
   addEventListener("keydown",e=>{if(e.key==="Escape")close();});
 })();
 /* ---- RSVP delivery: submissions are emailed via FormSubmit ---- */
-const LIVE=/(^|\.)arinouri\.ca$/.test(location.hostname)||/\.github\.io$/.test(location.hostname);
+const LIVE=/(^|\.)(arinouri|maralandarmin)\.ca$/.test(location.hostname)||/\.github\.io$/.test(location.hostname);
 /* Declines go to Maral. Booking forms (with card details) are emailed by guests straight to Marsha, never sent through this site. */
 const RSVP = { to: "maralandarmin@gmail.com" };
 
