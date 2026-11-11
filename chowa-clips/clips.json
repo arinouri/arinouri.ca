@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11T22:58:24+00:00",
+ "generated": "2026-11-11T23:09:36+00:00",
  "clips": [
   {
    "id": "2026-11-11_inscryption/mom_fake.mp4",
@@ -499,6 +499,31 @@
    "state": "pending",
    "media": "media/384e5464a672.mp4",
    "thumb": "media/thumbs/384e5464a672.jpg",
+   "hosted": true
+  },
+  {
+   "id": "2026-11-11_inscryption/fn_iamthemaster.mp4",
+   "folder": "2026-11-11_inscryption",
+   "file": "fn_iamthemaster.mp4",
+   "kind": "short",
+   "status": "pending",
+   "title": "let me tickle you with my sword",
+   "caption": "",
+   "hashtags": "#chowaobby #fortnite #twitchclips #gaming",
+   "hook": "\"i am the master\"",
+   "info": "(11.1s)\nSource: https://www.twitch.tv/videos/2925316249 @ 5:26:41–5:26:43 + 5:26:49–5:26:51 + 5:27:16–5:27:24 (streamed 2026-11-10)\nQC: 1080x1920, 8.0MB, sheets/fn_iamthemaster.jpg; QC33 text 100% / timing 100% / recall 96% — PASS; covck OK; synccheck A/V in sync",
+   "note": "",
+   "edited": 0,
+   "feedback_reasons": [],
+   "feedback_text": "",
+   "feedback_at": "",
+   "slug": "fniamthemaster",
+   "dupes": [],
+   "updated_at": "2026-11-11T18:09:33-05:00",
+   "vid": "c9a5f1ea54a0",
+   "state": "pending",
+   "media": "media/c9a5f1ea54a0.mp4",
+   "thumb": "media/thumbs/c9a5f1ea54a0.jpg",
    "hosted": true
   },
   {
