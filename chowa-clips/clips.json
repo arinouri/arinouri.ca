@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11T22:23:40+00:00",
+ "generated": "2026-11-11T22:58:24+00:00",
  "clips": [
   {
    "id": "2026-11-11_inscryption/mom_fake.mp4",
@@ -474,6 +474,31 @@
    "state": "pending",
    "media": "media/a98167a2d753.mp4",
    "thumb": "media/thumbs/a98167a2d753.jpg",
+   "hosted": true
+  },
+  {
+   "id": "2026-11-11_inscryption/chat_panipuri.mp4",
+   "folder": "2026-11-11_inscryption",
+   "file": "chat_panipuri.mp4",
+   "kind": "short",
+   "status": "pending",
+   "title": "did i say it wrong?",
+   "caption": "",
+   "hashtags": "#chowaobby #twitchclips #funny #streamer",
+   "hook": "\"did i say it wrong?\"",
+   "info": "(26.8s)\nSource: https://www.twitch.tv/videos/2925316249 @ 3:25:55–3:26:04 + 3:26:14–3:26:18 + 3:26:31–3:26:36 + 3:26:41–3:26:43 + 3:27:58–3:28:05 (streamed 2026-11-10)\nQC: 1080x1920, 19.8MB, sheets/chat_panipuri.jpg; QC33 text 95% / timing 100% / recall 96% — PASS; covck OK; synccheck A/V in sync",
+   "note": "",
+   "edited": 0,
+   "feedback_reasons": [],
+   "feedback_text": "",
+   "feedback_at": "",
+   "slug": "chatpanipuri",
+   "dupes": [],
+   "updated_at": "2026-11-11T17:58:15-05:00",
+   "vid": "384e5464a672",
+   "state": "pending",
+   "media": "media/384e5464a672.mp4",
+   "thumb": "media/thumbs/384e5464a672.jpg",
    "hosted": true
   },
   {
