@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11T21:34:16+00:00",
+ "generated": "2026-11-11T21:52:47+00:00",
  "clips": [
   {
    "id": "2026-11-11_inscryption/mom_fake.mp4",
@@ -399,6 +399,31 @@
    "state": "pending",
    "media": "media/28de78a09cce.mp4",
    "thumb": "media/thumbs/28de78a09cce.jpg",
+   "hosted": true
+  },
+  {
+   "id": "2026-11-11_inscryption/fn_stillflying.mp4",
+   "folder": "2026-11-11_inscryption",
+   "file": "fn_stillflying.mp4",
+   "kind": "short",
+   "status": "pending",
+   "title": "i am pressing space",
+   "caption": "",
+   "hashtags": "#chowaobby #fortnite #twitchclips #gaming",
+   "hook": "\"i am pressing space\"",
+   "info": "(18.8s)\nSource: https://www.twitch.tv/videos/2925316249 @ 4:52:35–4:52:54 (streamed 2026-11-10)\nQC: 1080x1920, 10.8MB, sheets/fn_stillflying.jpg; QC33 text 100% / timing 98% / recall 100% — PASS; covck OK; synccheck A/V in sync",
+   "note": "",
+   "edited": 0,
+   "feedback_reasons": [],
+   "feedback_text": "",
+   "feedback_at": "",
+   "slug": "fnstillflying",
+   "dupes": [],
+   "updated_at": "2026-11-11T16:52:43-05:00",
+   "vid": "e329346e5d78",
+   "state": "pending",
+   "media": "media/e329346e5d78.mp4",
+   "thumb": "media/thumbs/e329346e5d78.jpg",
    "hosted": true
   },
   {
