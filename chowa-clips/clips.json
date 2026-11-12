@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-12T17:11:45+00:00",
+ "generated": "2026-11-12T19:16:39+00:00",
  "clips": [
   {
    "id": "2026-11-11_inscryption/room_cleanhands.mp4",
@@ -31,7 +31,7 @@
    "folder": "2026-11-11_inscryption",
    "file": "room_floorwalls.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "more stuff on her floor than on her walls",
    "caption": "",
    "hashtags": "#chowaobby #roblox #roomtour #twitchclips",
@@ -44,7 +44,7 @@
    "feedback_at": "",
    "slug": "roomfloorwalls",
    "dupes": [],
-   "updated_at": "2026-11-11T18:17:21-05:00",
+   "updated_at": "2026-11-12T13:53:18-05:00",
    "vid": "d95e1d4e691b",
    "state": "yes",
    "media": "media/d95e1d4e691b.1080.mp4",
@@ -2862,11 +2862,11 @@
   "other"
  ],
  "last_action": {
-  "id": 392,
-  "clip_id": "2026-11-11_inscryption/fn_kindergarten.mp4",
+  "id": 393,
+  "clip_id": "2026-11-11_inscryption/room_floorwalls.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-11-12T11:19:53-05:00",
+  "ts": "2026-11-12T13:53:18-05:00",
   "undone": 0,
   "meta": ""
  }
