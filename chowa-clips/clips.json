@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-12T05:17:37+00:00",
+ "generated": "2026-11-12T17:11:45+00:00",
  "clips": [
   {
    "id": "2026-11-11_inscryption/room_cleanhands.mp4",
@@ -381,7 +381,7 @@
    "folder": "2026-11-11_inscryption",
    "file": "fn_kindergarten.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "your fit was a blanket from home",
    "caption": "",
    "hashtags": "#chowaobby #fortnite #twitchclips #funny",
@@ -394,7 +394,7 @@
    "feedback_at": "",
    "slug": "fnkindergarten",
    "dupes": [],
-   "updated_at": "2026-11-11T18:22:54-05:00",
+   "updated_at": "2026-11-12T11:19:53-05:00",
    "vid": "1d30dcbe29fd",
    "state": "yes",
    "media": "media/1d30dcbe29fd.1080.mp4",
@@ -2862,11 +2862,11 @@
   "other"
  ],
  "last_action": {
-  "id": 391,
-  "clip_id": "2026-11-11_inscryption/room_cleanhands.mp4",
+  "id": 392,
+  "clip_id": "2026-11-11_inscryption/fn_kindergarten.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-11-11T20:15:18-05:00",
+  "ts": "2026-11-12T11:19:53-05:00",
   "undone": 0,
   "meta": ""
  }
