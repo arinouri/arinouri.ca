@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-12T21:22:14+00:00",
+ "generated": "2026-11-13T00:14:40+00:00",
  "clips": [
   {
    "id": "2026-11-11_inscryption/room_cleanhands.mp4",
@@ -181,7 +181,7 @@
    "folder": "2026-11-11_inscryption",
    "file": "fn_nobodyshotyou.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "nobody shot you",
    "caption": "",
    "hashtags": "#chowaobby #fortnite #gaming #twitchclips",
@@ -194,7 +194,7 @@
    "feedback_at": "",
    "slug": "fnnobodyshotyou",
    "dupes": [],
-   "updated_at": "2026-11-11T18:18:06-05:00",
+   "updated_at": "2026-11-12T18:47:45-05:00",
    "vid": "7514a377e82b",
    "state": "yes",
    "media": "media/7514a377e82b.1080.mp4",
@@ -2862,11 +2862,11 @@
   "other"
  ],
  "last_action": {
-  "id": 394,
-  "clip_id": "2026-11-11_inscryption/fn_sinkingship.mp4",
+  "id": 395,
+  "clip_id": "2026-11-11_inscryption/fn_nobodyshotyou.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-11-12T15:47:16-05:00",
+  "ts": "2026-11-12T18:47:45-05:00",
   "undone": 0,
   "meta": ""
  }
