@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13T02:12:17+00:00",
+ "generated": "2026-11-13T05:20:31+00:00",
  "clips": [
   {
    "id": "2026-11-11_inscryption/room_cleanhands.mp4",
@@ -2730,38 +2730,22 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-11-12",
+  "today": "2026-11-13",
   "today_count": 0,
   "today_met": false,
-  "current": 1,
+  "current": 0,
   "best": 2,
-  "cycle_progress": 1,
+  "cycle_progress": 0,
   "reward_days": 7,
-  "days_to_reward": 6,
+  "days_to_reward": 7,
   "cycle_days": [
-   {
-    "date": "2026-11-11",
-    "dow": "W",
-    "count": 44,
-    "met": true,
-    "today": false,
-    "future": false
-   },
-   {
-    "date": "2026-11-12",
-    "dow": "T",
-    "count": 0,
-    "met": false,
-    "today": true,
-    "future": false
-   },
    {
     "date": "2026-11-13",
     "dow": "F",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-11-14",
@@ -2794,16 +2778,25 @@
     "met": false,
     "today": false,
     "future": true
+   },
+   {
+    "date": "2026-11-18",
+    "dow": "W",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
+   },
+   {
+    "date": "2026-11-19",
+    "dow": "T",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
    }
   ],
   "last7": [
-   {
-    "date": "2026-11-06",
-    "dow": "Fri",
-    "count": 0,
-    "met": false,
-    "today": false
-   },
    {
     "date": "2026-11-07",
     "dow": "Sat",
@@ -2842,6 +2835,13 @@
    {
     "date": "2026-11-12",
     "dow": "Thu",
+    "count": 0,
+    "met": false,
+    "today": false
+   },
+   {
+    "date": "2026-11-13",
+    "dow": "Fri",
     "count": 0,
     "met": false,
     "today": true
