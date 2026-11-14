@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13T23:23:20+00:00",
+ "generated": "2026-11-14T00:19:32+00:00",
  "clips": [
   {
    "id": "2026-11-13_inscryption2/fn_realmvp.mp4",
@@ -756,7 +756,7 @@
    "folder": "2026-11-11_inscryption",
    "file": "roblox_winsatlife.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "maria wins at life!",
    "caption": "",
    "hashtags": "#chowaobby #roblox #twitchclips #funny",
@@ -769,7 +769,7 @@
    "feedback_at": "",
    "slug": "robloxwinsatlife",
    "dupes": [],
-   "updated_at": "2026-11-11T18:21:36-05:00",
+   "updated_at": "2026-11-13T18:43:50-05:00",
    "vid": "a98167a2d753",
    "state": "yes",
    "media": "media/a98167a2d753.1080.mp4",
@@ -3262,11 +3262,11 @@
   "other"
  ],
  "last_action": {
-  "id": 399,
-  "clip_id": "2026-11-11_inscryption/fn_stolechest.mp4",
+  "id": 400,
+  "clip_id": "2026-11-11_inscryption/roblox_winsatlife.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-11-13T15:48:01-05:00",
+  "ts": "2026-11-13T18:43:50-05:00",
   "undone": 0,
   "meta": ""
  }
