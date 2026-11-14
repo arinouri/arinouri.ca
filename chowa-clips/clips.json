@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14T01:20:04+00:00",
+ "generated": "2026-11-14T05:14:34+00:00",
  "clips": [
   {
    "id": "2026-11-13_inscryption2/fn_realmvp.mp4",
@@ -3130,7 +3130,7 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-11-13",
+  "today": "2026-11-14",
   "today_count": 0,
   "today_met": false,
   "current": 0,
@@ -3140,20 +3140,12 @@
   "days_to_reward": 7,
   "cycle_days": [
    {
-    "date": "2026-11-13",
-    "dow": "F",
-    "count": 0,
-    "met": false,
-    "today": true,
-    "future": false
-   },
-   {
     "date": "2026-11-14",
     "dow": "S",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-11-15",
@@ -3194,16 +3186,17 @@
     "met": false,
     "today": false,
     "future": true
+   },
+   {
+    "date": "2026-11-20",
+    "dow": "F",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
    }
   ],
   "last7": [
-   {
-    "date": "2026-11-07",
-    "dow": "Sat",
-    "count": 0,
-    "met": false,
-    "today": false
-   },
    {
     "date": "2026-11-08",
     "dow": "Sun",
@@ -3242,6 +3235,13 @@
    {
     "date": "2026-11-13",
     "dow": "Fri",
+    "count": 0,
+    "met": false,
+    "today": false
+   },
+   {
+    "date": "2026-11-14",
+    "dow": "Sat",
     "count": 0,
     "met": false,
     "today": true
