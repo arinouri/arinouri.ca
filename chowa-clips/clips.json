@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14T00:19:32+00:00",
+ "generated": "2026-11-14T01:20:04+00:00",
  "clips": [
   {
    "id": "2026-11-13_inscryption2/fn_realmvp.mp4",
@@ -606,7 +606,7 @@
    "folder": "2026-11-11_inscryption",
    "file": "room_namethreethings.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "there's literally nothing on my floor",
    "caption": "",
    "hashtags": "#chowaobby #roomtour #twitchstreamer #funny",
@@ -619,7 +619,7 @@
    "feedback_at": "",
    "slug": "roomnamethreethings",
    "dupes": [],
-   "updated_at": "2026-11-11T18:18:49-05:00",
+   "updated_at": "2026-11-13T20:16:08-05:00",
    "vid": "574b28e559cf",
    "state": "yes",
    "media": "media/574b28e559cf.1080.mp4",
@@ -3262,11 +3262,11 @@
   "other"
  ],
  "last_action": {
-  "id": 400,
-  "clip_id": "2026-11-11_inscryption/roblox_winsatlife.mp4",
+  "id": 401,
+  "clip_id": "2026-11-11_inscryption/room_namethreethings.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-11-13T18:43:50-05:00",
+  "ts": "2026-11-13T20:16:08-05:00",
   "undone": 0,
   "meta": ""
  }
