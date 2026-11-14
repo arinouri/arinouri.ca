@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14T17:14:52+00:00",
+ "generated": "2026-11-14T19:12:01+00:00",
  "clips": [
   {
    "id": "2026-11-13_inscryption2/fn_realmvp.mp4",
@@ -531,7 +531,7 @@
    "folder": "2026-11-11_inscryption",
    "file": "mason_lovemore.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "who do you love more, me or cindy?",
    "caption": "",
    "hashtags": "#chowaobby #nephew #twitchstreamer #funny",
@@ -544,7 +544,7 @@
    "feedback_at": "",
    "slug": "masonlovemore",
    "dupes": [],
-   "updated_at": "2026-11-11T18:17:22-05:00",
+   "updated_at": "2026-11-14T13:48:54-05:00",
    "vid": "cef887927c0d",
    "state": "yes",
    "media": "media/cef887927c0d.1080.mp4",
@@ -3262,11 +3262,11 @@
   "other"
  ],
  "last_action": {
-  "id": 402,
-  "clip_id": "2026-11-11_inscryption/chat_german.mp4",
+  "id": 403,
+  "clip_id": "2026-11-11_inscryption/mason_lovemore.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-11-14T11:50:33-05:00",
+  "ts": "2026-11-14T13:48:54-05:00",
   "undone": 0,
   "meta": ""
  }
