@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14T05:14:34+00:00",
+ "generated": "2026-11-14T17:14:52+00:00",
  "clips": [
   {
    "id": "2026-11-13_inscryption2/fn_realmvp.mp4",
@@ -631,7 +631,7 @@
    "folder": "2026-11-11_inscryption",
    "file": "chat_german.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "i was meant to be german",
    "caption": "",
    "hashtags": "#chowaobby #inscryption #twitchstreamer #funny",
@@ -644,7 +644,7 @@
    "feedback_at": "",
    "slug": "chatgerman",
    "dupes": [],
-   "updated_at": "2026-11-11T18:19:37-05:00",
+   "updated_at": "2026-11-14T11:50:33-05:00",
    "vid": "385dd33ed4dd",
    "state": "yes",
    "media": "media/385dd33ed4dd.1080.mp4",
@@ -3262,11 +3262,11 @@
   "other"
  ],
  "last_action": {
-  "id": 401,
-  "clip_id": "2026-11-11_inscryption/room_namethreethings.mp4",
+  "id": 402,
+  "clip_id": "2026-11-11_inscryption/chat_german.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-11-13T20:16:08-05:00",
+  "ts": "2026-11-14T11:50:33-05:00",
   "undone": 0,
   "meta": ""
  }
