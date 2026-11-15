@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15T09:43:18+00:00",
+ "generated": "2026-11-15T17:13:10+00:00",
  "clips": [
   {
    "id": "2026-11-13_inscryption2/room_spirits.mp4",
@@ -806,7 +806,7 @@
    "folder": "2026-10-31_volume",
    "file": "talk_iwoulddothat.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "that's something i would actually do",
    "caption": "",
    "hashtags": "#chowaobby #twitchclips #funny #streamer",
@@ -819,7 +819,7 @@
    "feedback_at": "",
    "slug": "talkiwoulddothat",
    "dupes": [],
-   "updated_at": "2026-11-11T18:17:18-05:00",
+   "updated_at": "2026-11-15T11:22:13-05:00",
    "vid": "5a50619da5e7",
    "state": "yes",
    "media": "media/5a50619da5e7.1080.mp4",
@@ -3037,11 +3037,11 @@
   "other"
  ],
  "last_action": {
-  "id": 437,
-  "clip_id": "2026-11-02/z1_newviewer.mp4",
-  "prev_status": "pending",
-  "new_status": "approved",
-  "ts": "2026-11-15T04:27:53-05:00",
+  "id": 438,
+  "clip_id": "2026-10-31_volume/talk_iwoulddothat.mp4",
+  "prev_status": "approved",
+  "new_status": "posted",
+  "ts": "2026-11-15T11:22:13-05:00",
   "undone": 0,
   "meta": ""
  }
