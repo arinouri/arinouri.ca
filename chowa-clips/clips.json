@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15T00:11:21+00:00",
+ "generated": "2026-11-15T02:11:15+00:00",
  "clips": [
   {
    "id": "2026-11-13_inscryption2/fn_realmvp.mp4",
@@ -506,7 +506,7 @@
    "folder": "2026-11-11_inscryption",
    "file": "chat_aispareme.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "ai told me it would spare me",
    "caption": "",
    "hashtags": "#chowaobby #ai #twitchstreamer #funny",
@@ -519,7 +519,7 @@
    "feedback_at": "",
    "slug": "chataispareme",
    "dupes": [],
-   "updated_at": "2026-11-11T18:17:22-05:00",
+   "updated_at": "2026-11-14T20:44:00-05:00",
    "vid": "f658387c128f",
    "state": "yes",
    "media": "media/f658387c128f.1080.mp4",
@@ -3262,11 +3262,11 @@
   "other"
  ],
  "last_action": {
-  "id": 405,
-  "clip_id": "2026-11-11_inscryption/cousin_babydropoff.mp4",
+  "id": 406,
+  "clip_id": "2026-11-11_inscryption/chat_aispareme.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-11-14T18:46:41-05:00",
+  "ts": "2026-11-14T20:44:00-05:00",
   "undone": 0,
   "meta": ""
  }
