@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14T21:18:07+00:00",
+ "generated": "2026-11-15T00:11:21+00:00",
  "clips": [
   {
    "id": "2026-11-13_inscryption2/fn_realmvp.mp4",
@@ -556,7 +556,7 @@
    "folder": "2026-11-11_inscryption",
    "file": "cousin_babydropoff.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "five dollars for baby",
    "caption": "",
    "hashtags": "#chowaobby #twitchstreamer #family #funny",
@@ -569,7 +569,7 @@
    "feedback_at": "",
    "slug": "cousinbabydropoff",
    "dupes": [],
-   "updated_at": "2026-11-11T18:17:48-05:00",
+   "updated_at": "2026-11-14T18:46:41-05:00",
    "vid": "5ba7ad359f0e",
    "state": "yes",
    "media": "media/5ba7ad359f0e.1080.mp4",
@@ -3262,11 +3262,11 @@
   "other"
  ],
  "last_action": {
-  "id": 404,
-  "clip_id": "2026-10-31_volume/bomb_lookingleft.mp4",
+  "id": 405,
+  "clip_id": "2026-11-11_inscryption/cousin_babydropoff.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-11-14T15:47:37-05:00",
+  "ts": "2026-11-14T18:46:41-05:00",
   "undone": 0,
   "meta": ""
  }
