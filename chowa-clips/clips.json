@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-19T07:15:22+00:00",
+ "generated": "2026-11-19T09:13:15+00:00",
  "clips": [
   {
    "id": "2026-11-13_inscryption2/room_spirits.mp4",
@@ -356,7 +356,7 @@
    "folder": "2026-11-11_inscryption",
    "file": "roblox_twomillion.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "you owe me two million dollars",
    "caption": "",
    "hashtags": "#chowaobby #roblox #twitchclips #gaming",
@@ -369,7 +369,7 @@
    "feedback_at": "",
    "slug": "robloxtwomillion",
    "dupes": [],
-   "updated_at": "2026-11-15T04:27:51-05:00",
+   "updated_at": "2026-11-19T03:49:51-05:00",
    "vid": "62ebacea0d12",
    "state": "yes",
    "media": "media/62ebacea0d12.1080.mp4",
@@ -3037,11 +3037,11 @@
   "other"
  ],
  "last_action": {
-  "id": 459,
-  "clip_id": "2026-11-13_inscryption2/fn_tokenmaster.mp4",
+  "id": 460,
+  "clip_id": "2026-11-11_inscryption/roblox_twomillion.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-11-19T01:54:37-05:00",
+  "ts": "2026-11-19T03:49:51-05:00",
   "undone": 0,
   "meta": ""
  }
