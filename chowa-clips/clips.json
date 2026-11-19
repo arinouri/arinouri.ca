@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-19T09:33:56+00:00",
+ "generated": "2026-11-19T17:12:23+00:00",
  "clips": [
   {
    "id": "2026-11-19_pirate/fan_birthday.mp4",
@@ -856,7 +856,7 @@
    "folder": "2026-11-13_inscryption2",
    "file": "roblox_mukbang.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "this mukbang is a solid 3 out of 10",
    "caption": "",
    "hashtags": "#chowaobby #mukbang #twitchclips #roblox",
@@ -869,7 +869,7 @@
    "feedback_at": "",
    "slug": "robloxmukbang",
    "dupes": [],
-   "updated_at": "2026-11-15T04:27:49-05:00",
+   "updated_at": "2026-11-19T11:46:37-05:00",
    "vid": "eb0f9bacc987",
    "state": "yes",
    "media": "media/eb0f9bacc987.1080.mp4",
@@ -1299,7 +1299,7 @@
    "state": "yes",
    "media": "media/1d30dcbe29fd.1080.mp4",
    "thumb": "media/thumbs/1d30dcbe29fd.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-11-02/z1_weepysleepy.mp4",
@@ -3637,11 +3637,11 @@
   "other"
  ],
  "last_action": {
-  "id": 460,
-  "clip_id": "2026-11-11_inscryption/roblox_twomillion.mp4",
+  "id": 461,
+  "clip_id": "2026-11-13_inscryption2/roblox_mukbang.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-11-19T03:49:51-05:00",
+  "ts": "2026-11-19T11:46:37-05:00",
   "undone": 0,
   "meta": ""
  }
