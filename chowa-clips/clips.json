@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-19T17:12:23+00:00",
+ "generated": "2026-11-19T19:19:25+00:00",
  "clips": [
   {
    "id": "2026-11-19_pirate/fan_birthday.mp4",
@@ -681,7 +681,7 @@
    "folder": "2026-11-13_inscryption2",
    "file": "insc_packrats.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "all i'm getting is pack rats",
    "caption": "",
    "hashtags": "#chowaobby #inscryption #twitchclips #gaming",
@@ -694,7 +694,7 @@
    "feedback_at": "",
    "slug": "inscpackrats",
    "dupes": [],
-   "updated_at": "2026-11-15T04:27:47-05:00",
+   "updated_at": "2026-11-19T13:51:26-05:00",
    "vid": "96fd3d6e0d72",
    "state": "yes",
    "media": "media/96fd3d6e0d72.1080.mp4",
@@ -949,7 +949,7 @@
    "state": "yes",
    "media": "media/d95e1d4e691b.1080.mp4",
    "thumb": "media/thumbs/d95e1d4e691b.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-11-11_inscryption/roblox_twomillion.mp4",
@@ -3637,11 +3637,11 @@
   "other"
  ],
  "last_action": {
-  "id": 461,
-  "clip_id": "2026-11-13_inscryption2/roblox_mukbang.mp4",
+  "id": 462,
+  "clip_id": "2026-11-13_inscryption2/insc_packrats.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-11-19T11:46:37-05:00",
+  "ts": "2026-11-19T13:51:26-05:00",
   "undone": 0,
   "meta": ""
  }
