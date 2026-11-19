@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-19T19:19:25+00:00",
+ "generated": "2026-11-19T21:19:56+00:00",
  "clips": [
   {
    "id": "2026-11-19_pirate/fan_birthday.mp4",
@@ -999,7 +999,7 @@
    "state": "yes",
    "media": "media/6490d0613bf7.1080.mp4",
    "thumb": "media/thumbs/6490d0613bf7.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-11-11_inscryption/chat_aispareme.mp4",
