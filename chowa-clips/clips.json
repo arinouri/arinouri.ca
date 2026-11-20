@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-20T02:15:49+00:00",
+ "generated": "2026-11-20T04:12:45+00:00",
  "clips": [
   {
    "id": "2026-11-19_pirate/fan_birthday.mp4",
@@ -1374,31 +1374,6 @@
    "state": "yes",
    "media": "media/3ee4e6579687.1080.mp4",
    "thumb": "media/thumbs/3ee4e6579687.jpg",
-   "hosted": true
-  },
-  {
-   "id": "2026-10-31_volume2/bday_pigeonspies.mp4",
-   "folder": "2026-10-31_volume2",
-   "file": "bday_pigeonspies.mp4",
-   "kind": "short",
-   "status": "posted",
-   "title": "every single pigeon is a camera",
-   "caption": "",
-   "hashtags": "#chowaobby #conspiracy #funny #twitchclips",
-   "hook": "\"every pigeon is a camera\"",
-   "info": "(15.24s)\nSource: https://www.twitch.tv/videos/2858099369 @ 2:01:50–2:01:59 + 2:02:23–2:02:30 (streamed 2026-08-27)\nQC: 1080x1920, 6.9MB, contact sheet sheets/bday_pigeonspies.jpg; captions from gap-free source audio, QC33 text 96% / timing ±0.2s 96% / recall 96% / A-V lag 14ms — PASS",
-   "note": "",
-   "edited": 0,
-   "feedback_reasons": [],
-   "feedback_text": "",
-   "feedback_at": "",
-   "slug": "bdaypigeonspies",
-   "dupes": [],
-   "updated_at": "2026-11-15T13:53:00-05:00",
-   "vid": "df2c4c0865b8",
-   "state": "yes",
-   "media": "media/df2c4c0865b8.1080.mp4",
-   "thumb": "media/thumbs/df2c4c0865b8.jpg",
    "hosted": true
   },
   {
@@ -3506,7 +3481,7 @@
   "goal": 3,
   "timezone": "America/Toronto",
   "today": "2026-11-19",
-  "today_count": 0,
+  "today_count": 1,
   "today_met": false,
   "current": 0,
   "best": 2,
@@ -3517,7 +3492,7 @@
    {
     "date": "2026-11-19",
     "dow": "T",
-    "count": 0,
+    "count": 1,
     "met": false,
     "today": true,
     "future": false
@@ -3617,7 +3592,7 @@
    {
     "date": "2026-11-19",
     "dow": "Thu",
-    "count": 0,
+    "count": 1,
     "met": false,
     "today": true
    }
@@ -3637,12 +3612,12 @@
   "other"
  ],
  "last_action": {
-  "id": 462,
-  "clip_id": "2026-11-13_inscryption2/insc_packrats.mp4",
-  "prev_status": "approved",
-  "new_status": "posted",
-  "ts": "2026-11-19T13:51:26-05:00",
+  "id": 463,
+  "clip_id": "2026-10-31_volume2/bday_pigeonspies.mp4",
+  "prev_status": "posted",
+  "new_status": "rejected",
+  "ts": "2026-11-19T22:47:41-05:00",
   "undone": 0,
-  "meta": ""
+  "meta": "{\"reasons\": [], \"feedback\": \"\"}"
  }
 }
