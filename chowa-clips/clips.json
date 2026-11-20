@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-20T05:13:55+00:00",
+ "generated": "2026-11-20T17:16:01+00:00",
  "clips": [
   {
    "id": "2026-11-19_pirate/fan_birthday.mp4",
@@ -1306,7 +1306,7 @@
    "folder": "2026-11-02",
    "file": "z1_weepysleepy.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "he thought i said i was sleepy",
    "caption": "",
    "hashtags": "#chowaobby #projectzomboid #gaming #twitchclips",
@@ -1319,7 +1319,7 @@
    "feedback_at": "",
    "slug": "z1weepysleepy",
    "dupes": [],
-   "updated_at": "2026-11-15T13:54:09-05:00",
+   "updated_at": "2026-11-20T11:47:17-05:00",
    "vid": "8bafff4107f8",
    "state": "yes",
    "media": "media/8bafff4107f8.1080.mp4",
@@ -3612,12 +3612,12 @@
   "other"
  ],
  "last_action": {
-  "id": 463,
-  "clip_id": "2026-10-31_volume2/bday_pigeonspies.mp4",
-  "prev_status": "posted",
-  "new_status": "rejected",
-  "ts": "2026-11-19T22:47:41-05:00",
+  "id": 464,
+  "clip_id": "2026-11-02/z1_weepysleepy.mp4",
+  "prev_status": "approved",
+  "new_status": "posted",
+  "ts": "2026-11-20T11:47:17-05:00",
   "undone": 0,
-  "meta": "{\"reasons\": [], \"feedback\": \"\"}"
+  "meta": ""
  }
 }
