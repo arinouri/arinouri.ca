@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-20T00:16:27+00:00",
+ "generated": "2026-11-20T02:15:49+00:00",
  "clips": [
   {
    "id": "2026-11-19_pirate/fan_birthday.mp4",
@@ -1224,7 +1224,7 @@
    "state": "yes",
    "media": "media/e329346e5d78.1080.mp4",
    "thumb": "media/thumbs/e329346e5d78.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-11-11_inscryption/fn_stolechest.mp4",
