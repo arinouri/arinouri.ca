@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-21T17:13:59+00:00",
+ "generated": "2026-11-21T19:11:23+00:00",
  "clips": [
   {
    "id": "2026-11-19_pirate/fan_birthday.mp4",
@@ -1049,7 +1049,7 @@
    "state": "yes",
    "media": "media/cef887927c0d.1080.mp4",
    "thumb": "media/thumbs/cef887927c0d.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-11-11_inscryption/cousin_babydropoff.mp4",
