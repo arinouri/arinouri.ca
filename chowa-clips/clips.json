@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-20T21:18:56+00:00",
+ "generated": "2026-11-21T00:11:40+00:00",
  "clips": [
   {
    "id": "2026-11-19_pirate/fan_birthday.mp4",
@@ -831,7 +831,7 @@
    "folder": "2026-11-13_inscryption2",
    "file": "chat_ignored.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "they didn't even reply",
    "caption": "",
    "hashtags": "#chowaobby #twitchclips #storytime #funny",
@@ -844,7 +844,7 @@
    "feedback_at": "",
    "slug": "chatignored",
    "dupes": [],
-   "updated_at": "2026-11-15T03:48:17-05:00",
+   "updated_at": "2026-11-20T18:23:30-05:00",
    "vid": "496e3e4f0093",
    "state": "yes",
    "media": "media/496e3e4f0093.1080.mp4",
@@ -1274,7 +1274,7 @@
    "state": "yes",
    "media": "media/a98167a2d753.1080.mp4",
    "thumb": "media/thumbs/a98167a2d753.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-11-11_inscryption/fn_kindergarten.mp4",
@@ -3612,11 +3612,11 @@
   "other"
  ],
  "last_action": {
-  "id": 464,
-  "clip_id": "2026-11-02/z1_weepysleepy.mp4",
+  "id": 465,
+  "clip_id": "2026-11-13_inscryption2/chat_ignored.mp4",
   "prev_status": "approved",
   "new_status": "posted",
-  "ts": "2026-11-20T11:47:17-05:00",
+  "ts": "2026-11-20T18:23:30-05:00",
   "undone": 0,
   "meta": ""
  }
