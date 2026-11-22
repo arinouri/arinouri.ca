@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-22T00:14:16+00:00",
+ "generated": "2026-11-22T02:14:02+00:00",
  "clips": [
   {
    "id": "2026-11-19_pirate/fan_birthday.mp4",
@@ -1024,7 +1024,7 @@
    "state": "yes",
    "media": "media/f658387c128f.1080.mp4",
    "thumb": "media/thumbs/f658387c128f.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-11-11_inscryption/mason_lovemore.mp4",
