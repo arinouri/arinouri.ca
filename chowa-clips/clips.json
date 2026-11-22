@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-22T05:14:21+00:00",
+ "generated": "2026-11-22T19:19:22+00:00",
  "clips": [
   {
    "id": "2026-11-19_pirate/fan_birthday.mp4",
@@ -1399,7 +1399,7 @@
    "state": "yes",
    "media": "media/5a50619da5e7.1080.mp4",
    "thumb": "media/thumbs/5a50619da5e7.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-31_volume/trivia_iunfollow.mp4",
