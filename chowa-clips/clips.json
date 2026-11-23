@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-22T19:19:22+00:00",
+ "generated": "2026-11-23T05:17:28+00:00",
  "clips": [
   {
    "id": "2026-11-19_pirate/fan_birthday.mp4",
@@ -3480,7 +3480,7 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-11-22",
+  "today": "2026-11-23",
   "today_count": 0,
   "today_met": false,
   "current": 0,
@@ -3490,20 +3490,12 @@
   "days_to_reward": 7,
   "cycle_days": [
    {
-    "date": "2026-11-22",
-    "dow": "S",
-    "count": 0,
-    "met": false,
-    "today": true,
-    "future": false
-   },
-   {
     "date": "2026-11-23",
     "dow": "M",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-11-24",
@@ -3544,16 +3536,17 @@
     "met": false,
     "today": false,
     "future": true
+   },
+   {
+    "date": "2026-11-29",
+    "dow": "S",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
    }
   ],
   "last7": [
-   {
-    "date": "2026-11-16",
-    "dow": "Mon",
-    "count": 0,
-    "met": false,
-    "today": false
-   },
    {
     "date": "2026-11-17",
     "dow": "Tue",
@@ -3592,6 +3585,13 @@
    {
     "date": "2026-11-22",
     "dow": "Sun",
+    "count": 0,
+    "met": false,
+    "today": false
+   },
+   {
+    "date": "2026-11-23",
+    "dow": "Mon",
     "count": 0,
     "met": false,
     "today": true
