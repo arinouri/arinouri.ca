@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23T06:20:22+00:00",
+ "generated": "2026-11-23T06:21:02+00:00",
  "clips": [
   {
    "id": "2026-11-23_rawfish/f_firstbite.mp4",
@@ -45,11 +45,11 @@
    "slug": "fariangag",
    "dupes": [],
    "updated_at": "2026-11-23T01:20:07-05:00",
-   "vid": "b8e2ab09d83b",
+   "vid": "b1b71bce973c",
    "state": "pending",
-   "media": "media/b8e2ab09d83b.mp4",
-   "thumb": "media/thumbs/b8e2ab09d83b.jpg",
-   "hosted": false
+   "media": "media/b1b71bce973c.mp4",
+   "thumb": "media/thumbs/b1b71bce973c.jpg",
+   "hosted": true
   },
   {
    "id": "2026-11-23_rawfish/f_cindy.mp4",
