@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-26T07:21:43+00:00",
+ "generated": "2026-11-26T09:16:23+00:00",
  "clips": [
   {
    "id": "2026-11-23_rawfish/f_firstbite.mp4",
@@ -1849,7 +1849,7 @@
    "state": "yes",
    "media": "media/62ebacea0d12.1080.mp4",
    "thumb": "media/thumbs/62ebacea0d12.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-11-11_inscryption/fn_sinkingship.mp4",
