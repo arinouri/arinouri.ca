@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23T09:12:49+00:00",
+ "generated": "2026-11-26T07:21:43+00:00",
  "clips": [
   {
    "id": "2026-11-23_rawfish/f_firstbite.mp4",
@@ -1499,7 +1499,7 @@
    "state": "yes",
    "media": "media/8782fd302f3d.1080.mp4",
    "thumb": "media/thumbs/8782fd302f3d.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-11-13_inscryption2/insc_trolledhard.mp4",
@@ -1524,7 +1524,7 @@
    "state": "yes",
    "media": "media/3698d3916172.1080.mp4",
    "thumb": "media/thumbs/3698d3916172.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-11-13_inscryption2/chat_homeless.mp4",
@@ -1624,7 +1624,7 @@
    "state": "yes",
    "media": "media/d7a8eff1cacd.1080.mp4",
    "thumb": "media/thumbs/d7a8eff1cacd.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-11-13_inscryption2/fn_tokenmaster.mp4",
@@ -1649,7 +1649,7 @@
    "state": "yes",
    "media": "media/0444684c1479.1080.mp4",
    "thumb": "media/thumbs/0444684c1479.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-11-13_inscryption2/insc_surrender.mp4",
@@ -1699,7 +1699,7 @@
    "state": "yes",
    "media": "media/c5931bd7fd70.1080.mp4",
    "thumb": "media/thumbs/c5931bd7fd70.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-11-13_inscryption2/chat_ignored.mp4",
@@ -2074,7 +2074,7 @@
    "state": "yes",
    "media": "media/28de78a09cce.1080.mp4",
    "thumb": "media/thumbs/28de78a09cce.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-11-11_inscryption/fn_stillflying.mp4",
@@ -2249,7 +2249,7 @@
    "state": "yes",
    "media": "media/3ee4e6579687.1080.mp4",
    "thumb": "media/thumbs/3ee4e6579687.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-31_volume/talk_iwoulddothat.mp4",
@@ -2299,7 +2299,7 @@
    "state": "yes",
    "media": "media/f1ce5ccbd9b7.1080.mp4",
    "thumb": "media/thumbs/f1ce5ccbd9b7.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-31_volume/chat_imacow.mp4",
@@ -2324,7 +2324,7 @@
    "state": "yes",
    "media": "media/a46c1e4964d2.1080.mp4",
    "thumb": "media/thumbs/a46c1e4964d2.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-10-31_volume/bomb_lookingleft.mp4",
@@ -4355,7 +4355,7 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-11-23",
+  "today": "2026-11-26",
   "today_count": 0,
   "today_met": false,
   "current": 0,
@@ -4365,36 +4365,12 @@
   "days_to_reward": 7,
   "cycle_days": [
    {
-    "date": "2026-11-23",
-    "dow": "M",
-    "count": 0,
-    "met": false,
-    "today": true,
-    "future": false
-   },
-   {
-    "date": "2026-11-24",
-    "dow": "T",
-    "count": 0,
-    "met": false,
-    "today": false,
-    "future": true
-   },
-   {
-    "date": "2026-11-25",
-    "dow": "W",
-    "count": 0,
-    "met": false,
-    "today": false,
-    "future": true
-   },
-   {
     "date": "2026-11-26",
     "dow": "T",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-11-27",
@@ -4419,30 +4395,33 @@
     "met": false,
     "today": false,
     "future": true
+   },
+   {
+    "date": "2026-11-30",
+    "dow": "M",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
+   },
+   {
+    "date": "2026-12-01",
+    "dow": "T",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
+   },
+   {
+    "date": "2026-12-02",
+    "dow": "W",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
    }
   ],
   "last7": [
-   {
-    "date": "2026-11-17",
-    "dow": "Tue",
-    "count": 0,
-    "met": false,
-    "today": false
-   },
-   {
-    "date": "2026-11-18",
-    "dow": "Wed",
-    "count": 0,
-    "met": false,
-    "today": false
-   },
-   {
-    "date": "2026-11-19",
-    "dow": "Thu",
-    "count": 1,
-    "met": false,
-    "today": false
-   },
    {
     "date": "2026-11-20",
     "dow": "Fri",
@@ -4467,6 +4446,27 @@
    {
     "date": "2026-11-23",
     "dow": "Mon",
+    "count": 0,
+    "met": false,
+    "today": false
+   },
+   {
+    "date": "2026-11-24",
+    "dow": "Tue",
+    "count": 0,
+    "met": false,
+    "today": false
+   },
+   {
+    "date": "2026-11-25",
+    "dow": "Wed",
+    "count": 0,
+    "met": false,
+    "today": false
+   },
+   {
+    "date": "2026-11-26",
+    "dow": "Thu",
     "count": 0,
     "met": false,
     "today": true
