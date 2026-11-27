@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27T05:17:59+00:00",
+ "generated": "2026-11-27T17:15:21+00:00",
  "clips": [
   {
    "id": "2026-11-23_rawfish/f_firstbite.mp4",
@@ -2199,7 +2199,7 @@
    "state": "yes",
    "media": "media/8bafff4107f8.1080.mp4",
    "thumb": "media/thumbs/8bafff4107f8.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-11-02/z1_newviewer.mp4",
