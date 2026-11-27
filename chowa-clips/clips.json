@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-26T19:19:39+00:00",
+ "generated": "2026-11-27T05:17:59+00:00",
  "clips": [
   {
    "id": "2026-11-23_rawfish/f_firstbite.mp4",
@@ -4355,7 +4355,7 @@
  "streak": {
   "goal": 3,
   "timezone": "America/Toronto",
-  "today": "2026-11-26",
+  "today": "2026-11-27",
   "today_count": 0,
   "today_met": false,
   "current": 0,
@@ -4365,20 +4365,12 @@
   "days_to_reward": 7,
   "cycle_days": [
    {
-    "date": "2026-11-26",
-    "dow": "T",
-    "count": 0,
-    "met": false,
-    "today": true,
-    "future": false
-   },
-   {
     "date": "2026-11-27",
     "dow": "F",
     "count": 0,
     "met": false,
-    "today": false,
-    "future": true
+    "today": true,
+    "future": false
    },
    {
     "date": "2026-11-28",
@@ -4419,16 +4411,17 @@
     "met": false,
     "today": false,
     "future": true
+   },
+   {
+    "date": "2026-12-03",
+    "dow": "T",
+    "count": 0,
+    "met": false,
+    "today": false,
+    "future": true
    }
   ],
   "last7": [
-   {
-    "date": "2026-11-20",
-    "dow": "Fri",
-    "count": 0,
-    "met": false,
-    "today": false
-   },
    {
     "date": "2026-11-21",
     "dow": "Sat",
@@ -4467,6 +4460,13 @@
    {
     "date": "2026-11-26",
     "dow": "Thu",
+    "count": 0,
+    "met": false,
+    "today": false
+   },
+   {
+    "date": "2026-11-27",
+    "dow": "Fri",
     "count": 0,
     "met": false,
     "today": true
