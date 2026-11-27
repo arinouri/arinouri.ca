@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-27T17:15:21+00:00",
+ "generated": "2026-11-27T22:40:23+00:00",
  "clips": [
   {
    "id": "2026-11-23_rawfish/f_firstbite.mp4",
    "folder": "2026-11-23_rawfish",
    "file": "f_firstbite.mp4",
    "kind": "short",
-   "status": "pending",
+   "status": "approved",
    "title": "she looks like she's about to gag, bro",
    "caption": "",
    "hashtags": "#chowaobby #twitchclips #funny #streamer #rawfish #irl",
@@ -19,10 +19,10 @@
    "feedback_at": "",
    "slug": "ffirstbite",
    "dupes": [],
-   "updated_at": "2026-11-23T01:20:07-05:00",
+   "updated_at": "2026-11-27T17:21:38-05:00",
    "vid": "121a6eab6bca",
-   "state": "pending",
-   "media": "media/121a6eab6bca.mp4",
+   "state": "yes",
+   "media": "media/121a6eab6bca.1080.mp4",
    "thumb": "media/thumbs/121a6eab6bca.jpg",
    "hosted": true
   },
@@ -4356,7 +4356,7 @@
   "goal": 3,
   "timezone": "America/Toronto",
   "today": "2026-11-27",
-  "today_count": 0,
+  "today_count": 1,
   "today_met": false,
   "current": 0,
   "best": 2,
@@ -4367,7 +4367,7 @@
    {
     "date": "2026-11-27",
     "dow": "F",
-    "count": 0,
+    "count": 1,
     "met": false,
     "today": true,
     "future": false
@@ -4467,7 +4467,7 @@
    {
     "date": "2026-11-27",
     "dow": "Fri",
-    "count": 0,
+    "count": 1,
     "met": false,
     "today": true
    }
@@ -4487,11 +4487,11 @@
   "other"
  ],
  "last_action": {
-  "id": 465,
-  "clip_id": "2026-11-13_inscryption2/chat_ignored.mp4",
-  "prev_status": "approved",
-  "new_status": "posted",
-  "ts": "2026-11-20T18:23:30-05:00",
+  "id": 466,
+  "clip_id": "2026-11-23_rawfish/f_firstbite.mp4",
+  "prev_status": "pending",
+  "new_status": "approved",
+  "ts": "2026-11-27T17:21:38-05:00",
   "undone": 0,
   "meta": ""
  }

@@ -332,21 +332,66 @@ function ccPw(){return localStorage.getItem("cc_pw")||"";}
 function ccQueue(){return LS.get("cc_queue",[]);}  // [{op,path,body,ts,state:'pending'|'synced',syncedAt}]
 function ccOverlay(){return LS.get("cc_overlay",{});} // id -> {fields..., ts, syncedAt?}
 function ccHist(){return LS.get("cc_hist",[]);}       // [{qid,clip_id,prev_status,new_status,prev:{...}}]
-function ccPendingCount(){return ccQueue().filter(q=>q.state!=="synced").length;}
+function ccPendingCount(){return ccQueue().filter(q=>q.state!=="synced"&&q.state!=="failed").length;}
 function ccLogout(){localStorage.removeItem("cc_pw");location.reload();}
-function ccStatusPill(){const n=ccPendingCount();const el=document.getElementById("ccsync");if(!el)return;
-  el.style.pointerEvents="auto";el.onclick=ccSetGh;el.textContent=n?`⏳ ${n} to sync`:(ccBox?"☁︎ synced":"☁︎ offline-ready");el.title=n?"Saved on this device; will be sent to the box when it's reachable":"All actions have reached the box";}
+/* 2026-11-27 swipe-delivery fix: every swipe stays queued on this device until the box answers with JSON
+   (a dead tunnel's "Tunnel not found" page no longer counts as delivered), a banner says so loudly when a
+   swipe is not saved, and the page reads the box's LIVE statuses so another device's swipes don't come back. */
+let ccLive=null, ccLiveAt=0, ccLastErr="";
+function ccStatusPill(){
+  let el=document.getElementById("ccsync");
+  if(!el){ if(!document.body) return; el=document.createElement("div"); el.id="ccsync";
+    el.style.cssText="position:fixed;left:0;right:0;top:0;z-index:9998;padding:10px 14px calc(10px + env(safe-area-inset-top,0px));font:700 14px/1.35 Inter,system-ui,sans-serif;text-align:center;display:none;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.45)";
+    document.body.appendChild(el); }
+  const q=ccQueue(), pend=q.filter(x=>x.state!=="synced"&&x.state!=="failed"), failed=q.filter(x=>x.state==="failed"&&!x.ack);
+  if(failed.length){ el.style.display="block"; el.style.background="#b00020"; el.style.color="#fff";
+    el.textContent=`⚠ ${failed.length} action${failed.length>1?"s were":" was"} refused by the clip server (${failed[0].err||"error"}). Tap to dismiss.`;
+    el.onclick=()=>{LS.set("cc_queue",ccQueue().map(x=>x.state==="failed"?Object.assign(x,{ack:1}):x));ccStatusPill();}; return; }
+  el.onclick=()=>{ccBox=null;ccSync();};
+  const oldest=pend.length?Math.min(...pend.map(x=>Date.parse(x.ts)||Date.now())):0;
+  if(pend.length && Date.now()-oldest>12000){ el.style.display="block"; el.style.background="#ffb300"; el.style.color="#2a1500";
+    el.textContent=`⏳ ${pend.length} swipe${pend.length>1?"s":""} NOT saved to the server yet${ccLastErr?" ("+ccLastErr+")":""}. They're kept on this device and retried every few seconds — keep this page open until this bar disappears. Tap to retry now.`; }
+  else el.style.display="none";
+}
+let ccLiveFailAt=0;
+async function ccFetchLive(){
+  if(ccLive && Date.now()-ccLiveAt<20000) return ccLive;          // fresh enough (own swipes ride on the overlay)
+  if(Date.now()-ccLiveFailAt<30000) return null;                   // server just failed: don't stall every reload
+  const j=await ccFetchLive2(); if(!j) ccLiveFailAt=Date.now(); return j;
+}
+async function ccFetchLive2(){
+  const base=(ccBox&&ccBox!=="gh")?ccBox:await ccBoxUrl(); if(!base) return null;
+  try{ const ctl=new AbortController(), t=setTimeout(()=>ctl.abort(),8000);
+    const r=await fetch(base+"/api/clips",{mode:"cors",credentials:"omit",cache:"no-store",signal:ctl.signal,
+      headers:{"Authorization":"Basic "+btoa("clips:"+ccPw())}}); clearTimeout(t);
+    if(!r.ok||!(r.headers.get("content-type")||"").includes("json")) return null;
+    const j=await r.json(); if(!j||!Array.isArray(j.clips)) return null;
+    ccBox=base; ccLive=j; ccLiveAt=Date.now(); return j; }catch(e){ return null; }
+}
+const CC_LIVE_FIELDS=["status","title","caption","hashtags","note","edited","feedback_reasons","feedback_text","feedback_at","updated_at"];
 async function ccLoadManifest(){
   const r=await fetch("clips.json?t="+Date.now(),{cache:"no-store"}); if(!r.ok) throw new Error("clips.json HTTP "+r.status);
   MANIFEST=await r.json();
-  // drop synced overlay entries that the manifest already reflects
+  // live box state beats the (hourly) manifest: decisions made on any device show up right away
+  const live=await ccFetchLive();
+  if(live){ const L={}; for(const c of live.clips) L[c.id]=c;
+    for(const c of MANIFEST.clips){ const l=L[c.id]; if(l) for(const k of CC_LIVE_FIELDS) if(k in l) c[k]=l[k]; }
+    if(live.streak) MANIFEST.streak=live.streak; MANIFEST.last_action=live.last_action||MANIFEST.last_action; MANIFEST.live=true; }
   const gen=Date.parse(MANIFEST.generated||0), ov=ccOverlay(); let ch=false;
   const byId={}; for(const c of MANIFEST.clips) byId[c.id]=c;
+  const q=ccQueue(); const unsent=id=>q.some(x=>x.state!=="synced"&&x.state!=="failed"&&x.body&&x.body.id===id);
   for(const [id,o] of Object.entries(ov)){ const m=byId[id];
-    const done = !m || (o.vid&&m.vid!==o.vid) || (o.status? m.status===o.status : (o.syncedAt&&Date.parse(o.syncedAt)<gen));
-    if(o.syncedAt && done && !ccQueue().some(q=>q.state!=="synced"&&q.body&&q.body.id===id)){delete ov[id];ch=true;} }
-  if(ch) LS.set("cc_overlay",ov);
-  LS.set("cc_queue",ccQueue().filter(q=>q.state!=="synced"||(q.body&&ov[q.body.id])));
+    const done = !m || (o.vid&&m.vid&&m.vid!==o.vid) || (o.status? m.status===o.status : (o.syncedAt&&Date.parse(o.syncedAt)<(live?Date.now():gen)));
+    if(o.syncedAt && done && !unsent(id)){delete ov[id];ch=true;continue;}
+    // recovery: marked delivered earlier (old page / GitHub path) but the live box doesn't have it -> send again
+    // (the box ignores exact repeats and anything older than the clip's latest decision)
+    if(live && o.syncedAt && o.status && !done && !unsent(id)){
+      const last=[...q].reverse().find(x=>x.path==="/api/clip/status"&&x.body&&x.body.id===id&&x.body.status===o.status);
+      if(last && !last.resent){ last.state="pending"; last.resent=1; delete o.syncedAt; ch=true; }
+    }
+  }
+  if(ch){ LS.set("cc_overlay",ov); LS.set("cc_queue",q); }
+  LS.set("cc_queue",ccQueue().filter(x=>x.state==="pending"||(x.state==="failed"&&!x.ack)||(x.body&&ov[x.body.id])));
 }
 function ccView(){
   const ov=ccOverlay();
@@ -368,45 +413,43 @@ function ccEnqueue(path,body,overlay){
 async function ccBoxUrl(){
   try{const r=await fetch("url.json?t="+Date.now(),{cache:"no-store"});const j=await r.json();return (j.url||"").replace(/\/$/,"");}catch(e){return "";}
 }
-const CC_STATE_REPO="arinouri/chowa-clips-state";   // PRIVATE repo; token lives only in this browser
+const CC_STATE_REPO="arinouri/chowa-clips-state";   // legacy GitHub relay: no longer used for delivery (the box ingest of it broke on 2026-11-22)
 function ccGhTok(){return localStorage.getItem("cc_gh")||"";}
-function ccSetGh(){const t=prompt("Paste the fine-grained GitHub token for "+CC_STATE_REPO+" (Contents: read & write). Stored only on this device. Leave empty to remove.",ccGhTok());
-  if(t===null)return; if(t.trim())localStorage.setItem("cc_gh",t.trim()); else localStorage.removeItem("cc_gh"); ccSync();}
-async function ccGhPut(item){
-  const name=item.ts.replace(/[:.]/g,"-")+"_"+item.qid+".json";
-  const content=btoa(unescape(encodeURIComponent(JSON.stringify({path:item.path,body:item.body,ts:item.ts,qid:item.qid,ua:navigator.userAgent}))));
-  const r=await fetch("https://api.github.com/repos/"+CC_STATE_REPO+"/contents/swipes/"+name,{method:"PUT",
-    headers:{"Authorization":"Bearer "+ccGhTok(),"Accept":"application/vnd.github+json"},body:JSON.stringify({message:"swipe "+(item.body.status||item.path),content})});
-  if(r.status===422) return {};   // already uploaded (retry after a lost response)
-  if(r.status===401||r.status===403||r.status===404) throw new Error("GitHub token rejected (HTTP "+r.status+")");
-  if(!r.ok) throw new Error("GitHub HTTP "+r.status); return {};
-}
+function ccSetGh(){ccBox=null;ccSync();}
 async function ccSync(){
-  if(ccSyncing) return; const pend=ccQueue().filter(q=>q.state!=="synced"); if(!pend.length){ccStatusPill();return;}
-  ccSyncing=true;
+  if(ccSyncing) return; const pend=ccQueue().filter(q=>q.state!=="synced"&&q.state!=="failed"); if(!pend.length){ccStatusPill();return;}
+  ccSyncing=true; let sent=0;
+  const mark=(qid,patch)=>LS.set("cc_queue",ccQueue().map(q=>q.qid===qid?Object.assign(q,patch):q));
   try{
-    const gh=!!ccGhTok(); const base=gh?"gh":(ccBox||await ccBoxUrl()); if(!base) throw new Error("no sync target");
+    const base=(ccBox&&ccBox!=="gh")?ccBox:await ccBoxUrl(); if(!base) throw new Error("no server link");
     for(const item of pend){
-      if(gh){ await ccGhPut(item); const now=new Date().toISOString();
-        LS.set("cc_queue",ccQueue().map(q=>q.qid===item.qid?Object.assign(q,{state:"synced",syncedAt:now}):q));
-        const id=item.body&&item.body.id; if(id){const ov=ccOverlay(); if(ov[id]){ov[id].syncedAt=now;LS.set("cc_overlay",ov);}}
-        ccBox="gh"; continue; }
-      const r=await fetch(base+item.path,{method:"POST",mode:"cors",credentials:"omit",
-        headers:{"Content-Type":"application/json","Authorization":"Basic "+btoa("clips:"+ccPw())},body:JSON.stringify(item.body)});
-      if(r.status===401) throw new Error("box rejected password");
-      if(r.status===404||r.status===409){ console.warn("box refused",item,r.status); } // drop: nothing to retry
-      else if(!r.ok) throw new Error("box HTTP "+r.status);
-      const j=await r.json().catch(()=>({}));
-      const s=j.streak||(j.clip&&j.clip.streak); if(s) LS.set("cc_streak",{v:s,at:new Date().toISOString()});
-      const now=new Date().toISOString();
-      LS.set("cc_queue",ccQueue().map(q=>q.qid===item.qid?Object.assign(q,{state:"synced",syncedAt:now}):q));
-      const id=item.body&&item.body.id; if(id){const ov=ccOverlay(); if(ov[id]&&!ccQueue().some(q=>q.state!=="synced"&&q.body&&q.body.id===id)){ov[id].syncedAt=now;LS.set("cc_overlay",ov);}}
-      ccBox=base;
+      const body=Object.assign({},item.body||{},{qid:item.qid,ts:item.ts},item.resent?{resent:1}:{});
+      let r;
+      try{ const ctl=new AbortController(), t=setTimeout(()=>ctl.abort(),15000);
+        r=await fetch(base+item.path,{method:"POST",mode:"cors",credentials:"omit",signal:ctl.signal,
+          headers:{"Content-Type":"application/json","Authorization":"Basic "+btoa("clips:"+ccPw())},body:JSON.stringify(body)}); clearTimeout(t);
+      }catch(e){ throw new Error("server unreachable"); }
+      const isJson=(r.headers.get("content-type")||"").includes("json"); const j=isJson?await r.json().catch(()=>null):null;
+      if(r.status===401) throw new Error("server rejected the password");
+      if(!j) throw new Error("server link is down (HTTP "+r.status+")");     // e.g. runlocal "Tunnel not found": retry, never drop
+      const id=item.body&&item.body.id, now=new Date().toISOString();
+      if(r.status===404||r.status===409){ mark(item.qid,{state:"failed",err:j.error||("HTTP "+r.status),failedAt:now});
+        if(id){const ov=ccOverlay(); delete ov[id]; LS.set("cc_overlay",ov);} continue; }
+      if(!r.ok) throw new Error("server HTTP "+r.status);
+      const s=j.streak||(j.clip&&j.clip.streak); if(s) LS.set("cc_streak",{v:s,at:now});
+      mark(item.qid,{state:"synced",syncedAt:now});
+      if(id){const ov=ccOverlay(); if(ov[id]){ ov[id].syncedAt=now;
+        // the box kept a newer decision (this swipe was late): show the box's truth instead of this device's
+        if((j.stale||j.dup) && j.status && ov[id].status && ov[id].status!==j.status) ov[id].status=j.status;
+        LS.set("cc_overlay",ov);} }
+      sent++; ccBox=base;
     }
-  }catch(e){ ccBox=null; console.info("sync later:",e.message); }
-  finally{ ccSyncing=false; ccStatusPill(); }
+    ccLastErr="";
+  }catch(e){ ccBox=null; ccLastErr=e.message; console.info("sync later:",e.message); }
+  finally{ ccSyncing=false; ccStatusPill(); if(sent&&!ccPendingCount()&&typeof toast==="function") toast("☁︎ Saved to the server",1100); }
 }
-setInterval(ccSync,30000); addEventListener("online",ccSync);
+setInterval(()=>{ if(ccPendingCount()) ccSync(); },6000); setInterval(ccStatusPill,4000);
+addEventListener("online",ccSync); addEventListener("pageshow",ccSync); addEventListener("DOMContentLoaded",ccStatusPill);
 addEventListener("visibilitychange",()=>{if(!document.hidden) ccSync();});
 
 /* Emulates the box API on top of manifest + local overlay. */
@@ -429,12 +472,12 @@ async function api(path,body){
   if(path==="/api/undo"){
     const h=ccHist(); const last=h.pop();
     if(!last){ const la=MANIFEST&&MANIFEST.last_action; if(!la) return {undone:null};
-      ccEnqueue("/api/undo",{}, null); const ov=ccOverlay(); ov[la.clip_id]=Object.assign(ov[la.clip_id]||{},{status:la.prev_status,ts:new Date().toISOString()}); LS.set("cc_overlay",ov);
+      ccEnqueue("/api/undo",{id:la.clip_id,of_status:la.new_status}, null); const ov=ccOverlay(); ov[la.clip_id]=Object.assign(ov[la.clip_id]||{},{status:la.prev_status,ts:new Date().toISOString()}); LS.set("cc_overlay",ov);
       MANIFEST.last_action=null; return {undone:la}; }
     LS.set("cc_hist",h);
     const q=ccQueue(), i=q.findIndex(x=>x.qid===last.qid);
     if(i>=0&&q[i].state!=="synced"){ q.splice(i,1); LS.set("cc_queue",q); }   // never reached the box: just drop it
-    else ccEnqueue("/api/undo",{},null);                                         // box already has it: undo there too
+    else ccEnqueue("/api/undo",{id:last.clip_id,of_status:last.new_status},null);                                         // box already has it: undo there too
     const ov=ccOverlay(); ov[last.clip_id]=Object.assign(ov[last.clip_id]||{},{status:last.prev_status},last.prev,{ts:new Date().toISOString()}); delete ov[last.clip_id].syncedAt; LS.set("cc_overlay",ov);
     ccStatusPill(); return {undone:last};
   }
