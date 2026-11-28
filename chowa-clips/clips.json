@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27T22:40:23+00:00",
+ "generated": "2026-11-28T00:18:23+00:00",
  "clips": [
   {
    "id": "2026-11-23_rawfish/f_firstbite.mp4",
@@ -1724,7 +1724,7 @@
    "state": "yes",
    "media": "media/496e3e4f0093.1080.mp4",
    "thumb": "media/thumbs/496e3e4f0093.jpg",
-   "hosted": true
+   "hosted": false
   },
   {
    "id": "2026-11-13_inscryption2/roblox_mukbang.mp4",
