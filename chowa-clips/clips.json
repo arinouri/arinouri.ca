@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-28T00:18:23+00:00",
+ "generated": "2026-11-28T02:13:47+00:00",
  "clips": [
   {
    "id": "2026-11-23_rawfish/f_firstbite.mp4",
    "folder": "2026-11-23_rawfish",
    "file": "f_firstbite.mp4",
    "kind": "short",
-   "status": "approved",
+   "status": "posted",
    "title": "she looks like she's about to gag, bro",
    "caption": "",
    "hashtags": "#chowaobby #twitchclips #funny #streamer #rawfish #irl",
@@ -19,7 +19,7 @@
    "feedback_at": "",
    "slug": "ffirstbite",
    "dupes": [],
-   "updated_at": "2026-11-27T17:21:38-05:00",
+   "updated_at": "2026-11-27T21:04:56-05:00",
    "vid": "121a6eab6bca",
    "state": "yes",
    "media": "media/121a6eab6bca.1080.mp4",
@@ -4487,11 +4487,11 @@
   "other"
  ],
  "last_action": {
-  "id": 466,
+  "id": 467,
   "clip_id": "2026-11-23_rawfish/f_firstbite.mp4",
-  "prev_status": "pending",
-  "new_status": "approved",
-  "ts": "2026-11-27T17:21:38-05:00",
+  "prev_status": "approved",
+  "new_status": "posted",
+  "ts": "2026-11-27T21:04:56-05:00",
   "undone": 0,
   "meta": ""
  }
